@@ -90,7 +90,6 @@
 
       .node-port {
         position: absolute;
-        top: 50%;
         width: 0;
         height: 0;
       }
@@ -108,22 +107,20 @@
         border: none;
       }
 
-      .node-port-input::after {
-        top: -2.5px;
-        left: -3px;
+      .node-port-input {
+        top: 50%;
       }
 
-      .node-port-output::after {
-        top: -2.5px;
-        left: 10px;
+      .node-port-output {
+        top: 50%;
+        right: -9px;
       }
-
     </style>
   </head>
   <body>
     <div id="canvas"></div>
     <script type="module">
-      import { Canvas } from "https://unpkg.com/@html-graph/core@0.0.33";
+      import { Canvas } from "https://unpkg.com/@html-graph/core@0.0.34";
 
       class GraphHtmlHelper {
         createNodeElement(name, frontPortId, ports, footerContent) {
@@ -211,7 +208,7 @@
             port.classList.add("node-port-output");
             portContent.appendChild(port);
 
-            body.appendChild(portContent);
+            body.appendChild(port);
             portElements[key] = {
               element: portContent,
               centerFn: (w, h) => [w, h / 2],
