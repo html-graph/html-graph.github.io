@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTMLGraph | Full demo</title>
+    <link rel="stylesheet" href="main.css" />
+    <style>
+      html,
+      body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        --color-1: #66666e;
+        --color-2: #daedbd;
+        --color-7: #02020a;
+      }
+
+      #canvas {
+        flex-grow: 1;
+      }
+
+      .node {
+        min-width: 15rem;
+        position: relative;
+        border-radius: 0.5rem;
+        background: var(--color-2);
+        color: var(--color-7);
+        border: 1px solid var(--color-1);
+        user-select: none;
+        box-shadow: 0 0 5px var(--color-1);
+      }
+
+      .node-header {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .node-content {
+        display: flex;
+        flex-direction: column;
+        vertical-align: stretch;
+        gap: 0.5rem;
+        padding: 0.5rem;
+      }
+
+      .node-port {
+        position: absolute;
+        top: 50%;
+        width: 0;
+        height: 0;
+      }
+
+      .node-port::after {
+        display: block;
+        content: "";
+        position: relative;
+        top: -2.5px;
+        left: -3px;
+        width: 5px;
+        height: 5px;
+        background: var(--color-1);
+        border-radius: 2.5px;
+        border: none;
+      }
+
+      .node-text {
+        resize: vertical;
+        width: 100%;
+        height: 4rem;
+        box-sizing: border-box;
+      }
+
+      .node-port-content {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        background: #fff;
+        border-radius: 0.5rem;
+        margin: 0.25rem 0;
+        padding: 0.25rem;
+        font-size: 12px;
+        line-height: 12px;
+      }
+
+      .node-port {
+        position: absolute;
+        top: 50%;
+        width: 0;
+        height: 0;
+      }
+
+      .node-port::after {
+        display: block;
+        content: "";
+        position: relative;
+        top: -2.5px;
+        left: -3px;
+        width: 5px;
+        height: 5px;
+        background: var(--color-1);
+        border-radius: 2.5px;
+        border: none;
+      }
+
+      .node-port-input::after {
+        top: -2.5px;
+        left: -3px;
+      }
+
+      .node-port-output::after {
+        top: -2.5px;
+        left: 10px;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div id="canvas"></div>
+    <script type="module">
+      import { Canvas } from "https://unpkg.com/@html-graph/core@0.0.33";
+
+      export class GraphHtmlHelper {
+        createNodeElement(name, frontPortId, ports, footerContent) {
+          const node = document.createElement("div");
+          node.classList.add("node");
+
+          let portElements = {};
+
+          if (frontPortId !== null) {
+            const inputPort = this.createInputPort();
+            node.appendChild(inputPort);
+            portElements[frontPortId] = { element: inputPort, dir: 0 };
+          }
+
+          const content = this.createContentElement();
+          node.appendChild(content);
+
+          const input = this.createInputElement(name);
+          content.appendChild(input);
+
+          if (Object.keys(ports).length > 0) {
+            const [body, elements] = this.createBodyElement(ports);
+            content.appendChild(body);
+            portElements = { ...portElements, ...elements };
+          }
+
+          if (footerContent) {
+            const footer = document.createElement("div");
+            footer.classList.add("node-footer");
+            footer.appendChild(footerContent);
+            content.appendChild(footer);
+          }
+
+          return [node, portElements];
+        }
+
+        createTextArea() {
+          const area = document.createElement("textarea");
+          area.classList.add("node-text");
+          area.value =
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+          this.prepareNodeTextareaElement(area);
+
+          return area;
+        }
+
+        createInputPort() {
+          const inputPort = document.createElement("div");
+          inputPort.classList.add("node-port");
+          inputPort.classList.add("node-port-input");
+
+          return inputPort;
+        }
+
+        createContentElement() {
+          const content = document.createElement("div");
+          content.classList.add("node-content");
+
+          return content;
+        }
+
+        createInputElement(name) {
+          const input = document.createElement("input");
+          input.classList.add("node-input");
+          input.placeholder = "Enter node name";
+          input.value = name;
+          this.prepareNodeInputElement(input);
+
+          return input;
+        }
+
+        createBodyElement(ports) {
+          const body = document.createElement("div");
+          body.classList.add("node-body");
+
+          const portElements = {};
+
+          Object.entries(ports).forEach(([key, value]) => {
+            const portContent = document.createElement("div");
+            portContent.classList.add("node-port-content");
+            portContent.innerText = value;
+
+            const port = document.createElement("div");
+            port.classList.add("node-port");
+            port.classList.add("node-port-output");
+            portContent.appendChild(port);
+
+            body.appendChild(portContent);
+            portElements[key] = {
+              element: portContent,
+              centerFn: (w, h) => [w, h / 2],
+              dir: 0,
+            };
+          });
+
+          return [body, portElements];
+        }
+
+        prepareNodeInputElement(element) {
+          let hover = false;
+
+          element.addEventListener("pointerover", () => {
+            hover = true;
+          });
+
+          element.addEventListener("pointerleave", () => {
+            hover = false;
+          });
+
+          element.addEventListener("pointermove", (event) => {
+            if (hover && document.activeElement === event.target) {
+              event.stopPropagation();
+            }
+          });
+        }
+
+        prepareNodeTextareaElement(element) {
+          let hover = false;
+
+          element.addEventListener("mouseover", () => {
+            hover = true;
+          });
+
+          element.addEventListener("mouseleave", () => {
+            hover = false;
+          });
+
+          element.addEventListener("pointermove", (event) => {
+            if (hover) {
+              event.stopPropagation();
+            }
+          });
+
+          element.addEventListener("wheel", (event) => {
+            if (hover) {
+              event.stopPropagation();
+            }
+          });
+        }
+      }
+
+      const canvasElement = document.getElementById("canvas");
+
+      const canvas = new Canvas(canvasElement, {
+        scale: { enabled: true },
+        shift: { enabled: true },
+        nodes: { draggable: true, centerFn: () => [0, 0] },
+        connections: {
+          type: "bezier",
+          color: "var(--color-1)",
+        },
+        background: { type: "dots" },
+      });
+
+      const helper = new GraphHtmlHelper();
+
+      const [node1, ports1] = helper.createNodeElement("Node 1", null, {
+        "output-1-1": "Port 1",
+        "output-1-2": "Port 2",
+      });
+
+      const [node2, ports2] = helper.createNodeElement(
+        "Node 2",
+        "input-2",
+        {
+          "output-2-1": "Port 1",
+          "output-2-2": "Port 2",
+          "output-2-3": "Port 3",
+        },
+        helper.createTextArea(),
+      );
+
+      const [node3, ports3] = helper.createNodeElement("Node 3", "input-3", {
+        "output-3-1": "Port 1",
+        "output-3-2": "Port 2",
+        "output-3-3": "Port 3",
+      });
+
+      const [node4, ports4] = helper.createNodeElement("Node 4", "input-4", {
+        "output-4-1": "Port 1",
+      });
+
+      const [node5, ports5] = helper.createNodeElement("Node 5", "input-5", {
+        "output-5-1": "Port 1",
+        "output-5-2": "Port 2",
+      });
+
+      canvas
+        .addNode({ element: node1, x: 200, y: 400, ports: ports1 })
+        .addNode({ element: node2, x: 600, y: 500, ports: ports2 })
+        .addNode({ element: node3, x: 600, y: 200, ports: ports3 })
+        .addNode({ element: node4, x: 1100, y: 400, ports: ports4 })
+        .addNode({ element: node5, x: 1100, y: 550, ports: ports5 })
+        .addConnection({ from: "output-1-1", to: "input-3" })
+        .addConnection({ from: "output-1-2", to: "input-2" })
+        .addConnection({ from: "output-2-1", to: "input-4" })
+        .addConnection({ from: "output-3-1", to: "input-4" })
+        .addConnection({ from: "output-2-2", to: "input-5" });
+  </script>
+  </body>
+</html>
+
