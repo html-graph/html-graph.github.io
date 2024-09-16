@@ -208,9 +208,9 @@
             port.classList.add("node-port-output");
             portContent.appendChild(port);
 
-            body.appendChild(port);
+            body.appendChild(portContent);
             portElements[key] = {
-              element: portContent,
+              element: port,
               centerFn: (w, h) => [w, h / 2],
               dir: 0,
             };
