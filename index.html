@@ -120,7 +120,7 @@
   <body>
     <div id="canvas"></div>
     <script type="module">
-      import { Canvas } from "https://unpkg.com/@html-graph/core@0.0.35";
+      import { Canvas } from "https://unpkg.com/@html-graph/core@0.0.37";
 
       class GraphHtmlHelper {
         createNodeElement(name, frontPortId, ports, footerContent) {
@@ -222,15 +222,15 @@
         prepareNodeInputElement(element) {
           let hover = false;
 
-          element.addEventListener("pointerover", () => {
+          element.addEventListener("mouseover", () => {
             hover = true;
           });
 
-          element.addEventListener("pointerleave", () => {
+          element.addEventListener("mouseleave", () => {
             hover = false;
           });
 
-          element.addEventListener("pointermove", (event) => {
+          element.addEventListener("mousemove", (event) => {
             if (hover && document.activeElement === event.target) {
               event.stopPropagation();
             }
@@ -248,7 +248,7 @@
             hover = false;
           });
 
-          element.addEventListener("pointermove", (event) => {
+          element.addEventListener("mousemove", (event) => {
             if (hover) {
               event.stopPropagation();
             }
