@@ -148,7 +148,7 @@
   <body>
     <div id="canvas"></div>
     <script type="module">
-      import { Canvas } from "https://unpkg.com/@html-graph/core@0.0.37";
+      import { CanvasBuilder } from "https://unpkg.com/@html-graph/core@0.0.41";
 
       class GraphHtmlHelper {
         createNodeElement(name, frontPortId, ports, footerContent) {
@@ -290,18 +290,16 @@
         }
       }
 
-      const canvasElement = document.getElementById("canvas");
-
-      const canvas = new Canvas(canvasElement, {
-        scale: { enabled: true },
-        shift: { enabled: true },
-        nodes: { draggable: true, centerFn: () => [0, 0] },
+      const canvas = new CanvasBuilder().options({ 
+        nodes: { centerFn: () => [0, 0] },
         connections: {
           type: "bezier",
           color: "var(--color-1)",
         },
         background: { type: "dots" },
-      });
+      }).draggableNodes()
+        .transformableCanvas()
+        .build();
 
       const helper = new GraphHtmlHelper();
 
@@ -336,7 +334,10 @@
         "output-5-2": "Port 2",
       });
 
+      const canvasElement = document.getElementById("canvas");
+
       canvas
+        .attach(canvasElement)
         .addNode({ element: node1, x: 200, y: 400, ports: ports1 })
         .addNode({ element: node2, x: 600, y: 500, ports: ports2 })
         .addNode({ element: node3, x: 600, y: 200, ports: ports3 })
@@ -350,4 +351,3 @@
   </script>
   </body>
 </html>
-
