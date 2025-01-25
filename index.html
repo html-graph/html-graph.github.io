@@ -2,358 +2,353 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HTMLGraph | Full demo</title>
-    <link rel="stylesheet" href="main.css" />
+    <title>HTMLGraph examples of usage</title>
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="/favicons/apple-touch-icon.png"
+      href="/assets/apple-touch-icon-DlowDOUg.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="/favicons/favicon-32x32.png"
+      href="/assets/favicon-32x32-PRIq7vNA.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="/favicons/favicon-16x16.png"
+      href="/assets/favicon-16x16-C98MJTtp.png"
     />
-    <link rel="manifest" href="/favicons/site.webmanifest" />
+    <link rel="manifest" href="/assets/site-BvOiudiu.webmanifest" />
     <link
       rel="mask-icon"
-      href="/favicons/safari-pinned-tab.svg"
+      href="data:image/svg+xml,%3c?xml%20version='1.0'%20standalone='no'?%3e%3c!DOCTYPE%20svg%20PUBLIC%20'-//W3C//DTD%20SVG%2020010904//EN'%20'http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd'%3e%3csvg%20version='1.0'%20xmlns='http://www.w3.org/2000/svg'%20width='700.000000pt'%20height='700.000000pt'%20viewBox='0%200%20700.000000%20700.000000'%20preserveAspectRatio='xMidYMid%20meet'%3e%3cmetadata%3e%20Created%20by%20potrace%201.14,%20written%20by%20Peter%20Selinger%202001-2017%20%3c/metadata%3e%3cg%20transform='translate(0.000000,700.000000)%20scale(0.100000,-0.100000)'%20fill='%23000000'%20stroke='none'%3e%3cpath%20d='M1115%206138%20c3%20-46%207%20-101%2010%20-123%202%20-22%206%20-71%2010%20-110%203%20-38%207%20-90%2010%20-115%202%20-25%207%20-76%2010%20-115%203%20-38%208%20-90%2010%20-115%202%20-25%207%20-76%2010%20-115%203%20-38%207%20-92%2010%20-120%202%20-27%207%20-81%2010%20-120%207%20-79%2011%20-120%2020%20-220%208%20-80%2013%20-141%2020%20-235%202%20-36%207%20-83%209%20-105%203%20-22%207%20-78%2011%20-125%203%20-47%208%20-101%2010%20-120%203%20-19%207%20-66%2010%20-105%203%20-38%208%20-95%2010%20-125%203%20-30%207%20-81%2010%20-112%203%20-32%208%20-86%2011%20-120%203%20-35%207%20-81%209%20-103%203%20-45%2014%20-168%2020%20-235%203%20-25%207%20-81%2011%20-125%204%20-44%208%20-93%2010%20-110%201%20-16%206%20-68%209%20-115%204%20-47%208%20-101%2010%20-120%207%20-68%2014%20-146%2020%20-220%203%20-41%208%20-91%2010%20-110%202%20-19%207%20-71%2010%20-115%203%20-44%207%20-100%2010%20-125%204%20-50%2014%20-158%2020%20-235%207%20-76%2015%20-165%2020%20-215%202%20-25%207%20-79%2010%20-120%204%20-41%208%20-91%2010%20-110%202%20-19%206%20-71%209%20-115%206%20-76%209%20-104%2021%20-240%203%20-33%208%20-87%2010%20-119%203%20-33%207%20-61%209%20-63%205%20-5%20323%20-98%20471%20-138%2055%20-15%20222%20-64%20326%20-95%2037%20-12%2075%20-23%2085%20-25%2034%20-8%20354%20-99%20474%20-135%2036%20-10%20185%20-53%20331%20-95%20l267%20-76%20443%20127%20c244%2070%20458%20130%20474%20134%2017%204%20134%2038%20260%2074%20253%2073%20684%20196%20700%20201%206%201%2025%206%2042%2010%2018%204%2037%2012%2042%2019%205%206%2012%2052%2015%20101%204%2050%209%20110%2011%20135%207%2059%2013%20128%2020%20220%203%2041%208%2095%2010%20120%203%2025%207%2074%2010%20110%203%2036%207%2083%209%20105%202%2022%207%2078%2011%20125%203%2047%208%20101%2010%20120%206%2054%2014%20147%2020%20230%203%2041%207%2091%2010%20110%202%2019%207%2071%2010%20115%204%2044%208%2098%2010%20120%202%2022%206%2072%209%20110%204%2039%208%2090%2011%20115%203%2025%207%2081%2010%20125%204%2044%208%2096%2010%20115%203%2019%207%2064%2010%20100%2012%20153%2018%20224%2030%20350%2012%20136%2020%20231%2030%20350%206%2075%2010%20120%2019%20215%203%2028%208%2084%2011%20125%203%2041%208%2095%2010%20120%202%2025%207%2073%2010%20108%203%2034%207%2088%2010%20120%203%2031%207%2086%2010%20122%203%2036%207%2085%2010%20110%202%2025%207%2074%2010%20110%203%2036%208%2092%2011%20125%203%2033%207%2085%209%20115%202%2031%206%2078%209%20105%203%2028%208%2084%2011%20125%204%2041%208%2091%2010%20110%202%2019%207%2071%2010%20115%204%2044%209%20103%2011%20130%203%2028%207%2071%209%2098%20l4%2047%20-2385%200%20-2386%200%207%20-82z'/%3e%3c/g%3e%3c/svg%3e"
       color="#5bbad5"
     />
-    <link rel="shortcut icon" href="/favicons/favicon.ico" />
+    <link rel="shortcut icon" href="/assets/favicon-DPxqSDaM.ico" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
     <meta name="theme-color" content="#ffffff" />
-
-    <style>
-      html,
-      body {
-        height: 100%;
-        padding: 0;
-        margin: 0;
-      }
-
-      body {
-        display: flex;
-        flex-direction: column;
-        --color-1: #66666e;
-        --color-2: #daedbd;
-        --color-7: #02020a;
-      }
-
-      #canvas {
-        flex-grow: 1;
-      }
-
-      .node {
-        min-width: 15rem;
-        position: relative;
-        border-radius: 0.5rem;
-        background: var(--color-2);
-        color: var(--color-7);
-        border: 1px solid var(--color-1);
-        user-select: none;
-        box-shadow: 0 0 5px var(--color-1);
-      }
-
-      .node-header {
-        display: flex;
-        flex-direction: column;
-      }
-
-      .node-content {
-        display: flex;
-        flex-direction: column;
-        vertical-align: stretch;
-        gap: 0.5rem;
-        padding: 0.5rem;
-      }
-
-      .node-port {
-        position: absolute;
-        top: 50%;
-        width: 0;
-        height: 0;
-      }
-
-      .node-port::after {
-        display: block;
-        content: "";
-        position: relative;
-        top: -2.5px;
-        left: -3px;
-        width: 5px;
-        height: 5px;
-        background: var(--color-1);
-        border-radius: 2.5px;
-        border: none;
-      }
-
-      .node-text {
-        resize: vertical;
-        width: 100%;
-        height: 4rem;
-        box-sizing: border-box;
-      }
-
-      .node-port-content {
-        position: relative;
-        display: flex;
-        justify-content: flex-end;
-        background: #fff;
-        border-radius: 0.5rem;
-        margin: 0.25rem 0;
-        padding: 0.25rem;
-        font-size: 12px;
-        line-height: 12px;
-      }
-
-      .node-port {
-        position: absolute;
-        width: 0;
-        height: 0;
-      }
-
-      .node-port::after {
-        display: block;
-        content: "";
-        position: relative;
-        top: -2.5px;
-        left: -3px;
-        width: 5px;
-        height: 5px;
-        background: var(--color-1);
-        border-radius: 2.5px;
-        border: none;
-      }
-
-      .node-port-input {
-        top: 50%;
-      }
-
-      .node-port-output {
-        top: 50%;
-        right: -9px;
-      }
-    </style>
   </head>
+  <style>
+    ul {
+      display: flex;
+      flex-direction: column;
+    }
+
+    li {
+      padding: 5px;
+    }
+  </style>
   <body>
-    <div id="canvas"></div>
-    <script type="module">
-      import { HtmlGraphBuilder } from "https://unpkg.com/@html-graph/html-graph@0.0.54";
-
-      class GraphHtmlHelper {
-        createNodeElement(name, frontPortId, ports, footerContent) {
-          const node = document.createElement("div");
-          node.classList.add("node");
-
-          let portElements = [];
-
-          if (frontPortId !== null) {
-            const inputPort = this.createInputPort();
-            node.appendChild(inputPort);
-            portElements.push([frontPortId, { element: inputPort, dir: 0 }]);
-          }
-
-          const content = this.createContentElement();
-          node.appendChild(content);
-
-          const input = this.createInputElement(name);
-          content.appendChild(input);
-
-          if (Object.keys(ports).length > 0) {
-            const [body, elements] = this.createBodyElement(ports);
-            content.appendChild(body);
-            Object.entries(elements).forEach(([key, value]) => {
-              portElements.push([key, value]);
-            });
-          }
-
-          if (footerContent) {
-            const footer = document.createElement("div");
-            footer.classList.add("node-footer");
-            footer.appendChild(footerContent);
-            content.appendChild(footer);
-          }
-
-          return [node, portElements];
-        }
-
-        createTextArea() {
-          const area = document.createElement("textarea");
-          area.classList.add("node-text");
-          area.value =
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-          this.prepareNodeTextareaElement(area);
-
-          return area;
-        }
-
-        createInputPort() {
-          const inputPort = document.createElement("div");
-          inputPort.classList.add("node-port");
-          inputPort.classList.add("node-port-input");
-
-          return inputPort;
-        }
-
-        createContentElement() {
-          const content = document.createElement("div");
-          content.classList.add("node-content");
-
-          return content;
-        }
-
-        createInputElement(name) {
-          const input = document.createElement("input");
-          input.classList.add("node-input");
-          input.placeholder = "Enter node name";
-          input.value = name;
-          this.prepareNodeInputElement(input);
-
-          return input;
-        }
-
-        createBodyElement(ports) {
-          const body = document.createElement("div");
-          body.classList.add("node-body");
-
-          const portElements = {};
-
-          Object.entries(ports).forEach(([key, value]) => {
-            const portContent = document.createElement("div");
-            portContent.classList.add("node-port-content");
-            portContent.innerText = value;
-
-            const port = document.createElement("div");
-            port.classList.add("node-port");
-            port.classList.add("node-port-output");
-            portContent.appendChild(port);
-
-            body.appendChild(portContent);
-            portElements[key] = {
-              element: port,
-              centerFn: (w, h) => [w, h / 2],
-              dir: 0,
-            };
-          });
-
-          return [body, portElements];
-        }
-
-        prepareNodeInputElement(element) {
-          let hover = false;
-
-          element.addEventListener("mouseover", () => {
-            hover = true;
-          });
-
-          element.addEventListener("mouseleave", () => {
-            hover = false;
-          });
-
-          element.addEventListener("mousemove", (event) => {
-            if (hover && document.activeElement === event.target) {
-              event.stopPropagation();
-            }
-          });
-        }
-
-        prepareNodeTextareaElement(element) {
-          let hover = false;
-
-          element.addEventListener("mouseover", () => {
-            hover = true;
-          });
-
-          element.addEventListener("mouseleave", () => {
-            hover = false;
-          });
-
-          element.addEventListener("mousemove", (event) => {
-            if (hover) {
-              event.stopPropagation();
-            }
-          });
-
-          element.addEventListener("wheel", (event) => {
-            if (hover) {
-              event.stopPropagation();
-            }
-          });
-        }
-      }
-
-      const canvas = new HtmlGraphBuilder()
-        .setOptions({ 
-          nodes: { centerFn: () => [0, 0] },
-          edges: {
-            shape: {
-              color: "var(--color-1)",
-              hasTargetArrow: true,
-            }
-          },
-          background: { type: "dots" },
-        })
-        .setUserDraggableNodes()
-        .setUserTransformableCanvas()
-        .build();
-
-      const helper = new GraphHtmlHelper();
-
-      const [node1, ports1] = helper.createNodeElement("Node 1", null, {
-        "output-1-1": "Port 1",
-        "output-1-2": "Port 2",
-      });
-
-      const [node2, ports2] = helper.createNodeElement(
-        "Node 2",
-        "input-2",
-        {
-          "output-2-1": "Port 1",
-          "output-2-2": "Port 2",
-          "output-2-3": "Port 3",
-        },
-        helper.createTextArea(),
-      );
-
-      const [node3, ports3] = helper.createNodeElement("Node 3", "input-3", {
-        "output-3-1": "Port 1",
-        "output-3-2": "Port 2",
-        "output-3-3": "Port 3",
-      });
-
-      const [node4, ports4] = helper.createNodeElement("Node 4", "input-4", {
-        "output-4-1": "Port 1",
-      });
-
-      const [node5, ports5] = helper.createNodeElement("Node 5", "input-5", {
-        "output-5-1": "Port 1",
-        "output-5-2": "Port 2",
-      });
-
-      const canvasElement = document.getElementById("canvas");
-
-      canvas
-        .attach(canvasElement)
-        .addNode({ element: node1, x: 200, y: 400, ports: ports1 })
-        .addNode({ element: node2, x: 600, y: 500, ports: ports2 })
-        .addNode({ element: node3, x: 600, y: 200, ports: ports3 })
-        .addNode({ element: node4, x: 1100, y: 400, ports: ports4 })
-        .addNode({ element: node5, x: 1100, y: 550, ports: ports5 })
-        .addEdge({ from: "output-1-1", to: "input-3" })
-        .addEdge({ from: "output-1-2", to: "input-2" })
-        .addEdge({ from: "output-2-1", to: "input-4" })
-        .addEdge({ from: "output-3-1", to: "input-4" })
-        .addEdge({ from: "output-2-2", to: "input-5" });
-  </script>
+    <nav>
+      <ol>
+        <li>
+          <a href="/use-cases/01-getting-started/index.html">Getting Started</a>
+        </li>
+        <li>
+          <a href="/use-cases/02-basic/index.html">Basic</a>
+        </li>
+        <li>
+          <a href="/use-cases/03-interactive-elements-inside-node/index.html">
+            Interactive elements inside node
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/04-reactive-node-resize/index.html">
+            Reactive node resize
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/05-specified-port-ids/index.html">
+            Specified port IDs
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/06-off-center-nodes/index.html">
+            Off center nodes
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/07-ports-with-area/index.html">
+            Ports with area
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/08-bezier-arrows-customization/index.html">
+            Bezier arrows customization
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/09-bezier-directed-port/index.html">
+            Bezier directed port
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/10-port-coordinates-update/index.html">
+            Port coordinates update
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/11-edges-on-top-of-nodes/index.html">
+            Edges on top of nodes
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/12-viewport-absolute-transform/index.html">
+            Viewport absolute transform
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/13-content-relative-transform/index.html">
+            Content relative transform
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/14-move-viewport-to-nodes/index.html">
+            Move viewport to nodes
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/15-focusable-nodes/index.html">
+            Focusable nodes
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/16-update-node-coords/index.html">
+            Update node coords
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/17-update-edge-shape/index.html">
+            Update edge shape
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/18-many-edges/index.html"> Many edges </a>
+        </li>
+        <li>
+          <a href="/use-cases/19-many-nodes/index.html"> Many nodes </a>
+        </li>
+        <li>
+          <a href="/use-cases/20-advanced-demo/index.html"> Advanced demo </a>
+        </li>
+        <li>
+          <a href="/use-cases/21-nodes-on-top-of-edges/index.html">
+            Nodes on top of edges
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/22-custom-edges-with-label/index.html">
+            Custom edges with label
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/23-straight-edges/index.html"> Straight edges </a>
+        </li>
+        <li>
+          <a href="/use-cases/24-viewport-programmatic-scale/index.html">
+            Viewport programmatic scale
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/25-viewport-programmatic-shift/index.html">
+            Viewport programmatic shift
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/26-nodes-programmatic-drag/index.html">
+            Nodes programmatic drag
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/27-draggable-nodes/index.html">
+            Draggable nodes
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/28-transformable-canvas/index.html">
+            Transformable canvas
+          </a>
+        </li>
+        <li>
+          <a
+            href="/use-cases/29-transformable-canvas-with-draggable-nodes/index.html"
+          >
+            Transformable canvas with draggable nodes
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/30-shift-only-canvas/index.html">
+            Shift only canvas
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/31-scale-only-canvas/index.html">
+            Scale only canvas
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/32-scale-velocity/index.html"> Scale velocity </a>
+        </li>
+        <li>
+          <a href="/use-cases/33-scale-limit/index.html"> Scale limit </a>
+        </li>
+        <li>
+          <a href="/use-cases/34-storing-nodes-position/index.html">
+            Storing nodes position
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/35-port-bezier-self-cycle/index.html">
+            Port bezier self-cycle
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/36-prevent-node-drag/index.html">
+            Prevent node drag
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/37-storing-transform-state/index.html">
+            Storing transform state
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/38-custom-transform-preprocessor/index.html">
+            Custom transform preprocessor
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/39-port-straight-self-cycle/index.html">
+            Port straight self-cycle
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/40-ports-default-direction/index.html">
+            Ports default direction
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/41-node-straight-self-cycle/index.html">
+            Node straight self-cycle
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/42-node-bezier-self-cycle/index.html">
+            Node bezier self-cycle
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/43-horizontal-edges/index.html">
+            Horizontal edges
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/44-vertical-edges/index.html"> Vertical edges </a>
+        </li>
+        <li>
+          <a href="/use-cases/45-manual-node-layer-priority/index.html">
+            Manual node layer priority
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/46-update-node-layer-priority/index.html">
+            Update node layer priority
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/47-update-node-center-fn/index.html">
+            Update node center fn
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/48-update-edge-layer-priority/index.html">
+            Update edge layer priority
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/49-update-port-direction/index.html">
+            Update port direction
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/50-update-port-center-fn/index.html">
+            Update port center function
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/51-access-graph-structure/index.html">
+            Access graph structure
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/52-draggable-nodes-freeze-priority/index.html">
+            Draggable nodes freeze priority
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/53-default-constant-priority/index.html">
+            Default constant priority
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/54-default-incremental-priority/index.html">
+            Default incremental priority
+          </a>
+        </li>
+        <li>
+          <a
+            href="/use-cases/55-default-shared-incremental-priority/index.html"
+          >
+            Default shared incremental priority
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/56-default-custom-priority/index.html">
+            Default custom priority
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/57-shift-limit/index.html"> Shift limit </a>
+        </li>
+        <li>
+          <a href="/use-cases/58-shift-and-scale-limit/index.html">
+            Shift and scale limit
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/59-cursor-canvas-escape/index.html">
+            Cursor canvas escape
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/60-custom-node-drag-cursor/index.html">
+            Custom node drag cursor
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/61-custom-canvas-shift-cursor/index.html">
+            Custom canvas shift cursor
+          </a>
+        </li>
+        <li>
+          <a href="/use-cases/62-virtual-scroll/index.html"> Virtual scroll </a>
+        </li>
+        <li>
+          <a href="/use-cases/63-remove-edge/index.html"> Remove edge </a>
+        </li>
+        <li>
+          <a href="/use-cases/64-unmark-port/index.html"> Unmark port </a>
+        </li>
+        <li>
+          <a href="/use-cases/65-remove-node/index.html"> Remove node </a>
+        </li>
+        <li>
+          <a href="/use-cases/66-clear/index.html"> Clear </a>
+        </li>
+      </ol>
+    </nav>
   </body>
 </html>
