@@ -7,11 +7,25 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no"
     />
     <title>HTMLGraph | Off-center nodes</title>
-    <script type="module" crossorigin src="/assets/006-off-center-nodes/index-CIYqXg-M.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/html-graph-builder-dnUSMLF2.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-C0iqFzXS.css">
+    <script type="module" crossorigin src="/assets/006-off-center-nodes/index-C0s45iys.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/html-graph-builder-D0RPS-be.js">
+    <link rel="modulepreload" crossorigin href="/assets/create-in-out-node-CH3LlneL.js">
+    <link rel="stylesheet" crossorigin href="/assets/html-graph-builder-CjQeFtv6.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-7IhV0Z0k.css">
   </head>
   <body>
-    <div id="canvas"></div>
+    <div class="overlay">
+      This use case specifies how set node center point. This point determines
+      how to interpret node coordinates.
+
+      <div class="mt-4">Change "Node 1" center point:</div>
+
+      <div class="mt-4">
+        <button id="top-left">Top Left</button>
+        <button id="center">Center</button>
+        <button id="bottom-right">Bottom Right</button>
+      </div>
+    </div>
+    <div id="canvas" class="canvas"></div>
   </body>
 </html>

@@ -7,11 +7,43 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no"
     />
     <title>HTMLGraph | Content relative transform</title>
-    <script type="module" crossorigin src="/assets/013-content-relative-transform/index-DW6Yo-l9.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/html-graph-builder-dnUSMLF2.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-DPV8oiHX.css">
+    <script type="module" crossorigin src="/assets/013-content-relative-transform/index-1CNstlvc.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/html-graph-builder-D0RPS-be.js">
+    <link rel="modulepreload" crossorigin href="/assets/create-in-out-node-CH3LlneL.js">
+    <link rel="stylesheet" crossorigin href="/assets/html-graph-builder-CjQeFtv6.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-BZFOp4u8.css">
   </head>
   <body>
-    <div id="canvas"></div>
+    <div class="overlay">
+      This use case specifies how apply transformation to content matrix
+
+      <div class="mt-4 sliders">
+        <div>
+          <label> Set scale </label>
+          <br />
+          <input
+            type="range"
+            min="0.5"
+            max="5"
+            value="1"
+            id="scale"
+            step="0.1"
+          />
+        </div>
+
+        <div>
+          <label> Set delta X </label>
+          <br />
+          <input type="range" min="-500" max="500" value="0" id="delta-x" />
+        </div>
+
+        <div>
+          <label> Set delta Y </label>
+          <br />
+          <input type="range" min="-500" max="500" value="0" id="delta-y" />
+        </div>
+      </div>
+    </div>
+    <div id="canvas" class="canvas"></div>
   </body>
 </html>

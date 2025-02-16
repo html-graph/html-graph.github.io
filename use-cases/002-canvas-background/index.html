@@ -6,16 +6,23 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no"
     />
-    <title>HTMLGraph | Basic</title>
-    <script type="module" crossorigin src="/assets/002-canvas-background/index-BDlPrU-K.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/html-graph-builder-dnUSMLF2.js">
+    <title>HTMLGraph | Cavas background</title>
+    <script type="module" crossorigin src="/assets/002-canvas-background/index-CM2XMCH-.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/html-graph-builder-D0RPS-be.js">
     <link rel="modulepreload" crossorigin href="/assets/background-drawing-fn-CcBIYRC2.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-QuVnzY3J.css">
+    <link rel="modulepreload" crossorigin href="/assets/create-in-out-node-CH3LlneL.js">
+    <link rel="stylesheet" crossorigin href="/assets/html-graph-builder-CjQeFtv6.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-ZlIF9s1C.css">
   </head>
   <body>
+    <div class="overlay">
+      This use case specifies how to create draggable canvas and background
+      behind it. This implementation of background is suboptimal, but the
+      concept works.
+    </div>
     <div class="canvas-wrapper">
-      <canvas id="background"></canvas>
-      <div id="canvas"></div>
+      <canvas class="background" id="background"></canvas>
+      <div id="canvas" class="canvas"></div>
     </div>
   </body>
 </html>

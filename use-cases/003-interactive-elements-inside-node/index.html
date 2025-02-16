@@ -7,11 +7,18 @@
       content="width=device-width, initial-scale=1.0, user-scalable=no"
     />
     <title>HTMLGraph | Interactive elements inside nodes</title>
-    <script type="module" crossorigin src="/assets/003-interactive-elements-inside-node/index-nbnyA0ky.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/html-graph-builder-dnUSMLF2.js">
-    <link rel="stylesheet" crossorigin href="/assets/index-CyRYI33h.css">
+    <script type="module" crossorigin src="/assets/003-interactive-elements-inside-node/index-BrtDXVEH.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/html-graph-builder-D0RPS-be.js">
+    <link rel="stylesheet" crossorigin href="/assets/html-graph-builder-CjQeFtv6.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-Dd3ZtCvJ.css">
   </head>
   <body>
-    <div id="canvas"></div>
+    <div class="overlay">
+      This use case specifies how to create draggable canvas and nodes with
+      interactive button inside it. It demonstrates that nodes can contain any
+      HTML elements. Also button prevents click if canvas is in the process of
+      dragging.
+    </div>
+    <div id="canvas" class="canvas"></div>
   </body>
 </html>

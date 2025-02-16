@@ -1,1 +1,0 @@
-function c(e){const t=document.createElement("div");t.classList.add("node");const n=document.createElement("div");t.appendChild(n);const d=document.createElement("div");d.innerText=e.name,t.appendChild(d);const o=document.createElement("div");return t.appendChild(o),{element:t,x:e.x,y:e.y,ports:[{id:e.frontPortId,element:n},{id:e.backPortId,element:o}]}}export{c};
