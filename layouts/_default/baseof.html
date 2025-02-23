@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ .Site.Title }} | {{ .Page.Title }}</title>
+
+    {{ $normalize := resources.Get "normalize.scss" | css.Sass |
+    resources.Minify }}
+    <link rel="stylesheet" href="{{ $normalize.Permalink }}" />
+
+    {{ $global := resources.Get "global.scss" | css.Sass | resources.Minify }}
+    <link rel="stylesheet" href="{{ $global.Permalink }}" />
+  </head>
+  <body>
+    {{ block "main" . }}
+    <!-- -->
+    {{ end }}
+  </body>
+</html>
