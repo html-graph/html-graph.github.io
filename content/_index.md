@@ -4,67 +4,53 @@ title: Home
 
 HTMLGraph is a graph visualization library that enables nodes customization using HTML.
 
-This library is designed to be low-level but extensible.
+This library designed to be low-level with some high level functionality
+built-in.
 
-<!-- Getting started. -->
+Features:
 
-<!-- 1. Install package via npm -->
+- customizable nodes via HTML
+- customizable connections a.k.a edges
+- connections precise control via ports
+- built-in draggable nodes
+- built-in shiftable and scalable canvas
+- built-in nodes reactive to resize
+- touchpad devices support
+- typescript support
 
-<!-- ``` -->
-<!-- npm i @html-graph/html-graph -->
-<!-- ``` -->
+All the examples are designed to be single HTML file in order to to minimize setup.
 
-<!-- or use via CDN -->
+This is an advanced demo:
 
-<!-- ``` -->
-<!-- <script src="https://unpkg.com/@html-graph/html-graph/dist/main.js"></script> -->
-<!-- ``` -->
+{{< iframe src=/use-cases/020-advanced-demo/ >}}
 
-<!-- 2. Create markup -->
+Getting started.
 
-<!-- ``` -->
-<!-- <!doctype html> -->
-<!-- <html lang="en"> -->
-<!--   <head> -->
-<!--     <link rel="stylesheet" href="main.css" /> -->
-<!--   </head> -->
-<!--   <body> -->
-<!--     <div id="canvas" class="canvas"></div> -->
-<!--     <script src="https://unpkg.com/@html-graph/html-graph/dist/main.js"></script> -->
-<!--   </body> -->
-<!-- </html> -->
-<!-- ``` -->
+1. If you use bundler than install npm package
 
-<!-- 3. Create node function -->
+```
+npm i @html-graph/html-graph
+```
 
-<!-- ``` -->
-<!-- export function createNode({ id, name, x, y, frontPortId, backPortId) { -->
-<!--   const node = document.createElement("div"); -->
-<!--   node.classList.add("node"); -->
+```
+const canvas = new HtmlGraphBuilder().build();
+...
+```
 
-<!--   const frontPort = document.createElement("div"); -->
-<!--   frontPort.classList.add("node-port"); -->
-<!--   node.appendChild(frontPort); -->
+2. If you don't use bundler than download file from CDN
 
-<!--   const text = document.createElement("div"); -->
-<!--   text.innerText = params.name; -->
-<!--   node.appendChild(text); -->
+```
+<script src="https://unpkg.com/@html-graph/html-graph/dist/main.js"></script>
+<script type="module">
+  const canvas = new HtmlGraphBuilder().build();
+</script>
+```
 
-<!--   const backPort = document.createElement("div"); -->
-<!--   backPort.classList.add("node-port"); -->
-<!--   node.appendChild(backPort); -->
+or
 
-<!--   return { -->
-<!--     id: params.id, -->
-<!--     element: node, -->
-<!--     x: params.x, -->
-<!--     y: params.y, -->
-<!--     ports: [ -->
-<!--       { id: params.frontPortId, element: frontPort }, -->
-<!--       { id: params.backPortId, element: backPort }, -->
-<!--     ], -->
-<!--     priority: params.priority, -->
-<!--   }; -->
-<!-- } -->
-
-<!-- ``` -->
+```
+<script src="https://unpkg.com/@html-graph/html-graph/dist/main.umd.cjs"></script>
+<script>
+  const canvas = new HtmlGraph.HtmlGraphBuilder().build();
+</script>
+```

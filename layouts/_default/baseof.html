@@ -39,8 +39,10 @@
     <link rel="stylesheet" href="{{ $global.Permalink }}" />
   </head>
   <body>
-    {{ block "main" . }}
-    <!-- -->
-    {{ end }}
+    <main>
+      {{ block "main" . }}
+      <!-- -->
+      {{ end }}
+    </main>
   </body>
 </html>
