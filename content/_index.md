@@ -20,9 +20,9 @@ Features:
 
 All the examples are designed to be single HTML file in order to to minimize setup.
 
-This is an advanced demo:
+Here is an example of what this library capable of:
 
-{{< iframe src=/use-cases/020-advanced-demo/ >}}
+{{< use-case-frame src=/use-cases/020-advanced-demo/ >}}
 
 Getting started.
 
