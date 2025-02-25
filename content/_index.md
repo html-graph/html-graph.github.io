@@ -4,58 +4,17 @@ title: Home
 
 HTMLGraph is a graph visualization library that enables nodes customization via HTML.
 
-This library designed to be low-level with some high level functionality
-built-in.
-
-Features:
-
-- customizable nodes via HTML
-- customizable connections a.k.a edges
-- connections precise control via ports
-- built-in draggable nodes
-- built-in shiftable and scalable canvas
-- built-in nodes reactive to resize
-- touchpad devices support
-- typescript support
-
-All the examples are designed to be single HTML file in order to to minimize setup.
-
-Here is an example of what this library capable of:
-
 {{< use-case-frame src=/use-cases/020-advanced-demo/ >}}
 
-Getting started.
+This library has low level [core](/core) with high level functionality
+built-in, such as [darggable nodes](/draggable-nodes),
+[shiftable and zoomable canvas](/transformable-canvas)
+[resize reactive nodes](/resize-reactive-nodes)
 
-1. If you use bundler than install npm package
+All the examples are designed to be single HTML file in order to to ease setup.
 
-{{< highlight bash>}}
-npm i @html-graph/html-graph
-{{< / highlight >}}
+In real world applications you probably would like to use bundler such as webpack or vite.
+Regarinng frameworks, this library is VanillaJS, so you can use whetever
+framework you want, since every framework provides access to DOM API.
 
-and use it like this
-
-{{< highlight javascript>}}
-const canvas = new HtmlGraphBuilder().build();
-{{< / highlight >}}
-
-2. If you don't use bundler than download file from CDN
-
-{{< highlight html>}}
-
-<script src="https://unpkg.com/@html-graph/html-graph/dist/main.js"></script>
-<script type="module">
-  const canvas = new HtmlGraphBuilder().build();
-</script>
-
-{{< / highlight >}}
-
-or
-
-{{< highlight html>}}
-
-<script src="https://unpkg.com/@html-graph/html-graph/dist/main.umd.cjs"></script>
-<script>
-  const canvas = new HtmlGraph.HtmlGraphBuilder().build();
-</script>
-
-{{< / highlight >}}
+For the first step refer to [getting started](/getting-started) guide.
