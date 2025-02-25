@@ -8,7 +8,7 @@ HTMLGraph is a graph visualization library that enables nodes customization via 
 
 This library has low level [core](/core) with high level functionality
 built-in, such as [darggable nodes](/draggable-nodes),
-[shiftable and zoomable canvas](/transformable-canvas)
+[shiftable and zoomable canvas](/transformable-canvas),
 [resize reactive nodes](/resize-reactive-nodes)
 
 All the examples are designed to be single HTML file in order to to ease setup.

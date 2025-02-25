@@ -2,8 +2,8 @@
 title: Getting started
 ---
 
-First of all lets include library into your project. There are few options how
-to do it.
+First of all lets include library into your project and create canvas.
+There are few options to do this.
 
 1. Via npm
 
@@ -11,36 +11,39 @@ to do it.
 npm i @html-graph/html-graph
 {{< / highlight >}}
 
-than use it like this
-
 {{< highlight javascript>}}
 import { HtmlGraphBuilder } from "@html-graph/html-graph";
 
 const canvas = new HtmlGraphBuilder().build();
 {{< / highlight >}}
 
-2. Via CDN as module
+2. Local file as module
+
+Download `main.js` from [releases](https://github.com/html-graph/html-graph/releases)
 
 {{< highlight html>}}
-
 <script type="module">
-  import { HtmlGraphBuilder } from "https://unpkg.com/@html-graph/html-graph/dist/main.js";
+  import { HtmlGraphBuilder } from "/main.js";
 
-  const canvas = new HtmlGraphBuilder().build();
+  const canvas = new HtmlGraphBuilder()
+    .build();
 </script>
-
 {{< / highlight >}}
 
-3. Via CDN as UMD
+3. Local file as UMD
+
+Download `main.umd.cjs` from [releases](https://github.com/html-graph/html-graph/releases)
 
 {{< highlight html>}}
 
-<script src="https://unpkg.com/@html-graph/html-graph/dist/main.umd.cjs"></script>
+<script src="/main.umd.cjs"></script>
 <script>
-  const canvas = new HtmlGraph.HtmlGraphBuilder().build();
+  const canvas = new HtmlGraph.HtmlGraphBuilder()
+    .build();
 </script>
 
 {{< / highlight >}}
 
-`HtmlGraphBuilder` and `Canvas` are two main entities in this library. Builder
-is a helper class, which is responsible to create canvas.
+Now it's time to visiualize our first graph.
+
+{{< use-case-frame src=/use-cases/getting-started/ >}}

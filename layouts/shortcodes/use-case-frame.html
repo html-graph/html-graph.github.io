@@ -1,7 +1,14 @@
+<div>
+  <button>Demo</button>
+  <button>Code</button>
+</div>
 <div class="use-case-frame">
   <iframe
     width="100%"
     height="100%"
     src="{{ .Get "src" }}"
   ></iframe>
+
+  <pre data-code="{{ .Get "src" }}"></pre>
 </div>
+

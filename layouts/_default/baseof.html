@@ -38,10 +38,10 @@
                 <a href="/core/edges">Edges</a>
               </li>
               <li>
-                <a href="/transformations">Transformations</a>
+                <a href="/core/transformations">Transformations</a>
               </li>
               <li>
-                <a href="/model">Model</a>
+                <a href="/core/model">Model</a>
               </li>
             </ul>
           </li>
@@ -64,5 +64,8 @@
         </div>
       </div>
     </main>
+
+    {{ $code := resources.Get "code.js" | resources.Minify }}
+    <script src="{{ $code.Permalink }}"></script>
   </body>
 </html>
