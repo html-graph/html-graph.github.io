@@ -9,6 +9,7 @@
   --color-green: #89fc00;
   --color-light-blue: #00a1e4;
   --color-orange: #f5b700;
+  --color-code-background: #eeeeee;
 }
 
 html,
@@ -62,29 +63,60 @@ body {
   }
 }
 
-.use-case-frame {
-  position: relative;
-  padding-top: 75%;
-  border: 1px solid var(--color-border);
+.use-case {
+  &__frame {
+    position: relative;
+    padding-top: 75%;
+    border: 1px solid var(--color-border);
 
-  iframe {
-    border: none;
-    position: absolute;
-    inset: 0;
+    iframe {
+      border: none;
+      position: absolute;
+      inset: 0;
+    }
+
+    pre {
+      position: absolute;
+      inset: 0;
+      overflow: scroll;
+      margin: 0;
+      padding: 1rem;
+    }
   }
 
-  pre {
-    position: absolute;
-    inset: 0;
-    overflow: scroll;
+  &__impl {
+    background: var(--color-code-background);
+  }
+
+  &__head {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+
+  &__title {
+    margin-right: auto;
+  }
+
+  &__btn {
+    border-radius: 0.25rem;
+    border: 2px solid grey;
+
+    &_active {
+      border: 2px solid black;
+    }
   }
 }
 
-.highlight {
-  pre {
-    padding: 1rem;
-    border-radius: 0.5rem;
-  }
+.code {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: var(--color-code-background);
+}
+
+code {
+  background: var(--color-code-background);
 }
 
 table,
@@ -102,4 +134,6 @@ td {
 
 button {
   cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  vertical-align: bottom;
 }

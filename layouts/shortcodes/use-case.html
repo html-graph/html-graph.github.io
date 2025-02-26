@@ -1,0 +1,20 @@
+<div class="use-case" data-use-case>
+  <div class="use-case__head">
+    <span class="use-case__title">
+      {{ .Get "title" }}
+    </span>
+    <button data-use-case-demo-btn class="use-case__btn use-case__btn_active">Demo</button>
+    <button data-use-case-impl-btn class="use-case__btn">Implementation</button>
+  </div>
+  <div class="use-case__frame">
+    <iframe
+      data-use-case-demo
+      width="100%"
+      height="100%"
+      src="{{ .Get "src" }}"
+    ></iframe>
+
+    <pre style="display: none" data-use-case-impl class="use-case__impl"
+    data-impl="{{ .Get "src" }}" data-impl-lang="xml"></pre>
+  </div>
+</div>
