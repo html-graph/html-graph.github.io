@@ -26,11 +26,11 @@ const O = (e, t) => ({
       let l = 0, a = 0, g = 0;
       const y = d > 0, x = d < r, f = y && x;
       if (y && (l = -i, a = -s, g = h), x) {
-        const m = e[d + 1];
-        i = m.x - c.x, s = m.y - c.y, h = Math.sqrt(i * i + s * s);
+        const D = e[d + 1];
+        i = D.x - c.x, s = D.y - c.y, h = Math.sqrt(i * i + s * s);
       }
-      const E = h !== 0 ? Math.min((f ? t : 0) / h, d < r - 1 ? 0.5 : 1) : 0, T = f ? { x: c.x + i * E, y: c.y + s * E } : c, L = g !== 0 ? Math.min((f ? t : 0) / g, d > 1 ? 0.5 : 1) : 0, D = f ? { x: c.x + l * L, y: c.y + a * L } : c;
-      d > 0 && o.push(`L ${D.x} ${D.y}`), f && o.push(
+      const E = h !== 0 ? Math.min((f ? t : 0) / h, d < r - 1 ? 0.5 : 1) : 0, T = f ? { x: c.x + i * E, y: c.y + s * E } : c, L = g !== 0 ? Math.min((f ? t : 0) / g, d > 1 ? 0.5 : 1) : 0, m = f ? { x: c.x + l * L, y: c.y + a * L } : c;
+      d > 0 && o.push(`L ${m.x} ${m.y}`), f && o.push(
         `C ${c.x} ${c.y} ${c.x} ${c.y} ${T.x} ${T.y}`
       );
     });
@@ -145,7 +145,7 @@ const O = (e, t) => ({
     [t, s, l, a, y, g, h, o],
     e.roundness
   );
-}, G = (e) => {
+}, U = (e) => {
   const t = e.hasSourceArrow ? v(
     { x: e.arrowLength, y: w.y },
     e.fromVect,
@@ -203,7 +203,7 @@ const O = (e, t) => ({
     [t, s, l, a, y, g, h, o],
     e.roundness
   );
-}, U = (e) => {
+}, G = (e) => {
   const t = e.arrowOffset, o = e.side, r = e.arrowLength + t, i = r + 2 * o, h = [
     { x: e.arrowLength, y: w.y },
     { x: r, y: w.y },
@@ -369,7 +369,7 @@ class st {
       y: s
     };
     let g, y = l, x = -this.arrowLength;
-    if (t.from.portId === t.to.portId ? (g = U({
+    if (t.from.portId === t.to.portId ? (g = G({
       fromVect: d,
       arrowLength: this.arrowLength,
       side: this.cycleSquareSide,
@@ -377,7 +377,7 @@ class st {
       roundness: this.roundness,
       hasSourceArrow: this.hasSourceArrow,
       hasTargetArrow: this.hasTargetArrow
-    }), y = d, x = this.arrowLength) : t.from.nodeId === t.to.nodeId ? g = G({
+    }), y = d, x = this.arrowLength) : t.from.nodeId === t.to.nodeId ? g = U({
       to: a,
       fromVect: d,
       toVect: l,
@@ -461,7 +461,7 @@ class ht {
       y: s
     };
     let g, y = l, x = -this.arrowLength;
-    if (t.from.portId === t.to.portId ? (g = U({
+    if (t.from.portId === t.to.portId ? (g = G({
       fromVect: d,
       arrowLength: this.arrowLength,
       side: this.cycleSquareSide,
@@ -469,7 +469,7 @@ class ht {
       roundness: this.roundness,
       hasSourceArrow: this.hasSourceArrow,
       hasTargetArrow: this.hasTargetArrow
-    }), y = d, x = this.arrowLength) : t.from.nodeId === t.to.nodeId ? g = G({
+    }), y = d, x = this.arrowLength) : t.from.nodeId === t.to.nodeId ? g = U({
       to: a,
       fromVect: d,
       toVect: l,
@@ -552,7 +552,7 @@ class ct {
       y: s
     };
     let g, y = l, x = -this.arrowLength;
-    if (t.from.portId === t.to.portId ? (g = U({
+    if (t.from.portId === t.to.portId ? (g = G({
       fromVect: d,
       arrowLength: this.arrowLength,
       side: this.cycleSquareSide,
@@ -560,7 +560,7 @@ class ct {
       roundness: this.roundness,
       hasSourceArrow: this.hasSourceArrow,
       hasTargetArrow: this.hasTargetArrow
-    }), y = d, x = this.arrowLength) : t.from.nodeId === t.to.nodeId ? g = G({
+    }), y = d, x = this.arrowLength) : t.from.nodeId === t.to.nodeId ? g = U({
       to: a,
       fromVect: d,
       toVect: l,
@@ -1542,7 +1542,7 @@ const Ct = (e) => {
       });
   }
 }, Lt = (e) => {
-  var f, A, E, T, X, L, D, m, j;
+  var f, A, E, T, X, L, m, D, j;
   const t = (f = e == null ? void 0 : e.scale) == null ? void 0 : f.mouseWheelSensitivity, o = t !== void 0 ? t : 1.2, r = e == null ? void 0 : e.transformPreprocessor;
   let i;
   r !== void 0 ? Array.isArray(r) ? i = Pt(
@@ -1552,10 +1552,10 @@ const Ct = (e) => {
   ) : i = J(r) : i = (P) => P.nextTransform;
   const s = ((A = e == null ? void 0 : e.shift) == null ? void 0 : A.cursor) !== void 0 ? e.shift.cursor : "grab", h = ((E = e == null ? void 0 : e.events) == null ? void 0 : E.onBeforeTransformChange) ?? (() => {
   }), c = ((T = e == null ? void 0 : e.events) == null ? void 0 : T.onTransformChange) ?? (() => {
-  }), d = (X = e == null ? void 0 : e.shift) == null ? void 0 : X.mouseDownEventVerifier, l = d !== void 0 ? d : (P) => P.button === 0, a = (L = e == null ? void 0 : e.shift) == null ? void 0 : L.mouseUpEventVerifier, g = a !== void 0 ? a : (P) => P.button === 0, y = (D = e == null ? void 0 : e.scale) == null ? void 0 : D.mouseWheelEventVerifier, x = y !== void 0 ? y : () => !0;
+  }), d = (X = e == null ? void 0 : e.shift) == null ? void 0 : X.mouseDownEventVerifier, l = d !== void 0 ? d : (P) => P.button === 0, a = (L = e == null ? void 0 : e.shift) == null ? void 0 : L.mouseUpEventVerifier, g = a !== void 0 ? a : (P) => P.button === 0, y = (m = e == null ? void 0 : e.scale) == null ? void 0 : m.mouseWheelEventVerifier, x = y !== void 0 ? y : () => !0;
   return {
     wheelSensitivity: o,
-    onTransformStarted: ((m = e == null ? void 0 : e.events) == null ? void 0 : m.onTransformStarted) ?? (() => {
+    onTransformStarted: ((D = e == null ? void 0 : e.events) == null ? void 0 : D.onTransformStarted) ?? (() => {
     }),
     onTransformFinished: ((j = e == null ? void 0 : e.events) == null ? void 0 : j.onTransformFinished) ?? (() => {
     }),
@@ -1585,11 +1585,11 @@ const Ct = (e) => {
     touchesCnt: o,
     touches: t
   };
-}, Dt = (e, t, o) => ({
+}, mt = (e, t, o) => ({
   scale: e.scale,
   x: e.x + e.scale * t,
   y: e.y + e.scale * o
-}), mt = (e, t, o, r) => ({
+}), Dt = (e, t, o, r) => ({
   scale: e.scale * t,
   x: e.scale * (1 - t) * o + e.x,
   y: e.scale * (1 - t) * r + e.y
@@ -1708,7 +1708,7 @@ class It {
   }
   moveViewport(t, o, r) {
     this.options.onBeforeTransformChange();
-    const i = this.transformation.getViewportMatrix(), s = Dt(i, o, r), { width: h, height: c } = t.getBoundingClientRect(), d = this.options.transformPreprocessor({
+    const i = this.transformation.getViewportMatrix(), s = mt(i, o, r), { width: h, height: c } = t.getBoundingClientRect(), d = this.options.transformPreprocessor({
       prevTransform: i,
       nextTransform: s,
       canvasWidth: h,
@@ -1718,7 +1718,7 @@ class It {
   }
   scaleViewport(t, o, r, i) {
     this.options.onBeforeTransformChange();
-    const s = this.canvas.transformation.getViewportMatrix(), h = mt(s, o, r, i), { width: c, height: d } = t.getBoundingClientRect(), l = this.options.transformPreprocessor({
+    const s = this.canvas.transformation.getViewportMatrix(), h = Dt(s, o, r, i), { width: c, height: d } = t.getBoundingClientRect(), l = this.options.transformPreprocessor({
       prevTransform: s,
       nextTransform: h,
       canvasWidth: c,
@@ -1865,7 +1865,14 @@ class bt {
   setUserDraggableNodes(t) {
     return this.isDraggable = !0, this.dragOptions = t, this;
   }
+  /**
+   * @deprecated
+   * use setUserTransformableViewport instead
+   */
   setUserTransformableCanvas(t) {
+    return this.setUserTransformableViewport(t);
+  }
+  setUserTransformableViewport(t) {
     return this.isTransformable = !0, this.transformOptions = t, this;
   }
   setResizeReactiveNodes() {
@@ -1878,6 +1885,7 @@ class bt {
 }
 export {
   nt as BezierEdgeShape,
+  bt as CanvasBuilder,
   At as CanvasCore,
   st as HorizontalEdgeShape,
   bt as HtmlGraphBuilder,
@@ -1886,5 +1894,6 @@ export {
   ht as StraightEdgeShape,
   Mt as UserDraggableNodesCanvas,
   It as UserTransformableCanvas,
+  It as UserTransformableViewportCanvas,
   ct as VerticalEdgeShape
 };

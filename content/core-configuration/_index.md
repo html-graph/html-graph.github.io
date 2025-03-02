@@ -5,10 +5,10 @@ title: Core configuration
 ## Core configuration
 
 Core configuration is responsible for aspects of graph visualization itself. It
-can be set by calling `setOptions` method of `HtmlGraphBuilder`
+can be set by calling `setOptions` method of `CanvasBuilder`
 
 {{< code lang="javascript">}}
-const canvas = new HtmlGraphBuilder()
+const canvas = new CanvasBuilder()
   .setOptions({
     nodes: {
       centerFn: (w, h) => ({ x: w / 2, y: h / 2}),

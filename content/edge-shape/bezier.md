@@ -5,10 +5,10 @@ title: Edge Shape | Bezier
 ## Bezier Edge Shape
 
 Bezier shape gets used by default, by you can set it explicitly by calling
-`setOptions` method on `HtmlGraphBuilder`.
+`setOptions` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
-const canvas = new HtmlGraphBuilder()
+const canvas = new CanvasBuilder()
   .setOptions({
     edges: {
       shape: {
@@ -21,19 +21,19 @@ const canvas = new HtmlGraphBuilder()
 Along with `type: "bezier"` there are other options available:
 
 {{< ref-target ref="bezier-edge-parameters">}}
-| Name             | Type    | Description                    | Required | Default      |
-|------------------|---------|--------------------------------|----------|--------------|
-| color            | string  | color of line and arrows       | no       | `"#777777"`  |
-| width            | number  | line width                     | no       | `1`          |
-| arrowLength      | number  | <img width="200" height="100"> | no       | `15`         |
-| arrowWidth       | number  | <img width="200" height="100"> | no       | `4`          |
-| curvature        | number  | <img width="200" height="100"> | no       | `90`         |
-| hasSouceArrow    | boolean | draw arrow near source port    | no       | `false`      |
-| hasTargetArrow   | boolean | draw arrow near target port    | no       | `false`      |
-| cycleRadius      | number  | <img width="200" height="100"> | no       | `30`         |
-| smallCycleRadius | number  | <img width="200" height="100"> | no       | `15`         |
-| detourDistance   | number  | <img width="200" height="100"> | no       | `100`        |
-| detourDirection  | number  | <img width="200" height="100"> | no       | `-Math.PI/2` |
+| Name             | Type    | Description                        | Required | Default      |
+|------------------|---------|------------------------------------|----------|--------------|
+| color            | string  | color of line and arrows           | no       | `"#777777"`  |
+| width            | number  | line width                         | no       | `1`          |
+| arrowLength      | number  | full lenght of arrow               | no       | `15`         |
+| arrowWidth       | number  | width of arrow from center to side | no       | `4`          |
+| curvature        | number  | bezier curvature                   | no       | `90`         |
+| hasSouceArrow    | boolean | draw arrow near source port        | no       | `false`      |
+| hasTargetArrow   | boolean | draw arrow near target port        | no       | `false`      |
+| cycleRadius      | number  | port cycle line radius             | no       | `30`         |
+| smallCycleRadius | number  | port-cycle radius near port        | no       | `15`         |
+| detourDistance   | number  | node cycle detour distance         | no       | `100`        |
+| detourDirection  | number  | node cycle detour direction        | no       | `-Math.PI/2` |
 {{< /ref-target >}}
 
 Another way to create Bezier shape is by passing factory function into
@@ -42,7 +42,7 @@ configuration.
 {{< code lang="javascript">}}
 import { BezierEdgeShape } from "@html-graph/html-graph";
 
-const canvas = new HtmlGraphBuilder()
+const canvas = new CanvasBuilder()
   .setOptions({
     edges: {
       shape: () => new BezierEdgeShape({ hasTargetArrow: true })

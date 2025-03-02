@@ -106,7 +106,7 @@
       <div id="canvas"></div>
     </div>
     <script type="module">
-      import { HtmlGraphBuilder } from "/main.js";
+      import { CanvasBuilder } from "/main.js";
 
       function backgroundDrawingFn(ctx) {
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -309,7 +309,7 @@
         backgroundDrawingFn(ctx, canvas.transformation);
       }).observe(canvasElement);
 
-      const canvas = new HtmlGraphBuilder()
+      const canvas = new CanvasBuilder()
         .setOptions({
           nodes: {
             centerFn: () => ({ x: 0, y: 0 }),
@@ -322,7 +322,7 @@
           },
         })
         .setUserDraggableNodes()
-        .setUserTransformableCanvas({
+        .setUserTransformableViewport({
           scale: {
             mouseWheelEventVerifier: (event) => event.ctrlKey,
           },

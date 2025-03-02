@@ -6,7 +6,7 @@ title: Core configuration | Edges
 
 
 {{< code lang="javascript">}}
-const canvas = new HtmlGraphBuilder()
+const canvas = new CanvasBuilder()
   .setOptions({
     edges: {
       shape: {

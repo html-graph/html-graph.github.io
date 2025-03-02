@@ -5,7 +5,7 @@ title: Core configuration | Nodes
 ## Nodes configuration
 
 {{< code lang="javascript">}}
-const canvas = new HtmlGraphBuilder()
+const canvas = new CanvasBuilder()
   .setOptions({
     nodes: {
       centerFn: (w, h) => ({ x: w / 2, y: h / 2}),

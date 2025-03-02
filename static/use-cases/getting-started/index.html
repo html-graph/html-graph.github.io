@@ -55,7 +55,7 @@
   <body>
     <div id="canvas"></div>
     <script type="module">
-      import { HtmlGraphBuilder } from "/main.js";
+      import { CanvasBuilder } from "/main.js";
 
       function createNode({ name, x, y, frontPortId, backPortId }) {
         const node = document.createElement("div");
@@ -83,7 +83,7 @@
         };
       }
 
-      const canvas = new HtmlGraphBuilder().build();
+      const canvas = new CanvasBuilder().build();
 
       canvas
         .attach(document.getElementById("canvas"))

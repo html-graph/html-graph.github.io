@@ -15,9 +15,9 @@ npm i @html-graph/html-graph
 and use it like this
 
 {{< code lang="javascript" >}}
-import { HtmlGraphBuilder } from "@html-graph/html-graph";
+import { CanvasBuilder } from "@html-graph/html-graph";
 
-const canvas = new HtmlGraphBuilder().build();
+const canvas = new CanvasBuilder().build();
 {{< / code >}}
 
 2. Local file as module
@@ -27,9 +27,9 @@ and use it like this
 
 {{< code lang="xml">}}
 <script type="module">
-  import { HtmlGraphBuilder } from "/main.js";
+  import { CanvasBuilder } from "/main.js";
 
-  const canvas = new HtmlGraphBuilder()
+  const canvas = new CanvasBuilder()
     .build();
 </script>
 {{< /code >}}
@@ -42,7 +42,7 @@ and use it like this
 {{< code lang="xml">}}
 <script src="/main.umd.cjs"></script>
 <script>
-  const canvas = new HtmlGraph.HtmlGraphBuilder()
+  const canvas = new HtmlGraph.CanvasBuilder()
     .build();
 </script>
 {{< /code >}}

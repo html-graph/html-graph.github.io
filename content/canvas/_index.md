@@ -59,10 +59,10 @@ remove all nodes and edges
 reverts canvas element to initial state and frees memory
 
 
-### model
+<!-- ### model -->
 
-provides access to curent graph model
+<!-- provides access to curent graph model -->
 
-### transformation
+<!-- ### transformation -->
 
-provides access to current canvas viewport transform state
+<!-- provides access to current canvas viewport transform state -->
