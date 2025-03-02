@@ -17,5 +17,5 @@ To begin, check out the [getting started](/getting-started) guide.
 
 Here's an advanced example of graph visualization to demonstrate the full potential of this library:
 
-{{< use-case title="Advanced example. Use CTRL+wheel to scale" src=/use-cases/020-advanced-demo/ >}}
+{{< use-case title="Advanced example. Hold CTRL to scale" src=/use-cases/020-advanced-demo/ >}}
 

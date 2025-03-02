@@ -19,7 +19,17 @@
     <script defer src="{{ $index.Permalink }}"></script>
   </head>
   <body class="layout">
-    <header class="layout__header">{{ .Site.Title }}</header>
+    <header class="layout__header">
+      <img width="32" height="32" src="/favicons/favicon-32x32.png" />
+      {{ .Site.Title }}
+      <a
+        target="_blank"
+        href="https://github.com/html-graph/html-graph"
+        class="layout__github"
+      >
+        <img width="32" height="32" src="/github-light.svg" />
+      </a>
+    </header>
 
     <main class="layout__content">
       <nav class="layout__navigation">

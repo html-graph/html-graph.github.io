@@ -16,7 +16,7 @@ canvas.updateEdge("edge-1" , {
 All available parameters are demonstrated in the following example:
 
 {{< code lang="javascript">}}
-canvas.updateEdge("node-1" , {
+canvas.updateEdge("edge-1" , {
   from: "port-3",
   to: "port-4",
   shape: new HorizontalEdgeShape(),

@@ -30,8 +30,8 @@ const canvas = new HtmlGraphBuilder()
 
 `setOptions` parameter:
 
-| Name  | Type                                      | Description                 | Required | Default |
-|-------|-------------------------------------------|-----------------------------|----------|---------|
-| nodes | [NodesConfig](nodes)                      | nodes related configuration | no       | `{}`    |
-| ports | [PortsConfig](ports)                      | ports related configuration | no       | `{}`    |
-| edges | [EdgesConfig](edges)                      | edges related configuration | no       | `{}`    |
+| Name  | Type                                      | Description                 | Required |
+|-------|-------------------------------------------|-----------------------------|----------|
+| nodes | [NodesConfig](nodes)                      | nodes related configuration | no       |
+| ports | [PortsConfig](ports)                      | ports related configuration | no       |
+| edges | [EdgesConfig](edges)                      | edges related configuration | no       |
