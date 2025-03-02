@@ -56,7 +56,5 @@ document.querySelectorAll("[data-ref]").forEach((element) => {
     setTimeout(() => {
       target.classList.remove("hl");
     }, 1000);
-
-    console.log(target);
   });
 });
