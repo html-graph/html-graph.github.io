@@ -2,15 +2,20 @@
 title: Home
 ---
 
-HTMLGraph is a graph visualization library that enables nodes customization via HTML.
+**HTMLGraph** is a graph visualization library that enables rich node customization using HTML.
+It allows you to create interactive and visually dynamic graphs by integrating HTML
+elements directly into nodes, making it perfect for building complex and customizable visualizations.
+
+This library features a low-level [core](/core-configuration) alongside practical
+high-level functionalities, including [draggable nodes](/draggable-nodes),
+a [shiftable and zoomable canvas](/transformable-canvas),
+and [resize-reactive nodes](/resize-reactive-nodes).
+
+All examples are designed as single HTML files to simplify setup and usage.
+
+To begin, check out the [getting started](/getting-started) guide.
+
+Here's an advanced example of graph visualization to demonstrate the full potential of this library:
 
 {{< use-case title="Advanced example. Use CTRL+wheel to scale" src=/use-cases/020-advanced-demo/ >}}
 
-This library has low level [core](/core) with some useful high level functionality
-built-in, such as [draggable nodes](/draggable-nodes),
-[shiftable and zoomable canvas](/transformable-canvas),
-[resize reactive nodes](/resize-reactive-nodes)
-
-All the examples are designed to be single HTML file in order to to ease setup.
-
-For the first step refer to [getting started](/getting-started) guide.

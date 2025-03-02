@@ -44,3 +44,19 @@ document.querySelectorAll("[data-code]").forEach((element) => {
 
   element.innerHTML = highlightedCode.trim();
 });
+
+document.querySelectorAll("[data-ref]").forEach((element) => {
+  const ref = element.dataset.ref;
+
+  element.addEventListener("click", () => {
+    const target = document.querySelector(`[data-ref-target="${ref}"]`);
+    target.scrollIntoView({ behavior: "smooth" });
+    target.classList.add("hl");
+
+    setTimeout(() => {
+      target.classList.remove("hl");
+    }, 1000);
+
+    console.log(target);
+  });
+});

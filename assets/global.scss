@@ -8,6 +8,7 @@
 
   --color-green: #89fc00;
   --color-light-blue: #00a1e4;
+  --color-blue: #126dff;
   --color-orange: #f5b700;
   --color-code-background: #eeeeee;
 }
@@ -22,6 +23,10 @@ body {
 
 body {
   color: var(--color-text);
+}
+
+a {
+  color: var(--color-blue);
 }
 
 .layout {
@@ -48,6 +53,15 @@ body {
     overflow-y: scroll;
     border-right: 1px solid var(--color-border);
     background: var(--color-background-menu);
+
+    ul {
+      list-style-type: none;
+      padding-left: 1rem;
+    }
+
+    li {
+      padding: 0.125rem 0;
+    }
   }
 
   &__page {
@@ -115,10 +129,6 @@ body {
   background: var(--color-code-background);
 }
 
-code {
-  background: var(--color-code-background);
-}
-
 table,
 th,
 td {
@@ -136,4 +146,34 @@ button {
   cursor: pointer;
   padding: 0.25rem 0.5rem;
   vertical-align: bottom;
+}
+
+ol {
+  padding-left: 1rem;
+}
+
+[data-ref] {
+  cursor: pointer;
+  color: var(--color-blue);
+  font-weight: bold;
+}
+
+[data-ref-target] {
+  position: relative;
+
+  &:before {
+    content: "";
+    position: absolute;
+    inset: -0.25rem;
+    background: var(--color-orange);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity linear 1s;
+  }
+
+  &.hl {
+    &:before {
+      opacity: 1;
+    }
+  }
 }

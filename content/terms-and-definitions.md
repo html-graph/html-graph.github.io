@@ -1,25 +1,25 @@
 ---
-title: Terms and definitions
+title: Terms and Definitions
 ---
 
-## Terms and definitions
+## Terms and Definitions
 
-Node - an entity of the graph which can be connected with edges.
+**Graph** - a collection of nodes and the edges that connect them.
 
-Port - an entity of the node to which edges can be attached to.
+**Node** - a fundamental unit within a graph that can be connected to other nodes via edges.
 
-Edge - directed pair of ports.
+**Port** - a specific point on a node where edges can be attached.
 
-Edge shape - graphical representation of edge.
+**Edge** - a directed connection between two ports.
 
-Graph - a set of nodes and edges.
+**Edge Shape** - the visual representation of an edge.
 
-Canvas - background on which graph gets drawn.
+**Canvas** - the background area where the graph is displayed.
 
-Viewport - visible domain of canvas.
+**Viewport** - the visible portion of the canvas.
 
-Port direction - an angle measured in radians, used to set edge direction.
+**Port Direction** - an angle, measured in radians, that defines the orientation of an edge connected to a port.
 
-Node center function - function which determines how to interpret node coordinates.
+**Node Center Function** - a function that determines how the coordinates of a node are interpreted.
 
-Priority - z-index of graph entity
+**Priority** - the z-index value assigned to a node or edge, indicating its layering order.

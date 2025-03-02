@@ -2,14 +2,17 @@
 title: Getting started
 ---
 
-First of all lets include library into your project and create canvas.
-There are few options:
+## Getting started
+
+First, let's include the library in your project and create a canvas. You have several options to do this:
 
 1. Via npm
 
 {{< code lang="bash" >}}
 npm i @html-graph/html-graph
 {{< /code >}}
+
+and use it like this
 
 {{< code lang="javascript" >}}
 import { HtmlGraphBuilder } from "@html-graph/html-graph";
@@ -20,6 +23,7 @@ const canvas = new HtmlGraphBuilder().build();
 2. Local file as module
 
 Download `main.js` from <a target="_blank" href="https://github.com/html-graph/html-graph/releases">releases</a>
+and use it like this
 
 {{< code lang="xml">}}
 <script type="module">
@@ -33,6 +37,7 @@ Download `main.js` from <a target="_blank" href="https://github.com/html-graph/h
 3. Local file as UMD
 
 Download `main.umd.cjs` from <a target="_blank" href="https://github.com/html-graph/html-graph/releases">releases</a>
+and use it like this
 
 {{< code lang="xml">}}
 <script src="/main.umd.cjs"></script>
@@ -42,6 +47,6 @@ Download `main.umd.cjs` from <a target="_blank" href="https://github.com/html-gr
 </script>
 {{< /code >}}
 
-Now it's time to visiualize our first graph.
+Here's a basic example of graph visualization:
 
 {{< use-case title="Basic example" src=/use-cases/getting-started/ >}}
