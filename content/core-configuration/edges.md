@@ -30,12 +30,12 @@ const canvas = new HtmlGraphBuilder()
 {{< ref-target ref="shape">}}
 `ShapeConfig` options:
 
-| Name       | Visualization                                        | Example                       |
+| Name       | Configuration                                        | Example                       |
 |------------|------------------------------------------------------|-------------------------------|
 | Bezier     | <a href="/edge-shape/bezier">BezierShape</a>         | `{ type: "bezier" }`          |
 | Straigh    | <a href="/edge-shape/straight">StraightShape</a>     | `{ type: "straight" }`        |
 | Horizontal | <a href="/edge-shape/horizontal">HorizontalShape</a> | `{ type: "horizontal" }`      |
-| Vertical   | <a href="/edge-shape/vertical">VerticalShape</a>     | `{ type: "horizontal" }`      |
+| Vertical   | <a href="/edge-shape/vertical">VerticalShape</a>     | `{ type: "vertical" }`        |
 | Custom     | <a href="/edge-shape/custom">CustomShape</a>         | `() => new CustomEdgeShape()` |
 {{< /ref-target >}}
 
