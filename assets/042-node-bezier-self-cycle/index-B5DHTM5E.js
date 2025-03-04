@@ -1,0 +1,1 @@
+import{C as o}from"../canvas-builder-biWollaZ.js";import{c as t}from"../create-in-out-node-CH3LlneL.js";const e=new o,d={edges:{shape:{hasTargetArrow:!0}}};e.setOptions(d);const n=e.build(),a=document.getElementById("canvas"),s=t({name:"Node 1",x:200,y:400,frontPortId:"node-1-in",backPortId:"node-1-out"}),r={from:"node-1-out",to:"node-1-in"};n.attach(a).addNode(s).addEdge(r);
