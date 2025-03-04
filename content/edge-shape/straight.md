@@ -17,6 +17,8 @@ const canvas = new CanvasBuilder()
   }).build();
 {{</code>}}
 
+{{< use-case title="Straight edge" src=/use-cases/straight-edge/ >}}
+
 Along with `type: "straight"` there are other options available:
 
 {{< ref-target ref="straight-edge-parameters">}}

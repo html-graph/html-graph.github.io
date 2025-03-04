@@ -18,6 +18,8 @@ const canvas = new CanvasBuilder()
   }).build();
 {{</code>}}
 
+{{< use-case title="Bezier edge" src=/use-cases/bezier-edge/ >}}
+
 Along with `type: "bezier"` there are other options available:
 
 {{< ref-target ref="bezier-edge-parameters">}}
