@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        position: relative;
+      }
+
+      #canvas {
+        position: absolute;
+        inset: 0;
+      }
+
+      .node {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        background: #daedbd;
+        border: 1px solid #9e9e9e;
+        box-shadow: 0 0 5px #9e9e9e;
+        border-radius: 50%;
+        user-select: none;
+      }
+
+      .node-port {
+        position: relative;
+        width: 0;
+      }
+
+      .node-port::after {
+        content: "";
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        width: 6px;
+        height: 6px;
+        background: #777777;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="canvas"></div>
+    <script type="module">
+      import { CanvasBuilder } from "/main.js";
+
+      function createNode({ name, x, y, frontPortId, backPortId }) {
+        const node = document.createElement("div");
+        const text = document.createElement("div");
+        const frontPort = document.createElement("div");
+        const backPort = document.createElement("div");
+
+        node.classList.add("node");
+        frontPort.classList.add("node-port");
+        backPort.classList.add("node-port");
+        text.innerText = name;
+
+        node.appendChild(frontPort);
+        node.appendChild(text);
+        node.appendChild(backPort);
+
+        return {
+          element: node,
+          x: x,
+          y: y,
+          ports: [
+            { id: frontPortId, element: frontPort },
+            { id: backPortId, element: backPort },
+          ],
+        };
+      }
+
+      const canvas = new CanvasBuilder().setUserDraggableNodes().build();
+
+      canvas
+        .attach(document.getElementById("canvas"))
+        .addNode(
+          createNode({
+            name: "Node 1",
+            x: 200,
+            y: 100,
+            frontPortId: "node-1-in",
+            backPortId: "node-1-out",
+          }),
+        )
+        .addNode(
+          createNode({
+            name: "Node 2",
+            x: 500,
+            y: 200,
+            frontPortId: "node-2-in",
+            backPortId: "node-2-out",
+          }),
+        )
+        .addEdge({ from: "node-1-out", to: "node-2-in" });
+    </script>
+  </body>
+</html>
