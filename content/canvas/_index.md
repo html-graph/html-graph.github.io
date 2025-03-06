@@ -44,11 +44,19 @@ create edge on canvas
 
 ### [updateEdge](update-edge)
 
-update node
+update edge
 
 ### [removeEdge](remove-edge)
 
-remove node
+remove edge
+
+### [patchViewportMatrix](patch-viewport-matrix)
+
+patch viewport matrix
+
+### [patchContentMatrix](patch-content-matrix)
+
+patch content matrix
 
 ### [clear](clear)
 
@@ -57,12 +65,3 @@ remove all nodes and edges
 ### [destroy](destroy)
 
 reverts canvas element to initial state and frees memory
-
-
-<!-- ### model -->
-
-<!-- provides access to curent graph model -->
-
-<!-- ### transformation -->
-
-<!-- provides access to current canvas viewport transform state -->

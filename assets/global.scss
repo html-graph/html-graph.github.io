@@ -118,7 +118,7 @@ a {
 
   &__head {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     gap: 0.5rem;
     margin-bottom: 0.25rem;
   }
@@ -128,8 +128,11 @@ a {
   }
 
   &__btn {
+    display: flex;
+    align-items: center;
     border-radius: 0.25rem;
     border: 2px solid grey;
+    padding: 0.25rem;
 
     &_active {
       border: 2px solid black;
