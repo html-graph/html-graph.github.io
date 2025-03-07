@@ -1,20 +1,18 @@
 ---
-title: Transformable viewport
+title: Transformable Viewport
 ---
 
-## Transformable viewport
+## Transformable Viewport
 
-
-To enable built-in transformable viewport call `setUserTransformableViewport` method on `CanvasBuilder`.
+To enable the built-in transformable viewport, call the `setUserTransformableViewport` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
 const canvas = new CanvasBuilder()
   .setUserTransformableViewport()
   .build();
-{{</code>}}
+{{< /code >}}
 
-
-{{< use-case title="Transformable viewport. Hold CTRL to scale" src=/use-cases/transformable-viewport/ >}}
+{{< use-case title="Transformable Viewport. Hold CTRL to scale" src=/use-cases/transformable-viewport/ >}}
 
 This method accepts optional configuration:
 
@@ -50,7 +48,7 @@ const canvas = new CanvasBuilder()
       },
       onTransformFinished: () => {
         console.log('FINISHED');
-      };
+      },
       onBeforeTransformChange: () => {
         console.log('BEFORE TRANSFORM');
       },
@@ -60,20 +58,20 @@ const canvas = new CanvasBuilder()
     },
   })
   .build();
-{{</code>}}
+{{< /code >}}
 
+### Configuration Parameters
 
 | Name                  | Type                                              | Description                                 | Required | Default |
 |-----------------------|---------------------------------------------------|---------------------------------------------|----------|---------|
-| scale                 | <span data-ref="scale">ScaleConfig</span>         | scale related behavior configuration        | no       | {}      |
-| shift                 | <span data-ref="shift">ShiftConfig</span>         | shift related behavior configuration        | no       | {}      |
-| transformPreprocessor | <span data-ref="transform">TransformConfig</span> | transformation preprocessors configuration  | no       | {}      |
-| events                | <span data-ref="events">EventsConfig</span>       | handlers for available events               | no       | {}      |
-
+| scale                 | <span data-ref="scale">ScaleConfig</span>         | Scale-related behavior configuration        | no       | {}      |
+| shift                 | <span data-ref="shift">ShiftConfig</span>         | Shift-related behavior configuration        | no       | {}      |
+| transformPreprocessor | <span data-ref="transform">TransformConfig</span> | Transformation preprocessors configuration  | no       | {}      |
+| events                | <span data-ref="events">EventsConfig</span>       | Handlers for available events               | no       | {}      |
 
 {{< ref-target ref="scale">}}
 
-### ScaleConfig:
+### ScaleConfig
 
 | Name                    | Type           | Description                                              | Required | Default    |
 |-------------------------|----------------|----------------------------------------------------------|----------|------------|
@@ -82,29 +80,27 @@ const canvas = new CanvasBuilder()
 
 {{< /ref-target >}}
 
-
 {{< ref-target ref="shift">}}
 
-### ShiftConfig:
+### ShiftConfig
 
 | Name                   | Type           | Description                                              | Required | Default    |
 |------------------------|----------------|----------------------------------------------------------|----------|------------|
-| cursor                 | string \| null | Cursor to set on muuse grab                              | no       | "grab"     |
+| cursor                 | string \| null | Cursor to set on mouse grab                              | no       | "grab"     |
 | mouseDownEventVerifier | function       | Function to verify if mouse event should trigger grab    | no       | () => true |
 | mouseUpEventVerifier   | function       | Function to verify if mouse event should trigger release | no       | () => true |
 
 {{< /ref-target >}}
 
-
 {{< ref-target ref="transform">}}
 
-### TransformConfig:
+### TransformConfig
 
-Single transformer on array of transformers.
+A single transformer or an array of transformers.
 
-Transformer can be one of these values:
+Transformers can be one of the following:
 
-1. To prevent scaling when maximum or minimum limit reached
+1. **Scale Limit**: Prevents scaling when the maximum or minimum limit is reached.
 
 {{< code lang="javascript" >}}
 {
@@ -114,9 +110,9 @@ Transformer can be one of these values:
 }
 {{< /code >}}
 
-All the options are complementary.
+All options are complementary.
 
-2. To prevent shifting when vertical or horizontal limit reached
+2. **Shift Limit**: Prevents shifting when vertical or horizontal limits are reached.
 
 {{< code lang="javascript" >}}
 {
@@ -128,9 +124,9 @@ All the options are complementary.
 }
 {{< /code >}}
 
-All the options are complementary.
+All options are complementary.
 
-3. To provide your custom preprocessor
+3. **Custom Preprocessor**: Allows you to define a custom transformation preprocessor.
 
 {{< code lang="javascript" >}}
 transformPreprocessor: (params) => {
