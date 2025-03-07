@@ -8,7 +8,7 @@ elements directly into nodes, making it perfect for building complex and customi
 
 This library features a low-level [core](/core-configuration) alongside practical
 high-level functionalities, including [draggable nodes](/draggable-nodes),
-a [shiftable and zoomable canvas](/transformable-canvas),
+a [shiftable and zoomable canvas](/transformable-viewport),
 and [resize-reactive nodes](/resize-reactive-nodes).
 
 All examples are designed as single HTML files to simplify setup and usage.
