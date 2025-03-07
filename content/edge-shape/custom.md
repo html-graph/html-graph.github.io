@@ -4,21 +4,20 @@ title: Edge Shape | Custom
 
 ## Custom Edge Shape
 
-Custom shape can be set by providing factory function in `setOptions` method of `CanvasBuilder`.
+A custom edge shape can be defined by providing a factory function in the `setOptions` method of `CanvasBuilder`.
 
 {{< code lang="javascript">}}
 const canvas = new CanvasBuilder()
   .setOptions({
     edges: {
-      shape: () => new MyCustomEgdeShape(),
+      shape: () => new MyCustomEdgeShape(),
     },
   }).build();
-{{</code>}}
+{{< /code >}}
 
-{{< use-case title="Custom edge with label" src=/use-cases/edge-with-label/ >}}
+{{< use-case title="Custom Edge with Label" src=/use-cases/edge-with-label/ >}}
 
-Also it is possible to apply shape to particular edge using methods
-<a href="/canvas/add-edge">addEdge</a> and <a href="/canvas/update-edge">updateEdge</a>.
+You can also apply a custom shape to a specific edge using the <a href="/canvas/add-edge">addEdge</a> and <a href="/canvas/update-edge">updateEdge</a> methods.
 
 {{< code lang="javascript">}}
 import { CustomEdgeShape } from "@html-graph/html-graph";
@@ -31,10 +30,9 @@ canvas.addEdge({
 {{< /code >}}
 
 {{< code lang="javascript">}}
-canvas.updateEdge("edge-1" , {
+canvas.updateEdge("edge-1", {
   from: "port-3",
   to: "port-4",
   shape: new MyCustomEdgeShape(),
 })
 {{< /code >}}
-

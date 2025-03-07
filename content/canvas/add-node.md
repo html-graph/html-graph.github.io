@@ -4,7 +4,7 @@ title: Canvas | Add Node
 
 ## Add Node
 
-Adds a node to the canvas with specified properties.
+Adds a node to the canvas with customizable properties.
 
 {{< code lang="javascript">}}
 canvas.addNode({
@@ -60,7 +60,7 @@ canvas.addNode({
 })
 {{< /code >}}
 
-### Request parameters
+### Parameters
 
 | Name     | Type                                       | Description                             | Required   | Default                            |
 |----------|--------------------------------------------|-----------------------------------------|------------|------------------------------------|
@@ -74,7 +74,7 @@ canvas.addNode({
 
 {{< ref-target ref="port">}}
 
-### Port request parameters
+### Port Parameters
 
 | Name      | Type        | Description                        | Required | Default         |
 |-----------|-------------|------------------------------------|----------|-----------------|

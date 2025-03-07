@@ -1,24 +1,20 @@
 ---
-title: Canvas | Patch viewport matrix
+title: Canvas | Patch Viewport Matrix
 ---
 
-## Patch viewport matrix
+## Patch Viewport Matrix
 
-Viewport transformation matrix is a matrix of three values: `scale`, `x` and `y`.
+The viewport transformation matrix consists of three values: `scale`, `x`, and `y`.
 
-Scale - actual scale of current viewport. The bigger the scale ofviewport, the smaller the
-content, and vice versa.
+- **Scale**: Represents the current scaling factor of the viewport. A larger scale zooms out, making the content appear smaller, while a smaller scale zooms in, making the content appear larger.
+- **X**: The horizontal distance from the absolute zero point to the top-left corner of the viewport.
+- **Y**: The vertical distance from the absolute zero point to the top-left corner of the viewport.
 
-X - actual horizontal distance from absolute zero to viewport top left corner.
+To better understand how these values work, experiment with the demo below.
 
-Y - actual vertical distance from absolute zero to viewport top left corner.
+{{< use-case title="Viewport Matrix. Hold CTRL to scale" src=/use-cases/viewport-matrix/ >}}
 
-To get an idea about what viewport matrix values are play around with this demo.
-
-{{< use-case title="Viewport matrix. Hold CTRL to scale" src=/use-cases/viewport-matrix/ >}}
-
-To patch viewport matrix values use method `patchViewportMatrix`. All parameters
-are optional.
+To update the viewport matrix values, use the `patchViewportMatrix` method. All parameters are optional.
 
 {{< code lang="javascript">}}
 canvas.patchViewportMatrix({
@@ -28,4 +24,4 @@ canvas.patchViewportMatrix({
 })
 {{< /code >}}
 
-This matrix is reverse of [content matrix](/canvas/patch-content-matrix).
+This matrix is the inverse of the [content matrix](/canvas/patch-content-matrix).

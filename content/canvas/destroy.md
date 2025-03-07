@@ -4,7 +4,7 @@ title: Canvas | Destroy
 
 ## Destroy
 
-Destroys canvas so that it can deallocate memory. After method call canvas can not be reused.
+Destroys the canvas, freeing up allocated memory. Once this method is called, the canvas cannot be reused.
 
 {{< code lang="javascript">}}
 canvas.destroy()

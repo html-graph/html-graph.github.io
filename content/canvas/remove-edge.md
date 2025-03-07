@@ -4,14 +4,14 @@ title: Canvas | Remove Edge
 
 ## Remove Edge
 
-Removes specified edge.
+Removes a specified edge from the canvas.
 
 {{< code lang="javascript">}}
 canvas.removeEdge("edge-1")
 {{< /code >}}
 
-### `removeEdge` Parameters
+### Parameters for `removeEdge`:
 
-| Name | Type | Description                  | Required |
-|------|------|------------------------------|----------|
-| id   | any  | Identifier of edge to remove | yes      |
+| Name | Type | Description                      | Required |
+|------|------|----------------------------------|----------|
+| id   | any  | Identifier of the edge to remove | yes      |

@@ -1,20 +1,18 @@
 ---
-title: Draggable nodes
+title: Draggable Nodes
 ---
 
-## Draggable nodes
+## Draggable Nodes
 
-
-To enable built-in draggable nodes call `setUserDraggableNodes` method on `CanvasBuilder`.
+To enable built-in draggable nodes, call the `setUserDraggableNodes` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
 const canvas = new CanvasBuilder()
   .setUserDraggableNodes()
   .build();
-{{</code>}}
+{{< /code >}}
 
-
-{{< use-case title="Draggable nodes" src=/use-cases/draggable-nodes/ >}}
+{{< use-case title="Draggable Nodes" src=/use-cases/draggable-nodes/ >}}
 
 This method accepts optional configuration:
 
@@ -23,38 +21,37 @@ const canvas = new CanvasBuilder()
   .setUserDraggableNodes({
     moveOnTop: false,
     mouse: {
-      dragCursor: "crosshair";
-      mouseDownEventVerifier: (event: MouseEvent) => event.ctrlKey;
-      mouseUpEventVerifier: (event: MouseEvent) => true;
-    };
+      dragCursor: "crosshair",
+      mouseDownEventVerifier: (event: MouseEvent) => event.ctrlKey,
+      mouseUpEventVerifier: (event: MouseEvent) => true,
+    },
     events: {
       onNodeDrag: (payload: NodeDragPayload) => {
         console.log(payload);
       },
       onBeforeNodeDrag: (payload: NodeDragPayload) => {
         console.log(payload);
-
         return true;
       },
       onNodeDragFinished: (payload: NodeDragPayload) => {
         console.log(payload);
       },
-    };
+    },
   })
   .build();
-{{</code>}}
+{{< /code >}}
 
+### Configuration Parameters
 
 | Name      | Type                                        | Description                   | Required | Default |
 |-----------|---------------------------------------------|-------------------------------|----------|---------|
-| moveOnTop | boolean                                     | move grabbed node on top      | no       | true    |
-| mouse     | <span data-ref="mouse">MouseConfig</span>   | mouse related configuration   | no       | {}      |
-| events    | <span data-ref="events">EventsConfig</span> | handlers for available events | no       | {}      |
-
+| moveOnTop | boolean                                     | Move grabbed node to the top  | no       | true    |
+| mouse     | <span data-ref="mouse">MouseConfig</span>   | Mouse-related configuration   | no       | {}      |
+| events    | <span data-ref="events">EventsConfig</span> | Handlers for available events | no       | {}      |
 
 {{< ref-target ref="mouse">}}
 
-### Mouse configuration:
+### Mouse Configuration
 
 | Name                   | Type           | Description                                              | Required | Default    |
 |------------------------|----------------|----------------------------------------------------------|----------|------------|
@@ -66,12 +63,12 @@ const canvas = new CanvasBuilder()
 
 {{< ref-target ref="events">}}
 
-### Events configuration:
+### Events Configuration
 
 | Name               | Type     | Description                                   | Required | Default    |
 |--------------------|----------|-----------------------------------------------|----------|------------|
-| onNodeDrag         | function | Function to call when node gets dragged       | no       | () => void |
+| onNodeDrag         | function | Function to call when node is dragged         | no       | () => void |
 | onBeforeNodeDrag   | function | Function to verify if node should be dragged  | no       | () => true |
-| onNodeDragFinished | function | Function to call when node drag gets finished | no       | () => void |
+| onNodeDragFinished | function | Function to call when node drag is finished   | no       | () => void |
 
 {{< /ref-target >}}

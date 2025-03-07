@@ -1,17 +1,15 @@
 ---
-title: Resize reactive nodes
+title: Resize Reactive Nodes
 ---
 
-## Resize reactive nodes
+## Resize Reactive Nodes
 
-
-To enable built-in resize reactive nodes call `setResizeReactiveNodes` method on `CanvasBuilder`.
+To enable built-in resize-reactive nodes, call the `setResizeReactiveNodes` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
 const canvas = new CanvasBuilder()
   .setResizeReactiveNodes()
   .build();
-{{</code>}}
+{{< /code >}}
 
-
-{{< use-case title="Resize reactive nodes" src=/use-cases/resize-reactive-nodes/ >}}
+{{< use-case title="Resize Reactive Nodes" src=/use-cases/resize-reactive-nodes/ >}}

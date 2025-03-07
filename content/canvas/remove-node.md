@@ -4,15 +4,14 @@ title: Canvas | Remove Node
 
 ## Remove Node
 
-Removes specified node. All the ports of the node get unmarked. All the edges
-adjacent to node get removed.
+Removes a specified node from the canvas. All associated ports will be unmarked, and any edges connected to the node will also be removed.
 
 {{< code lang="javascript">}}
 canvas.removeNode("node-1")
 {{< /code >}}
 
-### `removeNode` Parameters
+### Parameters for `removeNode`:
 
-| Name          | Type                                                          | Description                  | Required |
-|---------------|---------------------------------------------------------------|------------------------------|----------|
-| id            | any                                                           | Identifier of node to remove | yes      |
+| Name | Type | Description                      | Required |
+|------|------|----------------------------------|----------|
+| id   | any  | Identifier of the node to remove | yes      |

@@ -1,10 +1,10 @@
 ---
-title: Accessing graph structure
+title: Accessing Graph Structure
 ---
 
-## Accessing graph structure
+## Accessing Graph Structure
 
-Read-only graph structure can be accessed via `model` property of `canvas`.
+The read-only graph structure can be accessed via the `model` property of the `canvas`.
 
 {{< code lang="javascript" >}}
 const canvas = new CanvasBuilder().build();
@@ -14,99 +14,97 @@ canvas.model.getAllNodeIds().forEach(nodeId => {
 });
 {{< / code >}}
 
-`model` object has all the necessary methods to get structure of current graph.
+The `model` object provides all the necessary methods to retrieve the structure of the current graph.
 
-1. To get node state call
+1. To get the state of a node, call:
 {{< code lang="javascript" >}}
   const node = canvas.model.getNode("node-1");
 {{< / code >}}
-This method `null` when node is nonexistent.
+This method returns `null` if the node does not exist.
 
-2. To get IDs of all nodes call
+2. To get the IDs of all nodes, call:
 {{< code lang="javascript" >}}
    const nodeIds = canvas.model.getAllNodeIds();
 {{< / code >}}
 
-3. To get port state call
+3. To get the state of a port, call:
 {{< code lang="javascript" >}}
   const port = canvas.model.getPort("port-1");
 {{< / code >}}
-This method returns `null` when port is nonexistent.
+This method returns `null` if the port does not exist.
 
-4. To get IDs of all ports call
+4. To get the IDs of all ports, call:
 {{< code lang="javascript" >}}
   const portIds = canvas.model.getAllPortIds();
 {{< / code >}}
 
-5. To get IDs of all ports for particular node call
+5. To get the IDs of all ports for a specific node, call:
 {{< code lang="javascript" >}}
   const portIds = canvas.model.getNodePortIds("node-1");
 {{< / code >}}
-This method returns `null` when node is nonexistent.
+This method returns `null` if the node does not exist.
 
-6. To get node ID of particular port call
+6. To get the node ID of a specific port, call:
 {{< code lang="javascript" >}}
   const nodeId = canvas.model.getPortNodeId("port-1");
 {{< / code >}}
 
-7. To get DIs of all edges call
+7. To get the IDs of all edges, call:
 {{< code lang="javascript" >}}
   const edgeIds = canvas.model.getAllEdgeIds();
 {{< / code >}}
 
-8. To get edge state call
+8. To get the state of an edge, call:
 {{< code lang="javascript" >}}
   const edge = canvas.model.getEdge("edge-1");
 {{< / code >}}
-This method returns `null` when edge is nonexistent.
+This method returns `null` if the edge does not exist.
 
-9. To get IDs of incoming edges for particular port call
+9. To get the IDs of incoming edges for a specific port, call:
 {{< code lang="javascript" >}}
    const edgeIds = canvas.model.getPortIncomingEdgeIds("port-1");
 {{< / code >}}
-This method returns `null` when port is nonexistent.
+This method returns `null` if the port does not exist.
 
-10. To get IDs of outcoming edges for particular port call
+10. To get the IDs of outgoing edges for a specific port, call:
 {{< code lang="javascript" >}}
    const edgeIds = canvas.model.getPortOutcomingEdgeIds("port-1");
 {{< / code >}}
-This method returns `null` when port is nonexistent.
+This method returns `null` if the port does not exist.
 
-11. To get IDs of cycle edges for particular port call
+11. To get the IDs of cycle edges for a specific port, call:
 {{< code lang="javascript" >}}
    const edgeIds = canvas.model.getPortCycleEdgeIds("port-1");
 {{< / code >}}
-This method returns `null` when port is nonexistent.
+This method returns `null` if the port does not exist.
 
-12. To get IDs of adjacent edges for particular port call
+12. To get the IDs of adjacent edges for a specific port, call:
 {{< code lang="javascript" >}}
    const edgeIds = canvas.model.getPortAdjacentEdgeIds("port-1");
 {{< / code >}}
-This method returns `null` when port is nonexistent.
+This method returns `null` if the port does not exist.
 
-13. To get IDs of incoming edges for particular node call
+13. To get the IDs of incoming edges for a specific node, call:
 {{< code lang="javascript" >}}
   const edgeIds = canvas.model.getNodeIncomingEdgeIds("node-1");
 {{< / code >}}
-This method returns `null` when node is nonexistent.
+This method returns `null` if the node does not exist.
 
-14. To get IDs of outcoming edges for particular node call
+14. To get the IDs of outgoing edges for a specific node, call:
 {{< code lang="javascript" >}}
   const edgeIds = canvas.model.getNodeOutcomingEdgeIds("node-1");
 {{< / code >}}
-This method returns `null` when node is nonexistent.
+This method returns `null` if the node does not exist.
 
-15. To get IDs of cycle edges for particular node call
+15. To get the IDs of cycle edges for a specific node, call:
 {{< code lang="javascript" >}}
   const edgeIds = canvas.model.getNodeCycleEdgeIds("node-1");
 {{< / code >}}
-This method returns `null` when node is nonexistent.
-Please note, that cycle edge is an edge, for which source port and target port
-are the same. That's why edge which has source node same as target node are not
-necessarily cycle edges.
+This method returns `null` if the node does not exist.
+Note: A cycle edge is one where the source port and target port are the same. Therefore, edges with the same source and target node are not necessarily cycle edges.
 
-16. To get IDs of adjacent edges for particular node call
+16. To get the IDs of adjacent edges for a specific node, call:
 {{< code lang="javascript" >}}
   const edgeIds = canvas.model.getNodeAdjacentEdgeIds("node-1");
 {{< / code >}}
-This method returns `null` when node is nonexistent.
+This method returns `null` if the node does not exist.

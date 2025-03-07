@@ -4,14 +4,14 @@ title: Canvas | Unmark Port
 
 ## Unmark Port
 
-Unmarks specified port. All the edges adjacent to port get removed.
+Unmarks a specified port, removing it from the node. All edges connected to the port will also be removed.
 
 {{< code lang="javascript">}}
 canvas.unmarkPort("port-1")
 {{< /code >}}
 
-### `unmarkPort` Parameters
+### Parameters for `unmarkPort`:
 
-| Name          | Type                                                          | Description                  | Required |
-|---------------|---------------------------------------------------------------|------------------------------|----------|
-| id            | any                                                           | Identifier of port to unmark | yes      |
+| Name | Type | Description                      | Required |
+|------|------|----------------------------------|----------|
+| id   | any  | Identifier of the port to unmark | yes      |

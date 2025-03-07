@@ -4,31 +4,31 @@ title: Canvas | Update Port
 
 ## Update Port
 
-Updates port's specified properties.
+Updates specified properties of a port.
 
 {{< code lang="javascript">}}
-canvas.updatePort("port-1" , {
+canvas.updatePort("port-1", {
   direction: -Math.PI,
 });
 {{< /code >}}
 
-When called without request all adjacent to port edges' coordinates will be updated.
+When called without parameters, the coordinates of all edges connected to the port will be updated.
 
 {{< code lang="javascript">}}
 canvas.updatePort("port-1")
 {{< /code >}}
 
-### `updatePort` Parameters
+### Parameters for `updatePort`:
 
 | Name          | Type                                                          | Description                  | Required | Default |
 |---------------|---------------------------------------------------------------|------------------------------|----------|---------|
-| id            | any                                                           | Identifier of port to update | yes      |         |
-| updateRequest | <span data-ref="port-update-request">PortUpdateRequest</span> | Parameters to update         | no       | {}      |
+| id            | any                                                           | Identifier of the port to update | yes      |         |
+| updateRequest | <span data-ref="port-update-request">PortUpdateRequest</span> | Properties to update         | no       | {}      |
 
 {{< ref-target ref="port-update-request">}}
-`PortUpdateRequest`
+### `PortUpdateRequest` Parameters
 
-| Name          | Type              | Description                             | Required |
-|---------------|-------------------|-----------------------------------------|----------|
-| direction     | number            | Radian angle for edge direction         | no       |
+| Name      | Type   | Description                     | Required |
+|-----------|--------|---------------------------------|----------|
+| direction | number | Radian angle for edge direction | no       |
 {{< /ref-target >}}

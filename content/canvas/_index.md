@@ -4,64 +4,49 @@ title: Canvas
 
 ## Canvas
 
-Canvas API consists of the following methods and properties:
+The Canvas API provides a set of methods and properties for managing graph visualization. Below is an overview of its functionality:
 
 ### [attach](attach)
-
-attach canvas to element
+Attach the canvas to an HTML element.
 
 ### [detach](detach)
-
-detach canvas from element
+Detach the canvas from the current HTML element.
 
 ### [addNode](add-node)
-
-create node on canvas
+Create and add a node to the canvas.
 
 ### [updateNode](update-node)
-
-update node
+Update the properties of an existing node.
 
 ### [removeNode](remove-node)
-
-remove node
+Remove a node from the canvas.
 
 ### [markPort](mark-port)
-
-mark element as port
+Mark an element as a port.
 
 ### [updatePort](update-port)
-
-update port configuration
+Update the configuration of a port.
 
 ### [unmarkPort](unmark-port)
-
-unmark elemen as port
+Unmark an element as a port.
 
 ### [addEdge](add-edge)
-
-create edge on canvas
+Create and add an edge between ports on the canvas.
 
 ### [updateEdge](update-edge)
-
-update edge
+Update the properties of an existing edge.
 
 ### [removeEdge](remove-edge)
-
-remove edge
+Remove an edge from the canvas.
 
 ### [patchViewportMatrix](patch-viewport-matrix)
-
-patch viewport matrix
+Modify the viewport transformation matrix.
 
 ### [patchContentMatrix](patch-content-matrix)
-
-patch content matrix
+Modify the content transformation matrix.
 
 ### [clear](clear)
-
-remove all nodes and edges
+Remove all nodes and edges from the canvas.
 
 ### [destroy](destroy)
-
-reverts canvas element to initial state and frees memory
+Revert the canvas element to its initial state and free up memory.

@@ -1,9 +1,8 @@
 ---
-title: Core configuration | Ports
+title: Core Configuration | Ports
 ---
 
-## Ports configuration
-
+## Ports Configuration
 
 {{< code lang="javascript">}}
 const canvas = new CanvasBuilder()
@@ -12,10 +11,10 @@ const canvas = new CanvasBuilder()
       direction: -Math.PI,
     },
   }).build();
-{{</code>}}
+{{< /code >}}
 
-`PortsConfig` fields:
+### `PortsConfig` Fields
 
 | Name      | Type   | Description             | Required | Default |
 |-----------|--------|-------------------------|----------|---------|
-| direction | number | default ports direction | no       | 0       |
+| direction | number | Default port direction  | no       | 0       |

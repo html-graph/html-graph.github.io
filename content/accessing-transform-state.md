@@ -1,10 +1,10 @@
 ---
-title: Accessing viewport transform state
+title: Accessing Viewport Transform State
 ---
 
-## Accessing viewport transform state
+## Accessing Viewport Transform State
 
-Read-only viewport transform state can be accessed via `transformation` property of `canvas`.
+The read-only viewport transform state can be accessed via the `transformation` property of the `canvas`.
 
 {{< code lang="javascript" >}}
 const canvas = new CanvasBuilder().build();
@@ -12,15 +12,14 @@ const canvas = new CanvasBuilder().build();
 console.log(canvas.transformation);
 {{< / code >}}
 
-`transformation` object has two methods:
+The `transformation` object provides two methods:
 
-1. To get [viewport matrix](/canvas/patch-viewport-matrix) state call
+1. To get the state of the [viewport matrix](/canvas/patch-viewport-matrix), call:
 {{< code lang="javascript" >}}
-  const node = canvas.transformation.getViewportMatrix();
+  const viewportMatrix = canvas.transformation.getViewportMatrix();
 {{< / code >}}
-This method `null` when node is nonexistent.
 
-2. To get [content matrix](/canvas/patch-content-matrix) state call
+2. To get the state of the [content matrix](/canvas/patch-content-matrix), call:
 {{< code lang="javascript" >}}
-  const node = canvas.transformation.getContentMatrix();
+  const contentMatrix = canvas.transformation.getContentMatrix();
 {{< / code >}}

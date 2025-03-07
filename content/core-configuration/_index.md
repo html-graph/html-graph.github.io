@@ -1,17 +1,16 @@
 ---
-title: Core configuration
+title: Core Configuration
 ---
 
-## Core configuration
+## Core Configuration
 
-Core configuration is responsible for aspects of graph visualization itself. It
-can be set by calling `setOptions` method of `CanvasBuilder`
+The core configuration defines the foundational aspects of graph visualization. It can be customized using the `setOptions` method of the `CanvasBuilder`.
 
 {{< code lang="javascript">}}
 const canvas = new CanvasBuilder()
   .setOptions({
     nodes: {
-      centerFn: (w, h) => ({ x: w / 2, y: h / 2}),
+      centerFn: (w, h) => ({ x: w / 2, y: h / 2 }),
       priority: 10,
     },
     ports: {
@@ -25,13 +24,12 @@ const canvas = new CanvasBuilder()
       priority: 5,
     },
   }).build();
-{{</code>}}
+{{< /code >}}
 
-
-`setOptions` parameter:
+### Parameters for `setOptions`:
 
 | Name  | Type                                      | Description                 | Required |
 |-------|-------------------------------------------|-----------------------------|----------|
-| nodes | [NodesConfig](nodes)                      | nodes related configuration | no       |
-| ports | [PortsConfig](ports)                      | ports related configuration | no       |
-| edges | [EdgesConfig](edges)                      | edges related configuration | no       |
+| nodes | [NodesConfig](nodes)                      | Configuration for nodes     | no       |
+| ports | [PortsConfig](ports)                      | Configuration for ports     | no       |
+| edges | [EdgesConfig](edges)                      | Configuration for edges     | no       |
