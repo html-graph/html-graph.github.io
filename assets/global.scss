@@ -156,9 +156,23 @@ a {
 }
 
 .code {
-  padding: 1rem;
-  border-radius: 0.5rem;
-  background: var(--color-code-background);
+  position: relative;
+
+  pre {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: var(--color-code-background);
+  }
+
+  svg {
+    position: absolute;
+    cursor: pointer;
+    z-index: 1;
+    right: 1rem;
+    top: 1rem;
+    width: 1rem;
+    height: 1rem;
+  }
 }
 
 table,

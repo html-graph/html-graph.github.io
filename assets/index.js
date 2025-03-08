@@ -34,19 +34,7 @@ document.querySelectorAll("[data-use-case]").forEach((element) => {
   });
 
   copyBtn.addEventListener("click", () => {
-    navigator.clipboard.writeText(implCode.innerText);
-    Toastify({
-      text: "Copied!",
-      close: true,
-      offset: {
-        y: 70,
-      },
-      gravity: "top",
-      position: "right",
-      style: {
-        background: "#248f15",
-      },
-    }).showToast();
+    copy(implCode.innerText);
   });
 });
 
@@ -60,7 +48,15 @@ document.querySelectorAll("[data-code]").forEach((element) => {
     language: lang,
   }).value;
 
-  element.innerHTML = highlightedCode.trim();
+  const pre = element.querySelector("pre");
+
+  pre.innerHTML = highlightedCode.trim();
+
+  const copyBtn = element.querySelector("[data-copy]");
+
+  copyBtn.addEventListener("click", () => {
+    copy(temp.innerText);
+  });
 });
 
 document.querySelectorAll("[data-ref]").forEach((element) => {
@@ -76,3 +72,19 @@ document.querySelectorAll("[data-ref]").forEach((element) => {
     }, 1000);
   });
 });
+
+function copy(text) {
+  navigator.clipboard.writeText(text);
+  Toastify({
+    text: "Copied!",
+    close: true,
+    offset: {
+      y: 70,
+    },
+    gravity: "top",
+    position: "right",
+    style: {
+      background: "#248f15",
+    },
+  }).showToast();
+}
