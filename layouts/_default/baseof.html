@@ -2,6 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="HTMLGraph is a powerful graph visualization library that enables rich node customization using HTML. Create interactive, dynamic graphs with draggable nodes, transformable viewports, and resize-reactive elements. Perfect for building complex and customizable visualizations with ease."
+    />
     <title>{{ .Site.Title }} | {{ .Page.Title }}</title>
     {{ partial "favicon-head.html" }}
     <meta name="theme-color" content="#ffffff" />
@@ -12,8 +16,8 @@
 
     {{ $global := resources.Get "global.scss" | css.Sass | resources.Minify }}
     <link rel="stylesheet" href="{{ $global.Permalink }}" />
-    <link rel="stylesheet" href="/github.min.css" />
 
+    <link rel="stylesheet" href="/github.min.css" />
     <link rel="stylesheet" type="text/css" href="/toastify.min.css" />
 
     <script defer src="/highlight.min.js"></script>

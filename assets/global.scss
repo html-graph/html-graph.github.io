@@ -1,6 +1,7 @@
 :root {
   --color-background: #777777;
   --color-border: #9e9e9e;
+  --color-border-dark: #454545;
   --color-background-grey: #e8e8e8;
   --color-background-header: #2e2e2e;
   --color-text: #02020a;
@@ -21,6 +22,7 @@ body {
 }
 
 body {
+  font-family: "Roboto", sans-serif;
   color: var(--color-text);
 }
 
@@ -146,11 +148,11 @@ a {
     align-items: center;
     border-radius: 0.25rem;
     border: 2px solid var(--color-border);
-    padding: 0.25rem;
+    padding: 0.25rem 0.5rem;
     background: var(--color-background-grey);
 
     &_active {
-      border: 2px solid black;
+      border-color: var(--color-border-dark);
     }
   }
 }
