@@ -16,6 +16,8 @@ document.querySelectorAll("[data-use-case]").forEach((element) => {
   const implBtn = element.querySelector("[data-use-case-impl-btn]");
   const demo = element.querySelector("[data-use-case-demo]");
   const impl = element.querySelector("[data-use-case-impl]");
+  const copyBtn = element.querySelector("[data-use-case-copy]");
+  const implCode = element.querySelector("[data-impl]");
 
   demoBtn.addEventListener("click", () => {
     demo.style.display = "block";
@@ -29,6 +31,22 @@ document.querySelectorAll("[data-use-case]").forEach((element) => {
     demoBtn.classList.remove("use-case__btn_active");
     impl.style.display = "block";
     implBtn.classList.add("use-case__btn_active");
+  });
+
+  copyBtn.addEventListener("click", () => {
+    navigator.clipboard.writeText(implCode.innerText);
+    Toastify({
+      text: "Copied!",
+      close: true,
+      offset: {
+        y: 70,
+      },
+      gravity: "top",
+      position: "right",
+      style: {
+        background: "#248f15",
+      },
+    }).showToast();
   });
 });
 

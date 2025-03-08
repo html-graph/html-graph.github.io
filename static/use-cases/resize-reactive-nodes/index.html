@@ -81,7 +81,7 @@
 
       const slider = document.getElementById("slider");
 
-      slider.addEventListener("change", (event) => {
+      slider.addEventListener("input", (event) => {
         const size = `${event.target.value}px`;
         document.documentElement.style.setProperty("--node-size", size);
       });
@@ -112,7 +112,15 @@
         };
       }
 
-      const canvas = new CanvasBuilder().setResizeReactiveNodes().build();
+      const canvas = new CanvasBuilder()
+        .setUserDraggableNodes()
+        .setUserTransformableViewport({
+          scale: {
+            mouseWheelEventVerifier: (event) => event.ctrlKey,
+          },
+        })
+        .setResizeReactiveNodes()
+        .build();
 
       canvas
         .attach(document.getElementById("canvas"))
