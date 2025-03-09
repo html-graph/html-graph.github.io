@@ -84,7 +84,7 @@ function copy(text) {
     gravity: "top",
     position: "right",
     style: {
-      background: "#248f15",
+      background: "#666666",
     },
   }).showToast();
 }
