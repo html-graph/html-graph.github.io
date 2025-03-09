@@ -98,6 +98,8 @@ const canvas = new CanvasBuilder()
 
 A single transformer or an array of transformers.
 
+{{< /ref-target >}}
+
 Transformers can be one of the following:
 
 1. **Scale Limit**: Prevents scaling when the maximum or minimum limit is reached.
@@ -142,4 +144,3 @@ transformPreprocessor: (params) => {
 },
 {{< /code >}}
 
-{{< /ref-target >}}
