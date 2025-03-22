@@ -24,10 +24,9 @@ const canvas = new CanvasBuilder()
 {{< ref-target ref="priority">}}
 ### `Priority` Options
 
-| Type                   | Description                                             | Example                   |
-|------------------------|---------------------------------------------------------|---------------------------|
-| `number`               | Each node is assigned a constant Z-index                | `5`                       |
-| `"incremental"`        | Each subsequent node receives an incremented Z-index    | `"incremental"`           |
-| `"shared-incremental"` | Nodes and edges share an incremental Z-index            | `"shared-incremental"`    |
-| `function`             | Z-index is determined by a specified function           | `() => 10 + i++;`         |
+| Type                   | Description                                          | Example           |
+|------------------------|------------------------------------------------------|-------------------|
+| `number`               | Each node is assigned a constant Z-index             | `5`               |
+| `"incremental"`        | Each subsequent node receives an incremented Z-index | `"incremental"`   |
+| `function`             | Z-index is determined by a specified function        | `() => 10 + i++;` |
 {{< /ref-target >}}
