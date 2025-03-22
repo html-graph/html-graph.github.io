@@ -156,8 +156,8 @@ transformPreprocessor: (params) => {
 | `onTransformFinished`       | Triggered when the user finishes a transform (e.g., mouse up, touch end, or touch cancel).                                        |
 | `onBeforeTransformChange`   | Triggered when the user performs a transform (e.g., mouse move or touch move), but the transform itself has not yet been applied. |
 | `onTransformChange`         | Triggered after the transform has been applied following user interaction.                                                        |
-| `onResizeTransformStarted`  | Triggered when transforation is about to change due to canvas element resize.                                                     |
-| `onResizeTransformFinished` | Triggered after transforation was changed due to canvas element resize.                                                           |
+| `onResizeTransformStarted`  | Triggered when transformation is about to change due to canvas element resize.                                                    |
+| `onResizeTransformFinished` | Triggered after transformation was changed due to canvas element resize.                                                          |
 
 All events have no arguments, but the up-to-date transform state can be retrieved via the [`canvas.viewport`](/accessing-viewport-state) property.
 
