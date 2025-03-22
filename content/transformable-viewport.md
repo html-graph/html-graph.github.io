@@ -144,3 +144,17 @@ transformPreprocessor: (params) => {
 },
 {{< /code >}}
 
+{{< ref-target ref="events">}}
+
+### EventsConfig
+
+| Name                      | Description                                                                                                                       |
+|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `onTransformStarted`      | Triggered when the user initiates a transform (e.g., mouse down or touch start). The transform may or may not occur next.         |
+| `onTransformFinished`     | Triggered when the user finishes a transform (e.g., mouse up, touch end, or touch cancel).                                        |
+| `onBeforeTransformChange` | Triggered when the user performs a transform (e.g., mouse move or touch move), but the transform itself has not yet been applied. |
+| `onTransformChange`       | Triggered after the transform has been applied following user interaction.                                                        |
+
+All events have no arguments, but the up-to-date transform state can be retrieved via the `canvas.viewport` property.
+
+{{< /ref-target >}}

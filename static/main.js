@@ -1,234 +1,234 @@
-var Q = Object.defineProperty;
-var Z = (e, t, o) => t in e ? Q(e, t, { enumerable: !0, configurable: !0, writable: !0, value: o }) : e[t] = o;
-var n = (e, t, o) => Z(e, typeof t != "symbol" ? t + "" : t, o);
-const O = (e, t) => ({
-  x: e / 2,
-  y: t / 2
-}), v = (e, t, o) => ({
-  x: t.x * e.x - t.y * e.y + ((1 - t.x) * o.x + t.y * o.y),
-  y: t.y * e.x + t.x * e.y + ((1 - t.x) * o.y - t.y * o.x)
-}), M = (e, t, o) => ({ x: t * Math.cos(e), y: o * Math.sin(e) }), w = {
+var le = Object.defineProperty;
+var ge = (t, e, r) => e in t ? le(t, e, { enumerable: !0, configurable: !0, writable: !0, value: r }) : t[e] = r;
+var i = (t, e, r) => ge(t, typeof e != "symbol" ? e + "" : e, r);
+const O = (t, e) => ({
+  x: t / 2,
+  y: e / 2
+}), v = (t, e, r) => ({
+  x: e.x * t.x - e.y * t.y + ((1 - e.x) * r.x + e.y * r.y),
+  y: e.y * t.x + e.x * t.y + ((1 - e.x) * r.y - e.y * r.x)
+}), N = (t, e, r) => ({ x: e * Math.cos(t), y: r * Math.sin(t) }), w = {
   x: 0,
   y: 0
-}, C = (e, t, o, r) => {
-  const s = [
+}, T = (t, e, r, o) => {
+  const d = [
     w,
-    { x: o, y: r },
-    { x: o, y: -r }
-  ].map((l) => v(l, e, w)).map((l) => ({ x: l.x + t.x, y: l.y + t.y })), h = `M ${s[0].x} ${s[0].y}`, c = `L ${s[1].x} ${s[1].y}`, d = `L ${s[2].x} ${s[2].y}`;
-  return `${h} ${c} ${d}`;
-}, $ = (e, t) => {
-  const o = [];
-  if (e.length > 0 && o.push(`M ${e[0].x} ${e[0].y}`), e.length === 2 && o.push(`L ${e[1].x} ${e[1].y}`), e.length > 2) {
-    const r = e.length - 1;
-    let i = 0, s = 0, h = 0;
-    e.forEach((c, d) => {
-      let l = 0, a = 0, g = 0;
-      const y = d > 0, x = d < r, f = y && x;
-      if (y && (l = -i, a = -s, g = h), x) {
-        const D = e[d + 1];
-        i = D.x - c.x, s = D.y - c.y, h = Math.sqrt(i * i + s * s);
+    { x: r, y: o },
+    { x: r, y: -o }
+  ].map((a) => v(a, t, w)).map((a) => ({ x: a.x + e.x, y: a.y + e.y })), s = `M ${d[0].x} ${d[0].y}`, h = `L ${d[1].x} ${d[1].y}`, c = `L ${d[2].x} ${d[2].y}`;
+  return `${s} ${h} ${c}`;
+}, U = (t, e) => {
+  const r = [];
+  if (t.length > 0 && r.push(`M ${t[0].x} ${t[0].y}`), t.length === 2 && r.push(`L ${t[1].x} ${t[1].y}`), t.length > 2) {
+    const o = t.length - 1;
+    let n = 0, d = 0, s = 0;
+    t.forEach((h, c) => {
+      let a = 0, l = 0, g = 0;
+      const f = c > 0, x = c < o, y = f && x;
+      if (f && (a = -n, l = -d, g = s), x) {
+        const L = t[c + 1];
+        n = L.x - h.x, d = L.y - h.y, s = Math.sqrt(n * n + d * d);
       }
-      const E = h !== 0 ? Math.min((f ? t : 0) / h, d < r - 1 ? 0.5 : 1) : 0, T = f ? { x: c.x + i * E, y: c.y + s * E } : c, L = g !== 0 ? Math.min((f ? t : 0) / g, d > 1 ? 0.5 : 1) : 0, m = f ? { x: c.x + l * L, y: c.y + a * L } : c;
-      d > 0 && o.push(`L ${m.x} ${m.y}`), f && o.push(
-        `C ${c.x} ${c.y} ${c.x} ${c.y} ${T.x} ${T.y}`
+      const E = s !== 0 ? Math.min((y ? e : 0) / s, c < o - 1 ? 0.5 : 1) : 0, m = y ? { x: h.x + n * E, y: h.y + d * E } : h, P = g !== 0 ? Math.min((y ? e : 0) / g, c > 1 ? 0.5 : 1) : 0, V = y ? { x: h.x + a * P, y: h.y + l * P } : h;
+      c > 0 && r.push(`L ${V.x} ${V.y}`), y && r.push(
+        `C ${h.x} ${h.y} ${h.x} ${h.y} ${m.x} ${m.y}`
       );
     });
   }
-  return o.join(" ");
-}, W = () => {
-  const e = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-  return e.style.pointerEvents = "none", e.style.position = "absolute", e.style.top = "0", e.style.left = "0", e.style.overflow = "visible", e;
-}, F = () => {
-  const e = document.createElementNS("http://www.w3.org/2000/svg", "g");
-  return e.style.transformOrigin = "50% 50%", e;
-}, R = (e, t) => {
-  const o = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  return o.setAttribute("stroke", e), o.setAttribute("stroke-width", `${t}`), o.setAttribute("fill", "none"), o;
-}, N = (e) => {
-  const t = document.createElementNS("http://www.w3.org/2000/svg", "path");
-  return t.setAttribute("fill", e), t;
-}, Y = (e, t) => {
-  const o = {
-    x: e.x + e.width / 2,
-    y: e.y + e.height / 2
-  }, r = {
+  return r.join(" ");
+}, k = () => {
+  const t = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  return t.style.pointerEvents = "none", t.style.position = "absolute", t.style.top = "0", t.style.left = "0", t.style.overflow = "visible", t;
+}, Y = () => {
+  const t = document.createElementNS("http://www.w3.org/2000/svg", "g");
+  return t.style.transformOrigin = "50% 50%", t;
+}, X = (t, e) => {
+  const r = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  return r.setAttribute("stroke", t), r.setAttribute("stroke-width", `${e}`), r.setAttribute("fill", "none"), r;
+}, M = (t) => {
+  const e = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  return e.setAttribute("fill", t), e;
+}, z = (t, e) => {
+  const r = {
     x: t.x + t.width / 2,
     y: t.y + t.height / 2
-  }, i = Math.min(o.x, r.x), s = Math.min(o.y, r.y), h = Math.abs(r.x - o.x), c = Math.abs(r.y - o.y), d = o.x <= r.x ? 1 : -1, l = o.y <= r.y ? 1 : -1;
+  }, o = {
+    x: e.x + e.width / 2,
+    y: e.y + e.height / 2
+  }, n = Math.min(r.x, o.x), d = Math.min(r.y, o.y), s = Math.abs(o.x - r.x), h = Math.abs(o.y - r.y), c = r.x <= o.x ? 1 : -1, a = r.y <= o.y ? 1 : -1;
   return {
-    x: i,
-    y: s,
-    width: h,
-    height: c,
-    flipX: d,
-    flipY: l
+    x: n,
+    y: d,
+    width: s,
+    height: h,
+    flipX: c,
+    flipY: a
   };
-}, q = (e) => {
-  const t = v(
-    { x: e.arrowLength, y: w.y },
-    e.fromVect,
+}, ue = (t) => {
+  const e = v(
+    { x: t.arrowLength, y: w.y },
+    t.fromVect,
     w
-  ), o = v(
-    { x: e.to.x - e.arrowLength, y: e.to.y },
-    e.toVect,
-    e.to
-  ), r = {
-    x: t.x + e.fromVect.x * e.curvature,
-    y: t.y + e.fromVect.y * e.curvature
-  }, i = {
-    x: o.x - e.toVect.x * e.curvature,
-    y: o.y - e.toVect.y * e.curvature
-  }, s = `M ${t.x} ${t.y} C ${r.x} ${r.y}, ${i.x} ${i.y}, ${o.x} ${o.y}`, h = e.hasSourceArrow ? "" : `M ${w.x} ${w.y} L ${t.x} ${t.y} `, c = e.hasTargetArrow ? "" : ` M ${o.x} ${o.y} L ${e.to.x} ${e.to.y}`;
-  return `${h}${s}${c}`;
-}, tt = (e) => {
-  const t = e.hasSourceArrow ? v(
-    { x: e.arrowLength, y: w.y },
-    e.fromVect,
+  ), r = v(
+    { x: t.to.x - t.arrowLength, y: t.to.y },
+    t.toVect,
+    t.to
+  ), o = {
+    x: e.x + t.fromVect.x * t.curvature,
+    y: e.y + t.fromVect.y * t.curvature
+  }, n = {
+    x: r.x - t.toVect.x * t.curvature,
+    y: r.y - t.toVect.y * t.curvature
+  }, d = `M ${e.x} ${e.y} C ${o.x} ${o.y}, ${n.x} ${n.y}, ${r.x} ${r.y}`, s = t.hasSourceArrow ? "" : `M ${w.x} ${w.y} L ${e.x} ${e.y} `, h = t.hasTargetArrow ? "" : ` M ${r.x} ${r.y} L ${t.to.x} ${t.to.y}`;
+  return `${s}${d}${h}`;
+}, we = (t) => {
+  const e = t.hasSourceArrow ? v(
+    { x: t.arrowLength, y: w.y },
+    t.fromVect,
     w
-  ) : w, o = e.hasTargetArrow ? v(
-    { x: e.to.x - e.arrowLength, y: e.to.y },
-    e.toVect,
-    e.to
-  ) : e.to, r = e.arrowLength, i = Math.cos(e.detourDirection) * e.detourDistance, s = Math.sin(e.detourDirection) * e.detourDistance, h = i * e.flipX, c = s * e.flipY, d = v(
-    { x: r, y: w.y },
-    e.fromVect,
+  ) : w, r = t.hasTargetArrow ? v(
+    { x: t.to.x - t.arrowLength, y: t.to.y },
+    t.toVect,
+    t.to
+  ) : t.to, o = t.arrowLength, n = Math.cos(t.detourDirection) * t.detourDistance, d = Math.sin(t.detourDirection) * t.detourDistance, s = n * t.flipX, h = d * t.flipY, c = v(
+    { x: o, y: w.y },
+    t.fromVect,
     w
-  ), l = {
-    x: d.x + h,
-    y: d.y + c
-  }, a = v(
-    { x: e.to.x - r, y: e.to.y },
-    e.toVect,
-    e.to
+  ), a = {
+    x: c.x + s,
+    y: c.y + h
+  }, l = v(
+    { x: t.to.x - o, y: t.to.y },
+    t.toVect,
+    t.to
   ), g = {
-    x: a.x + h,
-    y: a.y + c
-  }, y = { x: (l.x + g.x) / 2, y: (l.y + g.y) / 2 }, x = {
-    x: d.x + e.curvature * e.fromVect.x,
-    y: d.y + e.curvature * e.fromVect.y
-  }, f = {
-    x: a.x - e.curvature * e.toVect.x,
-    y: a.y - e.curvature * e.toVect.y
-  }, A = {
-    x: d.x + h,
-    y: d.y + c
+    x: l.x + s,
+    y: l.y + h
+  }, f = { x: (a.x + g.x) / 2, y: (a.y + g.y) / 2 }, x = {
+    x: c.x + t.curvature * t.fromVect.x,
+    y: c.y + t.curvature * t.fromVect.y
+  }, y = {
+    x: l.x - t.curvature * t.toVect.x,
+    y: l.y - t.curvature * t.toVect.y
+  }, p = {
+    x: c.x + s,
+    y: c.y + h
   }, E = {
-    x: a.x + h,
-    y: a.y + c
+    x: l.x + s,
+    y: l.y + h
   };
   return [
-    `M ${t.x} ${t.y}`,
-    `L ${d.x} ${d.y}`,
-    `C ${x.x} ${x.y} ${A.x} ${A.y} ${y.x} ${y.y}`,
-    `C ${E.x} ${E.y} ${f.x} ${f.y} ${a.x} ${a.y}`,
-    `L ${o.x} ${o.y}`
+    `M ${e.x} ${e.y}`,
+    `L ${c.x} ${c.y}`,
+    `C ${x.x} ${x.y} ${p.x} ${p.y} ${f.x} ${f.y}`,
+    `C ${E.x} ${E.y} ${y.x} ${y.y} ${l.x} ${l.y}`,
+    `L ${r.x} ${r.y}`
   ].join(" ");
-}, et = (e) => {
-  const t = e.hasSourceArrow ? v(
-    { x: e.arrowLength, y: w.y },
-    e.fromVect,
+}, fe = (t) => {
+  const e = t.hasSourceArrow ? v(
+    { x: t.arrowLength, y: w.y },
+    t.fromVect,
     w
-  ) : w, o = e.hasTargetArrow ? v(
-    { x: e.to.x - e.arrowLength, y: e.to.y },
-    e.toVect,
-    e.to
-  ) : e.to, r = e.arrowLength + e.arrowOffset, i = r - e.roundness, s = v({ x: i, y: w.y }, e.fromVect, w), h = v(
-    { x: e.to.x - i, y: e.to.y },
-    e.toVect,
-    e.to
-  ), c = Math.max((s.x + h.x) / 2, r), d = e.to.y / 2, l = { x: e.flipX > 0 ? c : -r, y: s.y }, a = { x: l.x, y: d }, g = {
-    x: e.flipX > 0 ? e.to.x - c : e.to.x + r,
-    y: h.y
-  }, y = { x: g.x, y: d };
-  return $(
-    [t, s, l, a, y, g, h, o],
-    e.roundness
+  ) : w, r = t.hasTargetArrow ? v(
+    { x: t.to.x - t.arrowLength, y: t.to.y },
+    t.toVect,
+    t.to
+  ) : t.to, o = t.arrowLength + t.arrowOffset, n = o - t.roundness, d = v({ x: n, y: w.y }, t.fromVect, w), s = v(
+    { x: t.to.x - n, y: t.to.y },
+    t.toVect,
+    t.to
+  ), h = Math.max((d.x + s.x) / 2, o), c = t.to.y / 2, a = { x: t.flipX > 0 ? h : -o, y: d.y }, l = { x: a.x, y: c }, g = {
+    x: t.flipX > 0 ? t.to.x - h : t.to.x + o,
+    y: s.y
+  }, f = { x: g.x, y: c };
+  return U(
+    [e, d, a, l, f, g, s, r],
+    t.roundness
   );
-}, U = (e) => {
-  const t = e.hasSourceArrow ? v(
-    { x: e.arrowLength, y: w.y },
-    e.fromVect,
+}, j = (t) => {
+  const e = t.hasSourceArrow ? v(
+    { x: t.arrowLength, y: w.y },
+    t.fromVect,
     w
-  ) : w, o = e.hasTargetArrow ? v(
-    { x: e.to.x - e.arrowLength, y: e.to.y },
-    e.toVect,
-    e.to
-  ) : e.to, r = e.arrowLength + e.arrowOffset, i = v(
-    { x: r, y: w.y },
-    e.fromVect,
+  ) : w, r = t.hasTargetArrow ? v(
+    { x: t.to.x - t.arrowLength, y: t.to.y },
+    t.toVect,
+    t.to
+  ) : t.to, o = t.arrowLength + t.arrowOffset, n = v(
+    { x: o, y: w.y },
+    t.fromVect,
     w
-  ), s = Math.cos(e.detourDirection) * e.detourDistance, h = Math.sin(e.detourDirection) * e.detourDistance, c = s * e.flipX, d = h * e.flipY, l = { x: i.x + c, y: i.y + d }, a = v(
-    { x: e.to.x - r, y: e.to.y },
-    e.toVect,
-    e.to
-  ), g = { x: a.x + c, y: a.y + d };
-  return $(
-    [t, i, l, g, a, o],
-    e.roundness
+  ), d = Math.cos(t.detourDirection) * t.detourDistance, s = Math.sin(t.detourDirection) * t.detourDistance, h = d * t.flipX, c = s * t.flipY, a = { x: n.x + h, y: n.y + c }, l = v(
+    { x: t.to.x - o, y: t.to.y },
+    t.toVect,
+    t.to
+  ), g = { x: l.x + h, y: l.y + c };
+  return U(
+    [e, n, a, g, l, r],
+    t.roundness
   );
-}, ot = (e) => {
-  const t = e.hasSourceArrow ? v(
-    { x: e.arrowLength, y: w.y },
-    e.fromVect,
+}, ye = (t) => {
+  const e = t.hasSourceArrow ? v(
+    { x: t.arrowLength, y: w.y },
+    t.fromVect,
     w
-  ) : w, o = e.hasTargetArrow ? v(
-    { x: e.to.x - e.arrowLength, y: e.to.y },
-    e.toVect,
-    e.to
-  ) : e.to, r = e.arrowLength + e.arrowOffset, i = v({ x: r, y: w.y }, e.fromVect, w), s = v(
-    { x: e.to.x - r, y: e.to.y },
-    e.toVect,
-    e.to
+  ) : w, r = t.hasTargetArrow ? v(
+    { x: t.to.x - t.arrowLength, y: t.to.y },
+    t.toVect,
+    t.to
+  ) : t.to, o = t.arrowLength + t.arrowOffset, n = v({ x: o, y: w.y }, t.fromVect, w), d = v(
+    { x: t.to.x - o, y: t.to.y },
+    t.toVect,
+    t.to
   );
-  return $([t, i, s, o], e.roundness);
-}, rt = (e) => {
-  const t = e.hasSourceArrow ? v(
-    { x: e.arrowLength, y: w.y },
-    e.fromVect,
+  return U([e, n, d, r], t.roundness);
+}, ve = (t) => {
+  const e = t.hasSourceArrow ? v(
+    { x: t.arrowLength, y: w.y },
+    t.fromVect,
     w
-  ) : w, o = e.hasTargetArrow ? v(
-    { x: e.to.x - e.arrowLength, y: e.to.y },
-    e.toVect,
-    e.to
-  ) : e.to, r = e.arrowLength + e.arrowOffset, i = r - e.roundness, s = v({ x: i, y: w.y }, e.fromVect, w), h = v(
-    { x: e.to.x - i, y: e.to.y },
-    e.toVect,
-    e.to
-  ), c = Math.max((s.y + h.y) / 2, r), d = e.to.x / 2, l = { x: s.x, y: e.flipY > 0 ? c : -r }, a = { x: d, y: l.y }, g = {
-    x: h.x,
-    y: e.flipY > 0 ? e.to.y - c : e.to.y + r
-  }, y = { x: d, y: g.y };
-  return $(
-    [t, s, l, a, y, g, h, o],
-    e.roundness
+  ) : w, r = t.hasTargetArrow ? v(
+    { x: t.to.x - t.arrowLength, y: t.to.y },
+    t.toVect,
+    t.to
+  ) : t.to, o = t.arrowLength + t.arrowOffset, n = o - t.roundness, d = v({ x: n, y: w.y }, t.fromVect, w), s = v(
+    { x: t.to.x - n, y: t.to.y },
+    t.toVect,
+    t.to
+  ), h = Math.max((d.y + s.y) / 2, o), c = t.to.x / 2, a = { x: d.x, y: t.flipY > 0 ? h : -o }, l = { x: c, y: a.y }, g = {
+    x: s.x,
+    y: t.flipY > 0 ? t.to.y - h : t.to.y + o
+  }, f = { x: c, y: g.y };
+  return U(
+    [e, d, a, l, f, g, s, r],
+    t.roundness
   );
-}, G = (e) => {
-  const t = e.arrowOffset, o = e.side, r = e.arrowLength + t, i = r + 2 * o, h = [
-    { x: e.arrowLength, y: w.y },
-    { x: r, y: w.y },
-    { x: r, y: e.side },
-    { x: i, y: e.side },
-    { x: i, y: -e.side },
-    { x: r, y: -e.side },
-    { x: r, y: w.y },
-    { x: e.arrowLength, y: w.y }
+}, G = (t) => {
+  const e = t.arrowOffset, r = t.side, o = t.arrowLength + e, n = o + 2 * r, s = [
+    { x: t.arrowLength, y: w.y },
+    { x: o, y: w.y },
+    { x: o, y: t.side },
+    { x: n, y: t.side },
+    { x: n, y: -t.side },
+    { x: o, y: -t.side },
+    { x: o, y: w.y },
+    { x: t.arrowLength, y: w.y }
   ].map(
-    (d) => v(d, e.fromVect, w)
-  ), c = `M ${w.x} ${w.y} L ${h[0].x} ${h[0].y} `;
-  return `${e.hasSourceArrow || e.hasTargetArrow ? "" : c}${$(h, e.roundness)}`;
-}, it = (e) => {
-  const t = e.smallRadius, o = e.radius, r = Math.sqrt(t * t + o * o), i = t + o, s = e.arrowLength + r * (1 - o / i), h = t * o / i, d = [
-    { x: e.arrowLength, y: w.y },
-    { x: s, y: h },
-    { x: s, y: -h }
-  ].map((g) => v(g, e.fromVect, w)), l = [
-    `M ${d[0].x} ${d[0].y}`,
-    `A ${t} ${t} 0 0 1 ${d[1].x} ${d[1].y}`,
-    `A ${o} ${o} 0 1 0 ${d[2].x} ${d[2].y}`,
-    `A ${t} ${t} 0 0 1 ${d[0].x} ${d[0].y}`
-  ].join(" "), a = `M 0 0 L ${d[0].x} ${d[0].y} `;
-  return `${e.hasSourceArrow || e.hasTargetArrow ? "" : a}${l}`;
+    (c) => v(c, t.fromVect, w)
+  ), h = `M ${w.x} ${w.y} L ${s[0].x} ${s[0].y} `;
+  return `${t.hasSourceArrow || t.hasTargetArrow ? "" : h}${U(s, t.roundness)}`;
+}, xe = (t) => {
+  const e = t.smallRadius, r = t.radius, o = Math.sqrt(e * e + r * r), n = e + r, d = t.arrowLength + o * (1 - r / n), s = e * r / n, c = [
+    { x: t.arrowLength, y: w.y },
+    { x: d, y: s },
+    { x: d, y: -s }
+  ].map((g) => v(g, t.fromVect, w)), a = [
+    `M ${c[0].x} ${c[0].y}`,
+    `A ${e} ${e} 0 0 1 ${c[1].x} ${c[1].y}`,
+    `A ${r} ${r} 0 1 0 ${c[2].x} ${c[2].y}`,
+    `A ${e} ${e} 0 0 1 ${c[0].x} ${c[0].y}`
+  ].join(" "), l = `M 0 0 L ${c[0].x} ${c[0].y} `;
+  return `${t.hasSourceArrow || t.hasTargetArrow ? "" : l}${a}`;
 }, u = Object.freeze({
   color: "#777777",
   width: 1,
@@ -246,143 +246,143 @@ const O = (e, t) => ({
   smallCycleRadius: 15,
   curvature: 90
 });
-class nt {
-  constructor(t) {
-    n(this, "svg", W());
-    n(this, "group", F());
-    n(this, "line");
-    n(this, "sourceArrow", null);
-    n(this, "targetArrow", null);
-    n(this, "arrowLength");
-    n(this, "arrowWidth");
-    n(this, "curvature");
-    n(this, "portCycleRadius");
-    n(this, "portCycleSmallRadius");
-    n(this, "detourDirection");
-    n(this, "detourDistance");
-    n(this, "hasSourceArrow");
-    n(this, "hasTargetArrow");
-    this.arrowLength = (t == null ? void 0 : t.arrowLength) ?? u.arrowLength, this.arrowWidth = (t == null ? void 0 : t.arrowWidth) ?? u.arrowWidth, this.curvature = (t == null ? void 0 : t.curvature) ?? u.curvature, this.portCycleRadius = (t == null ? void 0 : t.cycleRadius) ?? u.cycleRadius, this.portCycleSmallRadius = (t == null ? void 0 : t.smallCycleRadius) ?? u.smallCycleRadius, this.detourDirection = (t == null ? void 0 : t.detourDirection) ?? u.detourDirection, this.detourDistance = (t == null ? void 0 : t.detourDistance) ?? u.detourDistance, this.hasSourceArrow = (t == null ? void 0 : t.hasSourceArrow) ?? u.hasSourceArrow, this.hasTargetArrow = (t == null ? void 0 : t.hasTargetArrow) ?? u.hasTargetArrow;
-    const o = (t == null ? void 0 : t.color) ?? u.color, r = (t == null ? void 0 : t.width) ?? u.width;
-    this.svg.appendChild(this.group), this.line = R(o, r), this.group.appendChild(this.line), this.hasSourceArrow && (this.sourceArrow = N(o), this.group.appendChild(this.sourceArrow)), this.hasTargetArrow && (this.targetArrow = N(o), this.group.appendChild(this.targetArrow));
+class ee {
+  constructor(e) {
+    i(this, "svg", k());
+    i(this, "group", Y());
+    i(this, "line");
+    i(this, "sourceArrow", null);
+    i(this, "targetArrow", null);
+    i(this, "arrowLength");
+    i(this, "arrowWidth");
+    i(this, "curvature");
+    i(this, "portCycleRadius");
+    i(this, "portCycleSmallRadius");
+    i(this, "detourDirection");
+    i(this, "detourDistance");
+    i(this, "hasSourceArrow");
+    i(this, "hasTargetArrow");
+    this.arrowLength = (e == null ? void 0 : e.arrowLength) ?? u.arrowLength, this.arrowWidth = (e == null ? void 0 : e.arrowWidth) ?? u.arrowWidth, this.curvature = (e == null ? void 0 : e.curvature) ?? u.curvature, this.portCycleRadius = (e == null ? void 0 : e.cycleRadius) ?? u.cycleRadius, this.portCycleSmallRadius = (e == null ? void 0 : e.smallCycleRadius) ?? u.smallCycleRadius, this.detourDirection = (e == null ? void 0 : e.detourDirection) ?? u.detourDirection, this.detourDistance = (e == null ? void 0 : e.detourDistance) ?? u.detourDistance, this.hasSourceArrow = (e == null ? void 0 : e.hasSourceArrow) ?? u.hasSourceArrow, this.hasTargetArrow = (e == null ? void 0 : e.hasTargetArrow) ?? u.hasTargetArrow;
+    const r = (e == null ? void 0 : e.color) ?? u.color, o = (e == null ? void 0 : e.width) ?? u.width;
+    this.svg.appendChild(this.group), this.line = X(r, o), this.group.appendChild(this.line), this.hasSourceArrow && (this.sourceArrow = M(r), this.group.appendChild(this.sourceArrow)), this.hasTargetArrow && (this.targetArrow = M(r), this.group.appendChild(this.targetArrow));
   }
-  render(t) {
-    const { x: o, y: r, width: i, height: s, flipX: h, flipY: c } = Y(
-      t.from,
-      t.to
+  render(e) {
+    const { x: r, y: o, width: n, height: d, flipX: s, flipY: h } = z(
+      e.from,
+      e.to
     );
-    this.svg.style.transform = `translate(${o}px, ${r}px)`, this.svg.style.width = `${i}px`, this.svg.style.height = `${s}px`, this.group.style.transform = `scale(${h}, ${c})`;
-    const d = M(
-      t.from.direction,
-      h,
-      c
-    ), l = M(t.to.direction, h, c), a = {
-      x: i,
-      y: s
+    this.svg.style.transform = `translate(${r}px, ${o}px)`, this.svg.style.width = `${n}px`, this.svg.style.height = `${d}px`, this.group.style.transform = `scale(${s}, ${h})`;
+    const c = N(
+      e.from.direction,
+      s,
+      h
+    ), a = N(e.to.direction, s, h), l = {
+      x: n,
+      y: d
     };
-    let g, y = l, x = -this.arrowLength;
-    if (t.from.portId === t.to.portId ? (g = it({
-      fromVect: d,
+    let g, f = a, x = -this.arrowLength;
+    if (e.from.portId === e.to.portId ? (g = xe({
+      fromVect: c,
       radius: this.portCycleRadius,
       smallRadius: this.portCycleSmallRadius,
       arrowLength: this.arrowLength,
       hasSourceArrow: this.hasSourceArrow,
       hasTargetArrow: this.hasTargetArrow
-    }), y = d, x = this.arrowLength) : t.from.nodeId === t.to.nodeId ? g = tt({
-      to: a,
-      fromVect: d,
-      toVect: l,
-      flipX: h,
-      flipY: c,
+    }), f = c, x = this.arrowLength) : e.from.nodeId === e.to.nodeId ? g = we({
+      to: l,
+      fromVect: c,
+      toVect: a,
+      flipX: s,
+      flipY: h,
       arrowLength: this.arrowLength,
       detourDirection: this.detourDirection,
       detourDistance: this.detourDistance,
       curvature: this.curvature,
       hasSourceArrow: this.hasSourceArrow,
       hasTargetArrow: this.hasTargetArrow
-    }) : g = q({
-      to: a,
-      fromVect: d,
-      toVect: l,
+    }) : g = ue({
+      to: l,
+      fromVect: c,
+      toVect: a,
       arrowLength: this.arrowLength,
       curvature: this.curvature,
       hasSourceArrow: this.hasSourceArrow,
       hasTargetArrow: this.hasTargetArrow
     }), this.line.setAttribute("d", g), this.sourceArrow) {
-      const f = C(
-        d,
+      const y = T(
+        c,
         w,
         this.arrowLength,
         this.arrowWidth
       );
-      this.sourceArrow.setAttribute("d", f);
+      this.sourceArrow.setAttribute("d", y);
     }
     if (this.targetArrow) {
-      const f = C(
-        y,
-        a,
+      const y = T(
+        f,
+        l,
         x,
         this.arrowWidth
       );
-      this.targetArrow.setAttribute("d", f);
+      this.targetArrow.setAttribute("d", y);
     }
   }
 }
-class st {
-  constructor(t) {
-    n(this, "svg", W());
-    n(this, "group", F());
-    n(this, "line");
-    n(this, "sourceArrow", null);
-    n(this, "targetArrow", null);
-    n(this, "arrowLength");
-    n(this, "arrowWidth");
-    n(this, "arrowOffset");
-    n(this, "roundness");
-    n(this, "cycleSquareSide");
-    n(this, "detourDirection");
-    n(this, "detourDistance");
-    n(this, "hasSourceArrow");
-    n(this, "hasTargetArrow");
-    this.arrowLength = (t == null ? void 0 : t.arrowLength) ?? u.arrowLength, this.arrowWidth = (t == null ? void 0 : t.arrowWidth) ?? u.arrowWidth, this.arrowOffset = (t == null ? void 0 : t.arrowOffset) ?? u.arrowOffset, this.cycleSquareSide = (t == null ? void 0 : t.cycleSquareSide) ?? u.cycleSquareSide;
-    const o = (t == null ? void 0 : t.roundness) ?? u.roundness;
+class te {
+  constructor(e) {
+    i(this, "svg", k());
+    i(this, "group", Y());
+    i(this, "line");
+    i(this, "sourceArrow", null);
+    i(this, "targetArrow", null);
+    i(this, "arrowLength");
+    i(this, "arrowWidth");
+    i(this, "arrowOffset");
+    i(this, "roundness");
+    i(this, "cycleSquareSide");
+    i(this, "detourDirection");
+    i(this, "detourDistance");
+    i(this, "hasSourceArrow");
+    i(this, "hasTargetArrow");
+    this.arrowLength = (e == null ? void 0 : e.arrowLength) ?? u.arrowLength, this.arrowWidth = (e == null ? void 0 : e.arrowWidth) ?? u.arrowWidth, this.arrowOffset = (e == null ? void 0 : e.arrowOffset) ?? u.arrowOffset, this.cycleSquareSide = (e == null ? void 0 : e.cycleSquareSide) ?? u.cycleSquareSide;
+    const r = (e == null ? void 0 : e.roundness) ?? u.roundness;
     this.roundness = Math.min(
-      o,
+      r,
       this.arrowOffset,
       this.cycleSquareSide / 2
-    ), this.detourDirection = (t == null ? void 0 : t.detourDirection) ?? u.detourDirection, this.detourDistance = (t == null ? void 0 : t.detourDistance) ?? u.detourDistance, this.hasSourceArrow = (t == null ? void 0 : t.hasSourceArrow) ?? u.hasSourceArrow, this.hasTargetArrow = (t == null ? void 0 : t.hasTargetArrow) ?? u.hasTargetArrow;
-    const r = (t == null ? void 0 : t.color) ?? u.color, i = (t == null ? void 0 : t.width) ?? u.width;
-    this.svg.appendChild(this.group), this.line = R(r, i), this.group.appendChild(this.line), this.hasSourceArrow && (this.sourceArrow = N(r), this.group.appendChild(this.sourceArrow)), this.hasTargetArrow && (this.targetArrow = N(r), this.group.appendChild(this.targetArrow));
+    ), this.detourDirection = (e == null ? void 0 : e.detourDirection) ?? u.detourDirection, this.detourDistance = (e == null ? void 0 : e.detourDistance) ?? u.detourDistance, this.hasSourceArrow = (e == null ? void 0 : e.hasSourceArrow) ?? u.hasSourceArrow, this.hasTargetArrow = (e == null ? void 0 : e.hasTargetArrow) ?? u.hasTargetArrow;
+    const o = (e == null ? void 0 : e.color) ?? u.color, n = (e == null ? void 0 : e.width) ?? u.width;
+    this.svg.appendChild(this.group), this.line = X(o, n), this.group.appendChild(this.line), this.hasSourceArrow && (this.sourceArrow = M(o), this.group.appendChild(this.sourceArrow)), this.hasTargetArrow && (this.targetArrow = M(o), this.group.appendChild(this.targetArrow));
   }
-  render(t) {
-    const { x: o, y: r, width: i, height: s, flipX: h, flipY: c } = Y(
-      t.from,
-      t.to
+  render(e) {
+    const { x: r, y: o, width: n, height: d, flipX: s, flipY: h } = z(
+      e.from,
+      e.to
     );
-    this.svg.style.transform = `translate(${o}px, ${r}px)`, this.svg.style.width = `${i}px`, this.svg.style.height = `${s}px`, this.group.style.transform = `scale(${h}, ${c})`;
-    const d = M(
-      t.from.direction,
-      h,
-      c
-    ), l = M(t.to.direction, h, c), a = {
-      x: i,
-      y: s
+    this.svg.style.transform = `translate(${r}px, ${o}px)`, this.svg.style.width = `${n}px`, this.svg.style.height = `${d}px`, this.group.style.transform = `scale(${s}, ${h})`;
+    const c = N(
+      e.from.direction,
+      s,
+      h
+    ), a = N(e.to.direction, s, h), l = {
+      x: n,
+      y: d
     };
-    let g, y = l, x = -this.arrowLength;
-    if (t.from.portId === t.to.portId ? (g = G({
-      fromVect: d,
+    let g, f = a, x = -this.arrowLength;
+    if (e.from.portId === e.to.portId ? (g = G({
+      fromVect: c,
       arrowLength: this.arrowLength,
       side: this.cycleSquareSide,
       arrowOffset: this.arrowOffset,
       roundness: this.roundness,
       hasSourceArrow: this.hasSourceArrow,
       hasTargetArrow: this.hasTargetArrow
-    }), y = d, x = this.arrowLength) : t.from.nodeId === t.to.nodeId ? g = U({
-      to: a,
-      fromVect: d,
-      toVect: l,
-      flipX: h,
-      flipY: c,
+    }), f = c, x = this.arrowLength) : e.from.nodeId === e.to.nodeId ? g = j({
+      to: l,
+      fromVect: c,
+      toVect: a,
+      flipX: s,
+      flipY: h,
       arrowLength: this.arrowLength,
       arrowOffset: this.arrowOffset,
       roundness: this.roundness,
@@ -390,91 +390,91 @@ class st {
       detourDistance: this.detourDistance,
       hasSourceArrow: this.hasSourceArrow,
       hasTargetArrow: this.hasTargetArrow
-    }) : g = et({
-      to: a,
-      fromVect: d,
-      toVect: l,
-      flipX: h,
+    }) : g = fe({
+      to: l,
+      fromVect: c,
+      toVect: a,
+      flipX: s,
       arrowLength: this.arrowLength,
       arrowOffset: this.arrowOffset,
       roundness: this.roundness,
       hasSourceArrow: this.hasSourceArrow,
       hasTargetArrow: this.hasTargetArrow
     }), this.line.setAttribute("d", g), this.sourceArrow) {
-      const f = C(
-        d,
+      const y = T(
+        c,
         w,
         this.arrowLength,
         this.arrowWidth
       );
-      this.sourceArrow.setAttribute("d", f);
+      this.sourceArrow.setAttribute("d", y);
     }
     if (this.targetArrow) {
-      const f = C(
-        y,
-        a,
+      const y = T(
+        f,
+        l,
         x,
         this.arrowWidth
       );
-      this.targetArrow.setAttribute("d", f);
+      this.targetArrow.setAttribute("d", y);
     }
   }
 }
-class ht {
-  constructor(t) {
-    n(this, "svg", W());
-    n(this, "group", F());
-    n(this, "line");
-    n(this, "sourceArrow", null);
-    n(this, "targetArrow", null);
-    n(this, "arrowLength");
-    n(this, "arrowWidth");
-    n(this, "arrowOffset");
-    n(this, "roundness");
-    n(this, "cycleSquareSide");
-    n(this, "detourDirection");
-    n(this, "detourDistance");
-    n(this, "hasSourceArrow");
-    n(this, "hasTargetArrow");
-    this.arrowLength = (t == null ? void 0 : t.arrowLength) ?? u.arrowLength, this.arrowWidth = (t == null ? void 0 : t.arrowWidth) ?? u.arrowWidth, this.arrowOffset = (t == null ? void 0 : t.arrowOffset) ?? u.arrowOffset, this.cycleSquareSide = (t == null ? void 0 : t.cycleSquareSide) ?? u.cycleSquareSide;
-    const o = (t == null ? void 0 : t.roundness) ?? u.roundness;
+class re {
+  constructor(e) {
+    i(this, "svg", k());
+    i(this, "group", Y());
+    i(this, "line");
+    i(this, "sourceArrow", null);
+    i(this, "targetArrow", null);
+    i(this, "arrowLength");
+    i(this, "arrowWidth");
+    i(this, "arrowOffset");
+    i(this, "roundness");
+    i(this, "cycleSquareSide");
+    i(this, "detourDirection");
+    i(this, "detourDistance");
+    i(this, "hasSourceArrow");
+    i(this, "hasTargetArrow");
+    this.arrowLength = (e == null ? void 0 : e.arrowLength) ?? u.arrowLength, this.arrowWidth = (e == null ? void 0 : e.arrowWidth) ?? u.arrowWidth, this.arrowOffset = (e == null ? void 0 : e.arrowOffset) ?? u.arrowOffset, this.cycleSquareSide = (e == null ? void 0 : e.cycleSquareSide) ?? u.cycleSquareSide;
+    const r = (e == null ? void 0 : e.roundness) ?? u.roundness;
     this.roundness = Math.min(
-      o,
+      r,
       this.arrowOffset,
       this.cycleSquareSide / 2
-    ), this.detourDirection = (t == null ? void 0 : t.detourDirection) ?? u.detourDirection, this.detourDistance = (t == null ? void 0 : t.detourDistance) ?? u.detourDistance, this.hasSourceArrow = (t == null ? void 0 : t.hasSourceArrow) ?? u.hasSourceArrow, this.hasTargetArrow = (t == null ? void 0 : t.hasTargetArrow) ?? u.hasTargetArrow;
-    const r = (t == null ? void 0 : t.color) ?? u.color, i = (t == null ? void 0 : t.width) ?? u.width;
-    this.svg.appendChild(this.group), this.line = R(r, i), this.group.appendChild(this.line), this.hasSourceArrow && (this.sourceArrow = N(r), this.group.appendChild(this.sourceArrow)), this.hasTargetArrow && (this.targetArrow = N(r), this.group.appendChild(this.targetArrow));
+    ), this.detourDirection = (e == null ? void 0 : e.detourDirection) ?? u.detourDirection, this.detourDistance = (e == null ? void 0 : e.detourDistance) ?? u.detourDistance, this.hasSourceArrow = (e == null ? void 0 : e.hasSourceArrow) ?? u.hasSourceArrow, this.hasTargetArrow = (e == null ? void 0 : e.hasTargetArrow) ?? u.hasTargetArrow;
+    const o = (e == null ? void 0 : e.color) ?? u.color, n = (e == null ? void 0 : e.width) ?? u.width;
+    this.svg.appendChild(this.group), this.line = X(o, n), this.group.appendChild(this.line), this.hasSourceArrow && (this.sourceArrow = M(o), this.group.appendChild(this.sourceArrow)), this.hasTargetArrow && (this.targetArrow = M(o), this.group.appendChild(this.targetArrow));
   }
-  render(t) {
-    const { x: o, y: r, width: i, height: s, flipX: h, flipY: c } = Y(
-      t.from,
-      t.to
+  render(e) {
+    const { x: r, y: o, width: n, height: d, flipX: s, flipY: h } = z(
+      e.from,
+      e.to
     );
-    this.svg.style.transform = `translate(${o}px, ${r}px)`, this.svg.style.width = `${i}px`, this.svg.style.height = `${s}px`, this.group.style.transform = `scale(${h}, ${c})`;
-    const d = M(
-      t.from.direction,
-      h,
-      c
-    ), l = M(t.to.direction, h, c), a = {
-      x: i,
-      y: s
+    this.svg.style.transform = `translate(${r}px, ${o}px)`, this.svg.style.width = `${n}px`, this.svg.style.height = `${d}px`, this.group.style.transform = `scale(${s}, ${h})`;
+    const c = N(
+      e.from.direction,
+      s,
+      h
+    ), a = N(e.to.direction, s, h), l = {
+      x: n,
+      y: d
     };
-    let g, y = l, x = -this.arrowLength;
-    if (t.from.portId === t.to.portId ? (g = G({
-      fromVect: d,
+    let g, f = a, x = -this.arrowLength;
+    if (e.from.portId === e.to.portId ? (g = G({
+      fromVect: c,
       arrowLength: this.arrowLength,
       side: this.cycleSquareSide,
       arrowOffset: this.arrowOffset,
       roundness: this.roundness,
       hasSourceArrow: this.hasSourceArrow,
       hasTargetArrow: this.hasTargetArrow
-    }), y = d, x = this.arrowLength) : t.from.nodeId === t.to.nodeId ? g = U({
-      to: a,
-      fromVect: d,
-      toVect: l,
-      flipX: h,
-      flipY: c,
+    }), f = c, x = this.arrowLength) : e.from.nodeId === e.to.nodeId ? g = j({
+      to: l,
+      fromVect: c,
+      toVect: a,
+      flipX: s,
+      flipY: h,
       arrowLength: this.arrowLength,
       arrowOffset: this.arrowOffset,
       roundness: this.roundness,
@@ -482,90 +482,90 @@ class ht {
       detourDistance: this.detourDistance,
       hasSourceArrow: this.hasSourceArrow,
       hasTargetArrow: this.hasTargetArrow
-    }) : g = ot({
-      to: a,
-      fromVect: d,
-      toVect: l,
+    }) : g = ye({
+      to: l,
+      fromVect: c,
+      toVect: a,
       arrowLength: this.arrowLength,
       arrowOffset: this.arrowOffset,
       roundness: this.roundness,
       hasSourceArrow: this.hasSourceArrow,
       hasTargetArrow: this.hasTargetArrow
     }), this.line.setAttribute("d", g), this.sourceArrow) {
-      const f = C(
-        d,
+      const y = T(
+        c,
         w,
         this.arrowLength,
         this.arrowWidth
       );
-      this.sourceArrow.setAttribute("d", f);
+      this.sourceArrow.setAttribute("d", y);
     }
     if (this.targetArrow) {
-      const f = C(
-        y,
-        a,
+      const y = T(
+        f,
+        l,
         x,
         this.arrowWidth
       );
-      this.targetArrow.setAttribute("d", f);
+      this.targetArrow.setAttribute("d", y);
     }
   }
 }
-class ct {
-  constructor(t) {
-    n(this, "svg", W());
-    n(this, "group", F());
-    n(this, "line");
-    n(this, "sourceArrow", null);
-    n(this, "targetArrow", null);
-    n(this, "arrowLength");
-    n(this, "arrowWidth");
-    n(this, "arrowOffset");
-    n(this, "roundness");
-    n(this, "cycleSquareSide");
-    n(this, "detourDirection");
-    n(this, "detourDistance");
-    n(this, "hasSourceArrow");
-    n(this, "hasTargetArrow");
-    this.arrowLength = (t == null ? void 0 : t.arrowLength) ?? u.arrowLength, this.arrowWidth = (t == null ? void 0 : t.arrowWidth) ?? u.arrowWidth, this.arrowOffset = (t == null ? void 0 : t.arrowOffset) ?? u.arrowOffset, this.cycleSquareSide = (t == null ? void 0 : t.cycleSquareSide) ?? u.cycleSquareSide;
-    const o = (t == null ? void 0 : t.roundness) ?? u.roundness;
+class oe {
+  constructor(e) {
+    i(this, "svg", k());
+    i(this, "group", Y());
+    i(this, "line");
+    i(this, "sourceArrow", null);
+    i(this, "targetArrow", null);
+    i(this, "arrowLength");
+    i(this, "arrowWidth");
+    i(this, "arrowOffset");
+    i(this, "roundness");
+    i(this, "cycleSquareSide");
+    i(this, "detourDirection");
+    i(this, "detourDistance");
+    i(this, "hasSourceArrow");
+    i(this, "hasTargetArrow");
+    this.arrowLength = (e == null ? void 0 : e.arrowLength) ?? u.arrowLength, this.arrowWidth = (e == null ? void 0 : e.arrowWidth) ?? u.arrowWidth, this.arrowOffset = (e == null ? void 0 : e.arrowOffset) ?? u.arrowOffset, this.cycleSquareSide = (e == null ? void 0 : e.cycleSquareSide) ?? u.cycleSquareSide;
+    const r = (e == null ? void 0 : e.roundness) ?? u.roundness;
     this.roundness = Math.min(
-      o,
+      r,
       this.arrowOffset,
       this.cycleSquareSide / 2
-    ), this.detourDirection = (t == null ? void 0 : t.detourDirection) ?? u.detourDirectionVertical, this.detourDistance = (t == null ? void 0 : t.detourDistance) ?? u.detourDistance, this.hasSourceArrow = (t == null ? void 0 : t.hasSourceArrow) ?? u.hasSourceArrow, this.hasTargetArrow = (t == null ? void 0 : t.hasTargetArrow) ?? u.hasTargetArrow;
-    const r = (t == null ? void 0 : t.color) ?? u.color, i = (t == null ? void 0 : t.width) ?? u.width;
-    this.svg.appendChild(this.group), this.line = R(r, i), this.group.appendChild(this.line), this.hasSourceArrow && (this.sourceArrow = N(r), this.group.appendChild(this.sourceArrow)), this.hasTargetArrow && (this.targetArrow = N(r), this.group.appendChild(this.targetArrow));
+    ), this.detourDirection = (e == null ? void 0 : e.detourDirection) ?? u.detourDirectionVertical, this.detourDistance = (e == null ? void 0 : e.detourDistance) ?? u.detourDistance, this.hasSourceArrow = (e == null ? void 0 : e.hasSourceArrow) ?? u.hasSourceArrow, this.hasTargetArrow = (e == null ? void 0 : e.hasTargetArrow) ?? u.hasTargetArrow;
+    const o = (e == null ? void 0 : e.color) ?? u.color, n = (e == null ? void 0 : e.width) ?? u.width;
+    this.svg.appendChild(this.group), this.line = X(o, n), this.group.appendChild(this.line), this.hasSourceArrow && (this.sourceArrow = M(o), this.group.appendChild(this.sourceArrow)), this.hasTargetArrow && (this.targetArrow = M(o), this.group.appendChild(this.targetArrow));
   }
-  render(t) {
-    const { x: o, y: r, width: i, height: s, flipX: h, flipY: c } = Y(
-      t.from,
-      t.to
+  render(e) {
+    const { x: r, y: o, width: n, height: d, flipX: s, flipY: h } = z(
+      e.from,
+      e.to
     );
-    this.svg.style.transform = `translate(${o}px, ${r}px)`, this.svg.style.width = `${i}px`, this.svg.style.height = `${s}px`, this.group.style.transform = `scale(${h}, ${c})`;
-    const d = M(
-      t.from.direction,
-      h,
-      c
-    ), l = M(t.to.direction, h, c), a = {
-      x: i,
-      y: s
+    this.svg.style.transform = `translate(${r}px, ${o}px)`, this.svg.style.width = `${n}px`, this.svg.style.height = `${d}px`, this.group.style.transform = `scale(${s}, ${h})`;
+    const c = N(
+      e.from.direction,
+      s,
+      h
+    ), a = N(e.to.direction, s, h), l = {
+      x: n,
+      y: d
     };
-    let g, y = l, x = -this.arrowLength;
-    if (t.from.portId === t.to.portId ? (g = G({
-      fromVect: d,
+    let g, f = a, x = -this.arrowLength;
+    if (e.from.portId === e.to.portId ? (g = G({
+      fromVect: c,
       arrowLength: this.arrowLength,
       side: this.cycleSquareSide,
       arrowOffset: this.arrowOffset,
       roundness: this.roundness,
       hasSourceArrow: this.hasSourceArrow,
       hasTargetArrow: this.hasTargetArrow
-    }), y = d, x = this.arrowLength) : t.from.nodeId === t.to.nodeId ? g = U({
-      to: a,
-      fromVect: d,
-      toVect: l,
-      flipX: h,
-      flipY: c,
+    }), f = c, x = this.arrowLength) : e.from.nodeId === e.to.nodeId ? g = j({
+      to: l,
+      fromVect: c,
+      toVect: a,
+      flipX: s,
+      flipY: h,
       arrowLength: this.arrowLength,
       arrowOffset: this.arrowOffset,
       roundness: this.roundness,
@@ -573,280 +573,302 @@ class ct {
       detourDistance: this.detourDistance,
       hasSourceArrow: this.hasSourceArrow,
       hasTargetArrow: this.hasTargetArrow
-    }) : g = rt({
-      to: a,
-      fromVect: d,
-      toVect: l,
-      flipY: c,
+    }) : g = ve({
+      to: l,
+      fromVect: c,
+      toVect: a,
+      flipY: h,
       arrowLength: this.arrowLength,
       arrowOffset: this.arrowOffset,
       roundness: this.roundness,
       hasSourceArrow: this.hasSourceArrow,
       hasTargetArrow: this.hasTargetArrow
     }), this.line.setAttribute("d", g), this.sourceArrow) {
-      const f = C(
-        d,
+      const y = T(
+        c,
         w,
         this.arrowLength,
         this.arrowWidth
       );
-      this.sourceArrow.setAttribute("d", f);
+      this.sourceArrow.setAttribute("d", y);
     }
     if (this.targetArrow) {
-      const f = C(
-        y,
-        a,
+      const y = T(
+        f,
+        l,
         x,
         this.arrowWidth
       );
-      this.targetArrow.setAttribute("d", f);
+      this.targetArrow.setAttribute("d", y);
     }
   }
 }
-const dt = (e) => {
-  if (typeof e == "function")
-    return e;
-  switch (e == null ? void 0 : e.type) {
+const Ae = (t) => {
+  if (typeof t == "function")
+    return t;
+  switch (t == null ? void 0 : t.type) {
     case "straight":
-      return () => new ht({
-        color: e.color,
-        width: e.width,
-        arrowLength: e.arrowLength,
-        arrowWidth: e.arrowWidth,
-        arrowOffset: e.arrowOffset,
-        hasSourceArrow: e.hasSourceArrow,
-        hasTargetArrow: e.hasTargetArrow,
-        cycleSquareSide: e.cycleSquareSide,
-        roundness: e.roundness,
-        detourDistance: e.detourDistance,
-        detourDirection: e.detourDirection
+      return () => new re({
+        color: t.color,
+        width: t.width,
+        arrowLength: t.arrowLength,
+        arrowWidth: t.arrowWidth,
+        arrowOffset: t.arrowOffset,
+        hasSourceArrow: t.hasSourceArrow,
+        hasTargetArrow: t.hasTargetArrow,
+        cycleSquareSide: t.cycleSquareSide,
+        roundness: t.roundness,
+        detourDistance: t.detourDistance,
+        detourDirection: t.detourDirection
       });
     case "horizontal":
-      return () => new st({
-        color: e.color,
-        width: e.width,
-        arrowLength: e.arrowLength,
-        arrowWidth: e.arrowWidth,
-        arrowOffset: e.arrowOffset,
-        hasSourceArrow: e.hasSourceArrow,
-        hasTargetArrow: e.hasTargetArrow,
-        cycleSquareSide: e.cycleSquareSide,
-        roundness: e.roundness,
-        detourDistance: e.detourDistance,
-        detourDirection: e.detourDirection
+      return () => new te({
+        color: t.color,
+        width: t.width,
+        arrowLength: t.arrowLength,
+        arrowWidth: t.arrowWidth,
+        arrowOffset: t.arrowOffset,
+        hasSourceArrow: t.hasSourceArrow,
+        hasTargetArrow: t.hasTargetArrow,
+        cycleSquareSide: t.cycleSquareSide,
+        roundness: t.roundness,
+        detourDistance: t.detourDistance,
+        detourDirection: t.detourDirection
       });
     case "vertical":
-      return () => new ct({
-        color: e.color,
-        width: e.width,
-        arrowLength: e.arrowLength,
-        arrowWidth: e.arrowWidth,
-        arrowOffset: e.arrowOffset,
-        hasSourceArrow: e.hasSourceArrow,
-        hasTargetArrow: e.hasTargetArrow,
-        cycleSquareSide: e.cycleSquareSide,
-        roundness: e.roundness,
-        detourDistance: e.detourDistance,
-        detourDirection: e.detourDirection
+      return () => new oe({
+        color: t.color,
+        width: t.width,
+        arrowLength: t.arrowLength,
+        arrowWidth: t.arrowWidth,
+        arrowOffset: t.arrowOffset,
+        hasSourceArrow: t.hasSourceArrow,
+        hasTargetArrow: t.hasTargetArrow,
+        cycleSquareSide: t.cycleSquareSide,
+        roundness: t.roundness,
+        detourDistance: t.detourDistance,
+        detourDirection: t.detourDirection
       });
     default:
-      return () => new nt({
-        color: e.color,
-        width: e.width,
-        arrowLength: e.arrowLength,
-        arrowWidth: e.arrowWidth,
-        hasSourceArrow: e.hasSourceArrow,
-        hasTargetArrow: e.hasTargetArrow,
-        cycleRadius: e.cycleRadius,
-        smallCycleRadius: e.smallCycleRadius,
-        curvature: e.curvature,
-        detourDistance: e.detourDistance,
-        detourDirection: e.detourDirection
+      return () => new ee({
+        color: t.color,
+        width: t.width,
+        arrowLength: t.arrowLength,
+        arrowWidth: t.arrowWidth,
+        hasSourceArrow: t.hasSourceArrow,
+        hasTargetArrow: t.hasTargetArrow,
+        cycleRadius: t.cycleRadius,
+        smallCycleRadius: t.smallCycleRadius,
+        curvature: t.curvature,
+        detourDistance: t.detourDistance,
+        detourDirection: t.detourDirection
       });
   }
-}, z = (e) => () => e, H = z(0), k = () => {
-  let e = 0;
-  return () => e++;
-}, lt = (e, t) => {
-  let o = H, r = H;
-  e === "incremental" && (o = k()), t === "incremental" && (r = k());
-  const i = k();
-  return e === "shared-incremental" && (o = i), t === "shared-incremental" && (r = i), typeof e == "number" && (o = z(e)), typeof t == "number" && (r = z(t)), typeof e == "function" && (o = e), typeof t == "function" && (r = t), {
-    nodesPriorityFn: o,
-    edgesPriorityFn: r
+}, $ = (t) => () => t, I = $(0), C = () => {
+  let t = 0;
+  return () => t++;
+}, Ee = (t, e) => {
+  let r = I, o = I;
+  t === "incremental" && (r = C()), e === "incremental" && (o = C());
+  const n = C();
+  return t === "shared-incremental" && (r = n), e === "shared-incremental" && (o = n), typeof t == "number" && (r = $(t)), typeof e == "number" && (o = $(e)), typeof t == "function" && (r = t), typeof e == "function" && (o = e), {
+    nodesPriorityFn: r,
+    edgesPriorityFn: o
   };
-}, at = (e) => {
-  var o, r, i, s, h;
-  const t = lt(
-    (o = e == null ? void 0 : e.nodes) == null ? void 0 : o.priority,
-    (r = e == null ? void 0 : e.edges) == null ? void 0 : r.priority
+}, Se = (t) => {
+  var r, o, n, d, s;
+  const e = Ee(
+    (r = t == null ? void 0 : t.nodes) == null ? void 0 : r.priority,
+    (o = t == null ? void 0 : t.edges) == null ? void 0 : o.priority
   );
   return {
     nodes: {
-      centerFn: ((i = e == null ? void 0 : e.nodes) == null ? void 0 : i.centerFn) ?? O,
-      priorityFn: t.nodesPriorityFn
+      centerFn: ((n = t == null ? void 0 : t.nodes) == null ? void 0 : n.centerFn) ?? O,
+      priorityFn: e.nodesPriorityFn
     },
     ports: {
-      direction: ((s = e == null ? void 0 : e.ports) == null ? void 0 : s.direction) ?? 0
+      direction: ((d = t == null ? void 0 : t.ports) == null ? void 0 : d.direction) ?? 0
     },
     edges: {
-      shapeFactory: dt(((h = e == null ? void 0 : e.edges) == null ? void 0 : h.shape) ?? {}),
-      priorityFn: t.edgesPriorityFn
+      shapeFactory: Ae(((s = t == null ? void 0 : t.edges) == null ? void 0 : s.shape) ?? {}),
+      priorityFn: e.edgesPriorityFn
     }
   };
 };
-class gt {
+class ie {
   constructor() {
-    n(this, "nodes", /* @__PURE__ */ new Map());
-    n(this, "ports", /* @__PURE__ */ new Map());
-    n(this, "nodePorts", /* @__PURE__ */ new Map());
-    n(this, "portNodeId", /* @__PURE__ */ new Map());
-    n(this, "edges", /* @__PURE__ */ new Map());
-    n(this, "incommingEdges", /* @__PURE__ */ new Map());
-    n(this, "outcommingEdges", /* @__PURE__ */ new Map());
-    n(this, "cycleEdges", /* @__PURE__ */ new Map());
+    i(this, "nodes", /* @__PURE__ */ new Map());
+    i(this, "ports", /* @__PURE__ */ new Map());
+    i(this, "nodePorts", /* @__PURE__ */ new Map());
+    i(this, "portNodeId", /* @__PURE__ */ new Map());
+    i(this, "edges", /* @__PURE__ */ new Map());
+    i(this, "incommingEdges", /* @__PURE__ */ new Map());
+    i(this, "outcommingEdges", /* @__PURE__ */ new Map());
+    i(this, "cycleEdges", /* @__PURE__ */ new Map());
   }
-  addNode(t) {
-    this.nodes.set(t.nodeId, {
-      element: t.element,
-      x: t.x,
-      y: t.y,
-      centerFn: t.centerFn,
-      priority: t.priority
-    }), this.nodePorts.set(t.nodeId, /* @__PURE__ */ new Map());
+  addNode(e) {
+    this.nodes.set(e.nodeId, {
+      element: e.element,
+      x: e.x,
+      y: e.y,
+      centerFn: e.centerFn,
+      priority: e.priority
+    }), this.nodePorts.set(e.nodeId, /* @__PURE__ */ new Map());
   }
   getAllNodeIds() {
     return Array.from(this.nodes.keys());
   }
-  getNode(t) {
-    return this.nodes.get(t);
+  getNode(e) {
+    return this.nodes.get(e);
   }
-  removeNode(t) {
-    this.nodes.delete(t), this.nodePorts.delete(t);
+  removeNode(e) {
+    this.nodes.delete(e), this.nodePorts.delete(e);
   }
-  addPort(t) {
-    this.ports.set(t.portId, {
-      element: t.element,
-      direction: t.direction
-    }), this.cycleEdges.set(t.portId, /* @__PURE__ */ new Set()), this.incommingEdges.set(t.portId, /* @__PURE__ */ new Set()), this.outcommingEdges.set(t.portId, /* @__PURE__ */ new Set()), this.portNodeId.set(t.portId, t.nodeId), this.nodePorts.get(t.nodeId).set(t.portId, t.element);
+  addPort(e) {
+    this.ports.set(e.portId, {
+      element: e.element,
+      direction: e.direction
+    }), this.cycleEdges.set(e.portId, /* @__PURE__ */ new Set()), this.incommingEdges.set(e.portId, /* @__PURE__ */ new Set()), this.outcommingEdges.set(e.portId, /* @__PURE__ */ new Set()), this.portNodeId.set(e.portId, e.nodeId), this.nodePorts.get(e.nodeId).set(e.portId, e.element);
   }
-  getPort(t) {
-    return this.ports.get(t);
+  getPort(e) {
+    return this.ports.get(e);
   }
   getAllPortIds() {
     return Array.from(this.ports.keys());
   }
-  getNodePortIds(t) {
-    const o = this.nodePorts.get(t);
-    if (o !== void 0)
-      return Array.from(o.keys());
+  getNodePortIds(e) {
+    const r = this.nodePorts.get(e);
+    if (r !== void 0)
+      return Array.from(r.keys());
   }
-  getPortNodeId(t) {
-    return this.portNodeId.get(t);
+  getPortNodeId(e) {
+    return this.portNodeId.get(e);
   }
-  removePort(t) {
-    const o = this.portNodeId.get(t);
-    this.portNodeId.delete(t), this.nodePorts.get(o).delete(t), this.ports.delete(t);
+  removePort(e) {
+    const r = this.portNodeId.get(e);
+    this.portNodeId.delete(e), this.nodePorts.get(r).delete(e), this.ports.delete(e);
   }
-  addEdge(t) {
-    this.edges.set(t.edgeId, {
-      from: t.from,
-      to: t.to,
-      shape: t.shape,
-      priority: t.priority
-    }), t.from !== t.to ? (this.outcommingEdges.get(t.from).add(t.edgeId), this.incommingEdges.get(t.to).add(t.edgeId)) : this.cycleEdges.get(t.from).add(t.edgeId);
+  addEdge(e) {
+    this.edges.set(e.edgeId, {
+      from: e.from,
+      to: e.to,
+      shape: e.shape,
+      priority: e.priority
+    }), e.from !== e.to ? (this.outcommingEdges.get(e.from).add(e.edgeId), this.incommingEdges.get(e.to).add(e.edgeId)) : this.cycleEdges.get(e.from).add(e.edgeId);
   }
-  updateEdgeFrom(t, o) {
-    const r = this.edges.get(t);
-    this.removeEdge(t), this.addEdge({
-      edgeId: t,
-      from: o,
-      to: r.to,
-      shape: r.shape,
-      priority: r.priority
+  updateEdgeFrom(e, r) {
+    const o = this.edges.get(e);
+    this.removeEdge(e), this.addEdge({
+      edgeId: e,
+      from: r,
+      to: o.to,
+      shape: o.shape,
+      priority: o.priority
     });
   }
-  updateEdgeTo(t, o) {
-    const r = this.edges.get(t);
-    this.removeEdge(t), this.addEdge({
-      edgeId: t,
-      from: r.from,
-      to: o,
-      shape: r.shape,
-      priority: r.priority
+  updateEdgeTo(e, r) {
+    const o = this.edges.get(e);
+    this.removeEdge(e), this.addEdge({
+      edgeId: e,
+      from: o.from,
+      to: r,
+      shape: o.shape,
+      priority: o.priority
     });
   }
   getAllEdgeIds() {
     return Array.from(this.edges.keys());
   }
-  getEdge(t) {
-    return this.edges.get(t);
+  getEdge(e) {
+    return this.edges.get(e);
   }
-  removeEdge(t) {
-    const o = this.edges.get(t), r = o.from, i = o.to;
-    this.cycleEdges.get(r).delete(t), this.cycleEdges.get(i).delete(t), this.incommingEdges.get(r).delete(t), this.incommingEdges.get(i).delete(t), this.outcommingEdges.get(r).delete(t), this.outcommingEdges.get(i).delete(t), this.edges.delete(t);
+  removeEdge(e) {
+    const r = this.edges.get(e), o = r.from, n = r.to;
+    this.cycleEdges.get(o).delete(e), this.cycleEdges.get(n).delete(e), this.incommingEdges.get(o).delete(e), this.incommingEdges.get(n).delete(e), this.outcommingEdges.get(o).delete(e), this.outcommingEdges.get(n).delete(e), this.edges.delete(e);
   }
   clear() {
-    this.nodes.clear(), this.ports.clear(), this.nodePorts.clear(), this.portNodeId.clear(), this.edges.clear(), this.incommingEdges.clear(), this.outcommingEdges.clear(), this.cycleEdges.clear();
+    this.edges.clear(), this.incommingEdges.clear(), this.outcommingEdges.clear(), this.cycleEdges.clear(), this.ports.clear(), this.nodePorts.clear(), this.portNodeId.clear(), this.nodes.clear();
   }
-  getPortIncomingEdgeIds(t) {
-    return Array.from(this.incommingEdges.get(t));
+  getPortIncomingEdgeIds(e) {
+    return Array.from(this.incommingEdges.get(e));
   }
-  getPortOutcomingEdgeIds(t) {
-    return Array.from(this.outcommingEdges.get(t));
+  getPortOutcomingEdgeIds(e) {
+    return Array.from(this.outcommingEdges.get(e));
   }
-  getPortCycleEdgeIds(t) {
-    return Array.from(this.cycleEdges.get(t));
+  getPortCycleEdgeIds(e) {
+    return Array.from(this.cycleEdges.get(e));
   }
-  getPortAdjacentEdgeIds(t) {
+  getPortAdjacentEdgeIds(e) {
     return [
-      ...this.getPortIncomingEdgeIds(t),
-      ...this.getPortOutcomingEdgeIds(t),
-      ...this.getPortCycleEdgeIds(t)
+      ...this.getPortIncomingEdgeIds(e),
+      ...this.getPortOutcomingEdgeIds(e),
+      ...this.getPortCycleEdgeIds(e)
     ];
   }
-  getNodeIncomingEdgeIds(t) {
-    const o = Array.from(this.nodePorts.get(t).keys());
-    let r = [];
-    return o.forEach((i) => {
-      r = [...r, ...this.getPortIncomingEdgeIds(i)];
-    }), r;
+  getNodeIncomingEdgeIds(e) {
+    const r = Array.from(this.nodePorts.get(e).keys());
+    let o = [];
+    return r.forEach((n) => {
+      o = [...o, ...this.getPortIncomingEdgeIds(n)];
+    }), o;
   }
-  getNodeOutcomingEdgeIds(t) {
-    const o = Array.from(this.nodePorts.get(t).keys());
-    let r = [];
-    return o.forEach((i) => {
-      r = [...r, ...this.getPortOutcomingEdgeIds(i)];
-    }), r;
+  getNodeOutcomingEdgeIds(e) {
+    const r = Array.from(this.nodePorts.get(e).keys());
+    let o = [];
+    return r.forEach((n) => {
+      o = [...o, ...this.getPortOutcomingEdgeIds(n)];
+    }), o;
   }
-  getNodeCycleEdgeIds(t) {
-    const o = Array.from(this.nodePorts.get(t).keys());
-    let r = [];
-    return o.forEach((i) => {
-      r = [...r, ...this.getPortCycleEdgeIds(i)];
-    }), r;
+  getNodeCycleEdgeIds(e) {
+    const r = Array.from(this.nodePorts.get(e).keys());
+    let o = [];
+    return r.forEach((n) => {
+      o = [...o, ...this.getPortCycleEdgeIds(n)];
+    }), o;
   }
-  getNodeAdjacentEdgeIds(t) {
+  getNodeAdjacentEdgeIds(e) {
     return [
-      ...this.getNodeIncomingEdgeIds(t),
-      ...this.getNodeOutcomingEdgeIds(t),
-      ...this.getNodeCycleEdgeIds(t)
+      ...this.getNodeIncomingEdgeIds(e),
+      ...this.getNodeOutcomingEdgeIds(e),
+      ...this.getNodeCycleEdgeIds(e)
     ];
   }
 }
-const K = (e) => ({
-  scale: 1 / e.scale,
-  x: -e.x / e.scale,
-  y: -e.y / e.scale
-}), _ = {
+class se {
+  constructor() {
+    i(this, "callbacks", /* @__PURE__ */ new Set());
+  }
+  subscribe(e) {
+    this.callbacks.add(e);
+  }
+  unsubscribe(e) {
+    this.callbacks.delete(e);
+  }
+  emit(e) {
+    this.callbacks.forEach((r) => {
+      r(e);
+    });
+  }
+}
+const S = () => {
+  const t = new se();
+  return [t, t];
+}, Q = (t) => ({
+  scale: 1 / t.scale,
+  x: -t.x / t.scale,
+  y: -t.y / t.scale
+}), Z = {
   scale: 1,
   x: 0,
   y: 0
 };
-class ut {
+class ne {
   constructor() {
-    n(this, "viewportMatrix", _);
-    n(this, "contentMatrix", _);
+    i(this, "viewportMatrix", Z);
+    i(this, "contentMatrix", Z);
+    i(this, "emitter");
+    i(this, "onAfterUpdate");
+    [this.emitter, this.onAfterUpdate] = S();
   }
   getViewportMatrix() {
     return this.viewportMatrix;
@@ -854,24 +876,24 @@ class ut {
   getContentMatrix() {
     return this.contentMatrix;
   }
-  patchViewportMatrix(t) {
+  patchViewportMatrix(e) {
     this.viewportMatrix = {
-      scale: t.scale ?? this.viewportMatrix.scale,
-      x: t.x ?? this.viewportMatrix.x,
-      y: t.y ?? this.viewportMatrix.y
-    }, this.contentMatrix = K(this.viewportMatrix);
+      scale: e.scale ?? this.viewportMatrix.scale,
+      x: e.x ?? this.viewportMatrix.x,
+      y: e.y ?? this.viewportMatrix.y
+    }, this.contentMatrix = Q(this.viewportMatrix), this.emitter.emit();
   }
-  patchContentMatrix(t) {
+  patchContentMatrix(e) {
     this.contentMatrix = {
-      scale: t.scale ?? this.contentMatrix.scale,
-      x: t.x ?? this.contentMatrix.x,
-      y: t.y ?? this.contentMatrix.y
-    }, this.viewportMatrix = K(this.contentMatrix);
+      scale: e.scale ?? this.contentMatrix.scale,
+      x: e.x ?? this.contentMatrix.x,
+      y: e.y ?? this.contentMatrix.y
+    }, this.viewportMatrix = Q(this.contentMatrix), this.emitter.emit();
   }
 }
-class wt {
-  constructor(t) {
-    this.transformer = t;
+class he {
+  constructor(e) {
+    this.transformer = e;
   }
   getViewportMatrix() {
     return { ...this.transformer.getViewportMatrix() };
@@ -880,117 +902,221 @@ class wt {
     return { ...this.transformer.getContentMatrix() };
   }
 }
-const yt = () => {
-  const e = document.createElement("div");
-  return e.style.width = "100%", e.style.height = "100%", e.style.position = "relative", e.style.overflow = "hidden", e;
-}, ft = () => {
-  const e = document.createElement("div");
-  return e.style.position = "absolute", e.style.top = "0", e.style.left = "0", e.style.width = "0", e.style.height = "0", e;
-}, vt = () => {
-  const e = document.createElement("div");
-  return e.style.position = "absolute", e.style.top = "0", e.style.left = "0", e.style.visibility = "hidden", e;
+const pe = () => {
+  const t = document.createElement("div");
+  return t.style.width = "100%", t.style.height = "100%", t.style.position = "relative", t.style.overflow = "hidden", t;
+}, me = () => {
+  const t = document.createElement("div");
+  return t.style.position = "absolute", t.style.top = "0", t.style.left = "0", t.style.width = "0", t.style.height = "0", t;
+}, Ne = () => {
+  const t = document.createElement("div");
+  return t.style.position = "absolute", t.style.top = "0", t.style.left = "0", t.style.visibility = "hidden", t;
 };
-class xt {
-  constructor(t, o) {
-    n(this, "canvasWrapper", null);
-    n(this, "host", yt());
-    n(this, "container", ft());
-    n(this, "nodeIdToWrapperElementMap", /* @__PURE__ */ new Map());
-    n(this, "edgeIdToElementMap", /* @__PURE__ */ new Map());
-    this.graphStore = t, this.viewportTransformer = o, this.host.appendChild(this.container);
+class K {
+  constructor(e, r) {
+    i(this, "canvasWrapper", null);
+    i(this, "host", pe());
+    i(this, "container", me());
+    i(this, "nodeIdToWrapperElementMap", /* @__PURE__ */ new Map());
+    i(this, "edgeIdToElementMap", /* @__PURE__ */ new Map());
+    i(this, "applyTransform", () => {
+      const e = this.viewportTransformer.getContentMatrix();
+      this.container.style.transform = `matrix(${e.scale}, 0, 0, ${e.scale}, ${e.x}, ${e.y})`;
+    });
+    this.graphStore = e, this.viewportTransformer = r, this.host.appendChild(this.container), this.viewportTransformer.onAfterUpdate.subscribe(this.applyTransform);
   }
-  attach(t) {
-    this.detach(), this.canvasWrapper = t, this.canvasWrapper.appendChild(this.host);
+  attach(e) {
+    this.detach(), this.canvasWrapper = e, this.canvasWrapper.appendChild(this.host);
   }
   detach() {
     this.canvasWrapper !== null && (this.canvasWrapper.removeChild(this.host), this.canvasWrapper = null);
   }
-  applyTransform() {
-    const t = this.viewportTransformer.getContentMatrix();
-    this.container.style.transform = `matrix(${t.scale}, 0, 0, ${t.scale}, ${t.x}, ${t.y})`;
+  attachNode(e) {
+    const r = this.graphStore.getNode(e), o = Ne();
+    o.appendChild(r.element), this.container.appendChild(o), this.nodeIdToWrapperElementMap.set(e, o), this.updateNodeCoordinates(e), this.updateNodePriority(e), o.style.visibility = "visible";
   }
-  attachNode(t) {
-    const o = this.graphStore.getNode(t), r = vt();
-    r.appendChild(o.element), this.container.appendChild(r), this.nodeIdToWrapperElementMap.set(t, r), this.updateNodeCoordinates(t), this.updateNodePriority(t), r.style.visibility = "visible";
+  detachNode(e) {
+    const r = this.graphStore.getNode(e), o = this.nodeIdToWrapperElementMap.get(e);
+    o.removeChild(r.element), this.container.removeChild(o), this.nodeIdToWrapperElementMap.delete(e);
   }
-  detachNode(t) {
-    const o = this.graphStore.getNode(t), r = this.nodeIdToWrapperElementMap.get(t);
-    r.removeChild(o.element), this.container.removeChild(r), this.nodeIdToWrapperElementMap.delete(t);
+  attachEdge(e) {
+    const r = this.graphStore.getEdge(e);
+    this.edgeIdToElementMap.set(e, r.shape.svg), this.container.appendChild(r.shape.svg), this.renderEdge(e), this.updateEdgePriority(e);
   }
-  attachEdge(t) {
-    const o = this.graphStore.getEdge(t);
-    this.edgeIdToElementMap.set(t, o.shape.svg), this.container.appendChild(o.shape.svg), this.renderEdge(t), this.updateEdgePriority(t);
-  }
-  detachEdge(t) {
-    const o = this.graphStore.getEdge(t);
-    this.container.removeChild(o.shape.svg), this.edgeIdToElementMap.delete(t);
+  detachEdge(e) {
+    const r = this.graphStore.getEdge(e);
+    this.container.removeChild(r.shape.svg), this.edgeIdToElementMap.delete(e);
   }
   clear() {
-    this.edgeIdToElementMap.forEach((t, o) => {
-      this.detachEdge(o);
-    }), this.nodeIdToWrapperElementMap.forEach((t, o) => {
-      this.detachNode(o);
+    this.edgeIdToElementMap.forEach((e, r) => {
+      this.detachEdge(r);
+    }), this.nodeIdToWrapperElementMap.forEach((e, r) => {
+      this.detachNode(r);
     });
   }
   destroy() {
-    this.clear(), this.detach(), this.host.removeChild(this.container);
+    this.clear(), this.detach(), this.viewportTransformer.onAfterUpdate.unsubscribe(this.applyTransform), this.host.removeChild(this.container);
   }
-  updateNodeCoordinates(t) {
-    const o = this.nodeIdToWrapperElementMap.get(t), r = this.graphStore.getNode(t), { width: i, height: s } = r.element.getBoundingClientRect(), h = this.viewportTransformer.getViewportMatrix().scale, c = r.centerFn(i, s), d = r.x - h * c.x, l = r.y - h * c.y;
-    o.style.transform = `translate(${d}px, ${l}px)`;
+  updateNodeCoordinates(e) {
+    const r = this.nodeIdToWrapperElementMap.get(e), o = this.graphStore.getNode(e), { width: n, height: d } = o.element.getBoundingClientRect(), s = this.viewportTransformer.getViewportMatrix().scale, h = o.centerFn(n, d), c = o.x - s * h.x, a = o.y - s * h.y;
+    r.style.transform = `translate(${c}px, ${a}px)`;
   }
-  updateNodePriority(t) {
-    const o = this.graphStore.getNode(t), r = this.nodeIdToWrapperElementMap.get(t);
-    r.style.zIndex = `${o.priority}`;
+  updateNodePriority(e) {
+    const r = this.graphStore.getNode(e), o = this.nodeIdToWrapperElementMap.get(e);
+    o.style.zIndex = `${r.priority}`;
   }
-  updateEdgeShape(t) {
-    const o = this.edgeIdToElementMap.get(t);
-    this.container.removeChild(o);
-    const r = this.graphStore.getEdge(t);
-    this.edgeIdToElementMap.set(t, r.shape.svg), this.container.appendChild(r.shape.svg);
+  updateEdgeShape(e) {
+    const r = this.edgeIdToElementMap.get(e);
+    this.container.removeChild(r);
+    const o = this.graphStore.getEdge(e);
+    this.edgeIdToElementMap.set(e, o.shape.svg), this.container.appendChild(o.shape.svg);
   }
-  renderEdge(t) {
-    const o = this.graphStore.getEdge(t), r = this.graphStore.getPort(o.from), i = this.graphStore.getPort(o.to), s = r.element.getBoundingClientRect(), h = i.element.getBoundingClientRect(), c = this.host.getBoundingClientRect(), d = this.viewportTransformer.getViewportMatrix(), l = {
-      x: d.scale * (s.left - c.left) + d.x,
-      y: d.scale * (s.top - c.top) + d.y
-    }, a = {
-      x: d.scale * (h.left - c.left) + d.x,
-      y: d.scale * (h.top - c.top) + d.y
+  renderEdge(e) {
+    const r = this.graphStore.getEdge(e), o = this.graphStore.getPort(r.from), n = this.graphStore.getPort(r.to), d = o.element.getBoundingClientRect(), s = n.element.getBoundingClientRect(), h = this.host.getBoundingClientRect(), c = this.viewportTransformer.getViewportMatrix(), a = {
+      x: c.scale * (d.left - h.left) + c.x,
+      y: c.scale * (d.top - h.top) + c.y
+    }, l = {
+      x: c.scale * (s.left - h.left) + c.x,
+      y: c.scale * (s.top - h.top) + c.y
     }, g = {
-      x: l.x,
-      y: l.y,
-      width: s.width * d.scale,
-      height: s.height * d.scale,
-      direction: r.direction,
-      portId: o.from,
-      nodeId: this.graphStore.getPortNodeId(o.from)
-    }, y = {
       x: a.x,
       y: a.y,
-      width: h.width * d.scale,
-      height: h.height * d.scale,
-      direction: i.direction,
-      portId: o.to,
-      nodeId: this.graphStore.getPortNodeId(o.to)
+      width: d.width * c.scale,
+      height: d.height * c.scale,
+      direction: o.direction,
+      portId: r.from,
+      nodeId: this.graphStore.getPortNodeId(r.from)
+    }, f = {
+      x: l.x,
+      y: l.y,
+      width: s.width * c.scale,
+      height: s.height * c.scale,
+      direction: n.direction,
+      portId: r.to,
+      nodeId: this.graphStore.getPortNodeId(r.to)
     };
-    o.shape.render({
+    r.shape.render({
       from: g,
-      to: y
+      to: f
     });
   }
-  updateEdgePriority(t) {
-    const o = this.graphStore.getEdge(t);
-    o.shape.svg.style.zIndex = `${o.priority}`;
+  updateEdgePriority(e) {
+    const r = this.graphStore.getEdge(e);
+    r.shape.svg.style.zIndex = `${r.priority}`;
   }
 }
-class I {
-  constructor(t) {
-    n(this, "counter", 0);
-    this.checkExists = t;
+class Te {
+  constructor(e) {
+    i(this, "xFrom", 1 / 0);
+    i(this, "yFrom", 1 / 0);
+    i(this, "xTo", 1 / 0);
+    i(this, "yTo", 1 / 0);
+    this.graphStore = e;
   }
-  create(t) {
-    if (t !== void 0)
-      return t;
+  setRenderingBox(e) {
+    this.xFrom = e.x, this.xTo = e.x + e.width, this.yFrom = e.y, this.yTo = e.y + e.height;
+  }
+  hasNode(e) {
+    const r = this.graphStore.getNode(e);
+    return r.x >= this.xFrom && r.x <= this.xTo && r.y >= this.yFrom && r.y <= this.yTo;
+  }
+  hasEdge(e) {
+    const r = this.graphStore.getEdge(e), o = this.graphStore.getPortNodeId(r.from), n = this.graphStore.getPortNodeId(r.to), d = this.graphStore.getNode(o), s = this.graphStore.getNode(n), h = Math.min(d.x, s.x), c = Math.max(d.x, s.x), a = Math.min(d.y, s.y), l = Math.max(d.y, s.y);
+    return h <= this.xTo && c >= this.xFrom && a <= this.yTo && l >= this.yFrom;
+  }
+}
+class Me {
+  constructor(e, r, o) {
+    i(this, "attachedNodes", /* @__PURE__ */ new Set());
+    i(this, "attachedEdges", /* @__PURE__ */ new Set());
+    i(this, "renderingBox");
+    i(this, "updateViewport", (e) => {
+      this.renderingBox.setRenderingBox(e);
+      const r = /* @__PURE__ */ new Set(), o = /* @__PURE__ */ new Set(), n = /* @__PURE__ */ new Set(), d = /* @__PURE__ */ new Set();
+      this.graphStore.getAllNodeIds().forEach((s) => {
+        const h = this.renderingBox.hasNode(s), c = this.attachedNodes.has(s);
+        h && !c ? r.add(s) : !h && c && o.add(s);
+      }), this.graphStore.getAllEdgeIds().forEach((s) => {
+        const h = this.renderingBox.hasEdge(s), c = this.attachedEdges.has(s), a = this.graphStore.getEdge(s), l = this.graphStore.getPortNodeId(a.from), g = this.graphStore.getPortNodeId(a.to);
+        h && (this.renderingBox.hasNode(l) || (r.add(l), o.delete(l)), this.renderingBox.hasNode(g) || (r.add(g), o.delete(g))), h && !c ? n.add(s) : !h && c && d.add(s);
+      }), d.forEach((s) => {
+        this.handleDetachEdge(s);
+      }), o.forEach((s) => {
+        this.handleDetachNode(s);
+      }), r.forEach((s) => {
+        this.attachedNodes.has(s) || this.handleAttachNode(s);
+      }), n.forEach((s) => {
+        this.handleAttachEdge(s);
+      });
+    });
+    this.htmlView = e, this.graphStore = r, this.trigger = o, this.renderingBox = new Te(this.graphStore), this.trigger.subscribe(this.updateViewport);
+  }
+  attach(e) {
+    this.htmlView.attach(e);
+  }
+  detach() {
+    this.htmlView.detach();
+  }
+  attachNode(e) {
+    this.renderingBox.hasNode(e) && this.handleAttachNode(e);
+  }
+  detachNode(e) {
+    this.attachedNodes.has(e) && this.handleDetachNode(e);
+  }
+  attachEdge(e) {
+    this.renderingBox.hasEdge(e) && this.attachEdgeEntities(e);
+  }
+  detachEdge(e) {
+    this.attachedEdges.has(e) && this.handleDetachEdge(e);
+  }
+  updateNodeCoordinates(e) {
+    this.attachedNodes.has(e) ? this.htmlView.updateNodeCoordinates(e) : this.renderingBox.hasNode(e) && (this.handleAttachNode(e), this.graphStore.getNodeAdjacentEdgeIds(e).forEach((r) => {
+      this.attachEdgeEntities(r);
+    }));
+  }
+  updateNodePriority(e) {
+    this.attachedNodes.has(e) && this.htmlView.updateNodePriority(e);
+  }
+  updateEdgeShape(e) {
+    this.attachedEdges.has(e) && this.htmlView.updateEdgeShape(e);
+  }
+  renderEdge(e) {
+    this.attachedEdges.has(e) && this.htmlView.renderEdge(e);
+  }
+  updateEdgePriority(e) {
+    this.attachedEdges.has(e) && this.htmlView.updateEdgePriority(e);
+  }
+  clear() {
+    this.htmlView.clear(), this.attachedNodes.clear(), this.attachedEdges.clear();
+  }
+  destroy() {
+    this.clear(), this.htmlView.destroy(), this.trigger.unsubscribe(this.updateViewport);
+  }
+  attachEdgeEntities(e) {
+    const r = this.graphStore.getEdge(e), o = this.graphStore.getPortNodeId(r.from), n = this.graphStore.getPortNodeId(r.to);
+    this.attachedNodes.has(o) || this.handleAttachNode(o), this.attachedNodes.has(n) || this.handleAttachNode(n), this.handleAttachEdge(e);
+  }
+  handleAttachNode(e) {
+    this.attachedNodes.add(e), this.htmlView.attachNode(e);
+  }
+  handleDetachNode(e) {
+    this.htmlView.detachNode(e), this.attachedNodes.delete(e);
+  }
+  handleAttachEdge(e) {
+    this.attachedEdges.add(e), this.htmlView.attachEdge(e);
+  }
+  handleDetachEdge(e) {
+    this.htmlView.detachEdge(e), this.attachedEdges.delete(e);
+  }
+}
+class D {
+  constructor(e) {
+    i(this, "counter", 0);
+    this.checkExists = e;
+  }
+  create(e) {
+    if (e !== void 0)
+      return e;
     for (; this.checkExists(this.counter); )
       this.counter++;
     return this.counter;
@@ -999,706 +1125,990 @@ class I {
     this.counter = 0;
   }
 }
-class S extends Error {
+class A extends Error {
   constructor() {
     super(...arguments);
-    n(this, "name", "HtmlGraphError");
+    i(this, "name", "HtmlGraphError");
   }
 }
-class St {
-  constructor(t, o, r, i, s, h, c) {
-    n(this, "nodeIdGenerator", new I(
-      (t) => this.graphStore.getNode(t) !== void 0
+class de {
+  constructor(e, r) {
+    i(this, "nodeIdGenerator", new D(
+      (e) => this.graphStore.getNode(e) !== void 0
     ));
-    n(this, "portIdGenerator", new I(
-      (t) => this.graphStore.getPort(t) !== void 0
+    i(this, "portIdGenerator", new D(
+      (e) => this.graphStore.getPort(e) !== void 0
     ));
-    n(this, "edgeIdGenerator", new I(
-      (t) => this.graphStore.getEdge(t) !== void 0
+    i(this, "edgeIdGenerator", new D(
+      (e) => this.graphStore.getEdge(e) !== void 0
     ));
-    this.graphStore = t, this.htmlController = o, this.viewportTransformer = r, this.defaultNodesCenterFn = i, this.defaultPortsDirection = s, this.defaultNodesPriorityFn = h, this.defaultEdgesPriorityFn = c;
+    i(this, "onAfterNodeAdded");
+    i(this, "onAfterNodeAddedEmitter");
+    i(this, "onAfterEdgeAdded");
+    i(this, "onAfterEdgeAddedEmitter");
+    i(this, "onAfterEdgeShapeUpdated");
+    i(this, "onAfterEdgeShapeUpdatedEmitter");
+    i(this, "onAfterEdgePriorityUpdated");
+    i(this, "onAfterEdgePriorityUpdatedEmitter");
+    i(this, "onAfterEdgeUpdated");
+    i(this, "onAfterEdgeUpdatedEmitter");
+    i(this, "onAfterPortUpdated");
+    i(this, "onAfterPortUpdatedEmitter");
+    i(this, "onAfterNodePriorityUpdated");
+    i(this, "onAfterNodePriorityUpdatedEmitter");
+    i(this, "onAfterNodeUpdated");
+    i(this, "onAfterNodeUpdatedEmitter");
+    i(this, "onBeforeEdgeRemoved");
+    i(this, "onBeforeEdgeRemovedEmitter");
+    i(this, "onBeforeNodeRemoved");
+    i(this, "onBeforeNodeRemovedEmitter");
+    this.graphStore = e, this.options = r, [this.onAfterNodeAddedEmitter, this.onAfterNodeAdded] = S(), [this.onAfterEdgeAddedEmitter, this.onAfterEdgeAdded] = S(), [this.onAfterEdgeShapeUpdatedEmitter, this.onAfterEdgeShapeUpdated] = S(), [this.onAfterEdgePriorityUpdatedEmitter, this.onAfterEdgePriorityUpdated] = S(), [this.onAfterEdgeUpdatedEmitter, this.onAfterEdgeUpdated] = S(), [this.onAfterPortUpdatedEmitter, this.onAfterPortUpdated] = S(), [this.onAfterNodePriorityUpdatedEmitter, this.onAfterNodePriorityUpdated] = S(), [this.onAfterNodeUpdatedEmitter, this.onAfterNodeUpdated] = S(), [this.onBeforeEdgeRemovedEmitter, this.onBeforeEdgeRemoved] = S(), [this.onBeforeNodeRemovedEmitter, this.onBeforeNodeRemoved] = S();
   }
-  attach(t) {
-    this.htmlController.attach(t);
-  }
-  detach() {
-    this.htmlController.detach();
-  }
-  addNode(t) {
-    const o = this.nodeIdGenerator.create(t.nodeId);
-    if (this.graphStore.getNode(o) !== void 0)
-      throw new S("failed to add node with existing id");
+  addNode(e) {
+    const r = this.nodeIdGenerator.create(e.id);
+    if (this.graphStore.getNode(r) !== void 0)
+      throw new A("failed to add node with existing id");
     this.graphStore.addNode({
-      nodeId: o,
-      element: t.element,
-      x: t.x,
-      y: t.y,
-      centerFn: t.centerFn ?? this.defaultNodesCenterFn,
-      priority: t.priority ?? this.defaultNodesPriorityFn()
-    }), this.htmlController.attachNode(o), Array.from(t.ports ?? []).forEach((r) => {
+      nodeId: r,
+      element: e.element,
+      x: e.x,
+      y: e.y,
+      centerFn: e.centerFn ?? this.options.nodes.centerFn,
+      priority: e.priority ?? this.options.nodes.priorityFn()
+    }), this.onAfterNodeAddedEmitter.emit(r), Array.from(e.ports ?? []).forEach((o) => {
       this.markPort({
-        portId: r.id,
-        element: r.element,
-        nodeId: o,
-        direction: r.direction
+        id: o.id,
+        element: o.element,
+        nodeId: r,
+        direction: o.direction
       });
     });
   }
-  markPort(t) {
-    const o = this.portIdGenerator.create(t.portId);
-    if (this.graphStore.getPort(o) !== void 0)
-      throw new S("failed to add port with existing id");
-    if (this.graphStore.getNode(t.nodeId) === void 0)
-      throw new S("failed to set port on nonexisting node");
+  markPort(e) {
+    const r = this.portIdGenerator.create(e.id);
+    if (this.graphStore.getPort(r) !== void 0)
+      throw new A("failed to add port with existing id");
+    if (this.graphStore.getNode(e.nodeId) === void 0)
+      throw new A("failed to set port on nonexisting node");
     this.graphStore.addPort({
-      portId: o,
-      element: t.element,
-      nodeId: t.nodeId,
-      direction: t.direction ?? this.defaultPortsDirection
+      portId: r,
+      element: e.element,
+      nodeId: e.nodeId,
+      direction: e.direction ?? this.options.ports.direction
     });
   }
-  addEdge(t) {
-    const o = this.edgeIdGenerator.create(t.edgeId);
-    if (this.graphStore.getEdge(o) !== void 0)
-      throw new S("failed to add edge with existing id");
-    if (this.graphStore.getPort(t.from) === void 0)
-      throw new S("failed to add edge from nonexisting port");
-    if (this.graphStore.getPort(t.to) === void 0)
-      throw new S("failed to add edge to nonexisting port");
+  addEdge(e) {
+    const r = this.edgeIdGenerator.create(e.id);
+    if (this.graphStore.getEdge(r) !== void 0)
+      throw new A("failed to add edge with existing id");
+    if (this.graphStore.getPort(e.from) === void 0)
+      throw new A("failed to add edge from nonexisting port");
+    if (this.graphStore.getPort(e.to) === void 0)
+      throw new A("failed to add edge to nonexisting port");
     this.graphStore.addEdge({
-      edgeId: o,
-      from: t.from,
-      to: t.to,
-      shape: t.shape,
-      priority: t.priority ?? this.defaultEdgesPriorityFn()
-    }), this.htmlController.attachEdge(o);
+      edgeId: r,
+      from: e.from,
+      to: e.to,
+      shape: e.shape ?? this.options.edges.shapeFactory(),
+      priority: e.priority ?? this.options.edges.priorityFn()
+    }), this.onAfterEdgeAddedEmitter.emit(r);
   }
-  updateEdge(t) {
-    const o = this.graphStore.getEdge(t.edgeId);
+  updateEdge(e, r) {
+    const o = this.graphStore.getEdge(e);
     if (o === void 0)
-      throw new S("failed to update nonexisting edge");
-    t.shape !== void 0 && (o.shape = t.shape, this.htmlController.updateEdgeShape(t.edgeId)), t.priority !== void 0 && (o.priority = t.priority, this.htmlController.updateEdgePriority(t.edgeId)), t.from !== void 0 && this.graphStore.updateEdgeFrom(t.edgeId, t.from), t.to !== void 0 && this.graphStore.updateEdgeTo(t.edgeId, t.to), this.htmlController.renderEdge(t.edgeId);
+      throw new A("failed to update nonexisting edge");
+    r.shape !== void 0 && (o.shape = r.shape, this.onAfterEdgeShapeUpdatedEmitter.emit(e)), r.from !== void 0 && this.graphStore.updateEdgeFrom(e, r.from), r.to !== void 0 && this.graphStore.updateEdgeTo(e, r.to), this.onAfterEdgeUpdatedEmitter.emit(e), r.priority !== void 0 && (o.priority = r.priority, this.onAfterEdgePriorityUpdatedEmitter.emit(e));
   }
-  updatePort(t, o) {
-    const r = this.graphStore.getPort(t);
-    if (r === void 0)
-      throw new S("failed to unset nonexisting port");
-    r.direction = o.direction ?? r.direction, this.graphStore.getPortAdjacentEdgeIds(t).forEach((s) => {
-      this.htmlController.renderEdge(s);
-    });
+  updatePort(e, r) {
+    const o = this.graphStore.getPort(e);
+    if (o === void 0)
+      throw new A("failed to unset nonexisting port");
+    o.direction = r.direction ?? o.direction, this.onAfterPortUpdatedEmitter.emit(e);
   }
-  updateNode(t, o) {
-    const r = this.graphStore.getNode(t);
-    if (r === void 0)
-      throw new S("failed to update nonexisting node");
-    r.x = (o == null ? void 0 : o.x) ?? r.x, r.y = (o == null ? void 0 : o.y) ?? r.y, r.centerFn = (o == null ? void 0 : o.centerFn) ?? r.centerFn, r.priority = (o == null ? void 0 : o.priority) ?? r.priority, this.htmlController.updateNodeCoordinates(t), this.htmlController.updateNodePriority(t), this.graphStore.getNodeAdjacentEdgeIds(t).forEach((s) => {
-      this.htmlController.renderEdge(s);
-    });
+  updateNode(e, r) {
+    const o = this.graphStore.getNode(e);
+    if (o === void 0)
+      throw new A("failed to update nonexisting node");
+    o.x = (r == null ? void 0 : r.x) ?? o.x, o.y = (r == null ? void 0 : r.y) ?? o.y, o.centerFn = r.centerFn ?? o.centerFn, this.onAfterNodeUpdatedEmitter.emit(e), r.priority !== void 0 && (o.priority = r.priority, this.onAfterNodePriorityUpdatedEmitter.emit(e));
   }
-  removeEdge(t) {
-    if (this.graphStore.getEdge(t) === void 0)
-      throw new S("failed to remove nonexisting edge");
-    this.htmlController.detachEdge(t), this.graphStore.removeEdge(t);
+  removeEdge(e) {
+    if (this.graphStore.getEdge(e) === void 0)
+      throw new A("failed to remove nonexisting edge");
+    this.onBeforeEdgeRemovedEmitter.emit(e), this.graphStore.removeEdge(e);
   }
-  unmarkPort(t) {
-    if (this.graphStore.getPort(t) === void 0)
-      throw new S("failed to unset nonexisting port");
-    this.graphStore.getPortAdjacentEdgeIds(t).forEach((o) => {
-      this.removeEdge(o);
-    }), this.graphStore.removePort(t);
+  unmarkPort(e) {
+    if (this.graphStore.getPort(e) === void 0)
+      throw new A("failed to unset nonexisting port");
+    this.graphStore.getPortAdjacentEdgeIds(e).forEach((r) => {
+      this.removeEdge(r);
+    }), this.graphStore.removePort(e);
   }
-  removeNode(t) {
-    if (this.graphStore.getNode(t) === void 0)
-      throw new S("failed to remove nonexisting node");
-    this.graphStore.getNodePortIds(t).forEach((o) => {
-      this.unmarkPort(o);
-    }), this.htmlController.detachNode(t), this.graphStore.removeNode(t);
-  }
-  patchViewportMatrix(t) {
-    this.viewportTransformer.patchViewportMatrix(t), this.htmlController.applyTransform();
-  }
-  patchContentMatrix(t) {
-    this.viewportTransformer.patchContentMatrix(t), this.htmlController.applyTransform();
+  removeNode(e) {
+    if (this.graphStore.getNode(e) === void 0)
+      throw new A("failed to remove nonexisting node");
+    this.graphStore.getNodePortIds(e).forEach((r) => {
+      this.unmarkPort(r);
+    }), this.onBeforeNodeRemovedEmitter.emit(e), this.graphStore.removeNode(e);
   }
   clear() {
-    this.htmlController.clear(), this.graphStore.clear(), this.nodeIdGenerator.reset(), this.portIdGenerator.reset(), this.edgeIdGenerator.reset();
-  }
-  destroy() {
-    this.clear(), this.htmlController.destroy();
+    this.graphStore.clear(), this.nodeIdGenerator.reset(), this.portIdGenerator.reset(), this.edgeIdGenerator.reset();
   }
 }
-class Et {
-  constructor(t) {
-    this.graphStore = t;
+class ce {
+  constructor(e) {
+    this.graphStore = e;
   }
-  getNode(t) {
-    const o = this.graphStore.getNode(t);
-    return o === void 0 ? null : {
-      element: o.element,
-      x: o.x,
-      y: o.y,
-      centerFn: o.centerFn,
-      priority: o.priority
+  getNode(e) {
+    const r = this.graphStore.getNode(e);
+    return r === void 0 ? null : {
+      element: r.element,
+      x: r.x,
+      y: r.y,
+      centerFn: r.centerFn,
+      priority: r.priority
     };
   }
   getAllNodeIds() {
     return this.graphStore.getAllNodeIds();
   }
-  getPort(t) {
-    const o = this.graphStore.getPort(t);
-    return o === void 0 ? null : {
-      element: o.element,
-      direction: o.direction
+  getPort(e) {
+    const r = this.graphStore.getPort(e);
+    return r === void 0 ? null : {
+      element: r.element,
+      direction: r.direction
     };
   }
   getAllPortIds() {
     return this.graphStore.getAllPortIds();
   }
-  getNodePortIds(t) {
-    return this.graphStore.getNode(t) === void 0 ? null : this.graphStore.getNodePortIds(t);
+  getNodePortIds(e) {
+    return this.graphStore.getNode(e) === void 0 ? null : this.graphStore.getNodePortIds(e);
   }
-  getPortNodeId(t) {
-    return this.graphStore.getPortNodeId(t) ?? null;
+  getPortNodeId(e) {
+    return this.graphStore.getPortNodeId(e) ?? null;
   }
   getAllEdgeIds() {
     return this.graphStore.getAllEdgeIds();
   }
-  getEdge(t) {
-    const o = this.graphStore.getEdge(t);
-    return o === void 0 ? null : { from: o.from, to: o.to, priority: o.priority };
+  getEdge(e) {
+    const r = this.graphStore.getEdge(e);
+    return r === void 0 ? null : { from: r.from, to: r.to, priority: r.priority };
   }
-  getPortIncomingEdgeIds(t) {
-    return this.graphStore.getPort(t) === void 0 ? null : this.graphStore.getPortIncomingEdgeIds(t);
+  getPortIncomingEdgeIds(e) {
+    return this.graphStore.getPort(e) === void 0 ? null : this.graphStore.getPortIncomingEdgeIds(e);
   }
-  getPortOutcomingEdgeIds(t) {
-    return this.graphStore.getPort(t) === void 0 ? null : this.graphStore.getPortOutcomingEdgeIds(t);
+  getPortOutcomingEdgeIds(e) {
+    return this.graphStore.getPort(e) === void 0 ? null : this.graphStore.getPortOutcomingEdgeIds(e);
   }
-  getPortCycleEdgeIds(t) {
-    return this.graphStore.getPort(t) === void 0 ? null : this.graphStore.getPortCycleEdgeIds(t);
+  getPortCycleEdgeIds(e) {
+    return this.graphStore.getPort(e) === void 0 ? null : this.graphStore.getPortCycleEdgeIds(e);
   }
-  getPortAdjacentEdgeIds(t) {
-    return this.graphStore.getPort(t) === void 0 ? null : this.graphStore.getPortAdjacentEdgeIds(t);
+  getPortAdjacentEdgeIds(e) {
+    return this.graphStore.getPort(e) === void 0 ? null : this.graphStore.getPortAdjacentEdgeIds(e);
   }
-  getNodeIncomingEdgeIds(t) {
-    return this.graphStore.getNode(t) === void 0 ? null : this.graphStore.getNodeIncomingEdgeIds(t);
+  getNodeIncomingEdgeIds(e) {
+    return this.graphStore.getNode(e) === void 0 ? null : this.graphStore.getNodeIncomingEdgeIds(e);
   }
-  getNodeOutcomingEdgeIds(t) {
-    return this.graphStore.getNode(t) === void 0 ? null : this.graphStore.getNodeOutcomingEdgeIds(t);
+  getNodeOutcomingEdgeIds(e) {
+    return this.graphStore.getNode(e) === void 0 ? null : this.graphStore.getNodeOutcomingEdgeIds(e);
   }
-  getNodeCycleEdgeIds(t) {
-    return this.graphStore.getNode(t) === void 0 ? null : this.graphStore.getNodeCycleEdgeIds(t);
+  getNodeCycleEdgeIds(e) {
+    return this.graphStore.getNode(e) === void 0 ? null : this.graphStore.getNodeCycleEdgeIds(e);
   }
-  getNodeAdjacentEdgeIds(t) {
-    return this.graphStore.getNode(t) === void 0 ? null : this.graphStore.getNodeAdjacentEdgeIds(t);
+  getNodeAdjacentEdgeIds(e) {
+    return this.graphStore.getNode(e) === void 0 ? null : this.graphStore.getNodeAdjacentEdgeIds(e);
   }
 }
-class At {
-  constructor(t) {
-    n(this, "transformation");
-    n(this, "model");
-    n(this, "canvasController");
-    n(this, "edgeShapeFactory");
-    this.apiOptions = t;
-    const o = at(this.apiOptions), r = new ut(), i = new gt();
-    this.model = new Et(i), this.transformation = new wt(r);
-    const s = new xt(i, r);
-    this.canvasController = new St(
-      i,
-      s,
-      r,
-      o.nodes.centerFn,
-      o.ports.direction,
-      o.nodes.priorityFn,
-      o.edges.priorityFn
-    ), this.edgeShapeFactory = o.edges.shapeFactory;
+class Ge {
+  constructor(e) {
+    i(this, "viewport");
+    i(this, "transformation");
+    i(this, "graph");
+    i(this, "model");
+    i(this, "internalTransformation");
+    i(this, "internalModel");
+    i(this, "graphStoreController");
+    i(this, "htmlView");
+    i(this, "onAfterNodeAdded", (e) => {
+      this.htmlView.attachNode(e);
+    });
+    i(this, "onAfterEdgeAdded", (e) => {
+      this.htmlView.attachEdge(e);
+    });
+    i(this, "onAfterEdgeShapeUpdated", (e) => {
+      this.htmlView.updateEdgeShape(e);
+    });
+    i(this, "onAfterEdgePriorityUpdated", (e) => {
+      this.htmlView.updateEdgePriority(e);
+    });
+    i(this, "onAfterEdgeUpdated", (e) => {
+      this.htmlView.renderEdge(e);
+    });
+    i(this, "onAfterPortUpdated", (e) => {
+      this.internalModel.getPortAdjacentEdgeIds(e).forEach((o) => {
+        this.htmlView.renderEdge(o);
+      });
+    });
+    i(this, "onAfterNodePriorityUpdated", (e) => {
+      this.htmlView.updateNodePriority(e);
+    });
+    i(this, "onAfterNodeUpdated", (e) => {
+      this.htmlView.updateNodeCoordinates(e), this.internalModel.getNodeAdjacentEdgeIds(e).forEach((o) => {
+        this.htmlView.renderEdge(o);
+      });
+    });
+    i(this, "onBeforeEdgeRemoved", (e) => {
+      this.htmlView.detachEdge(e);
+    });
+    i(this, "onBeforeNodeRemoved", (e) => {
+      this.htmlView.detachNode(e);
+    });
+    this.internalModel = new ie(), this.graph = new ce(this.internalModel), this.model = this.graph, this.internalTransformation = new ne(), this.viewport = new he(this.internalTransformation), this.transformation = this.viewport, this.htmlView = new K(
+      this.internalModel,
+      this.internalTransformation
+    ), this.graphStoreController = new de(
+      this.internalModel,
+      Se(e)
+    ), this.graphStoreController.onAfterNodeAdded.subscribe(this.onAfterNodeAdded), this.graphStoreController.onAfterEdgeAdded.subscribe(this.onAfterEdgeAdded), this.graphStoreController.onAfterEdgeShapeUpdated.subscribe(
+      this.onAfterEdgeShapeUpdated
+    ), this.graphStoreController.onAfterEdgePriorityUpdated.subscribe(
+      this.onAfterEdgePriorityUpdated
+    ), this.graphStoreController.onAfterEdgeUpdated.subscribe(
+      this.onAfterEdgeUpdated
+    ), this.graphStoreController.onAfterPortUpdated.subscribe(
+      this.onAfterPortUpdated
+    ), this.graphStoreController.onAfterNodePriorityUpdated.subscribe(
+      this.onAfterNodePriorityUpdated
+    ), this.graphStoreController.onAfterNodeUpdated.subscribe(
+      this.onAfterNodeUpdated
+    ), this.graphStoreController.onBeforeEdgeRemoved.subscribe(
+      this.onBeforeEdgeRemoved
+    ), this.graphStoreController.onBeforeNodeRemoved.subscribe(
+      this.onBeforeNodeRemoved
+    );
   }
-  attach(t) {
-    return this.canvasController.attach(t), this;
+  attach(e) {
+    return this.htmlView.attach(e), this;
   }
   detach() {
-    return this.canvasController.detach(), this;
+    return this.htmlView.detach(), this;
   }
-  addNode(t) {
-    return this.canvasController.addNode({
-      nodeId: t.id,
-      element: t.element,
-      x: t.x,
-      y: t.y,
-      ports: t.ports,
-      centerFn: t.centerFn,
-      priority: t.priority
-    }), this;
+  addNode(e) {
+    return this.graphStoreController.addNode(e), this;
   }
-  updateNode(t, o) {
-    return this.canvasController.updateNode(t, {
-      x: o == null ? void 0 : o.x,
-      y: o == null ? void 0 : o.y,
-      priority: o == null ? void 0 : o.priority,
-      centerFn: o == null ? void 0 : o.centerFn
-    }), this;
+  updateNode(e, r) {
+    return this.graphStoreController.updateNode(e, r ?? {}), this;
   }
-  removeNode(t) {
-    return this.canvasController.removeNode(t), this;
+  removeNode(e) {
+    return this.graphStoreController.removeNode(e), this;
   }
-  addEdge(t) {
-    return this.canvasController.addEdge({
-      edgeId: t.id,
-      from: t.from,
-      to: t.to,
-      shape: t.shape ?? this.edgeShapeFactory(),
-      priority: t.priority
-    }), this;
+  addEdge(e) {
+    return this.graphStoreController.addEdge(e), this;
   }
-  updateEdge(t, o) {
-    return this.canvasController.updateEdge({
-      edgeId: t,
-      shape: o == null ? void 0 : o.shape,
-      priority: o == null ? void 0 : o.priority,
-      from: o == null ? void 0 : o.from,
-      to: o == null ? void 0 : o.to
-    }), this;
+  updateEdge(e, r) {
+    return this.graphStoreController.updateEdge(e, r ?? {}), this;
   }
-  removeEdge(t) {
-    return this.canvasController.removeEdge(t), this;
+  removeEdge(e) {
+    return this.graphStoreController.removeEdge(e), this;
   }
-  markPort(t) {
-    return this.canvasController.markPort({
-      portId: t.id,
-      element: t.element,
-      nodeId: t.nodeId,
-      direction: t.direction
-    }), this;
+  markPort(e) {
+    return this.graphStoreController.markPort(e), this;
   }
-  updatePort(t, o) {
-    return this.canvasController.updatePort(t, {
-      direction: o == null ? void 0 : o.direction
-    }), this;
+  updatePort(e, r) {
+    return this.graphStoreController.updatePort(e, r ?? {}), this;
   }
-  unmarkPort(t) {
-    return this.canvasController.unmarkPort(t), this;
+  unmarkPort(e) {
+    return this.graphStoreController.unmarkPort(e), this;
   }
-  patchViewportMatrix(t) {
-    return this.canvasController.patchViewportMatrix(t), this;
+  patchViewportMatrix(e) {
+    return this.internalTransformation.patchViewportMatrix(e), this;
   }
-  patchContentMatrix(t) {
-    return this.canvasController.patchContentMatrix(t), this;
+  patchContentMatrix(e) {
+    return this.internalTransformation.patchContentMatrix(e), this;
   }
   clear() {
-    return this.canvasController.clear(), this;
+    return this.htmlView.clear(), this.graphStoreController.clear(), this;
   }
   destroy() {
-    this.clear(), this.canvasController.destroy();
+    this.htmlView.destroy(), this.graphStoreController.clear(), this.graphStoreController.onAfterNodeAdded.unsubscribe(
+      this.onAfterNodeAdded
+    ), this.graphStoreController.onAfterEdgeAdded.unsubscribe(
+      this.onAfterEdgeAdded
+    ), this.graphStoreController.onAfterEdgeShapeUpdated.unsubscribe(
+      this.onAfterEdgeShapeUpdated
+    ), this.graphStoreController.onAfterEdgePriorityUpdated.unsubscribe(
+      this.onAfterEdgePriorityUpdated
+    ), this.graphStoreController.onAfterEdgeUpdated.unsubscribe(
+      this.onAfterEdgeUpdated
+    ), this.graphStoreController.onAfterPortUpdated.unsubscribe(
+      this.onAfterPortUpdated
+    ), this.graphStoreController.onAfterNodePriorityUpdated.unsubscribe(
+      this.onAfterNodePriorityUpdated
+    ), this.graphStoreController.onAfterNodeUpdated.unsubscribe(
+      this.onAfterNodeUpdated
+    ), this.graphStoreController.onBeforeEdgeRemoved.unsubscribe(
+      this.onBeforeEdgeRemoved
+    ), this.graphStoreController.onBeforeNodeRemoved.unsubscribe(
+      this.onBeforeNodeRemoved
+    );
   }
 }
-const V = (e, t, o) => {
-  const { x: r, y: i, width: s, height: h } = e.getBoundingClientRect();
-  return t >= r && t <= r + s && o >= i && o <= i + h;
-}, p = (e, t, o) => t >= 0 && t <= e.innerWidth && o >= 0 && o <= e.innerHeight, b = (e, t) => {
-  t !== null ? e.style.cursor = t : e.style.removeProperty("cursor");
-}, Tt = (e) => {
-  var g, y, x, f, A, E;
-  const t = ((g = e == null ? void 0 : e.events) == null ? void 0 : g.onNodeDrag) ?? (() => {
-  }), o = ((y = e == null ? void 0 : e.events) == null ? void 0 : y.onBeforeNodeDrag) ?? (() => !0), r = ((x = e == null ? void 0 : e.events) == null ? void 0 : x.onNodeDragFinished) ?? (() => {
-  }), i = (e == null ? void 0 : e.moveOnTop) === !1, s = (f = e == null ? void 0 : e.mouse) == null ? void 0 : f.dragCursor, h = s !== void 0 ? s : "grab", c = (A = e == null ? void 0 : e.mouse) == null ? void 0 : A.mouseDownEventVerifier, d = c !== void 0 ? c : (T) => T.button === 0, l = (E = e == null ? void 0 : e.mouse) == null ? void 0 : E.mouseUpEventVerifier;
+class be {
+  constructor(e) {
+    i(this, "viewport");
+    i(this, "transformation");
+    i(this, "graph");
+    i(this, "model");
+    i(this, "internalTransformation");
+    i(this, "internalModel");
+    i(this, "graphStoreController");
+    i(this, "htmlView");
+    i(this, "onAfterNodeAdded", (e) => {
+      this.htmlView.attachNode(e);
+    });
+    i(this, "onAfterEdgeAdded", (e) => {
+      this.htmlView.attachEdge(e);
+    });
+    i(this, "onAfterEdgeShapeUpdated", (e) => {
+      this.htmlView.updateEdgeShape(e);
+    });
+    i(this, "onAfterEdgePriorityUpdated", (e) => {
+      this.htmlView.updateEdgePriority(e);
+    });
+    i(this, "onAfterEdgeUpdated", (e) => {
+      this.htmlView.renderEdge(e);
+    });
+    i(this, "onAfterPortUpdated", (e) => {
+      this.internalModel.getPortAdjacentEdgeIds(e).forEach((o) => {
+        this.htmlView.renderEdge(o);
+      });
+    });
+    i(this, "onAfterNodePriorityUpdated", (e) => {
+      this.htmlView.updateNodePriority(e);
+    });
+    i(this, "onAfterNodeUpdated", (e) => {
+      this.htmlView.updateNodeCoordinates(e), this.internalModel.getNodeAdjacentEdgeIds(e).forEach((o) => {
+        this.htmlView.renderEdge(o);
+      });
+    });
+    i(this, "onBeforeEdgeRemoved", (e) => {
+      this.htmlView.detachEdge(e);
+    });
+    i(this, "onBeforeNodeRemoved", (e) => {
+      this.htmlView.detachNode(e);
+    });
+    this.graph = e.graph, this.model = this.graph, this.internalModel = e.graphStore, this.internalTransformation = e.viewportTransformer, this.viewport = e.viewport, this.transformation = this.viewport, this.htmlView = e.htmlView, this.graphStoreController = e.graphStoreController, this.graphStoreController.onAfterNodeAdded.subscribe(this.onAfterNodeAdded), this.graphStoreController.onAfterEdgeAdded.subscribe(this.onAfterEdgeAdded), this.graphStoreController.onAfterEdgeShapeUpdated.subscribe(
+      this.onAfterEdgeShapeUpdated
+    ), this.graphStoreController.onAfterEdgePriorityUpdated.subscribe(
+      this.onAfterEdgePriorityUpdated
+    ), this.graphStoreController.onAfterEdgeUpdated.subscribe(
+      this.onAfterEdgeUpdated
+    ), this.graphStoreController.onAfterPortUpdated.subscribe(
+      this.onAfterPortUpdated
+    ), this.graphStoreController.onAfterNodePriorityUpdated.subscribe(
+      this.onAfterNodePriorityUpdated
+    ), this.graphStoreController.onAfterNodeUpdated.subscribe(
+      this.onAfterNodeUpdated
+    ), this.graphStoreController.onBeforeEdgeRemoved.subscribe(
+      this.onBeforeEdgeRemoved
+    ), this.graphStoreController.onBeforeNodeRemoved.subscribe(
+      this.onBeforeNodeRemoved
+    );
+  }
+  attach(e) {
+    return this.htmlView.attach(e), this;
+  }
+  detach() {
+    return this.htmlView.detach(), this;
+  }
+  addNode(e) {
+    return this.graphStoreController.addNode(e), this;
+  }
+  updateNode(e, r) {
+    return this.graphStoreController.updateNode(e, r ?? {}), this;
+  }
+  removeNode(e) {
+    return this.graphStoreController.removeNode(e), this;
+  }
+  addEdge(e) {
+    return this.graphStoreController.addEdge(e), this;
+  }
+  updateEdge(e, r) {
+    return this.graphStoreController.updateEdge(e, r ?? {}), this;
+  }
+  removeEdge(e) {
+    return this.graphStoreController.removeEdge(e), this;
+  }
+  markPort(e) {
+    return this.graphStoreController.markPort(e), this;
+  }
+  updatePort(e, r) {
+    return this.graphStoreController.updatePort(e, r ?? {}), this;
+  }
+  unmarkPort(e) {
+    return this.graphStoreController.unmarkPort(e), this;
+  }
+  patchViewportMatrix(e) {
+    return this.internalTransformation.patchViewportMatrix(e), this;
+  }
+  patchContentMatrix(e) {
+    return this.internalTransformation.patchContentMatrix(e), this;
+  }
+  clear() {
+    return this.htmlView.clear(), this.graphStoreController.clear(), this;
+  }
+  destroy() {
+    this.htmlView.destroy(), this.graphStoreController.clear(), this.graphStoreController.onAfterNodeAdded.unsubscribe(
+      this.onAfterNodeAdded
+    ), this.graphStoreController.onAfterEdgeAdded.unsubscribe(
+      this.onAfterEdgeAdded
+    ), this.graphStoreController.onAfterEdgeShapeUpdated.unsubscribe(
+      this.onAfterEdgeShapeUpdated
+    ), this.graphStoreController.onAfterEdgePriorityUpdated.unsubscribe(
+      this.onAfterEdgePriorityUpdated
+    ), this.graphStoreController.onAfterEdgeUpdated.unsubscribe(
+      this.onAfterEdgeUpdated
+    ), this.graphStoreController.onAfterPortUpdated.unsubscribe(
+      this.onAfterPortUpdated
+    ), this.graphStoreController.onAfterNodePriorityUpdated.unsubscribe(
+      this.onAfterNodePriorityUpdated
+    ), this.graphStoreController.onAfterNodeUpdated.unsubscribe(
+      this.onAfterNodeUpdated
+    ), this.graphStoreController.onBeforeEdgeRemoved.unsubscribe(
+      this.onBeforeEdgeRemoved
+    ), this.graphStoreController.onBeforeNodeRemoved.unsubscribe(
+      this.onBeforeNodeRemoved
+    );
+  }
+}
+const Ce = (t) => {
+  if (typeof t == "function")
+    return t;
+  switch (t == null ? void 0 : t.type) {
+    case "straight":
+      return () => new re({
+        color: t.color,
+        width: t.width,
+        arrowLength: t.arrowLength,
+        arrowWidth: t.arrowWidth,
+        arrowOffset: t.arrowOffset,
+        hasSourceArrow: t.hasSourceArrow,
+        hasTargetArrow: t.hasTargetArrow,
+        cycleSquareSide: t.cycleSquareSide,
+        roundness: t.roundness,
+        detourDistance: t.detourDistance,
+        detourDirection: t.detourDirection
+      });
+    case "horizontal":
+      return () => new te({
+        color: t.color,
+        width: t.width,
+        arrowLength: t.arrowLength,
+        arrowWidth: t.arrowWidth,
+        arrowOffset: t.arrowOffset,
+        hasSourceArrow: t.hasSourceArrow,
+        hasTargetArrow: t.hasTargetArrow,
+        cycleSquareSide: t.cycleSquareSide,
+        roundness: t.roundness,
+        detourDistance: t.detourDistance,
+        detourDirection: t.detourDirection
+      });
+    case "vertical":
+      return () => new oe({
+        color: t.color,
+        width: t.width,
+        arrowLength: t.arrowLength,
+        arrowWidth: t.arrowWidth,
+        arrowOffset: t.arrowOffset,
+        hasSourceArrow: t.hasSourceArrow,
+        hasTargetArrow: t.hasTargetArrow,
+        cycleSquareSide: t.cycleSquareSide,
+        roundness: t.roundness,
+        detourDistance: t.detourDistance,
+        detourDirection: t.detourDirection
+      });
+    default:
+      return () => new ee({
+        color: t.color,
+        width: t.width,
+        arrowLength: t.arrowLength,
+        arrowWidth: t.arrowWidth,
+        hasSourceArrow: t.hasSourceArrow,
+        hasTargetArrow: t.hasTargetArrow,
+        cycleRadius: t.cycleRadius,
+        smallCycleRadius: t.smallCycleRadius,
+        curvature: t.curvature,
+        detourDistance: t.detourDistance,
+        detourDirection: t.detourDirection
+      });
+  }
+}, Pe = (t, e) => {
+  let r = I, o = I;
+  t === "incremental" && (r = C()), e === "incremental" && (o = C());
+  const n = C();
+  return t === "shared-incremental" && (r = n), e === "shared-incremental" && (o = n), typeof t == "number" && (r = $(t)), typeof e == "number" && (o = $(e)), typeof t == "function" && (r = t), typeof e == "function" && (o = e), {
+    nodesPriorityFn: r,
+    edgesPriorityFn: o
+  };
+}, Ve = (t) => {
+  var r, o, n, d, s;
+  const e = Pe(
+    (r = t == null ? void 0 : t.nodes) == null ? void 0 : r.priority,
+    (o = t == null ? void 0 : t.edges) == null ? void 0 : o.priority
+  );
   return {
-    freezePriority: i,
-    dragCursor: h,
-    mouseDownEventVerifier: d,
-    mouseUpEventVerifier: l !== void 0 ? l : (T) => T.button === 0,
-    onNodeDrag: t,
-    onBeforeNodeDrag: o,
-    onNodeDragFinished: r
+    nodes: {
+      centerFn: ((n = t == null ? void 0 : t.nodes) == null ? void 0 : n.centerFn) ?? O,
+      priorityFn: e.nodesPriorityFn
+    },
+    ports: {
+      direction: ((d = t == null ? void 0 : t.ports) == null ? void 0 : d.direction) ?? 0
+    },
+    edges: {
+      shapeFactory: Ce(((s = t == null ? void 0 : t.edges) == null ? void 0 : s.shape) ?? {}),
+      priorityFn: e.edgesPriorityFn
+    }
   };
 };
-class Mt {
-  constructor(t, o) {
-    n(this, "model");
-    n(this, "transformation");
-    n(this, "maxNodePriority", 0);
-    n(this, "nodes", /* @__PURE__ */ new Map());
-    n(this, "grabbedNodeId", null);
-    n(this, "nodeIdGenerator", new I(
-      (t) => this.nodes.has(t)
+class Le {
+  constructor(e, r) {
+    i(this, "viewport");
+    i(this, "graph");
+    i(this, "viewportTransformer");
+    i(this, "graphStore");
+    i(this, "htmlView");
+    i(this, "graphStoreController");
+    this.graphStore = new ie(), this.graph = new ce(this.graphStore), this.viewportTransformer = new ne(), this.viewport = new he(this.viewportTransformer), this.htmlView = r(this.graphStore, this.viewportTransformer), this.graphStoreController = new de(
+      this.graphStore,
+      Ve(e)
+    );
+  }
+}
+const De = (t, e) => new K(t, e), $e = (t) => (e, r) => new Me(
+  new K(e, r),
+  e,
+  t
+), F = (t, e, r) => {
+  const { x: o, y: n, width: d, height: s } = t.getBoundingClientRect();
+  return e >= o && e <= o + d && r >= n && r <= n + s;
+}, R = (t, e, r) => e >= 0 && e <= t.innerWidth && r >= 0 && r <= t.innerHeight, B = (t, e) => {
+  e !== null ? t.style.cursor = e : t.style.removeProperty("cursor");
+}, Ue = (t) => {
+  var g, f, x, y, p, E;
+  const e = ((g = t == null ? void 0 : t.events) == null ? void 0 : g.onNodeDrag) ?? (() => {
+  }), r = ((f = t == null ? void 0 : t.events) == null ? void 0 : f.onBeforeNodeDrag) ?? (() => !0), o = ((x = t == null ? void 0 : t.events) == null ? void 0 : x.onNodeDragFinished) ?? (() => {
+  }), n = (t == null ? void 0 : t.moveOnTop) === !1, d = (y = t == null ? void 0 : t.mouse) == null ? void 0 : y.dragCursor, s = d !== void 0 ? d : "grab", h = (p = t == null ? void 0 : t.mouse) == null ? void 0 : p.mouseDownEventVerifier, c = h !== void 0 ? h : (m) => m.button === 0, a = (E = t == null ? void 0 : t.mouse) == null ? void 0 : E.mouseUpEventVerifier;
+  return {
+    freezePriority: n,
+    dragCursor: s,
+    mouseDownEventVerifier: c,
+    mouseUpEventVerifier: a !== void 0 ? a : (m) => m.button === 0,
+    onNodeDrag: e,
+    onBeforeNodeDrag: r,
+    onNodeDragFinished: o
+  };
+};
+class We {
+  constructor(e, r) {
+    i(this, "graph");
+    i(this, "model");
+    i(this, "viewport");
+    i(this, "transformation");
+    i(this, "maxNodePriority", 0);
+    i(this, "nodes", /* @__PURE__ */ new Map());
+    i(this, "grabbedNodeId", null);
+    i(this, "nodeIdGenerator", new D(
+      (e) => this.nodes.has(e)
     ));
-    n(this, "element", null);
-    n(this, "onWindowMouseMove", (t) => {
-      if (this.element !== null && (!V(this.element, t.clientX, t.clientY) || !p(this.window, t.clientX, t.clientY))) {
+    i(this, "element", null);
+    i(this, "onWindowMouseMove", (e) => {
+      if (this.element !== null && (!F(this.element, e.clientX, e.clientY) || !R(this.window, e.clientX, e.clientY))) {
         this.cancelMouseDrag();
         return;
       }
-      this.grabbedNodeId !== null && this.dragNode(this.grabbedNodeId, t.movementX, t.movementY);
+      this.grabbedNodeId !== null && this.dragNode(this.grabbedNodeId, e.movementX, e.movementY);
     });
-    n(this, "onWindowMouseUp", (t) => {
-      this.options.mouseUpEventVerifier(t) && this.cancelMouseDrag();
+    i(this, "onWindowMouseUp", (e) => {
+      this.options.mouseUpEventVerifier(e) && this.cancelMouseDrag();
     });
-    n(this, "onWindowTouchMove", (t) => {
-      if (t.touches.length !== 1)
+    i(this, "onWindowTouchMove", (e) => {
+      if (e.touches.length !== 1)
         return;
-      const o = t.touches[0];
-      if (this.element !== null && (!V(this.element, o.clientX, o.clientY) || !p(this.window, o.clientX, o.clientY))) {
+      const r = e.touches[0];
+      if (this.element !== null && (!F(this.element, r.clientX, r.clientY) || !R(this.window, r.clientX, r.clientY))) {
         this.cancelTouchDrag();
         return;
       }
       if (this.grabbedNodeId !== null && this.previousTouchCoords !== null) {
-        const r = o.clientX - this.previousTouchCoords.x, i = o.clientY - this.previousTouchCoords.y;
-        this.dragNode(this.grabbedNodeId, r, i), this.previousTouchCoords = {
-          x: t.touches[0].clientX,
-          y: t.touches[0].clientY
+        const o = r.clientX - this.previousTouchCoords.x, n = r.clientY - this.previousTouchCoords.y;
+        this.dragNode(this.grabbedNodeId, o, n), this.previousTouchCoords = {
+          x: e.touches[0].clientX,
+          y: e.touches[0].clientY
         };
       }
     });
-    n(this, "onWindowTouchFinish", () => {
+    i(this, "onWindowTouchFinish", () => {
       this.previousTouchCoords = null, this.cancelTouchDrag();
     });
-    n(this, "previousTouchCoords", null);
-    n(this, "window", window);
-    n(this, "options");
-    this.canvas = t, this.transformation = this.canvas.transformation, this.model = this.canvas.model, this.options = Tt(o ?? {});
+    i(this, "previousTouchCoords", null);
+    i(this, "window", window);
+    i(this, "options");
+    this.canvas = e, this.viewport = this.canvas.viewport, this.transformation = this.viewport, this.graph = this.canvas.graph, this.model = this.graph, this.options = Ue(r ?? {});
   }
-  attach(t) {
-    return this.detach(), this.element = t, this.canvas.attach(this.element), this;
+  attach(e) {
+    return this.detach(), this.element = e, this.canvas.attach(this.element), this;
   }
   detach() {
     return this.canvas.detach(), this.element !== null && (this.element = null), this;
   }
-  addNode(t) {
-    const o = this.nodeIdGenerator.create(t.id);
-    this.canvas.addNode({ ...t, id: o }), this.updateMaxNodePriority(o);
-    const r = (s) => {
-      if (this.element === null || !this.options.mouseDownEventVerifier(s))
+  addNode(e) {
+    const r = this.nodeIdGenerator.create(e.id);
+    this.canvas.addNode({ ...e, id: r }), this.updateMaxNodePriority(r);
+    const o = (d) => {
+      if (this.element === null || !this.options.mouseDownEventVerifier(d))
         return;
-      const h = this.model.getNode(o);
+      const s = this.graph.getNode(r);
       this.options.onBeforeNodeDrag({
-        nodeId: o,
-        element: t.element,
-        x: h.x,
-        y: h.y
-      }) && (s.stopImmediatePropagation(), this.grabbedNodeId = o, b(this.element, this.options.dragCursor), this.moveNodeOnTop(o), this.window.addEventListener("mouseup", this.onWindowMouseUp), this.window.addEventListener("mousemove", this.onWindowMouseMove));
-    }, i = (s) => {
-      if (s.touches.length !== 1)
+        nodeId: r,
+        element: e.element,
+        x: s.x,
+        y: s.y
+      }) && (d.stopImmediatePropagation(), this.grabbedNodeId = r, B(this.element, this.options.dragCursor), this.moveNodeOnTop(r), this.window.addEventListener("mouseup", this.onWindowMouseUp), this.window.addEventListener("mousemove", this.onWindowMouseMove));
+    }, n = (d) => {
+      if (d.touches.length !== 1)
         return;
-      s.stopImmediatePropagation(), this.previousTouchCoords = {
-        x: s.touches[0].clientX,
-        y: s.touches[0].clientY
+      d.stopImmediatePropagation(), this.previousTouchCoords = {
+        x: d.touches[0].clientX,
+        y: d.touches[0].clientY
       };
-      const h = this.model.getNode(o);
+      const s = this.graph.getNode(r);
       this.options.onBeforeNodeDrag({
-        nodeId: o,
-        element: t.element,
-        x: h.x,
-        y: h.y
-      }) && (this.grabbedNodeId = o, this.moveNodeOnTop(o), this.window.addEventListener("touchmove", this.onWindowTouchMove), this.window.addEventListener("touchend", this.onWindowTouchFinish), this.window.addEventListener("touchcancel", this.onWindowTouchFinish));
+        nodeId: r,
+        element: e.element,
+        x: s.x,
+        y: s.y
+      }) && (this.grabbedNodeId = r, this.moveNodeOnTop(r), this.window.addEventListener("touchmove", this.onWindowTouchMove), this.window.addEventListener("touchend", this.onWindowTouchFinish), this.window.addEventListener("touchcancel", this.onWindowTouchFinish));
     };
-    return this.nodes.set(o, {
-      element: t.element,
-      onMouseDown: r,
-      onTouchStart: i
-    }), t.element.addEventListener("mousedown", r), t.element.addEventListener("touchstart", i), this;
+    return this.nodes.set(r, {
+      element: e.element,
+      onMouseDown: o,
+      onTouchStart: n
+    }), e.element.addEventListener("mousedown", o), e.element.addEventListener("touchstart", n), this;
   }
-  updateNode(t, o) {
-    return this.canvas.updateNode(t, o), this.updateMaxNodePriority(t), this;
+  updateNode(e, r) {
+    return this.canvas.updateNode(e, r), this.updateMaxNodePriority(e), this;
   }
-  removeNode(t) {
-    const o = this.nodes.get(t);
-    return o !== void 0 && (o.element.removeEventListener("mousedown", o.onMouseDown), o.element.removeEventListener("touchstart", o.onTouchStart)), this.nodes.delete(t), this.canvas.removeNode(t), this;
+  removeNode(e) {
+    const r = this.nodes.get(e);
+    return r !== void 0 && (r.element.removeEventListener("mousedown", r.onMouseDown), r.element.removeEventListener("touchstart", r.onTouchStart)), this.nodes.delete(e), this.canvas.removeNode(e), this;
   }
-  markPort(t) {
-    return this.canvas.markPort(t), this;
+  markPort(e) {
+    return this.canvas.markPort(e), this;
   }
-  updatePort(t, o) {
-    return this.canvas.updatePort(t, o), this;
+  updatePort(e, r) {
+    return this.canvas.updatePort(e, r), this;
   }
-  unmarkPort(t) {
-    return this.canvas.unmarkPort(t), this;
+  unmarkPort(e) {
+    return this.canvas.unmarkPort(e), this;
   }
-  addEdge(t) {
-    return this.canvas.addEdge(t), this;
+  addEdge(e) {
+    return this.canvas.addEdge(e), this;
   }
-  updateEdge(t, o) {
-    return this.canvas.updateEdge(t, o), this;
+  updateEdge(e, r) {
+    return this.canvas.updateEdge(e, r), this;
   }
-  removeEdge(t) {
-    return this.canvas.removeEdge(t), this;
+  removeEdge(e) {
+    return this.canvas.removeEdge(e), this;
   }
-  patchViewportMatrix(t) {
-    return this.canvas.patchViewportMatrix(t), this;
+  patchViewportMatrix(e) {
+    return this.canvas.patchViewportMatrix(e), this;
   }
-  patchContentMatrix(t) {
-    return this.canvas.patchContentMatrix(t), this;
+  patchContentMatrix(e) {
+    return this.canvas.patchContentMatrix(e), this;
   }
   clear() {
-    return this.canvas.clear(), this.nodes.forEach((t) => {
-      t.element.removeEventListener("mousedown", t.onMouseDown), t.element.removeEventListener("touchstart", t.onTouchStart);
+    return this.canvas.clear(), this.nodes.forEach((e) => {
+      e.element.removeEventListener("mousedown", e.onMouseDown), e.element.removeEventListener("touchstart", e.onTouchStart);
     }), this.nodes.clear(), this.maxNodePriority = 0, this;
   }
   destroy() {
     this.detach(), this.clear(), this.removeMouseDragListeners(), this.removeTouchDragListeners(), this.canvas.destroy();
   }
-  dragNode(t, o, r) {
-    const i = this.model.getNode(t);
-    if (i === null)
+  dragNode(e, r, o) {
+    const n = this.graph.getNode(e);
+    if (n === null)
       return;
-    const s = this.canvas.transformation.getContentMatrix(), h = s.scale * i.x + s.x, c = s.scale * i.y + s.y, d = h + o, l = c + r, a = this.canvas.transformation.getViewportMatrix(), g = a.scale * d + a.x, y = a.scale * l + a.y;
-    this.canvas.updateNode(t, { x: g, y }), this.options.onNodeDrag({
-      nodeId: t,
-      element: i.element,
+    const d = this.canvas.viewport.getContentMatrix(), s = d.scale * n.x + d.x, h = d.scale * n.y + d.y, c = s + r, a = h + o, l = this.canvas.viewport.getViewportMatrix(), g = l.scale * c + l.x, f = l.scale * a + l.y;
+    this.canvas.updateNode(e, { x: g, y: f }), this.options.onNodeDrag({
+      nodeId: e,
+      element: n.element,
       x: g,
-      y
+      y: f
     });
   }
-  updateMaxNodePriority(t) {
-    const o = this.model.getNode(t).priority;
-    this.maxNodePriority = Math.max(this.maxNodePriority, o);
+  updateMaxNodePriority(e) {
+    const r = this.graph.getNode(e).priority;
+    this.maxNodePriority = Math.max(this.maxNodePriority, r);
   }
-  moveNodeOnTop(t) {
+  moveNodeOnTop(e) {
     if (this.options.freezePriority)
       return;
-    this.maxNodePriority += 2, this.updateNode(t, { priority: this.maxNodePriority });
-    const o = this.maxNodePriority - 1;
-    this.model.getNodeAdjacentEdgeIds(t).forEach((i) => {
-      this.updateEdge(i, { priority: o });
+    this.maxNodePriority += 2, this.updateNode(e, { priority: this.maxNodePriority });
+    const r = this.maxNodePriority - 1;
+    this.graph.getNodeAdjacentEdgeIds(e).forEach((n) => {
+      this.updateEdge(n, { priority: r });
     });
   }
   cancelMouseDrag() {
-    const t = this.model.getNode(this.grabbedNodeId);
-    t !== null && this.options.onNodeDragFinished({
+    const e = this.graph.getNode(this.grabbedNodeId);
+    e !== null && this.options.onNodeDragFinished({
       nodeId: this.grabbedNodeId,
-      element: t.element,
-      x: t.x,
-      y: t.y
-    }), this.grabbedNodeId = null, this.element !== null && b(this.element, null), this.removeMouseDragListeners();
+      element: e.element,
+      x: e.x,
+      y: e.y
+    }), this.grabbedNodeId = null, this.element !== null && B(this.element, null), this.removeMouseDragListeners();
   }
   removeMouseDragListeners() {
     this.window.removeEventListener("mouseup", this.onWindowMouseUp), this.window.removeEventListener("mousemove", this.onWindowMouseMove);
   }
   cancelTouchDrag() {
     this.previousTouchCoords = null;
-    const t = this.model.getNode(this.grabbedNodeId);
-    t !== null && this.options.onNodeDragFinished({
+    const e = this.graph.getNode(this.grabbedNodeId);
+    e !== null && this.options.onNodeDragFinished({
       nodeId: this.grabbedNodeId,
-      element: t.element,
-      x: t.x,
-      y: t.y
+      element: e.element,
+      x: e.x,
+      y: e.y
     }), this.grabbedNodeId = null, this.removeTouchDragListeners();
   }
   removeTouchDragListeners() {
     this.window.removeEventListener("touchmove", this.onWindowTouchMove), this.window.removeEventListener("touchend", this.onWindowTouchFinish), this.window.removeEventListener("touchcancel", this.onWindowTouchFinish);
   }
 }
-const Ct = (e) => {
-  const t = e.minX !== null ? e.minX : -1 / 0, o = e.maxX !== null ? e.maxX : 1 / 0, r = e.minY !== null ? e.minY : -1 / 0, i = e.maxY !== null ? e.maxY : 1 / 0;
-  return (s) => {
-    let h = s.nextTransform.x, c = s.nextTransform.y;
-    h < t && h < s.prevTransform.x && (h = Math.min(s.prevTransform.x, t));
-    const d = s.canvasWidth * s.prevTransform.scale, l = o - d;
-    h > l && h > s.prevTransform.x && (h = Math.max(s.prevTransform.x, l)), c < r && c < s.prevTransform.y && (c = Math.min(s.prevTransform.y, r));
-    const a = s.canvasHeight * s.prevTransform.scale, g = i - a;
-    return c > g && c > s.prevTransform.y && (c = Math.max(s.prevTransform.y, g)), { scale: s.nextTransform.scale, x: h, y: c };
+const Ie = (t) => {
+  const e = t.minX !== null ? t.minX : -1 / 0, r = t.maxX !== null ? t.maxX : 1 / 0, o = t.minY !== null ? t.minY : -1 / 0, n = t.maxY !== null ? t.maxY : 1 / 0;
+  return (d) => {
+    let s = d.nextTransform.x, h = d.nextTransform.y;
+    s < e && s < d.prevTransform.x && (s = Math.min(d.prevTransform.x, e));
+    const c = d.canvasWidth * d.prevTransform.scale, a = r - c;
+    s > a && s > d.prevTransform.x && (s = Math.max(d.prevTransform.x, a)), h < o && h < d.prevTransform.y && (h = Math.min(d.prevTransform.y, o));
+    const l = d.canvasHeight * d.prevTransform.scale, g = n - l;
+    return h > g && h > d.prevTransform.y && (h = Math.max(d.prevTransform.y, g)), { scale: d.nextTransform.scale, x: s, y: h };
   };
-}, Nt = (e) => {
-  const t = e.maxContentScale, o = e.minContentScale, r = t !== null ? 1 / t : 0, i = o !== null ? 1 / o : 1 / 0;
-  return (s) => {
-    const h = s.prevTransform, c = s.nextTransform;
-    let d = c.scale, l = c.x, a = c.y;
-    if (c.scale > i && c.scale > h.scale) {
-      d = Math.max(h.scale, i), l = h.x, a = h.y;
-      const g = (d - h.scale) / (c.scale - h.scale);
-      l = h.x + (c.x - h.x) * g, a = h.y + (c.y - h.y) * g;
+}, Fe = (t) => {
+  const e = t.maxContentScale, r = t.minContentScale, o = e !== null ? 1 / e : 0, n = r !== null ? 1 / r : 1 / 0;
+  return (d) => {
+    const s = d.prevTransform, h = d.nextTransform;
+    let c = h.scale, a = h.x, l = h.y;
+    if (h.scale > n && h.scale > s.scale) {
+      c = Math.max(s.scale, n), a = s.x, l = s.y;
+      const g = (c - s.scale) / (h.scale - s.scale);
+      a = s.x + (h.x - s.x) * g, l = s.y + (h.y - s.y) * g;
     }
-    if (c.scale < r && c.scale < h.scale) {
-      d = Math.min(h.scale, r), l = h.x, a = h.y;
-      const g = (d - h.scale) / (c.scale - h.scale);
-      l = h.x + (c.x - h.x) * g, a = h.y + (c.y - h.y) * g;
+    if (h.scale < o && h.scale < s.scale) {
+      c = Math.min(s.scale, o), a = s.x, l = s.y;
+      const g = (c - s.scale) / (h.scale - s.scale);
+      a = s.x + (h.x - s.x) * g, l = s.y + (h.y - s.y) * g;
     }
     return {
-      scale: d,
-      x: l,
-      y: a
+      scale: c,
+      x: a,
+      y: l
     };
   };
-}, Pt = (e) => (t) => e.reduce(
-  (o, r) => r({
-    prevTransform: t.prevTransform,
-    nextTransform: o,
-    canvasWidth: t.canvasWidth,
-    canvasHeight: t.canvasHeight
+}, Re = (t) => (e) => t.reduce(
+  (r, o) => o({
+    prevTransform: e.prevTransform,
+    nextTransform: r,
+    canvasWidth: e.canvasWidth,
+    canvasHeight: e.canvasHeight
   }),
-  t.nextTransform
-), J = (e) => {
-  if (typeof e == "function")
-    return e;
-  switch (e.type) {
+  e.nextTransform
+), q = (t) => {
+  if (typeof t == "function")
+    return t;
+  switch (t.type) {
     case "scale-limit":
-      return Nt({
-        minContentScale: e.minContentScale ?? 0,
-        maxContentScale: e.maxContentScale ?? 1 / 0
+      return Fe({
+        minContentScale: t.minContentScale ?? 0,
+        maxContentScale: t.maxContentScale ?? 1 / 0
       });
     case "shift-limit":
-      return Ct({
-        minX: e.minX ?? -1 / 0,
-        maxX: e.maxX ?? 1 / 0,
-        minY: e.minY ?? -1 / 0,
-        maxY: e.maxY ?? 1 / 0
+      return Ie({
+        minX: t.minX ?? -1 / 0,
+        maxX: t.maxX ?? 1 / 0,
+        minY: t.minY ?? -1 / 0,
+        maxY: t.maxY ?? 1 / 0
       });
   }
-}, Lt = (e) => {
-  var f, A, E, T, X, L, m, D, j;
-  const t = (f = e == null ? void 0 : e.scale) == null ? void 0 : f.mouseWheelSensitivity, o = t !== void 0 ? t : 1.2, r = e == null ? void 0 : e.transformPreprocessor;
-  let i;
-  r !== void 0 ? Array.isArray(r) ? i = Pt(
-    r.map(
-      (P) => J(P)
+}, Be = (t) => {
+  var y, p, E, m, H, P, V, L, _, J;
+  const e = (y = t == null ? void 0 : t.scale) == null ? void 0 : y.mouseWheelSensitivity, r = e !== void 0 ? e : 1.2, o = t == null ? void 0 : t.transformPreprocessor;
+  let n;
+  o !== void 0 ? Array.isArray(o) ? n = Re(
+    o.map(
+      (b) => q(b)
     )
-  ) : i = J(r) : i = (P) => P.nextTransform;
-  const s = ((A = e == null ? void 0 : e.shift) == null ? void 0 : A.cursor) !== void 0 ? e.shift.cursor : "grab", h = ((E = e == null ? void 0 : e.events) == null ? void 0 : E.onBeforeTransformChange) ?? (() => {
-  }), c = ((T = e == null ? void 0 : e.events) == null ? void 0 : T.onTransformChange) ?? (() => {
-  }), d = (X = e == null ? void 0 : e.shift) == null ? void 0 : X.mouseDownEventVerifier, l = d !== void 0 ? d : (P) => P.button === 0, a = (L = e == null ? void 0 : e.shift) == null ? void 0 : L.mouseUpEventVerifier, g = a !== void 0 ? a : (P) => P.button === 0, y = (m = e == null ? void 0 : e.scale) == null ? void 0 : m.mouseWheelEventVerifier, x = y !== void 0 ? y : () => !0;
+  ) : n = q(o) : n = (b) => b.nextTransform;
+  const d = ((p = t == null ? void 0 : t.shift) == null ? void 0 : p.cursor) !== void 0 ? t.shift.cursor : "grab", s = ((E = t == null ? void 0 : t.events) == null ? void 0 : E.onBeforeTransformChange) ?? (() => {
+  }), h = ((m = t == null ? void 0 : t.events) == null ? void 0 : m.onTransformChange) ?? (() => {
+  }), c = (H = t == null ? void 0 : t.shift) == null ? void 0 : H.mouseDownEventVerifier, a = c !== void 0 ? c : (b) => b.button === 0, l = (P = t == null ? void 0 : t.shift) == null ? void 0 : P.mouseUpEventVerifier, g = l !== void 0 ? l : (b) => b.button === 0, f = (V = t == null ? void 0 : t.scale) == null ? void 0 : V.mouseWheelEventVerifier, x = f !== void 0 ? f : () => !0;
   return {
-    wheelSensitivity: o,
-    onTransformStarted: ((D = e == null ? void 0 : e.events) == null ? void 0 : D.onTransformStarted) ?? (() => {
+    wheelSensitivity: r,
+    onTransformStarted: ((L = t == null ? void 0 : t.events) == null ? void 0 : L.onTransformStarted) ?? (() => {
     }),
-    onTransformFinished: ((j = e == null ? void 0 : e.events) == null ? void 0 : j.onTransformFinished) ?? (() => {
+    onTransformFinished: ((_ = t == null ? void 0 : t.events) == null ? void 0 : _.onTransformFinished) ?? (() => {
     }),
-    onBeforeTransformChange: h,
-    onTransformChange: c,
-    transformPreprocessor: i,
-    shiftCursor: s,
-    mouseDownEventVerifier: l,
+    onBeforeTransformChange: s,
+    onTransformChange: h,
+    transformPreprocessor: n,
+    shiftCursor: d,
+    mouseDownEventVerifier: a,
     mouseUpEventVerifier: g,
-    mouseWheelEventVerifier: x
+    mouseWheelEventVerifier: x,
+    scaleWheelFinishTimeout: ((J = t == null ? void 0 : t.scale) == null ? void 0 : J.wheelFinishTimeout) ?? 500
   };
-}, B = (e) => {
-  const t = [], o = e.touches.length;
-  for (let c = 0; c < o; c++)
-    t.push([e.touches[c].clientX, e.touches[c].clientY]);
-  const r = t.reduce(
-    (c, d) => [c[0] + d[0], c[1] + d[1]],
+}, W = (t) => {
+  const e = [], r = t.touches.length;
+  for (let h = 0; h < r; h++)
+    e.push([t.touches[h].clientX, t.touches[h].clientY]);
+  const o = e.reduce(
+    (h, c) => [h[0] + c[0], h[1] + c[1]],
     [0, 0]
-  ), i = [r[0] / o, r[1] / o], h = t.map((c) => [c[0] - i[0], c[1] - i[1]]).reduce(
-    (c, d) => c + Math.sqrt(d[0] * d[0] + d[1] * d[1]),
+  ), n = [o[0] / r, o[1] / r], s = e.map((h) => [h[0] - n[0], h[1] - n[1]]).reduce(
+    (h, c) => h + Math.sqrt(c[0] * c[0] + c[1] * c[1]),
     0
   );
   return {
-    x: i[0],
-    y: i[1],
-    scale: h / o,
-    touchesCnt: o,
-    touches: t
+    x: n[0],
+    y: n[1],
+    scale: s / r,
+    touchesCnt: r,
+    touches: e
   };
-}, mt = (e, t, o) => ({
-  scale: e.scale,
-  x: e.x + e.scale * t,
-  y: e.y + e.scale * o
-}), Dt = (e, t, o, r) => ({
-  scale: e.scale * t,
-  x: e.scale * (1 - t) * o + e.x,
-  y: e.scale * (1 - t) * r + e.y
+}, ke = (t, e, r) => ({
+  scale: t.scale,
+  x: t.x + t.scale * e,
+  y: t.y + t.scale * r
+}), Ye = (t, e, r, o) => ({
+  scale: t.scale * e,
+  x: t.scale * (1 - e) * r + t.x,
+  y: t.scale * (1 - e) * o + t.y
 });
-class It {
-  constructor(t, o) {
-    n(this, "model");
-    n(this, "transformation");
-    n(this, "element", null);
-    n(this, "prevTouches", null);
-    n(this, "window", window);
-    n(this, "onMouseDown", (t) => {
-      this.element === null || !this.options.mouseDownEventVerifier(t) || (b(this.element, this.options.shiftCursor), this.window.addEventListener("mousemove", this.onWindowMouseMove), this.window.addEventListener("mouseup", this.onWindowMouseUp), this.options.onTransformStarted());
+class ae {
+  constructor(e, r) {
+    i(this, "graph");
+    i(this, "model");
+    i(this, "viewport");
+    i(this, "transformation");
+    i(this, "element", null);
+    i(this, "prevTouches", null);
+    i(this, "window", window);
+    i(this, "wheelFinishTimer", null);
+    i(this, "onMouseDown", (e) => {
+      this.element === null || !this.options.mouseDownEventVerifier(e) || (B(this.element, this.options.shiftCursor), this.window.addEventListener("mousemove", this.onWindowMouseMove), this.window.addEventListener("mouseup", this.onWindowMouseUp), this.options.onTransformStarted());
     });
-    n(this, "onWindowMouseMove", (t) => {
-      if (this.element === null || !V(this.element, t.clientX, t.clientY) || !p(this.window, t.clientX, t.clientY)) {
+    i(this, "onWindowMouseMove", (e) => {
+      if (this.element === null || !F(this.element, e.clientX, e.clientY) || !R(this.window, e.clientX, e.clientY)) {
         this.stopMouseDrag();
         return;
       }
-      const o = -t.movementX, r = -t.movementY;
-      this.moveViewport(this.element, o, r);
+      const r = -e.movementX, o = -e.movementY;
+      this.moveViewport(this.element, r, o);
     });
-    n(this, "onWindowMouseUp", (t) => {
-      this.element === null || !this.options.mouseUpEventVerifier(t) || this.stopMouseDrag();
+    i(this, "onWindowMouseUp", (e) => {
+      this.element === null || !this.options.mouseUpEventVerifier(e) || this.stopMouseDrag();
     });
-    n(this, "onWheelScroll", (t) => {
-      if (!this.options.mouseWheelEventVerifier(t))
+    i(this, "onWheelScroll", (e) => {
+      if (!this.options.mouseWheelEventVerifier(e))
         return;
-      t.preventDefault(), this.options.onTransformStarted();
-      const { left: o, top: r } = this.element.getBoundingClientRect(), i = t.clientX - o, s = t.clientY - r, c = 1 / (t.deltaY < 0 ? this.options.wheelSensitivity : 1 / this.options.wheelSensitivity);
-      this.scaleViewport(this.element, c, i, s), this.options.onTransformFinished();
+      e.preventDefault();
+      const { left: r, top: o } = this.element.getBoundingClientRect(), n = e.clientX - r, d = e.clientY - o, h = 1 / (e.deltaY < 0 ? this.options.wheelSensitivity : 1 / this.options.wheelSensitivity);
+      this.wheelFinishTimer === null && this.options.onTransformStarted(), this.scaleViewport(this.element, h, n, d), this.wheelFinishTimer !== null && clearTimeout(this.wheelFinishTimer), this.wheelFinishTimer = setTimeout(() => {
+        this.options.onTransformFinished(), this.wheelFinishTimer = null;
+      }, this.options.scaleWheelFinishTimeout);
     });
-    n(this, "onTouchStart", (t) => {
-      this.prevTouches = B(t), this.window.addEventListener("touchmove", this.onWindowTouchMove), this.window.addEventListener("touchend", this.onWindowTouchFinish), this.window.addEventListener("touchcancel", this.onWindowTouchFinish), this.options.onTransformStarted();
-    });
-    n(this, "onWindowTouchMove", (t) => {
-      const o = this.element;
-      if (o === null)
+    i(this, "onTouchStart", (e) => {
+      if (this.prevTouches !== null) {
+        this.prevTouches = W(e);
         return;
-      const r = B(t);
-      if (!r.touches.every(
-        (s) => V(o, s[0], s[1]) && p(this.window, s[0], s[1])
+      }
+      this.prevTouches = W(e), this.window.addEventListener("touchmove", this.onWindowTouchMove), this.window.addEventListener("touchend", this.onWindowTouchFinish), this.window.addEventListener("touchcancel", this.onWindowTouchFinish), this.options.onTransformStarted();
+    });
+    i(this, "onWindowTouchMove", (e) => {
+      const r = this.element;
+      if (r === null)
+        return;
+      const o = W(e);
+      if (!o.touches.every(
+        (d) => F(r, d[0], d[1]) && R(this.window, d[0], d[1])
       )) {
         this.stopTouchDrag();
         return;
       }
-      if ((r.touchesCnt === 1 || r.touchesCnt === 2) && this.moveViewport(
-        o,
-        -(r.x - this.prevTouches.x),
-        -(r.y - this.prevTouches.y)
-      ), r.touchesCnt === 2) {
-        const { left: s, top: h } = o.getBoundingClientRect(), c = this.prevTouches.x - s, d = this.prevTouches.y - h, a = 1 / (r.scale / this.prevTouches.scale);
-        this.scaleViewport(o, a, c, d);
+      if ((o.touchesCnt === 1 || o.touchesCnt === 2) && this.moveViewport(
+        r,
+        -(o.x - this.prevTouches.x),
+        -(o.y - this.prevTouches.y)
+      ), o.touchesCnt === 2) {
+        const { left: d, top: s } = r.getBoundingClientRect(), h = this.prevTouches.x - d, c = this.prevTouches.y - s, l = 1 / (o.scale / this.prevTouches.scale);
+        this.scaleViewport(r, l, h, c);
       }
-      this.prevTouches = r;
+      this.prevTouches = o;
     });
-    n(this, "onWindowTouchFinish", (t) => {
-      t.touches.length > 0 ? this.prevTouches = B(t) : this.stopTouchDrag();
+    i(this, "onWindowTouchFinish", (e) => {
+      e.touches.length > 0 ? this.prevTouches = W(e) : this.stopTouchDrag();
     });
-    n(this, "observer", new ResizeObserver(() => {
-      const t = this.canvas.transformation.getViewportMatrix(), { width: o, height: r } = this.element.getBoundingClientRect(), i = this.options.transformPreprocessor({
-        prevTransform: t,
-        nextTransform: t,
-        canvasWidth: o,
-        canvasHeight: r
+    i(this, "observer", new ResizeObserver(() => {
+      const e = this.canvas.viewport.getViewportMatrix(), { width: r, height: o } = this.element.getBoundingClientRect(), n = this.options.transformPreprocessor({
+        prevTransform: e,
+        nextTransform: e,
+        canvasWidth: r,
+        canvasHeight: o
       });
-      this.canvas.patchViewportMatrix(i), this.options.onTransformChange();
+      this.canvas.patchViewportMatrix(n);
     }));
-    n(this, "options");
-    this.canvas = t, this.options = Lt(o), this.transformation = this.canvas.transformation, this.model = this.canvas.model;
+    i(this, "options");
+    this.canvas = e, this.options = Be(r), this.viewport = this.canvas.viewport, this.transformation = this.viewport, this.graph = this.canvas.graph, this.model = this.graph;
   }
-  attach(t) {
-    return this.detach(), this.element = t, this.observer.observe(this.element), this.element.addEventListener("mousedown", this.onMouseDown), this.element.addEventListener("wheel", this.onWheelScroll), this.element.addEventListener("touchstart", this.onTouchStart), this.canvas.attach(this.element), this;
+  attach(e) {
+    return this.detach(), this.element = e, this.observer.observe(this.element), this.element.addEventListener("mousedown", this.onMouseDown), this.element.addEventListener("wheel", this.onWheelScroll), this.element.addEventListener("touchstart", this.onTouchStart), this.canvas.attach(this.element), this;
   }
   detach() {
     return this.canvas.detach(), this.element !== null && (this.observer.unobserve(this.element), this.element.removeEventListener("mousedown", this.onMouseDown), this.element.removeEventListener("wheel", this.onWheelScroll), this.element.removeEventListener("touchstart", this.onTouchStart), this.element = null), this;
   }
-  addNode(t) {
-    return this.canvas.addNode(t), this;
+  addNode(e) {
+    return this.canvas.addNode(e), this;
   }
-  updateNode(t, o) {
-    return this.canvas.updateNode(t, o), this;
+  updateNode(e, r) {
+    return this.canvas.updateNode(e, r), this;
   }
-  removeNode(t) {
-    return this.canvas.removeNode(t), this;
+  removeNode(e) {
+    return this.canvas.removeNode(e), this;
   }
-  markPort(t) {
-    return this.canvas.markPort(t), this;
+  markPort(e) {
+    return this.canvas.markPort(e), this;
   }
-  updatePort(t, o) {
-    return this.canvas.updatePort(t, o), this;
+  updatePort(e, r) {
+    return this.canvas.updatePort(e, r), this;
   }
-  unmarkPort(t) {
-    return this.canvas.unmarkPort(t), this;
+  unmarkPort(e) {
+    return this.canvas.unmarkPort(e), this;
   }
-  addEdge(t) {
-    return this.canvas.addEdge(t), this;
+  addEdge(e) {
+    return this.canvas.addEdge(e), this;
   }
-  updateEdge(t, o) {
-    return this.canvas.updateEdge(t, o), this;
+  updateEdge(e, r) {
+    return this.canvas.updateEdge(e, r), this;
   }
-  removeEdge(t) {
-    return this.canvas.removeEdge(t), this;
+  removeEdge(e) {
+    return this.canvas.removeEdge(e), this;
   }
-  patchViewportMatrix(t) {
-    return this.canvas.patchViewportMatrix(t), this;
+  patchViewportMatrix(e) {
+    return this.canvas.patchViewportMatrix(e), this;
   }
-  patchContentMatrix(t) {
-    return this.canvas.patchContentMatrix(t), this;
+  patchContentMatrix(e) {
+    return this.canvas.patchContentMatrix(e), this;
   }
   clear() {
     return this.canvas.clear(), this;
@@ -1706,28 +2116,26 @@ class It {
   destroy() {
     this.detach(), this.removeMouseDragListeners(), this.removeTouchDragListeners(), this.canvas.destroy();
   }
-  moveViewport(t, o, r) {
-    this.options.onBeforeTransformChange();
-    const i = this.transformation.getViewportMatrix(), s = mt(i, o, r), { width: h, height: c } = t.getBoundingClientRect(), d = this.options.transformPreprocessor({
-      prevTransform: i,
+  moveViewport(e, r, o) {
+    const n = this.viewport.getViewportMatrix(), d = ke(n, r, o), { width: s, height: h } = e.getBoundingClientRect(), c = this.options.transformPreprocessor({
+      prevTransform: n,
+      nextTransform: d,
+      canvasWidth: s,
+      canvasHeight: h
+    });
+    this.performTransform(c);
+  }
+  scaleViewport(e, r, o, n) {
+    const d = this.canvas.viewport.getViewportMatrix(), s = Ye(d, r, o, n), { width: h, height: c } = e.getBoundingClientRect(), a = this.options.transformPreprocessor({
+      prevTransform: d,
       nextTransform: s,
       canvasWidth: h,
       canvasHeight: c
     });
-    this.canvas.patchViewportMatrix(d), this.options.onTransformChange();
-  }
-  scaleViewport(t, o, r, i) {
-    this.options.onBeforeTransformChange();
-    const s = this.canvas.transformation.getViewportMatrix(), h = Dt(s, o, r, i), { width: c, height: d } = t.getBoundingClientRect(), l = this.options.transformPreprocessor({
-      prevTransform: s,
-      nextTransform: h,
-      canvasWidth: c,
-      canvasHeight: d
-    });
-    this.canvas.patchViewportMatrix(l), this.options.onTransformChange();
+    this.performTransform(a);
   }
   stopMouseDrag() {
-    this.element !== null && b(this.element, null), this.removeMouseDragListeners(), this.options.onTransformFinished();
+    this.element !== null && B(this.element, null), this.removeMouseDragListeners(), this.options.onTransformFinished();
   }
   removeMouseDragListeners() {
     this.window.removeEventListener("mousemove", this.onWindowMouseMove), this.window.removeEventListener("mouseup", this.onWindowMouseUp);
@@ -1738,104 +2146,110 @@ class It {
   removeTouchDragListeners() {
     this.window.removeEventListener("touchmove", this.onWindowTouchMove), this.window.removeEventListener("touchend", this.onWindowTouchFinish), this.window.removeEventListener("touchcancel", this.onWindowTouchFinish);
   }
+  performTransform(e) {
+    this.options.onBeforeTransformChange(), this.canvas.patchViewportMatrix(e), this.options.onTransformChange();
+  }
 }
-class $t {
+class Xe {
   constructor() {
-    n(this, "keyMap", /* @__PURE__ */ new Map());
-    n(this, "valueMap", /* @__PURE__ */ new Map());
+    i(this, "keyMap", /* @__PURE__ */ new Map());
+    i(this, "valueMap", /* @__PURE__ */ new Map());
   }
-  set(t, o) {
-    this.keyMap.set(t, o), this.valueMap.set(o, t);
+  set(e, r) {
+    this.keyMap.set(e, r), this.valueMap.set(r, e);
   }
-  hasKey(t) {
-    return this.keyMap.has(t);
+  hasKey(e) {
+    return this.keyMap.has(e);
   }
-  hasValue(t) {
-    return this.valueMap.has(t);
+  hasValue(e) {
+    return this.valueMap.has(e);
   }
-  getByKey(t) {
-    return this.keyMap.get(t);
+  getByKey(e) {
+    return this.keyMap.get(e);
   }
-  getByValue(t) {
-    return this.valueMap.get(t);
+  getByValue(e) {
+    return this.valueMap.get(e);
   }
-  deleteByKey(t) {
-    const o = this.keyMap.get(t);
-    o !== void 0 && this.valueMap.delete(o), this.keyMap.delete(t);
+  deleteByKey(e) {
+    const r = this.keyMap.get(e);
+    r !== void 0 && this.valueMap.delete(r), this.keyMap.delete(e);
   }
-  deleteByValue(t) {
-    const o = this.valueMap.get(t);
-    o !== void 0 && this.keyMap.delete(o), this.valueMap.delete(t);
+  deleteByValue(e) {
+    const r = this.valueMap.get(e);
+    r !== void 0 && this.keyMap.delete(r), this.valueMap.delete(e);
   }
-  forEach(t) {
-    this.keyMap.forEach((o, r) => {
-      t(o, r);
+  forEach(e) {
+    this.keyMap.forEach((r, o) => {
+      e(r, o);
     });
   }
   clear() {
     this.keyMap.clear(), this.valueMap.clear();
   }
 }
-class Vt {
-  constructor(t) {
-    n(this, "transformation");
-    n(this, "model");
-    n(this, "nodes", new $t());
-    n(this, "nodeIdGenerator", new I(
-      (t) => this.nodes.hasKey(t)
+class ze {
+  constructor(e) {
+    i(this, "viewport");
+    i(this, "transformation");
+    i(this, "graph");
+    i(this, "model");
+    i(this, "nodes", new Xe());
+    i(this, "nodeIdGenerator", new D(
+      (e) => this.nodes.hasKey(e)
     ));
-    n(this, "nodesResizeObserver");
-    this.canvas = t, this.nodesResizeObserver = new window.ResizeObserver((o) => {
-      o.forEach((r) => {
-        const i = r.target;
-        this.reactNodeChange(i);
+    i(this, "nodesResizeObserver");
+    i(this, "window", window);
+    this.canvas = e, this.nodesResizeObserver = new this.window.ResizeObserver((r) => {
+      r.forEach((o) => {
+        const n = o.target;
+        this.handleNodeResize(n);
       });
-    }), this.transformation = this.canvas.transformation, this.model = this.canvas.model;
+    }), this.viewport = this.canvas.viewport, this.transformation = this.viewport, this.graph = this.canvas.graph, this.model = this.graph;
   }
-  attach(t) {
-    return this.canvas.attach(t), this;
+  attach(e) {
+    return this.canvas.attach(e), this;
   }
   detach() {
     return this.canvas.detach(), this;
   }
-  addNode(t) {
-    const o = this.nodeIdGenerator.create(t.id);
+  addNode(e) {
+    const r = this.nodeIdGenerator.create(e.id);
     return this.canvas.addNode({
-      ...t,
-      id: o
-    }), this.nodes.set(o, t.element), this.nodesResizeObserver.observe(t.element), this;
+      ...e,
+      id: r
+    }), this.nodes.set(r, e.element), this.nodesResizeObserver.observe(e.element), this;
   }
-  updateNode(t, o) {
-    return this.canvas.updateNode(t, o), this;
+  updateNode(e, r) {
+    return this.canvas.updateNode(e, r), this;
   }
-  removeNode(t) {
-    this.canvas.removeNode(t);
-    const o = this.nodes.getByKey(t);
-    return this.nodes.deleteByKey(t), this.nodesResizeObserver.unobserve(o), this;
+  removeNode(e) {
+    this.canvas.removeNode(e);
+    const r = this.nodes.getByKey(e);
+    return this.nodes.deleteByKey(e), this.nodesResizeObserver.unobserve(r), this;
   }
-  markPort(t) {
-    return this.canvas.markPort(t), this;
+  markPort(e) {
+    return this.canvas.markPort(e), this;
   }
-  updatePort(t, o) {
-    return this.canvas.updatePort(t, o), this;
+  updatePort(e, r) {
+    return this.canvas.updatePort(e, r), this;
   }
-  unmarkPort(t) {
-    return this.canvas.unmarkPort(t), this;
+  unmarkPort(e) {
+    return this.canvas.unmarkPort(e), this;
   }
-  addEdge(t) {
-    return this.canvas.addEdge(t), this;
+  addEdge(e) {
+    return this.canvas.addEdge(e), this;
   }
-  updateEdge(t, o) {
-    return this.canvas.updateEdge(t, o), this;
+  updateEdge(e, r) {
+    return this.canvas.updateEdge(e, r), this;
   }
-  removeEdge(t) {
-    return this.canvas.removeEdge(t), this;
+  removeEdge(e) {
+    return this.canvas.removeEdge(e), this;
   }
-  patchViewportMatrix(t) {
-    return this.canvas.patchViewportMatrix(t), this;
+  patchViewportMatrix(e) {
+    return this.canvas.patchViewportMatrix(e), this;
   }
-  patchContentMatrix(t) {
-    return this.canvas.patchContentMatrix(t), this;
+  patchContentMatrix(e) {
+    return this.canvas.patchContentMatrix(e), this;
   }
   clear() {
     return this.canvas.clear(), this.nodesResizeObserver.disconnect(), this.nodes.clear(), this;
@@ -1843,57 +2257,208 @@ class Vt {
   destroy() {
     this.clear(), this.canvas.destroy();
   }
-  reactNodeChange(t) {
-    const o = this.nodes.getByValue(t);
-    this.canvas.updateNode(o), this.model.getNodeAdjacentEdgeIds(o).forEach((i) => {
-      this.canvas.updateEdge(i);
+  handleNodeResize(e) {
+    const r = this.nodes.getByValue(e);
+    this.canvas.updateNode(r), this.graph.getNodeAdjacentEdgeIds(r).forEach((n) => {
+      this.canvas.updateEdge(n);
     });
   }
 }
-class bt {
+class He {
+  constructor(e, r, o, n) {
+    i(this, "graph");
+    i(this, "model");
+    i(this, "viewport");
+    i(this, "transformation");
+    i(this, "canvas");
+    i(this, "element", null);
+    i(this, "canvasResizeObserver");
+    i(this, "window", window);
+    i(this, "nodeHorizontal");
+    i(this, "nodeVertical");
+    i(this, "viewportWidth", 0);
+    i(this, "viewportHeight", 0);
+    i(this, "viewportMatrix");
+    i(this, "loadedArea", {
+      xFrom: 1 / 0,
+      xTo: 1 / 0,
+      yFrom: 1 / 0,
+      yTo: 1 / 0
+    });
+    i(this, "updateLoadedArea", (e) => {
+      this.loadedArea = {
+        xFrom: e.x,
+        xTo: e.x + e.width,
+        yFrom: e.y,
+        yTo: e.y + e.height
+      };
+    });
+    var c, a;
+    this.trigger = r, this.virtualScrollOptions = n, this.nodeHorizontal = this.virtualScrollOptions.maxNodeContainingRadius.horizontal, this.nodeVertical = this.virtualScrollOptions.maxNodeContainingRadius.vertical, this.canvasResizeObserver = new this.window.ResizeObserver((l) => {
+      const g = l[0];
+      this.viewportWidth = g.contentRect.width, this.viewportHeight = g.contentRect.height, this.scheduleLoadAreaAroundViewport();
+    });
+    const d = ((c = o == null ? void 0 : o.events) == null ? void 0 : c.onTransformFinished) ?? (() => {
+    }), s = ((a = o == null ? void 0 : o.events) == null ? void 0 : a.onTransformChange) ?? (() => {
+    }), h = {
+      ...o,
+      events: {
+        ...o == null ? void 0 : o.events,
+        onTransformChange: () => {
+          const l = this.viewportMatrix;
+          this.viewportMatrix = this.canvas.viewport.getViewportMatrix(), l.scale !== this.viewportMatrix.scale && this.scheduleEnsureViewportAreaLoaded(), s();
+        },
+        onTransformFinished: () => {
+          this.scheduleLoadAreaAroundViewport(), d();
+        }
+      }
+    };
+    this.canvas = new ae(
+      e,
+      h
+    ), this.viewportMatrix = this.canvas.viewport.getViewportMatrix(), this.viewport = this.canvas.viewport, this.transformation = this.viewport, this.graph = this.canvas.graph, this.model = this.graph, this.trigger.subscribe(this.updateLoadedArea);
+  }
+  attach(e) {
+    return this.detach(), this.element = e, this.canvasResizeObserver.observe(this.element), this.canvas.attach(e), this;
+  }
+  detach() {
+    return this.element !== null && (this.canvasResizeObserver.unobserve(this.element), this.element = null, this.viewportWidth = 0, this.viewportHeight = 0), this.canvas.detach(), this;
+  }
+  addNode(e) {
+    return this.canvas.addNode(e), this;
+  }
+  updateNode(e, r) {
+    return this.canvas.updateNode(e, r), this;
+  }
+  removeNode(e) {
+    return this.canvas.removeNode(e), this;
+  }
+  markPort(e) {
+    return this.canvas.markPort(e), this;
+  }
+  updatePort(e, r) {
+    return this.canvas.updatePort(e, r), this;
+  }
+  unmarkPort(e) {
+    return this.canvas.unmarkPort(e), this;
+  }
+  addEdge(e) {
+    return this.canvas.addEdge(e), this;
+  }
+  updateEdge(e, r) {
+    return this.canvas.updateEdge(e, r), this;
+  }
+  removeEdge(e) {
+    return this.canvas.removeEdge(e), this;
+  }
+  patchViewportMatrix(e) {
+    return this.canvas.patchViewportMatrix(e), this.viewportMatrix = this.canvas.viewport.getViewportMatrix(), this.loadAreaAroundViewport(), this;
+  }
+  patchContentMatrix(e) {
+    return this.canvas.patchContentMatrix(e), this.viewportMatrix = this.canvas.viewport.getViewportMatrix(), this.loadAreaAroundViewport(), this;
+  }
+  clear() {
+    return this.canvas.clear(), this;
+  }
+  destroy() {
+    this.trigger.unsubscribe(this.updateLoadedArea), this.canvas.destroy();
+  }
+  scheduleLoadAreaAroundViewport() {
+    setTimeout(() => {
+      this.loadAreaAroundViewport();
+    });
+  }
+  scheduleEnsureViewportAreaLoaded() {
+    const e = this.viewportWidth * this.viewportMatrix.scale, r = this.viewportHeight * this.viewportMatrix.scale, o = this.viewportMatrix.x - this.nodeHorizontal, n = this.viewportMatrix.y - this.nodeVertical, d = this.viewportMatrix.x + e + this.nodeHorizontal, s = this.viewportMatrix.y + r + this.nodeVertical;
+    this.loadedArea.xFrom < o && this.loadedArea.xTo > d && this.loadedArea.yFrom < n && this.loadedArea.yTo > s || this.scheduleLoadAreaAroundViewport();
+  }
+  loadAreaAroundViewport() {
+    const e = this.viewportWidth * this.viewportMatrix.scale, r = this.viewportHeight * this.viewportMatrix.scale, o = this.viewportMatrix.x - e - this.nodeHorizontal, n = this.viewportMatrix.y - r - this.nodeVertical, d = 3 * e + 2 * this.nodeHorizontal, s = 3 * r + 2 * this.nodeVertical;
+    this.trigger.emit({ x: o, y: n, width: d, height: s });
+  }
+}
+class Ke {
   constructor() {
-    n(this, "coreOptions");
-    n(this, "dragOptions");
-    n(this, "transformOptions");
-    n(this, "isDraggable", !1);
-    n(this, "isTransformable", !1);
-    n(this, "hasResizeReactiveNodes", !1);
+    i(this, "coreOptions", {});
+    i(this, "dragOptions");
+    i(this, "transformOptions");
+    i(this, "virtualScrollOptions");
+    i(this, "hasDraggableNode", !1);
+    i(this, "hasTransformableViewport", !1);
+    i(this, "hasResizeReactiveNodes", !1);
+    i(this, "boxRenderingTrigger");
   }
-  setOptions(t) {
-    return this.coreOptions = t, this;
+  /**
+   * specifies options for fundamental aspects of visualization
+   */
+  setOptions(e) {
+    return this.coreOptions = e, this;
   }
-  setUserDraggableNodes(t) {
-    return this.isDraggable = !0, this.dragOptions = t, this;
+  /**
+   * enables nodes draggable bu user
+   */
+  setUserDraggableNodes(e) {
+    return this.hasDraggableNode = !0, this.dragOptions = e, this;
   }
   /**
    * @deprecated
    * use setUserTransformableViewport instead
    */
-  setUserTransformableCanvas(t) {
-    return this.setUserTransformableViewport(t);
+  setUserTransformableCanvas(e) {
+    return this.setUserTransformableViewport(e);
   }
-  setUserTransformableViewport(t) {
-    return this.isTransformable = !0, this.transformOptions = t, this;
+  /**
+   * enables viewport transformable by user
+   */
+  setUserTransformableViewport(e) {
+    return this.hasTransformableViewport = !0, this.transformOptions = e, this;
   }
+  /**
+   * enables automatic edges update on node resize
+   */
   setResizeReactiveNodes() {
     return this.hasResizeReactiveNodes = !0, this;
   }
+  /**
+   * sets emitter for rendering graph inside bounded area
+   */
+  setBoxRenderingTrigger(e) {
+    return this.boxRenderingTrigger = e, this;
+  }
+  setVirtualScroll(e) {
+    return this.virtualScrollOptions = e, this;
+  }
+  /**
+   * builds final canvas
+   */
   build() {
-    let t = new At(this.coreOptions);
-    return this.hasResizeReactiveNodes && (t = new Vt(t)), this.isDraggable && (t = new Mt(t, this.dragOptions)), this.isTransformable && (t = new It(t, this.transformOptions)), t;
+    let e = this.boxRenderingTrigger;
+    this.virtualScrollOptions !== void 0 && e === void 0 && (e = new se());
+    const r = e !== void 0 ? $e(e) : De, o = new Le(this.coreOptions, r);
+    let n = new be(o);
+    return this.hasResizeReactiveNodes && (n = new ze(n)), this.hasDraggableNode && (n = new We(n, this.dragOptions)), this.virtualScrollOptions !== void 0 ? n = new He(
+      n,
+      e,
+      this.transformOptions,
+      this.virtualScrollOptions
+    ) : this.hasTransformableViewport && (n = new ae(
+      n,
+      this.transformOptions
+    )), n;
   }
 }
 export {
-  nt as BezierEdgeShape,
-  bt as CanvasBuilder,
-  At as CanvasCore,
-  st as HorizontalEdgeShape,
-  bt as HtmlGraphBuilder,
-  S as HtmlGraphError,
-  Vt as ResizeReactiveNodesCanvas,
-  ht as StraightEdgeShape,
-  Mt as UserDraggableNodesCanvas,
-  It as UserTransformableCanvas,
-  It as UserTransformableViewportCanvas,
-  ct as VerticalEdgeShape
+  ee as BezierEdgeShape,
+  Ke as CanvasBuilder,
+  Ge as CanvasCore,
+  se as EventSubject,
+  te as HorizontalEdgeShape,
+  Ke as HtmlGraphBuilder,
+  A as HtmlGraphError,
+  ze as ResizeReactiveNodesCanvas,
+  re as StraightEdgeShape,
+  We as UserDraggableNodesCanvas,
+  ae as UserTransformableCanvas,
+  ae as UserTransformableViewportCanvas,
+  oe as VerticalEdgeShape
 };
