@@ -106,7 +106,7 @@
       <div id="canvas"></div>
     </div>
     <script type="module">
-      import { CanvasBuilder } from "/main.js";
+      import { CanvasBuilder } from "/html-graph.js";
 
       function backgroundDrawingFn(ctx) {
         ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
@@ -321,8 +321,8 @@
             },
           },
         })
-        .setUserDraggableNodes()
-        .setUserTransformableViewport({
+        .enableUserDraggableNodes()
+        .enableUserTransformableViewport({
           scale: {
             mouseWheelEventVerifier: (event) => event.ctrlKey,
           },
@@ -332,7 +332,7 @@
             },
           },
         })
-        .setResizeReactiveNodes()
+        .enableResizeReactiveNodes()
         .build();
 
       canvas

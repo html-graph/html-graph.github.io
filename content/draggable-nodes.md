@@ -4,11 +4,11 @@ title: Draggable Nodes
 
 ## Draggable Nodes
 
-To enable built-in draggable nodes, call the `setUserDraggableNodes` method on `CanvasBuilder`.
+To enable built-in draggable nodes, call the `enableUserDraggableNodes` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
 const canvas = new CanvasBuilder()
-  .setUserDraggableNodes()
+  .enableUserDraggableNodes()
   .build();
 {{< /code >}}
 
@@ -18,7 +18,7 @@ This method accepts optional configuration:
 
 {{< code lang="javascript">}}
 const canvas = new CanvasBuilder()
-  .setUserDraggableNodes({
+  .enableUserDraggableNodes({
     moveOnTop: false,
     mouse: {
       dragCursor: "crosshair",

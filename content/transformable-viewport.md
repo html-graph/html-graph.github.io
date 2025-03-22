@@ -4,11 +4,11 @@ title: Transformable Viewport
 
 ## Transformable Viewport
 
-To enable the built-in transformable viewport, call the `setUserTransformableViewport` method on `CanvasBuilder`.
+To enable the built-in transformable viewport, call the `enableUserTransformableViewport` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
 const canvas = new CanvasBuilder()
-  .setUserTransformableViewport()
+  .enableUserTransformableViewport()
   .build();
 {{< /code >}}
 
@@ -18,7 +18,7 @@ This method accepts optional configuration:
 
 {{< code lang="javascript">}}
 const canvas = new CanvasBuilder()
-  .setUserTransformableViewport({
+  .enableUserTransformableViewport({
     scale: {
       mouseWheelSensitivity: 1.5,
       mouseWheelEventVerifier: (event) => event.ctrlKey,
@@ -150,13 +150,15 @@ transformPreprocessor: (params) => {
 
 ### EventsConfig
 
-| Name                      | Description                                                                                                                       |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| `onTransformStarted`      | Triggered when the user initiates a transform (e.g., mouse down or touch start). The transform may or may not occur next.         |
-| `onTransformFinished`     | Triggered when the user finishes a transform (e.g., mouse up, touch end, or touch cancel).                                        |
-| `onBeforeTransformChange` | Triggered when the user performs a transform (e.g., mouse move or touch move), but the transform itself has not yet been applied. |
-| `onTransformChange`       | Triggered after the transform has been applied following user interaction.                                                        |
+| Name                        | Description                                                                                                                       |
+|-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
+| `onTransformStarted`        | Triggered when the user initiates a transform (e.g., mouse down or touch start). The transform may or may not occur next.         |
+| `onTransformFinished`       | Triggered when the user finishes a transform (e.g., mouse up, touch end, or touch cancel).                                        |
+| `onBeforeTransformChange`   | Triggered when the user performs a transform (e.g., mouse move or touch move), but the transform itself has not yet been applied. |
+| `onTransformChange`         | Triggered after the transform has been applied following user interaction.                                                        |
+| `onResizeTransformStarted`  | Triggered when transforation is about to change due to canvas element resize.                                                     |
+| `onResizeTransformFinished` | Triggered after transforation was changed due to canvas element resize.                                                           |
 
-All events have no arguments, but the up-to-date transform state can be retrieved via the `canvas.viewport` property.
+All events have no arguments, but the up-to-date transform state can be retrieved via the [`canvas.viewport`](/accessing-viewport-state) property.
 
 {{< /ref-target >}}

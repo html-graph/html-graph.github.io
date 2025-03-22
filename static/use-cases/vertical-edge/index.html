@@ -57,7 +57,7 @@
   <body>
     <div id="canvas"></div>
     <script type="module">
-      import { CanvasBuilder } from "/main.js";
+      import { CanvasBuilder } from "/html-graph.js";
 
       function createNode({ name, x, y, frontPortId, backPortId }) {
         const node = document.createElement("div");
@@ -97,8 +97,8 @@
             direction: Math.PI / 2,
           },
         })
-        .setUserDraggableNodes()
-        .setUserTransformableViewport({
+        .enableUserDraggableNodes()
+        .enableUserTransformableViewport({
           scale: {
             mouseWheelEventVerifier: (event) => event.ctrlKey,
           },

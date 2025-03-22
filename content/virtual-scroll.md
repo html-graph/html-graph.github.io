@@ -8,12 +8,12 @@ For particularly large graphs (starting at around 500 nodes and edges), it's cru
 
 {{< use-case title="Virtual scroll with 100k nodes. Hold CTRL to scale" src=/use-cases/virtual-scroll/ >}}
 
-To enable this built-in behavior, call the `setVirtualScroll` method on `CanvasBuilder`. This method requires a configuration object.
+To enable this built-in behavior, call the `enableVirtualScroll` method on `CanvasBuilder`. This method requires a configuration object.
 
 {{< code lang="javascript">}}
 const canvas = new CanvasBuilder()
-  .setVirtualScroll({
-    maxNodeContainingRadius: {
+  .enableVirtualScroll({
+    nodeContainingRadius: {
       vertical: 50,
       horizontal: 50,
     }
@@ -25,7 +25,7 @@ const canvas = new CanvasBuilder()
 
 | Name                      | Type                                        | Description                                         | Required |
 |---------------------------|---------------------------------------------|-----------------------------------------------------|----------|
-| `maxNodeContainingRadius` | <span data-ref="radius">RadiusConfig</span> | The radius that fully covers a node from its center | yes      |
+| `nodeContainingRadius` | <span data-ref="radius">RadiusConfig</span> | The radius that fully covers a node from its center | yes      |
 
 {{< ref-target ref="radius">}}
 
@@ -44,7 +44,7 @@ For example, if the center of every node is at (50%, 50%), and the maximum node 
 
 Smaller values for these radii result in greater optimization.
 
-The `setVirtualScroll` method automatically configures the transformable viewport, but you can still customize transform settings by calling `setTransformableViewport`.
+The `enableVirtualScroll` method automatically configures the transformable viewport, but you can still customize transform settings by calling `setTransformableViewport`.
 
 {{< code lang="javascript">}}
 const canvas = new CanvasBuilder()
@@ -54,8 +54,8 @@ const canvas = new CanvasBuilder()
       minContentScale: 0.3,
     },
   })
-  .setVirtualScroll({
-    maxNodeContainingRadius: {
+  .enableVirtualScroll({
+    nodeContainingRadius: {
       vertical: 50,
       horizontal: 50,
     }

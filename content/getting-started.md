@@ -22,12 +22,12 @@ const canvas = new CanvasBuilder().build();
 
 2. Local file as module
 
-Download `main.js` from <a target="_blank" href="https://github.com/html-graph/html-graph/releases">releases</a>
+Download `html-graph.js` from <a target="_blank" href="https://github.com/html-graph/html-graph/releases">releases</a>
 and use it like this
 
 {{< code lang="xml">}}
 <script type="module">
-  import { CanvasBuilder } from "/main.js";
+  import { CanvasBuilder } from "/html-graph.js";
 
   const canvas = new CanvasBuilder()
     .build();
