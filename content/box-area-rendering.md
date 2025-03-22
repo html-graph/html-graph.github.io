@@ -4,7 +4,9 @@ title: Box Area Rendering
 
 ## Box Area Rendering
 
-Instead of relying on the built-in virtual scroll, you can fine-tune your own virtual scroll implementation. This can be achieved by providing an `EventSubject` trigger for graph rendering within a bounded area using the `setBoxRenderingTrigger` method of `CanvasBuilder`.
+Instead of relying on the built-in virtual scroll, you can fine-tune your own virtual scroll implementation.
+This can be achieved by providing an <span data-ref="event-subject">EventSubject</span>
+trigger for graph rendering within a bounded area using the `setBoxRenderingTrigger` method of `CanvasBuilder`.
 
 {{< code lang="javascript">}}
 import { CanvasBuilder, EventSubject } from '@html-graph/html-graph';
