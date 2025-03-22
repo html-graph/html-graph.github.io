@@ -36,11 +36,11 @@ and use it like this
 
 3. Local file as UMD
 
-Download `main.umd.cjs` from <a target="_blank" href="https://github.com/html-graph/html-graph/releases">releases</a>
+Download `html-graph.umd.cjs` from <a target="_blank" href="https://github.com/html-graph/html-graph/releases">releases</a>
 and use it like this
 
 {{< code lang="xml">}}
-<script src="/main.umd.cjs"></script>
+<script src="/html-graph.umd.cjs"></script>
 <script>
   const canvas = new HtmlGraph.CanvasBuilder()
     .build();
