@@ -135,7 +135,7 @@
       <div id="canvas" class="canvas"></div>
     </div>
     <script type="module">
-      import { CanvasBuilder, EventSubject } from "/main.js";
+      import { CanvasBuilder, EventSubject } from "/html-graph.js";
 
       function createNode({ name, x, y, frontPortId, backPortId }) {
         const node = document.createElement("div");
@@ -174,7 +174,7 @@
             },
           },
         })
-        .setUserTransformableViewport({
+        .enableUserTransformableViewport({
           scale: {
             mouseWheelEventVerifier: (event) => event.ctrlKey,
           },
@@ -184,8 +184,8 @@
             },
           },
         })
-        .setBoxRenderingTrigger(trigger)
-        .setUserDraggableNodes()
+        .enableBoxAreaRendering(trigger)
+        .enableUserDraggableNodes()
         .build();
 
       const boundsElement = document.getElementById("bounds");

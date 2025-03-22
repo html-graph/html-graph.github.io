@@ -76,7 +76,7 @@
     </div>
     <div id="canvas"></div>
     <script type="module">
-      import { CanvasBuilder } from "/main.js";
+      import { CanvasBuilder } from "/html-graph.js";
 
       function createNode({ name, x, y, frontPortId, backPortId }) {
         const node = document.createElement("div");
@@ -113,7 +113,7 @@
             },
           },
         })
-        .setUserTransformableViewport({
+        .enableUserTransformableViewport({
           scale: {
             mouseWheelEventVerifier: (event) => event.ctrlKey,
           },
@@ -122,8 +122,8 @@
             minContentScale: 0.3,
           },
         })
-        .setVirtualScroll({
-          maxNodeContainingRadius: {
+        .enableVirtualScroll({
+          nodeContainingRadius: {
             horizontal: 25,
             vertical: 25,
           },

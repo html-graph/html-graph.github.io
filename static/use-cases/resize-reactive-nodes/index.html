@@ -77,7 +77,7 @@
     />
     <div id="canvas"></div>
     <script type="module">
-      import { CanvasBuilder } from "/main.js";
+      import { CanvasBuilder } from "/html-graph.js";
 
       const slider = document.getElementById("slider");
 
@@ -113,13 +113,13 @@
       }
 
       const canvas = new CanvasBuilder()
-        .setUserDraggableNodes()
-        .setUserTransformableViewport({
+        .enableUserDraggableNodes()
+        .enableUserTransformableViewport({
           scale: {
             mouseWheelEventVerifier: (event) => event.ctrlKey,
           },
         })
-        .setResizeReactiveNodes()
+        .enableResizeReactiveNodes()
         .build();
 
       canvas

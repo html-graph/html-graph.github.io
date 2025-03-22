@@ -4,11 +4,11 @@ title: Resize Reactive Nodes
 
 ## Resize-Reactive Nodes
 
-To enable built-in resize-reactive nodes, ensuring that edges are automatically updated when adjacent nodes are resized, call the `setResizeReactiveNodes` method on `CanvasBuilder`.
+To enable built-in resize-reactive nodes, ensuring that edges are automatically updated when adjacent nodes are resized, call the `enableResizeReactiveNodes` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
 const canvas = new CanvasBuilder()
-  .setResizeReactiveNodes()
+  .enableResizeReactiveNodes()
   .build();
 {{< /code >}}
 
