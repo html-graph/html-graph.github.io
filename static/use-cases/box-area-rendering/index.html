@@ -1,0 +1,284 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        position: relative;
+      }
+
+      button {
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+
+      #canvas {
+        position: absolute;
+        inset: 0;
+      }
+
+      .canvas-wrapper {
+        overflow: hidden;
+        position: absolute;
+        inset: 0;
+      }
+
+      .bounds-container {
+        overflow: visible;
+        position: relative;
+        width: 0;
+        height: 0;
+      }
+
+      .bounds {
+        position: absolute;
+        left: 0;
+        top: 0;
+        border: 5px solid #9e9e9e;
+        visibility: hidden;
+      }
+
+      .overlay {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        right: 2rem;
+        border-radius: 1rem;
+        padding: 1rem;
+        background: #ededed;
+        box-shadow: 0 0 5px #9e9e9e;
+        z-index: 1;
+      }
+
+      .sliders {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+
+      .node {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        background: #daedbd;
+        border: 1px solid #9e9e9e;
+        box-shadow: 0 0 5px #9e9e9e;
+        border-radius: 50%;
+        user-select: none;
+      }
+
+      .node-port {
+        position: relative;
+        width: 0;
+      }
+
+      .node-port::after {
+        content: "";
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        width: 6px;
+        height: 6px;
+        background: #777777;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="overlay">
+      <div class="sliders">
+        <div>
+          <button id="apply">Apply</button>
+        </div>
+        <div>
+          <label> Box X: <span id="x-value"></span> </label>
+          <br />
+          <input type="range" min="-500" max="3000" value="0" id="x" />
+        </div>
+
+        <div>
+          <label> Box Y: <span id="y-value"></span></label>
+          <br />
+          <input type="range" min="-500" max="3000" value="0" id="y" />
+        </div>
+
+        <div>
+          <label> Box Width: <span id="width-value"></span> </label>
+          <br />
+          <input type="range" min="500" max="3000" value="1000" id="width" />
+        </div>
+
+        <div>
+          <label> Box Height: <span id="height-value"></span> </label>
+          <br />
+          <input type="range" min="500" max="3000" value="1000" id="height" />
+        </div>
+      </div>
+    </div>
+    <div class="canvas-wrapper">
+      <div id="bounds-container" class="bounds-container">
+        <div id="bounds" class="bounds"></div>
+      </div>
+      <div id="canvas" class="canvas"></div>
+    </div>
+    <script type="module">
+      import { CanvasBuilder, EventSubject } from "/main.js";
+
+      function createNode({ name, x, y, frontPortId, backPortId }) {
+        const node = document.createElement("div");
+        const text = document.createElement("div");
+        const frontPort = document.createElement("div");
+        const backPort = document.createElement("div");
+
+        node.classList.add("node");
+        frontPort.classList.add("node-port");
+        backPort.classList.add("node-port");
+        text.innerText = name;
+
+        node.appendChild(frontPort);
+        node.appendChild(text);
+        node.appendChild(backPort);
+
+        return {
+          element: node,
+          x: x,
+          y: y,
+          ports: [
+            { id: frontPortId, element: frontPort },
+            { id: backPortId, element: backPort },
+          ],
+        };
+      }
+
+      const trigger = new EventSubject();
+
+      const canvas = new CanvasBuilder()
+        .setOptions({
+          edges: {
+            shape: {
+              type: "horizontal",
+              hasTargetArrow: true,
+            },
+          },
+        })
+        .setUserTransformableViewport({
+          scale: {
+            mouseWheelEventVerifier: (event) => event.ctrlKey,
+          },
+          events: {
+            onTransformChange: () => {
+              updateRectangle();
+            },
+          },
+        })
+        .setBoxRenderingTrigger(trigger)
+        .setUserDraggableNodes()
+        .build();
+
+      const boundsElement = document.getElementById("bounds");
+      const boundsContainerElement =
+        document.getElementById("bounds-container");
+
+      const map = new Map([
+        ["x", 0],
+        ["y", 0],
+        ["width", 1000],
+        ["height", 1000],
+      ]);
+
+      function updateRectangle() {
+        const x = map.get("x");
+        const y = map.get("y");
+        const width = map.get("width");
+        const height = map.get("height");
+
+        boundsElement.style.width = `${width}px`;
+        boundsElement.style.height = `${height}px`;
+
+        const m = canvas.viewport.getContentMatrix();
+        boundsContainerElement.style.transform = `matrix(${m.scale}, 0, 0, ${m.scale}, ${m.x}, ${m.y}) translate(${x - 5}px, ${y - 5}px) `;
+      }
+
+      map.forEach((_value, id) => {
+        const el = document.getElementById(id);
+        const valueEl = document.getElementById(`${id}-value`);
+
+        valueEl.innerText = el.value;
+
+        el.addEventListener("input", () => {
+          map.set(id, parseFloat(el.value));
+          valueEl.innerText = el.value;
+          updateRectangle();
+        });
+
+        updateRectangle();
+        boundsElement.style.visibility = "visible";
+      });
+
+      const canvasElement = document.getElementById("canvas");
+
+      canvas.attach(canvasElement);
+
+      let cnt = 0;
+
+      let prevPortId = null;
+
+      for (let i = 0; i < 100; i++) {
+        for (let j = 0; j < 100; j++) {
+          const frontPortId = `node-${cnt}-in`;
+          const backPortId = `node-${cnt}-out`;
+
+          canvas.addNode(
+            createNode({
+              name: `Node ${cnt}`,
+              x: j * 300,
+              y: i * 300,
+              frontPortId,
+              backPortId,
+            }),
+          );
+
+          if (prevPortId !== null) {
+            canvas.addEdge({ from: prevPortId, to: frontPortId });
+          }
+
+          prevPortId = backPortId;
+          cnt++;
+        }
+      }
+
+      const applyEl = document.getElementById("apply");
+
+      function refresh() {
+        const x = map.get("x");
+        const y = map.get("y");
+        const width = map.get("width");
+        const height = map.get("height");
+
+        trigger.emit({ x, y, width, height });
+      }
+
+      applyEl.addEventListener("click", () => {
+        refresh();
+      });
+
+      canvas.patchContentMatrix({ scale: 0.2, x: 250, y: 250 });
+
+      refresh();
+      updateRectangle();
+    </script>
+  </body>
+</html>

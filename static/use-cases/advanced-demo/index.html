@@ -1,0 +1,410 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        position: relative;
+        color: #02020a;
+        --color-edge: #777777;
+      }
+
+      #canvas,
+      #background,
+      .canvas-wrapper {
+        position: absolute;
+        inset: 0;
+        overflow: hidden;
+      }
+
+      .node {
+        min-width: 16rem;
+        position: relative;
+        border-radius: 0.5rem;
+        background: #daedbd;
+        border: 1px solid #9e9e9e;
+        user-select: none;
+        box-shadow: 0 0 0.5rem #9e9e9e;
+      }
+
+      .node-header {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .node-content {
+        display: flex;
+        flex-direction: column;
+        vertical-align: stretch;
+        gap: 0.5rem;
+        padding: 0.5rem;
+      }
+
+      .node-port {
+        position: absolute;
+        top: 50%;
+        width: 0;
+        height: 0;
+      }
+
+      .node-port::after {
+        display: block;
+        content: "";
+        position: relative;
+        top: -2.5px;
+        left: -3px;
+        width: 5px;
+        height: 5px;
+        background: var(--color-edge);
+        border-radius: 2.5px;
+        border: none;
+      }
+
+      .node-text {
+        resize: vertical;
+        width: 100%;
+        height: 4rem;
+        box-sizing: border-box;
+      }
+
+      .node-port-content {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        background: #fff;
+        border-radius: 0.5rem;
+        margin: 0.25rem 0;
+        padding: 0.25rem;
+        font-size: 12px;
+        line-height: 12px;
+      }
+
+      .node-port-input {
+        top: 50%;
+      }
+
+      .node-port-output {
+        top: 50%;
+        right: -9px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="canvas-wrapper">
+      <canvas id="background"></canvas>
+      <div id="canvas"></div>
+    </div>
+    <script type="module">
+      import { CanvasBuilder } from "/main.js";
+
+      function backgroundDrawingFn(ctx) {
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+        ctx.fillStyle = "#ffffff";
+        ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+
+        const matrixContent = canvas.viewport.getContentMatrix();
+        const viewGap = 25 * matrixContent.scale;
+
+        const iterationsHorizontal = ctx.canvas.width / viewGap;
+        const iterationsVertical = ctx.canvas.height / viewGap;
+
+        if (iterationsHorizontal * iterationsVertical > 10000) {
+          return;
+        }
+
+        const zeroOffsetX =
+          matrixContent.x - Math.floor(matrixContent.x / viewGap) * viewGap;
+        const zeroOffsetY =
+          matrixContent.y - Math.floor(matrixContent.y / viewGap) * viewGap;
+
+        const r = 1.5 * matrixContent.scale;
+        const pi2 = 2 * Math.PI;
+
+        const xFrom = zeroOffsetX - viewGap;
+        const yFrom = zeroOffsetY - viewGap;
+        const xTo = ctx.canvas.width + zeroOffsetX;
+        const yTo = ctx.canvas.height + zeroOffsetY;
+
+        ctx.fillStyle = "#d8d8d8";
+
+        for (let x = xFrom; x <= xTo; x += viewGap) {
+          for (let y = yFrom; y <= yTo; y += viewGap) {
+            ctx.beginPath();
+            ctx.arc(x, y, r, 0, pi2);
+            ctx.closePath();
+
+            ctx.fill();
+          }
+        }
+      }
+
+      function createNode({
+        name,
+        x,
+        y,
+        frontPortId,
+        outputPorts,
+        footerContent,
+      }) {
+        const element = document.createElement("div");
+        element.classList.add("node");
+
+        const ports = [];
+
+        if (frontPortId !== null) {
+          const inputPort = createInputPort();
+          element.appendChild(inputPort);
+          ports.push({ id: frontPortId, element: inputPort });
+        }
+
+        const content = createContentElement();
+        element.appendChild(content);
+
+        const input = createInputElement(name);
+        content.appendChild(input);
+
+        if (Object.keys(outputPorts).length > 0) {
+          const [body, elements] = createBodyElement(outputPorts);
+          content.appendChild(body);
+          elements.forEach((value) => {
+            ports.push(value);
+          });
+        }
+
+        if (footerContent) {
+          const footer = document.createElement("div");
+          footer.classList.add("node-footer");
+          footer.appendChild(footerContent);
+          content.appendChild(footer);
+        }
+
+        return { element, x, y, ports };
+      }
+
+      function createTextArea() {
+        const area = document.createElement("textarea");
+        area.classList.add("node-text");
+        area.value =
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+        prepareNodeTextareaElement(area);
+
+        return area;
+      }
+
+      function createInputPort() {
+        const inputPort = document.createElement("div");
+        inputPort.classList.add("node-port");
+        inputPort.classList.add("node-port-input");
+
+        return inputPort;
+      }
+
+      function createContentElement() {
+        const content = document.createElement("div");
+        content.classList.add("node-content");
+
+        return content;
+      }
+
+      function createInputElement(name) {
+        const input = document.createElement("input");
+        input.classList.add("node-input");
+        input.placeholder = "Enter node name";
+        input.value = name;
+        prepareNodeInputElement(input);
+
+        return input;
+      }
+
+      function createBodyElement(ports) {
+        const body = document.createElement("div");
+        body.classList.add("node-body");
+
+        const portElements = [];
+
+        Object.entries(ports).forEach(([key, value]) => {
+          const portContent = document.createElement("div");
+          portContent.classList.add("node-port-content");
+          portContent.innerText = value;
+
+          const port = document.createElement("div");
+          port.classList.add("node-port");
+          port.classList.add("node-port-output");
+          portContent.appendChild(port);
+
+          body.appendChild(portContent);
+          portElements.push({ id: key, element: port });
+        });
+
+        return [body, portElements];
+      }
+
+      function prepareNodeInputElement(element) {
+        element.addEventListener("mousemove", (event) => {
+          if (document.activeElement === event.target) {
+            event.stopPropagation();
+          }
+        });
+      }
+
+      function prepareNodeTextareaElement(element) {
+        let hover = false;
+        let down = false;
+
+        element.addEventListener("mouseover", () => {
+          hover = true;
+        });
+
+        element.addEventListener("mouseleave", () => {
+          hover = false;
+        });
+
+        element.addEventListener("mousedown", (event) => {
+          event.stopPropagation();
+
+          down = true;
+        });
+
+        element.addEventListener("mouseup", () => {
+          down = false;
+        });
+
+        element.addEventListener("mousemove", (event) => {
+          if (down) {
+            event.stopPropagation();
+          }
+        });
+
+        element.addEventListener("wheel", (event) => {
+          if (hover) {
+            event.stopPropagation();
+          }
+        });
+      }
+
+      const canvasElement = document.getElementById("canvas");
+
+      const backgroundElement = document.getElementById("background");
+
+      const ctx = backgroundElement.getContext("2d");
+
+      new ResizeObserver(() => {
+        const { width, height } = canvasElement.getBoundingClientRect();
+
+        ctx.canvas.width = width;
+        ctx.canvas.height = height;
+
+        backgroundDrawingFn(ctx, canvas.viewport);
+      }).observe(canvasElement);
+
+      const canvas = new CanvasBuilder()
+        .setOptions({
+          nodes: {
+            centerFn: () => ({ x: 0, y: 0 }),
+          },
+          edges: {
+            shape: {
+              color: "var(--color-edge)",
+              hasTargetArrow: true,
+            },
+          },
+        })
+        .setUserDraggableNodes()
+        .setUserTransformableViewport({
+          scale: {
+            mouseWheelEventVerifier: (event) => event.ctrlKey,
+          },
+          events: {
+            onTransformChange: () => {
+              backgroundDrawingFn(ctx);
+            },
+          },
+        })
+        .setResizeReactiveNodes()
+        .build();
+
+      canvas
+        .attach(canvasElement)
+        .addNode(
+          createNode({
+            name: "Node 1",
+            x: 200,
+            y: 400,
+            frontPortId: null,
+            outputPorts: {
+              "output-1-1": "Port 1",
+              "output-1-2": "Port 2",
+            },
+          }),
+        )
+        .addNode(
+          createNode({
+            name: "Node 2",
+            x: 600,
+            y: 500,
+            frontPortId: "input-2",
+            outputPorts: {
+              "output-2-1": "Port 1",
+              "output-2-2": "Port 2",
+              "output-2-3": "Port 3",
+            },
+            footerContent: createTextArea(),
+          }),
+        )
+        .addNode(
+          createNode({
+            name: "Node 3",
+            x: 600,
+            y: 200,
+            frontPortId: "input-3",
+            outputPorts: {
+              "output-3-1": "Port 1",
+              "output-3-2": "Port 2",
+              "output-3-3": "Port 3",
+            },
+          }),
+        )
+        .addNode(
+          createNode({
+            name: "Node 4",
+            x: 1100,
+            y: 400,
+            frontPortId: "input-4",
+            outputPorts: {
+              "output-4-1": "Port 1",
+            },
+          }),
+        )
+        .addNode(
+          createNode({
+            name: "Node 5",
+            x: 1100,
+            y: 550,
+            frontPortId: "input-5",
+            outputPorts: {
+              "output-5-1": "Port 1",
+              "output-5-2": "Port 2",
+            },
+          }),
+        )
+        .addEdge({ from: "output-1-1", to: "input-3" })
+        .addEdge({ from: "output-1-2", to: "input-2" })
+        .addEdge({ from: "output-2-1", to: "input-4" })
+        .addEdge({ from: "output-3-1", to: "input-4" })
+        .addEdge({ from: "output-2-2", to: "input-5" })
+        .patchContentMatrix({ scale: 0.7, x: -100, y: 50 });
+    </script>
+  </body>
+</html>
