@@ -1,0 +1,173 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        position: relative;
+      }
+
+      button {
+        cursor: pointer;
+        padding: 1rem;
+      }
+
+      #canvas {
+        position: absolute;
+        inset: 0;
+      }
+
+      .overlay {
+        z-index: 1;
+        position: absolute;
+        inset: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .node {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        background: #daedbd;
+        border: 1px solid #9e9e9e;
+        box-shadow: 0 0 5px #9e9e9e;
+        border-radius: 50%;
+        user-select: none;
+      }
+
+      .node-port {
+        position: relative;
+        width: 0;
+      }
+
+      .node-port::after {
+        content: "";
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        width: 6px;
+        height: 6px;
+        background: #777777;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="overlay" class="overlay">
+      <button id="load-button">
+        <h2>Load 100 000 nodes</h2>
+        <h3>(it might take a few seconds)</h3>
+      </button>
+    </div>
+    <div id="canvas"></div>
+    <script type="module">
+      import { CanvasBuilder } from "/main.js";
+
+      function createNode({ name, x, y, frontPortId, backPortId }) {
+        const node = document.createElement("div");
+        const text = document.createElement("div");
+        const frontPort = document.createElement("div");
+        const backPort = document.createElement("div");
+
+        node.classList.add("node");
+        frontPort.classList.add("node-port");
+        backPort.classList.add("node-port");
+        text.innerText = name;
+
+        node.appendChild(frontPort);
+        node.appendChild(text);
+        node.appendChild(backPort);
+
+        return {
+          element: node,
+          x: x,
+          y: y,
+          ports: [
+            { id: frontPortId, element: frontPort },
+            { id: backPortId, element: backPort },
+          ],
+        };
+      }
+
+      const canvas = new CanvasBuilder()
+        .setOptions({
+          edges: {
+            shape: {
+              type: "horizontal",
+              hasTargetArrow: true,
+            },
+          },
+        })
+        .setUserTransformableViewport({
+          scale: {
+            mouseWheelEventVerifier: (event) => event.ctrlKey,
+          },
+          transformPreprocessor: {
+            type: "scale-limit",
+            minContentScale: 0.3,
+          },
+        })
+        .setVirtualScroll({
+          maxNodeContainingRadius: {
+            horizontal: 25,
+            vertical: 25,
+          },
+        })
+        .build();
+
+      canvas.attach(document.getElementById("canvas"));
+
+      const btn = document.getElementById("load-button");
+      const overlay = document.getElementById("overlay");
+
+      btn.addEventListener("click", () => {
+        overlay.style.display = "none";
+
+        setTimeout(() => {
+          let cnt = 0;
+
+          let prevPortId = null;
+
+          for (let i = 0; i < 10; i++) {
+            for (let j = 0; j < 10000; j++) {
+              const frontPortId = `node-${cnt}-in`;
+              const backPortId = `node-${cnt}-out`;
+
+              canvas.addNode(
+                createNode({
+                  name: `Node ${cnt}`,
+                  x: j * 300,
+                  y: i * 300,
+                  frontPortId,
+                  backPortId,
+                }),
+              );
+
+              if (prevPortId !== null) {
+                canvas.addEdge({ from: prevPortId, to: frontPortId });
+              }
+
+              prevPortId = backPortId;
+              cnt++;
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

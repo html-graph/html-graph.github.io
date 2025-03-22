@@ -11,9 +11,11 @@ Here's an advanced example to demonstrate the full potential of this library:
 {{< use-case title="Advanced example. Hold CTRL to scale" src=/use-cases/020-advanced-demo/ >}}
 
 This library features a low-level [core](/core-configuration) alongside practical
-high-level functionalities, including [draggable nodes](/draggable-nodes),
-a [shiftable and zoomable canvas](/transformable-viewport),
-and [resize-reactive nodes](/resize-reactive-nodes).
+high-level functionalities such as:
+- [draggable nodes](/draggable-nodes)
+- [shiftable and zoomable viewport](/transformable-viewport)
+- [resize-reactive nodes](/resize-reactive-nodes)
+- [virtual scroll](/virtual-scroll)
 
 All examples are designed as single HTML files to simplify setup and usage.
 
