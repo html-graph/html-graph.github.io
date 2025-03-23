@@ -3,7 +3,7 @@
 This is source for static website of HTMLGraph documentation.
 It uses [Hugo](https://gohugo.io/) static site generator.
 
-## Delelopment
+## Development
 
 ```
 hugo server -D
