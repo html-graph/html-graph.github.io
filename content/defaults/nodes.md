@@ -6,7 +6,7 @@ title: Core Configuration | Nodes
 
 {{< code lang="javascript">}}
 const canvas = new CanvasBuilder()
-  .setOptions({
+  .setDefaults({
     nodes: {
       centerFn: (w, h) => ({ x: w / 2, y: h / 2 }),
       priority: "incremental",

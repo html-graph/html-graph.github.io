@@ -6,7 +6,7 @@ title: Core Configuration | Edges
 
 {{< code lang="javascript">}}
 const canvas = new CanvasBuilder()
-  .setOptions({
+  .setDefaults({
     edges: {
       shape: {
         type: "bezier",

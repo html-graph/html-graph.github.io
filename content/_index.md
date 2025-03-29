@@ -10,7 +10,7 @@ Here's an advanced example to demonstrate the full potential of this library:
 
 {{< use-case title="Advanced example. Hold CTRL to scale" src=/use-cases/advanced-demo/ >}}
 
-This library features a low-level [core](/core-configuration) alongside practical
+This library features a low-level alongside practical
 high-level functionalities such as:
 - [draggable nodes](/draggable-nodes)
 - [shiftable and zoomable viewport](/transformable-viewport)

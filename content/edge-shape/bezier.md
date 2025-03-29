@@ -4,11 +4,11 @@ title: Edge Shape | Bezier
 
 ## Bezier Edge Shape
 
-The Bezier shape is used by default, but it can also be explicitly set using the `setOptions` method on `CanvasBuilder`.
+The Bezier shape is used by default, but it can also be explicitly set using the `setDefaults` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
 const canvas = new CanvasBuilder()
-  .setOptions({
+  .setDefaults({
     edges: {
       shape: {
         type: "bezier",
@@ -43,7 +43,7 @@ Alternatively, you can create a Bezier shape by passing a factory function into 
 import { BezierEdgeShape } from "@html-graph/html-graph";
 
 const canvas = new CanvasBuilder()
-  .setOptions({
+  .setDefaults({
     edges: {
       shape: () => new BezierEdgeShape({ hasTargetArrow: true })
     },

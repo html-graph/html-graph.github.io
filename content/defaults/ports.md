@@ -6,7 +6,7 @@ title: Core Configuration | Ports
 
 {{< code lang="javascript">}}
 const canvas = new CanvasBuilder()
-  .setOptions({
+  .setDefaults({
     ports: {
       direction: -Math.PI,
     },
