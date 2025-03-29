@@ -4,7 +4,8 @@ title: Defaults Configuration
 
 ## Defaults Configuration
 
-Configure the base visualization settings using the `setDefaults` method of `CanvasBuilder`:
+Use the `setDefaults` method of `CanvasBuilder` to establish base visualization settings.
+These defaults apply to all graph entities (nodes, ports, and edges) when no explicit values are provided.
 
 {{< code lang="javascript">}}
 const canvas = new CanvasBuilder()
