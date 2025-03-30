@@ -7,7 +7,7 @@ title: Canvas | Attach
 Attaches the canvas to an HTML element. If the canvas is already attached to another element, it will first detach and then attach to the specified element.
 
 {{< code lang="javascript">}}
-const element = document.getElementById("#canvas");
+const element = document.getElementById("canvas");
 
 canvas.attach(element);
 {{< /code >}}
