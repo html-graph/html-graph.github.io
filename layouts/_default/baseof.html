@@ -76,13 +76,62 @@
     <header class="layout__header">
       <img width="32" height="32" src="/favicons/favicon-32x32.png" />
       <span class="layout__title"> {{ .Site.Title }} </span>
-      <a
-        target="_blank"
-        href="https://github.com/html-graph/html-graph"
-        class="layout__github"
-      >
-        <img width="32" height="32" src="/github-light.svg" />
-      </a>
+      <div class="header-side">
+        <div
+          class="ya-site-form ya-site-form_inited_no"
+          data-bem='{"action":"https://yandex.com/search/site/","arrow":false,"bg":"transparent","fontsize":12,"fg":"#000000","language":"en","logo":"rb","publicname":"Search on site","suggest":true,"target":"_blank","tld":"com","type":2,"usebigdictionary":true,"searchid":12449743,"input_fg":"#02020a","input_bg":"#ffffff","input_fontStyle":"normal","input_fontWeight":"normal","input_placeholder":"","input_placeholderColor":"#000000","input_borderColor":"#2e2e2e"}'
+        >
+          <form
+            action="https://yandex.com/search/site/"
+            method="get"
+            target="_blank"
+            accept-charset="utf-8"
+          >
+            <input type="hidden" name="searchid" value="12449743" /><input
+              type="hidden"
+              name="l10n"
+              value="en"
+            /><input type="hidden" name="reqenc" value="" /><input
+              type="search"
+              name="text"
+              value=""
+            /><input type="submit" value="Search" />
+          </form>
+        </div>
+        <style type="text/css">
+          .ya-page_js_yes .ya-site-form_inited_no {
+            display: none;
+          }
+        </style>
+        <script type="text/javascript">
+          (function (w, d, c) {
+            var s = d.createElement("script"),
+              h = d.getElementsByTagName("script")[0],
+              e = d.documentElement;
+            if ((" " + e.className + " ").indexOf(" ya-page_js_yes ") === -1) {
+              e.className += " ya-page_js_yes";
+            }
+            s.type = "text/javascript";
+            s.async = true;
+            s.charset = "utf-8";
+            s.src =
+              (d.location.protocol === "https:" ? "https:" : "http:") +
+              "//site.yandex.net/v2.0/js/all.js";
+            h.parentNode.insertBefore(s, h);
+            (w[c] || (w[c] = [])).push(function () {
+              Ya.Site.Form.init();
+            });
+          })(window, document, "yandex_site_callbacks");
+        </script>
+
+        <a
+          target="_blank"
+          href="https://github.com/html-graph/html-graph"
+          class="layout__github"
+        >
+          <img width="32" height="32" src="/github-light.svg" />
+        </a>
+      </div>
     </header>
 
     <main class="layout__content">
