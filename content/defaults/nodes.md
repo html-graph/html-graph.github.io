@@ -5,13 +5,17 @@ title: Core Configuration | Nodes
 ## Nodes Configuration
 
 {{< code lang="javascript">}}
+const element = document.getElementById('canvas');
+
 const canvas = new CanvasBuilder()
   .setDefaults({
     nodes: {
       centerFn: (w, h) => ({ x: w / 2, y: h / 2 }),
       priority: "incremental",
     },
-  }).build();
+  })
+  .attach(element)
+  .build();
 {{< /code >}}
 
 ### `NodesConfig` Fields

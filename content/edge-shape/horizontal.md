@@ -7,6 +7,8 @@ title: Edge Shape | Horizontal
 The Horizontal edge shape can be configured by calling the `setDefaults` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
+const element = document.getElementById('canvas');
+
 const canvas = new CanvasBuilder()
   .setDefaults({
     edges: {
@@ -14,7 +16,9 @@ const canvas = new CanvasBuilder()
         type: "horizontal",
       },
     },
-  }).build();
+  })
+  .attach(element)
+  .build();
 {{< /code >}}
 
 {{< use-case title="Horizontal Edge" src=/use-cases/horizontal-edge/ >}}
@@ -42,12 +46,16 @@ Alternatively, you can create a Horizontal shape by passing a factory function i
 {{< code lang="javascript">}}
 import { HorizontalEdgeShape } from "@html-graph/html-graph";
 
+const element = document.getElementById('canvas');
+
 const canvas = new CanvasBuilder()
   .setDefaults({
     edges: {
       shape: () => new HorizontalEdgeShape({ hasTargetArrow: true })
     },
-  }).build();
+  })
+  .attach(element)
+  .build();
 {{< /code >}}
 
 All parameters are the same as specified in the <span data-ref="horizontal-edge-parameters">table</span>.

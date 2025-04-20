@@ -8,6 +8,8 @@ Use the `setDefaults` method of `CanvasBuilder` to establish base visualization 
 These defaults apply to all graph entities (nodes, ports, and edges) when no explicit values are provided.
 
 {{< code lang="javascript">}}
+const element = document.getElementById('canvas');
+
 const canvas = new CanvasBuilder()
   .setDefaults({
     nodes: {
@@ -25,6 +27,7 @@ const canvas = new CanvasBuilder()
       priority: 5,
     },
   })
+  .attach(element)
   .build();
 {{< /code >}}
 

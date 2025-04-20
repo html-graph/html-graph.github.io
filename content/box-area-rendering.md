@@ -12,9 +12,11 @@ trigger for graph rendering within a bounded area using the `enableBoxAreaRender
 import { CanvasBuilder, EventSubject } from '@html-graph/html-graph';
 
 const trigger = new EventSubject();
+const element = document.getElementById('canvas');
 
 const canvas = new CanvasBuilder()
   .enableBoxAreaRendering(trigger)
+  .attach(element)
   .build();
 {{< /code >}}
 

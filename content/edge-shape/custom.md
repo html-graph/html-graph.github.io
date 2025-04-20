@@ -7,12 +7,16 @@ title: Edge Shape | Custom
 A custom edge shape can be defined by providing a factory function in the `setDefaults` method of `CanvasBuilder`.
 
 {{< code lang="javascript">}}
+const element = document.getElementById('canvas');
+
 const canvas = new CanvasBuilder()
   .setDefaults({
     edges: {
       shape: () => new MyCustomEdgeShape(),
     },
-  }).build();
+  })
+  .attach(canvas)
+  .build();
 {{< /code >}}
 
 {{< use-case title="Custom Edge with Label" src=/use-cases/edge-with-label/ >}}

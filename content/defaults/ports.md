@@ -5,12 +5,16 @@ title: Core Configuration | Ports
 ## Ports Configuration
 
 {{< code lang="javascript">}}
+const element = document.getElementById('canvas');
+
 const canvas = new CanvasBuilder()
   .setDefaults({
     ports: {
       direction: -Math.PI,
     },
-  }).build();
+  })
+  .attach(element)
+  .build();
 {{< /code >}}
 
 ### `PortsConfig` Fields

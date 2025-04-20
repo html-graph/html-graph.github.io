@@ -7,8 +7,11 @@ title: Transformable Viewport
 To enable the built-in transformable viewport, call the `enableUserTransformableViewport` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
+const element = document.getElementById('canvas');
+
 const canvas = new CanvasBuilder()
   .enableUserTransformableViewport()
+  .attach(element)
   .build();
 {{< /code >}}
 
@@ -17,6 +20,8 @@ const canvas = new CanvasBuilder()
 This method accepts optional configuration:
 
 {{< code lang="javascript">}}
+const element = document.getElementById('canvas');
+
 const canvas = new CanvasBuilder()
   .enableUserTransformableViewport({
     scale: {
@@ -58,6 +63,7 @@ const canvas = new CanvasBuilder()
       },
     },
   })
+  .attach(element)
   .build();
 {{< /code >}}
 

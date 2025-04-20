@@ -17,7 +17,11 @@ and use it like this
 {{< code lang="javascript" >}}
 import { CanvasBuilder } from "@html-graph/html-graph";
 
-const canvas = new CanvasBuilder().build();
+const element = document.getElementById('canvas');
+
+const canvas = new CanvasBuilder()
+  .attach(element)
+  .build();
 {{< / code >}}
 
 2. Local file as module

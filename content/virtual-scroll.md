@@ -11,6 +11,8 @@ For particularly large graphs (starting at around 500 nodes and edges), it's cru
 To enable this built-in behavior, call the `enableVirtualScroll` method on `CanvasBuilder`. This method requires a configuration object.
 
 {{< code lang="javascript">}}
+const element = document.getElementById('canvas');
+
 const canvas = new CanvasBuilder()
   .enableVirtualScroll({
     nodeContainingRadius: {
@@ -18,6 +20,7 @@ const canvas = new CanvasBuilder()
       horizontal: 50,
     }
   })
+  .attach(element)
   .build();
 {{< /code >}}
 
@@ -47,6 +50,8 @@ Smaller values for these radii result in greater optimization.
 The `enableVirtualScroll` method automatically configures the transformable viewport, but you can still customize transform settings by calling `setTransformableViewport`.
 
 {{< code lang="javascript">}}
+const element = document.getElementById('canvas');
+
 const canvas = new CanvasBuilder()
   .setTransformableViewport({
     transformPreprocessor: {
@@ -60,6 +65,7 @@ const canvas = new CanvasBuilder()
       horizontal: 50,
     }
   })
+  .attach(element)
   .build();
 {{< /code >}}
 

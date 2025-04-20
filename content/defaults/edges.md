@@ -5,6 +5,8 @@ title: Core Configuration | Edges
 ## Edges Configuration
 
 {{< code lang="javascript">}}
+const element = document.getElementById('canvas');
+
 const canvas = new CanvasBuilder()
   .setDefaults({
     edges: {
@@ -15,7 +17,9 @@ const canvas = new CanvasBuilder()
       },
       priority: "incremental",
     },
-  }).build();
+  })
+  .attach(element)
+  .build();
 {{< /code >}}
 
 ### `EdgesConfig` Fields

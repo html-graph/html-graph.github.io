@@ -7,8 +7,11 @@ title: Draggable Nodes
 To enable built-in draggable nodes, call the `enableUserDraggableNodes` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
+const element = document.getElementById('canvas');
+
 const canvas = new CanvasBuilder()
   .enableUserDraggableNodes()
+  .attach(element)
   .build();
 {{< /code >}}
 
@@ -17,6 +20,8 @@ const canvas = new CanvasBuilder()
 This method accepts optional configuration:
 
 {{< code lang="javascript">}}
+const element = document.getElementById('canvas');
+
 const canvas = new CanvasBuilder()
   .enableUserDraggableNodes({
     moveOnTop: false,
@@ -38,6 +43,7 @@ const canvas = new CanvasBuilder()
       },
     },
   })
+  .attach(element)
   .build();
 {{< /code >}}
 
