@@ -53,7 +53,7 @@ The `enableVirtualScroll` method automatically configures the transformable view
 const element = document.getElementById('canvas');
 
 const canvas = new CanvasBuilder()
-  .setTransformableViewport({
+  .enableUserTransformableViewport({
     transformPreprocessor: {
       type: "scale-limit",
       minContentScale: 0.3,
