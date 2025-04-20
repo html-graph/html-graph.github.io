@@ -7,7 +7,11 @@ title: Accessing Viewport Transform State
 The read-only viewport transform state can be accessed via the `viewport` property of the `canvas`.
 
 {{< code lang="javascript" >}}
-const canvas = new CanvasBuilder().build();
+const element = document.getElementById('canvas');
+
+const canvas = new CanvasBuilder()
+  .attach(canvas)
+  .build();
 
 console.log(canvas.viewport);
 {{< / code >}}

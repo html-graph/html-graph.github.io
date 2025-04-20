@@ -7,7 +7,11 @@ title: Accessing Graph Structure
 The read-only graph structure can be accessed via the `graph` property of the `canvas`.
 
 {{< code lang="javascript" >}}
-const canvas = new CanvasBuilder().build();
+const element = document.getElementById('canvas');
+
+const canvas = new CanvasBuilder()
+  .attach(element)
+  .build();
 
 canvas.graph.getAllNodeIds().forEach(nodeId => {
   console.log(canvas.graph.getNode(nodeId));
