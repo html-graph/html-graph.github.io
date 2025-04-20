@@ -164,6 +164,7 @@
       }
 
       const trigger = new EventSubject();
+      const canvasElement = document.getElementById("canvas");
 
       const canvas = new CanvasBuilder()
         .setDefaults({
@@ -186,6 +187,7 @@
         })
         .enableBoxAreaRendering(trigger)
         .enableUserDraggableNodes()
+        .attach(canvasElement)
         .build();
 
       const boundsElement = document.getElementById("bounds");
@@ -227,10 +229,6 @@
         updateRectangle();
         boundsElement.style.visibility = "visible";
       });
-
-      const canvasElement = document.getElementById("canvas");
-
-      canvas.attach(canvasElement);
 
       let cnt = 0;
 

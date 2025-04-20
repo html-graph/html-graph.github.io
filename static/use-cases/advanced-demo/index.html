@@ -333,10 +333,10 @@
           },
         })
         .enableResizeReactiveNodes()
+        .attach(canvasElement)
         .build();
 
       canvas
-        .attach(canvasElement)
         .addNode(
           createNode({
             name: "Node 1",

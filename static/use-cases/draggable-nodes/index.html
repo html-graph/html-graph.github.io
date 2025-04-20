@@ -84,10 +84,12 @@
         };
       }
 
-      const canvas = new CanvasBuilder().enableUserDraggableNodes().build();
+      const canvas = new CanvasBuilder()
+        .enableUserDraggableNodes()
+        .attach(document.getElementById("canvas"))
+        .build();
 
       canvas
-        .attach(document.getElementById("canvas"))
         .addNode(
           createNode({
             name: "Node 1",

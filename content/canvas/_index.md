@@ -6,12 +6,6 @@ title: Canvas
 
 The Canvas API provides a set of methods and properties for managing graph visualization. Below is an overview of its functionality:
 
-### [attach](attach)
-Attach the canvas to an HTML element.
-
-### [detach](detach)
-Detach the canvas from the current HTML element.
-
 ### [addNode](add-node)
 Create and add a node to the canvas.
 

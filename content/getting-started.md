@@ -29,7 +29,10 @@ and use it like this
 <script type="module">
   import { CanvasBuilder } from "/html-graph.js";
 
+  const element = document.getElementById('canvas');
+
   const canvas = new CanvasBuilder()
+    .attach(element)
     .build();
 </script>
 {{< /code >}}
@@ -42,7 +45,10 @@ and use it like this
 {{< code lang="xml">}}
 <script src="/html-graph.umd.cjs"></script>
 <script>
+  const element = document.getElementById('canvas');
+
   const canvas = new HtmlGraph.CanvasBuilder()
+    .attach(element)
     .build();
 </script>
 {{< /code >}}

@@ -98,10 +98,10 @@
             mouseWheelEventVerifier: (event) => event.ctrlKey,
           },
         })
+        .attach(document.getElementById("canvas"))
         .build();
 
       canvas
-        .attach(document.getElementById("canvas"))
         .addNode(
           createNode({
             name: "Node 1",

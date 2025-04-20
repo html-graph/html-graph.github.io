@@ -83,10 +83,11 @@
         };
       }
 
-      const canvas = new CanvasBuilder().build();
+      const canvas = new CanvasBuilder()
+        .attach(document.getElementById("canvas"))
+        .build();
 
       canvas
-        .attach(document.getElementById("canvas"))
         .addNode(
           createNode({
             name: "Node 1",
