@@ -24,8 +24,6 @@ const canvas = new CanvasBuilder()
 You can also apply a custom shape to a specific edge using the <a href="/canvas/add-edge">addEdge</a> and <a href="/canvas/update-edge">updateEdge</a> methods.
 
 {{< code lang="javascript">}}
-import { CustomEdgeShape } from "@html-graph/html-graph";
-
 canvas.addEdge({
   from: "port-1",
   to: "port-2",
