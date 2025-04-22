@@ -113,6 +113,7 @@
       }
 
       const canvas = new CanvasBuilder()
+        .setElement(document.getElementById("canvas"))
         .enableUserDraggableNodes()
         .enableUserTransformableViewport({
           scale: {
@@ -120,7 +121,6 @@
           },
         })
         .enableResizeReactiveNodes()
-        .setElement(document.getElementById("canvas"))
         .build();
 
       canvas

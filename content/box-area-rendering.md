@@ -15,8 +15,8 @@ const trigger = new EventSubject();
 const element = document.getElementById('canvas');
 
 const canvas = new CanvasBuilder()
-  .enableBoxAreaRendering(trigger)
   .setElement(element)
+  .enableBoxAreaRendering(trigger)
   .build();
 {{< /code >}}
 

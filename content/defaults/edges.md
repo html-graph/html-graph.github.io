@@ -8,6 +8,7 @@ title: Core Configuration | Edges
 const element = document.getElementById('canvas');
 
 const canvas = new CanvasBuilder()
+  .setElement(element)
   .setDefaults({
     edges: {
       shape: {
@@ -18,7 +19,6 @@ const canvas = new CanvasBuilder()
       priority: "incremental",
     },
   })
-  .setElement(element)
   .build();
 {{< /code >}}
 

@@ -105,6 +105,7 @@
       }
 
       const canvas = new CanvasBuilder()
+        .setElement(document.getElementById("canvas"))
         .setDefaults({
           edges: {
             shape: {
@@ -128,7 +129,6 @@
             vertical: 25,
           },
         })
-        .setElement(document.getElementById("canvas"))
         .build();
 
       const btn = document.getElementById("load-button");

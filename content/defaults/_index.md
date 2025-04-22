@@ -11,6 +11,7 @@ These defaults apply to all graph entities (nodes, ports, and edges) when no exp
 const element = document.getElementById('canvas');
 
 const canvas = new CanvasBuilder()
+  .setElement(element)
   .setDefaults({
     nodes: {
       centerFn: (w, h) => ({ x: w / 2, y: h / 2 }),
@@ -27,7 +28,6 @@ const canvas = new CanvasBuilder()
       priority: 5,
     },
   })
-  .setElement(element)
   .build();
 {{< /code >}}
 

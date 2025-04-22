@@ -86,6 +86,7 @@
       }
 
       const canvas = new CanvasBuilder()
+        .setElement(document.getElementById("canvas"))
         .setDefaults({
           edges: {
             shape: {
@@ -103,7 +104,6 @@
             mouseWheelEventVerifier: (event) => event.ctrlKey,
           },
         })
-        .setElement(document.getElementById("canvas"))
         .build();
 
       canvas

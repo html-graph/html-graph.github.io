@@ -8,12 +8,12 @@ title: Core Configuration | Ports
 const element = document.getElementById('canvas');
 
 const canvas = new CanvasBuilder()
+  .setElement(element)
   .setDefaults({
     ports: {
       direction: -Math.PI,
     },
   })
-  .setElement(element)
   .build();
 {{< /code >}}
 

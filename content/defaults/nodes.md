@@ -8,13 +8,13 @@ title: Core Configuration | Nodes
 const element = document.getElementById('canvas');
 
 const canvas = new CanvasBuilder()
+  .setElement(element)
   .setDefaults({
     nodes: {
       centerFn: (w, h) => ({ x: w / 2, y: h / 2 }),
       priority: "incremental",
     },
   })
-  .setElement(element)
   .build();
 {{< /code >}}
 

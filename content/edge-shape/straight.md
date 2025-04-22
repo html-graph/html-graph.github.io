@@ -10,6 +10,7 @@ The Straight edge shape can be configured by calling the `setDefaults` method on
 const element = document.getElementById('canvas');
 
 const canvas = new CanvasBuilder()
+  .setElement(element)
   .setDefaults({
     edges: {
       shape: {
@@ -17,7 +18,6 @@ const canvas = new CanvasBuilder()
       },
     },
   })
-  .setElement(element)
   .build();
 {{< /code >}}
 
@@ -49,12 +49,12 @@ import { StraightEdgeShape } from "@html-graph/html-graph";
 const element = document.getElementById('canvas');
 
 const canvas = new CanvasBuilder()
+  .setElement(element)
   .setDefaults({
     edges: {
       shape: () => new StraightEdgeShape({ hasTargetArrow: true })
     },
   })
-  .setElement(element)
   .build();
 {{< /code >}}
 

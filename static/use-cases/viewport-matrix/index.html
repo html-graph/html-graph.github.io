@@ -187,6 +187,7 @@
       };
 
       const canvas = builder
+        .setElement(canvasElement)
         .enableUserTransformableViewport({
           scale: {
             mouseWheelEventVerifier: (event) => event.ctrlKey,
@@ -197,7 +198,6 @@
             },
           },
         })
-        .setElement(canvasElement)
         .build();
 
       canvas

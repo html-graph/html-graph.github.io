@@ -310,6 +310,7 @@
       }).observe(canvasElement);
 
       const canvas = new CanvasBuilder()
+        .setElement(canvasElement)
         .setDefaults({
           nodes: {
             centerFn: () => ({ x: 0, y: 0 }),
@@ -333,7 +334,6 @@
           },
         })
         .enableResizeReactiveNodes()
-        .setElement(canvasElement)
         .build();
 
       canvas

@@ -167,6 +167,7 @@
       const canvasElement = document.getElementById("canvas");
 
       const canvas = new CanvasBuilder()
+        .setElement(canvasElement)
         .setDefaults({
           edges: {
             shape: {
@@ -187,7 +188,6 @@
         })
         .enableBoxAreaRendering(trigger)
         .enableUserDraggableNodes()
-        .setElement(canvasElement)
         .build();
 
       const boundsElement = document.getElementById("bounds");

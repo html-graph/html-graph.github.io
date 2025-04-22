@@ -10,12 +10,12 @@ A custom edge shape can be defined by providing a factory function in the `setDe
 const element = document.getElementById('canvas');
 
 const canvas = new CanvasBuilder()
+  .setElement(canvas)
   .setDefaults({
     edges: {
       shape: () => new MyCustomEdgeShape(),
     },
   })
-  .setElement(canvas)
   .build();
 {{< /code >}}
 
