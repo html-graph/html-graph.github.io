@@ -17,7 +17,7 @@ const canvas = new CanvasBuilder()
       },
     },
   })
-  .attach(element)
+  .setElement(element)
   .build();
 {{< /code >}}
 
@@ -54,7 +54,7 @@ const canvas = new CanvasBuilder()
       shape: () => new StraightEdgeShape({ hasTargetArrow: true })
     },
   })
-  .attach(element)
+  .setElement(element)
   .build();
 {{< /code >}}
 

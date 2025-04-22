@@ -10,7 +10,7 @@ The read-only graph structure can be accessed via the `graph` property of the `c
 const element = document.getElementById('canvas');
 
 const canvas = new CanvasBuilder()
-  .attach(element)
+  .setElement(element)
   .build();
 
 canvas.graph.getAllNodeIds().forEach(nodeId => {

@@ -13,7 +13,7 @@ const canvas = new CanvasBuilder()
       direction: -Math.PI,
     },
   })
-  .attach(element)
+  .setElement(element)
   .build();
 {{< /code >}}
 

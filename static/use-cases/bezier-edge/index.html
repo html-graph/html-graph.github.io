@@ -98,7 +98,7 @@
             mouseWheelEventVerifier: (event) => event.ctrlKey,
           },
         })
-        .attach(document.getElementById("canvas"))
+        .setElement(document.getElementById("canvas"))
         .build();
 
       canvas

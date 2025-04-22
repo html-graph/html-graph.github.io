@@ -11,7 +11,7 @@ const element = document.getElementById('canvas');
 
 const canvas = new CanvasBuilder()
   .enableResizeReactiveNodes()
-  .attach(element)
+  .setElement(element)
   .build();
 {{< /code >}}
 

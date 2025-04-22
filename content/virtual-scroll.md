@@ -20,7 +20,7 @@ const canvas = new CanvasBuilder()
       horizontal: 50,
     }
   })
-  .attach(element)
+  .setElement(element)
   .build();
 {{< /code >}}
 
@@ -65,7 +65,7 @@ const canvas = new CanvasBuilder()
       horizontal: 50,
     }
   })
-  .attach(element)
+  .setElement(element)
   .build();
 {{< /code >}}
 

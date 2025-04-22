@@ -11,7 +11,7 @@ const element = document.getElementById('canvas');
 
 const canvas = new CanvasBuilder()
   .enableUserTransformableViewport()
-  .attach(element)
+  .setElement(element)
   .build();
 {{< /code >}}
 
@@ -63,7 +63,7 @@ const canvas = new CanvasBuilder()
       },
     },
   })
-  .attach(element)
+  .setElement(element)
   .build();
 {{< /code >}}
 

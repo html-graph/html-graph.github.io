@@ -15,7 +15,7 @@ const canvas = new CanvasBuilder()
       shape: () => new MyCustomEdgeShape(),
     },
   })
-  .attach(canvas)
+  .setElement(canvas)
   .build();
 {{< /code >}}
 

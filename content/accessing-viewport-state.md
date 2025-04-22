@@ -10,7 +10,7 @@ The read-only viewport transform state can be accessed via the `viewport` proper
 const element = document.getElementById('canvas');
 
 const canvas = new CanvasBuilder()
-  .attach(canvas)
+  .setElement(canvas)
   .build();
 
 console.log(canvas.viewport);

@@ -27,7 +27,7 @@ const canvas = new CanvasBuilder()
       priority: 5,
     },
   })
-  .attach(element)
+  .setElement(element)
   .build();
 {{< /code >}}
 
