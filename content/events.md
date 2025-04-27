@@ -6,7 +6,7 @@ title: Events
 
 ### Event handling
 
-Subscribe to events using the `subscribe` method of `EventHandler` instances.
+Subscribe to events using the `subscribe` method of `EventHandler` instance.
 Unsubscribe using `unsubscribe` with the same callback when the listener is no longer needed.
 
 ### Canvas events
