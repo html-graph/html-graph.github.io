@@ -18,6 +18,7 @@ document.querySelectorAll("[data-use-case]").forEach((element) => {
   const impl = element.querySelector("[data-use-case-impl]");
   const copyBtn = element.querySelector("[data-use-case-copy]");
   const implCode = element.querySelector("[data-impl]");
+  const anchor = element.querySelector("[data-anchor]");
 
   demoBtn.addEventListener("click", () => {
     demo.style.display = "block";
@@ -35,6 +36,14 @@ document.querySelectorAll("[data-use-case]").forEach((element) => {
 
   copyBtn.addEventListener("click", () => {
     copy(implCode.innerText);
+  });
+
+  anchor.addEventListener("click", (event) => {
+    event.preventDefault();
+  });
+
+  anchor.addEventListener("pointerdown", (event) => {
+    window.open(event.currentTarget.href, "_blank");
   });
 });
 
