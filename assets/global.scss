@@ -119,8 +119,8 @@ a {
 
     iframe {
       border: none;
-      position: absolute;
-      inset: 0;
+      z-index: -1;
+      position: relative;
     }
   }
 
@@ -172,6 +172,12 @@ a {
     &_active {
       border-color: var(--color-border-dark);
     }
+  }
+
+  &__ref {
+    display: block;
+    position: absolute;
+    inset: 0;
   }
 }
 

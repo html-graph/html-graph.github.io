@@ -7,12 +7,13 @@
     <button data-use-case-impl-btn class="use-case__btn">Implementation</button>
   </div>
   <div class="use-case__frame">
-    <iframe
-      data-use-case-demo
-      width="100%"
-      height="100%"
-      src="{{ .Get "src" }}"
-    ></iframe>
+    <a class="use-case__ref" href="{{ .Get "src" }}" target="_blank" data-use-case-demo>
+      <iframe
+        width="100%"
+        height="100%"
+        src="{{ .Get "src" }}"
+      ></iframe>
+    </a>
 
     <div style="display: none" data-use-case-impl class="use-case__impl">
       <svg data-use-case-copy class="use-case__copy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 111.07 122.88">

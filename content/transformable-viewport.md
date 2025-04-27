@@ -15,7 +15,7 @@ const canvas = new CanvasBuilder()
   .build();
 {{< /code >}}
 
-{{< use-case title="Transformable Viewport. Hold CTRL to scale" src=/use-cases/transformable-viewport/ >}}
+{{< use-case title="Transformable Viewport" src=/use-cases/transformable-viewport/ >}}
 
 This method accepts optional configuration:
 

@@ -115,9 +115,6 @@
           },
         })
         .enableUserTransformableViewport({
-          scale: {
-            mouseWheelEventVerifier: (event) => event.ctrlKey,
-          },
           transformPreprocessor: {
             type: "scale-limit",
             minContentScale: 0.3,

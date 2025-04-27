@@ -189,9 +189,6 @@
       const canvas = builder
         .setElement(canvasElement)
         .enableUserTransformableViewport({
-          scale: {
-            mouseWheelEventVerifier: (event) => event.ctrlKey,
-          },
           events: {
             onTransformChange: () => {
               updateRectangleTransform();

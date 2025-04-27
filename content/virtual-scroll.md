@@ -6,7 +6,7 @@ title: Virtual Scroll
 
 For particularly large graphs (starting at around 500 nodes and edges), it's crucial to optimize rendering by loading only the nodes and edges that are within or near the viewport.
 
-{{< use-case title="Virtual scroll with 100k nodes. Hold CTRL to scale" src=/use-cases/virtual-scroll/ >}}
+{{< use-case title="Virtual scroll with 100k nodes" src=/use-cases/virtual-scroll/ >}}
 
 To enable this built-in behavior, call the `enableVirtualScroll` method on `CanvasBuilder`. This method requires a configuration object.
 

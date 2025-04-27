@@ -8,7 +8,7 @@ elements directly into nodes, making it perfect for building complex and customi
 
 Here's an advanced example to demonstrate the full potential of this library:
 
-{{< use-case title="Advanced example. Hold CTRL to scale" src=/use-cases/advanced-demo/ >}}
+{{< use-case title="Advanced example" src=/use-cases/advanced-demo/ >}}
 
 This library features a low-level core alongside practical
 high-level functionalities such as:

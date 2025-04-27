@@ -428,11 +428,7 @@
       const canvas = new CanvasBuilder()
         .setElement(document.getElementById("canvas"))
         .enableUserDraggableNodes()
-        .enableUserTransformableViewport({
-          scale: {
-            mouseWheelEventVerifier: (event) => event.ctrlKey,
-          },
-        })
+        .enableUserTransformableViewport()
         .build();
 
       canvas

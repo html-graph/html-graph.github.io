@@ -12,7 +12,7 @@ The content transformation matrix consists of three values: `scale`, `x`, and `y
 
 To better understand how these values work, experiment with the demo below.
 
-{{< use-case title="Content Matrix. Hold CTRL to scale" src=/use-cases/content-matrix/ >}}
+{{< use-case title="Content Matrix" src=/use-cases/content-matrix/ >}}
 
 To update the content matrix values, use the `patchContentMatrix` method. All parameters are optional.
 

@@ -324,9 +324,6 @@
         })
         .enableUserDraggableNodes()
         .enableUserTransformableViewport({
-          scale: {
-            mouseWheelEventVerifier: (event) => event.ctrlKey,
-          },
           events: {
             onTransformChange: () => {
               backgroundDrawingFn(ctx);
