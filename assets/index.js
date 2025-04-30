@@ -43,7 +43,11 @@ document.querySelectorAll("[data-use-case]").forEach((element) => {
   });
 
   anchor.addEventListener("pointerdown", (event) => {
-    window.open(event.currentTarget.href, "_blank");
+    const href = event.currentTarget.href;
+
+    setTimeout(() => {
+      window.open(href, "_blank");
+    }, 100);
   });
 });
 
