@@ -27,11 +27,11 @@ const canvas = new CanvasBuilder()
   .enableBackground({
     tileDimensions: {
       width: 50,
-      height: 50
+      height: 50,
     },
     renderer: {
       radius: 5,
-      color: "var(--color-background)"
+      color: 'var(--color-background)',
     },
     maxViewportScale: 20
   })
