@@ -20,9 +20,7 @@
         --color-edge: #777777;
       }
 
-      #canvas,
-      #background,
-      .canvas-wrapper {
+      #canvas {
         position: absolute;
         inset: 0;
         overflow: hidden;
@@ -101,54 +99,9 @@
     </style>
   </head>
   <body>
-    <div class="canvas-wrapper">
-      <canvas id="background"></canvas>
-      <div id="canvas"></div>
-    </div>
+    <div id="canvas"></div>
     <script type="module">
       import { CanvasBuilder } from "/html-graph.js";
-
-      function backgroundDrawingFn(ctx) {
-        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-
-        ctx.fillStyle = "#ffffff";
-        ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-
-        const matrixContent = canvas.viewport.getContentMatrix();
-        const viewGap = 25 * matrixContent.scale;
-
-        const iterationsHorizontal = ctx.canvas.width / viewGap;
-        const iterationsVertical = ctx.canvas.height / viewGap;
-
-        if (iterationsHorizontal * iterationsVertical > 10000) {
-          return;
-        }
-
-        const zeroOffsetX =
-          matrixContent.x - Math.floor(matrixContent.x / viewGap) * viewGap;
-        const zeroOffsetY =
-          matrixContent.y - Math.floor(matrixContent.y / viewGap) * viewGap;
-
-        const r = 1.5 * matrixContent.scale;
-        const pi2 = 2 * Math.PI;
-
-        const xFrom = zeroOffsetX - viewGap;
-        const yFrom = zeroOffsetY - viewGap;
-        const xTo = ctx.canvas.width + zeroOffsetX;
-        const yTo = ctx.canvas.height + zeroOffsetY;
-
-        ctx.fillStyle = "#d8d8d8";
-
-        for (let x = xFrom; x <= xTo; x += viewGap) {
-          for (let y = yFrom; y <= yTo; y += viewGap) {
-            ctx.beginPath();
-            ctx.arc(x, y, r, 0, pi2);
-            ctx.closePath();
-
-            ctx.fill();
-          }
-        }
-      }
 
       function createNode({
         name,
@@ -296,19 +249,6 @@
 
       const canvasElement = document.getElementById("canvas");
 
-      const backgroundElement = document.getElementById("background");
-
-      const ctx = backgroundElement.getContext("2d");
-
-      new ResizeObserver(() => {
-        const { width, height } = canvasElement.getBoundingClientRect();
-
-        ctx.canvas.width = width;
-        ctx.canvas.height = height;
-
-        backgroundDrawingFn(ctx, canvas.viewport);
-      }).observe(canvasElement);
-
       const canvas = new CanvasBuilder()
         .setElement(canvasElement)
         .setDefaults({
@@ -323,14 +263,9 @@
           },
         })
         .enableUserDraggableNodes()
-        .enableUserTransformableViewport({
-          events: {
-            onTransformChange: () => {
-              backgroundDrawingFn(ctx);
-            },
-          },
-        })
+        .enableUserTransformableViewport()
         .enableResizeReactiveNodes()
+        .enableBackground()
         .build();
 
       canvas
