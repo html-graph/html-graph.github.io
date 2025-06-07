@@ -64,7 +64,7 @@ canvas.graph.onAfterPortUpdated.subscribe((portId) => {
 {{< / code >}}
 
 {{< code lang="javascript" >}}
-canvas.graph.onAfterPortUnmarked.subscribe((portId) => {
+canvas.graph.onBeforePortUnmarked.subscribe((portId) => {
   console.log('port is about to be unmarked');
   console.log(canvas.graph.getPort(portId));
 });
