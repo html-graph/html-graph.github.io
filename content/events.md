@@ -9,14 +9,6 @@ title: Events
 Subscribe to events using the `subscribe` method of `EventHandler` instance.
 Unsubscribe using `unsubscribe` with the same callback when the listener is no longer needed.
 
-### Canvas events
-
-{{< code lang="javascript" >}}
-canvas.onBeforeDestroy.subscribe(() => {
-  console.log('canvas is about to be destroyed');
-});
-{{< / code >}}
-
 ### Node events
 
 {{< code lang="javascript" >}}
@@ -113,5 +105,13 @@ canvas.viewport.onBeforeUpdated.subscribe(() => {
 canvas.viewport.onAfterUpdated.subscribe(() => {
   console.log('viewport state has just been updated');
   console.log(canvas.viewport.getViewportMatrix());
+});
+{{< / code >}}
+
+### Canvas events
+
+{{< code lang="javascript" >}}
+canvas.onBeforeDestroy.subscribe(() => {
+  console.log('canvas is about to be destroyed');
 });
 {{< / code >}}
