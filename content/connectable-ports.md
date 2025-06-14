@@ -44,7 +44,7 @@ the example above.
 
 {{< /ref-target >}}
 
-There is a good example of reasonable connection type resolver, which resolvers
+There is a good example of reasonable connection type resolver, which resolves
 direct connection when "out" port gets grabbed, and reverses connection when "in" port gets grabbed:
 
 {{< code lang="javascript" >}}
