@@ -28,18 +28,18 @@ const canvas = new CanvasBuilder()
     moveOnTop: false,
     mouse: {
       dragCursor: "crosshair",
-      mouseDownEventVerifier: (event: MouseEvent) => event.ctrlKey,
-      mouseUpEventVerifier: (event: MouseEvent) => true,
+      mouseDownEventVerifier: (event) => event.ctrlKey,
+      mouseUpEventVerifier: (event) => true,
     },
     events: {
-      onNodeDrag: (payload: NodeDragPayload) => {
+      onNodeDrag: (payload) => {
         console.log(payload);
       },
-      onBeforeNodeDrag: (payload: NodeDragPayload) => {
+      onBeforeNodeDrag: (payload) => {
         console.log(payload);
         return true;
       },
-      onNodeDragFinished: (payload: NodeDragPayload) => {
+      onNodeDragFinished: (payload) => {
         console.log(payload);
       },
     },
