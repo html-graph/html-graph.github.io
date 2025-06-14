@@ -57,6 +57,6 @@ and use it like this
 </script>
 {{< /code >}}
 
-Here's a basic example of graph visualization:
+Here's a basic example to get started with:
 
 {{< use-case title="Basic example" src=/use-cases/getting-started/ >}}
