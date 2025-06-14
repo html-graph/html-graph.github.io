@@ -50,7 +50,7 @@ direct connection when "out" port gets grabbed, and reverses connection when "in
 {{< code lang="javascript" >}}
 const connectionTypeResolver = (portId) => {
   return portId.endsWith("-out") ? "direct" : "reverse";
-},
+};
 {{< / code >}}
 
 As for connection preprocessor, you can start with the one, which forbids
@@ -65,5 +65,5 @@ const connectionPreprocessor = (request) => {
   });
 
   return existingEdge === undefined ? request : null;
-},
+};
 {{< / code >}}
