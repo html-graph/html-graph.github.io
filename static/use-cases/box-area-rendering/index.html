@@ -166,8 +166,7 @@
       const trigger = new EventSubject();
       const canvasElement = document.getElementById("canvas");
 
-      const canvas = new CanvasBuilder()
-        .setElement(canvasElement)
+      const canvas = new CanvasBuilder(canvasElement)
         .setDefaults({
           edges: {
             shape: {

@@ -9,8 +9,7 @@ The Bezier shape is used by default, but it can also be explicitly set using the
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');
 
-const canvas = new CanvasBuilder()
-  .setElement(element)
+const canvas = new CanvasBuilder(element)
   .setDefaults({
     edges: {
       shape: {
@@ -48,8 +47,7 @@ import { BezierEdgeShape } from "@html-graph/html-graph";
 
 const element = document.getElementById('canvas');
 
-const canvas = new CanvasBuilder()
-  .setElement(element)
+const canvas = new CanvasBuilder(element)
   .setDefaults({
     edges: {
       shape: () => new BezierEdgeShape({ hasTargetArrow: true })

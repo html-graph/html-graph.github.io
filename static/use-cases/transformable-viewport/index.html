@@ -84,8 +84,7 @@
         };
       }
 
-      const canvas = new CanvasBuilder()
-        .setElement(document.getElementById("canvas"))
+      const canvas = new CanvasBuilder(document.getElementById("canvas"))
         .enableUserTransformableViewport()
         .enableBackground()
         .build();

@@ -7,8 +7,7 @@ title: Core Configuration | Ports
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');
 
-const canvas = new CanvasBuilder()
-  .setElement(element)
+const canvas = new CanvasBuilder(element)
   .setDefaults({
     ports: {
       direction: -Math.PI,

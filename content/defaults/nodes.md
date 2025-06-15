@@ -7,8 +7,7 @@ title: Core Configuration | Nodes
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');
 
-const canvas = new CanvasBuilder()
-  .setElement(element)
+const canvas = new CanvasBuilder(element)
   .setDefaults({
     nodes: {
       centerFn: (w, h) => ({ x: w / 2, y: h / 2 }),

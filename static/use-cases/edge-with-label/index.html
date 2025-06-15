@@ -425,8 +425,7 @@
         };
       }
 
-      const canvas = new CanvasBuilder()
-        .setElement(document.getElementById("canvas"))
+      const canvas = new CanvasBuilder(document.getElementById("canvas"))
         .enableUserDraggableNodes()
         .enableUserTransformableViewport()
         .enableBackground()

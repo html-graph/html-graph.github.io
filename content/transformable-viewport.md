@@ -9,8 +9,7 @@ To enable the built-in transformable viewport, call the `enableUserTransformable
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');
 
-const canvas = new CanvasBuilder()
-  .setElement(element)
+const canvas = new CanvasBuilder(element)
   .enableUserTransformableViewport()
   .build();
 {{< /code >}}
@@ -22,8 +21,7 @@ This method accepts optional configuration:
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');
 
-const canvas = new CanvasBuilder()
-  .setElement(element)
+const canvas = new CanvasBuilder(element)
   .enableUserTransformableViewport({
     scale: {
       mouseWheelSensitivity: 1.5,

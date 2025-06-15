@@ -9,8 +9,7 @@ To enable built-in background rendering, call the `enableBackground` method on `
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');
 
-const canvas = new CanvasBuilder()
-  .setElement(element)
+const canvas = new CanvasBuilder(element)
   .enableBackground()
   .build();
 {{< /code >}}
@@ -22,8 +21,7 @@ This method accepts optional configuration:
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');
 
-const canvas = new CanvasBuilder()
-  .setElement(element)
+const canvas = new CanvasBuilder(element)
   .enableBackground({
     tileDimensions: {
       width: 50,

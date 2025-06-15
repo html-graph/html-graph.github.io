@@ -70,7 +70,7 @@ class ne {
     }, f = {
       x: c.scale * g + c.x,
       y: c.scale * y + c.y
-    }, p = {
+    }, A = {
       x: v.x,
       y: v.y,
       width: h.width * c.scale,
@@ -78,7 +78,7 @@ class ne {
       direction: r.direction,
       portId: o.from,
       nodeId: r.nodeId
-    }, A = {
+    }, x = {
       x: f.x,
       y: f.y,
       width: n.width * c.scale,
@@ -87,7 +87,7 @@ class ne {
       portId: o.to,
       nodeId: s.nodeId
     };
-    o.shape.render({ from: p, to: A });
+    o.shape.render({ from: A, to: x });
   }
   updateEdgePriority(e) {
     const o = this.graphStore.getEdge(e);
@@ -225,7 +225,7 @@ class ve {
     return { ...this.viewportStore.getContentMatrix() };
   }
 }
-class xe {
+class pe {
   constructor(e) {
     i(this, "onAfterNodeAdded");
     i(this, "onAfterNodeUpdated");
@@ -323,20 +323,20 @@ class S extends Error {
     i(this, "name", "HtmlGraphError");
   }
 }
-const Ae = (t, e) => ({
+const xe = (t, e) => ({
   x: t / 2,
   y: e / 2
-}), H = (t) => () => t, oe = H(0), pe = () => {
+}), X = (t) => () => t, oe = X(0), Ae = () => {
   let t = 0;
   return () => t++;
 }, Ee = (t, e) => {
   let o = oe, r = oe;
-  const s = pe();
-  return t === "incremental" && (o = s), e === "incremental" && (r = s), typeof t == "number" && (o = H(t)), typeof e == "number" && (r = H(e)), typeof t == "function" && (o = t), typeof e == "function" && (r = e), {
+  const s = Ae();
+  return t === "incremental" && (o = s), e === "incremental" && (r = s), typeof t == "number" && (o = X(t)), typeof e == "number" && (r = X(e)), typeof t == "function" && (o = t), typeof e == "function" && (r = e), {
     nodesPriorityFn: o,
     edgesPriorityFn: r
   };
-}, x = (t, e, o) => ({
+}, p = (t, e, o) => ({
   x: e.x * t.x - e.y * t.y + ((1 - e.x) * o.x + e.y * o.y),
   y: e.y * t.x + e.x * t.y + ((1 - e.x) * o.y - e.y * o.x)
 }), T = (t, e, o) => ({ x: e * Math.cos(t), y: o * Math.sin(t) }), w = {
@@ -347,9 +347,9 @@ const Ae = (t, e) => ({
     w,
     { x: o, y: r },
     { x: o, y: -r }
-  ].map((a) => x(a, t, w)).map((a) => ({ x: a.x + e.x, y: a.y + e.y })), n = `M ${h[0].x} ${h[0].y}`, d = `L ${h[1].x} ${h[1].y}`, c = `L ${h[2].x} ${h[2].y}`;
+  ].map((a) => p(a, t, w)).map((a) => ({ x: a.x + e.x, y: a.y + e.y })), n = `M ${h[0].x} ${h[0].y}`, d = `L ${h[1].x} ${h[1].y}`, c = `L ${h[2].x} ${h[2].y}`;
   return `${n} ${d} ${c}`;
-}, I = (t, e) => {
+}, B = (t, e) => {
   const o = [];
   if (t.length > 0 && o.push(`M ${t[0].x} ${t[0].y}`), t.length === 2 && o.push(`L ${t[1].x} ${t[1].y}`), t.length > 2) {
     const r = t.length - 1;
@@ -358,11 +358,11 @@ const Ae = (t, e) => ({
       let a = 0, l = 0, g = 0;
       const y = c > 0, v = c < r, f = y && v;
       if (y && (a = -s, l = -h, g = n), v) {
-        const R = t[c + 1];
-        s = R.x - d.x, h = R.y - d.y, n = Math.sqrt(s * s + h * h);
+        const I = t[c + 1];
+        s = I.x - d.x, h = I.y - d.y, n = Math.sqrt(s * s + h * h);
       }
-      const A = n !== 0 ? Math.min((f ? e : 0) / n, c < r - 1 ? 0.5 : 1) : 0, b = f ? { x: d.x + s * A, y: d.y + h * A } : d, m = g !== 0 ? Math.min((f ? e : 0) / g, c > 1 ? 0.5 : 1) : 0, L = f ? { x: d.x + a * m, y: d.y + l * m } : d;
-      c > 0 && o.push(`L ${L.x} ${L.y}`), f && o.push(
+      const x = n !== 0 ? Math.min((f ? e : 0) / n, c < r - 1 ? 0.5 : 1) : 0, b = f ? { x: d.x + s * x, y: d.y + h * x } : d, m = g !== 0 ? Math.min((f ? e : 0) / g, c > 1 ? 0.5 : 1) : 0, R = f ? { x: d.x + a * m, y: d.y + l * m } : d;
+      c > 0 && o.push(`L ${R.x} ${R.y}`), f && o.push(
         `C ${d.x} ${d.y} ${d.x} ${d.y} ${b.x} ${b.y}`
       );
     });
@@ -397,11 +397,11 @@ const Ae = (t, e) => ({
     flipY: a
   };
 }, Se = (t) => {
-  const e = x(
+  const e = p(
     { x: t.arrowLength, y: w.y },
     t.fromVector,
     w
-  ), o = x(
+  ), o = p(
     { x: t.to.x - t.arrowLength, y: t.to.y },
     t.toVector,
     t.to
@@ -414,22 +414,22 @@ const Ae = (t, e) => ({
   }, h = `M ${e.x} ${e.y} C ${r.x} ${r.y}, ${s.x} ${s.y}, ${o.x} ${o.y}`, n = t.hasSourceArrow ? "" : `M ${w.x} ${w.y} L ${e.x} ${e.y} `, d = t.hasTargetArrow ? "" : ` M ${o.x} ${o.y} L ${t.to.x} ${t.to.y}`;
   return `${n}${h}${d}`;
 }, be = (t) => {
-  const e = t.hasSourceArrow ? x(
+  const e = t.hasSourceArrow ? p(
     { x: t.arrowLength, y: w.y },
     t.fromVector,
     w
-  ) : w, o = t.hasTargetArrow ? x(
+  ) : w, o = t.hasTargetArrow ? p(
     { x: t.to.x - t.arrowLength, y: t.to.y },
     t.toVector,
     t.to
-  ) : t.to, r = t.arrowLength, s = Math.cos(t.detourDirection) * t.detourDistance, h = Math.sin(t.detourDirection) * t.detourDistance, n = s * t.flipX, d = h * t.flipY, c = x(
+  ) : t.to, r = t.arrowLength, s = Math.cos(t.detourDirection) * t.detourDistance, h = Math.sin(t.detourDirection) * t.detourDistance, n = s * t.flipX, d = h * t.flipY, c = p(
     { x: r, y: w.y },
     t.fromVector,
     w
   ), a = {
     x: c.x + n,
     y: c.y + d
-  }, l = x(
+  }, l = p(
     { x: t.to.x - r, y: t.to.y },
     t.toVector,
     t.to
@@ -442,34 +442,34 @@ const Ae = (t, e) => ({
   }, f = {
     x: l.x - t.curvature * t.toVector.x,
     y: l.y - t.curvature * t.toVector.y
-  }, p = {
+  }, A = {
     x: c.x + n,
     y: c.y + d
-  }, A = {
+  }, x = {
     x: l.x + n,
     y: l.y + d
   };
   return [
     `M ${e.x} ${e.y}`,
     `L ${c.x} ${c.y}`,
-    `C ${v.x} ${v.y} ${p.x} ${p.y} ${y.x} ${y.y}`,
-    `C ${A.x} ${A.y} ${f.x} ${f.y} ${l.x} ${l.y}`,
+    `C ${v.x} ${v.y} ${A.x} ${A.y} ${y.x} ${y.y}`,
+    `C ${x.x} ${x.y} ${f.x} ${f.y} ${l.x} ${l.y}`,
     `L ${o.x} ${o.y}`
   ].join(" ");
 }, me = (t) => {
-  const e = t.hasSourceArrow ? x(
+  const e = t.hasSourceArrow ? p(
     { x: t.arrowLength, y: w.y },
     t.fromVector,
     w
-  ) : w, o = t.hasTargetArrow ? x(
+  ) : w, o = t.hasTargetArrow ? p(
     { x: t.to.x - t.arrowLength, y: t.to.y },
     t.toVector,
     t.to
-  ) : t.to, r = t.arrowLength + t.arrowOffset, s = r - t.roundness, h = x(
+  ) : t.to, r = t.arrowLength + t.arrowOffset, s = r - t.roundness, h = p(
     { x: s, y: w.y },
     t.fromVector,
     w
-  ), n = x(
+  ), n = p(
     { x: t.to.x - s, y: t.to.y },
     t.toVector,
     t.to
@@ -480,65 +480,65 @@ const Ae = (t, e) => ({
     x: t.flipX > 0 ? t.to.x - d : t.to.x + r,
     y: n.y
   }, y = { x: g.x, y: c };
-  return I(
+  return B(
     [e, h, a, l, y, g, n, o],
     t.roundness
   );
-}, j = (t) => {
-  const e = t.hasSourceArrow ? x(
+}, H = (t) => {
+  const e = t.hasSourceArrow ? p(
     { x: t.arrowLength, y: w.y },
     t.fromVector,
     w
-  ) : w, o = t.hasTargetArrow ? x(
+  ) : w, o = t.hasTargetArrow ? p(
     { x: t.to.x - t.arrowLength, y: t.to.y },
     t.toVector,
     t.to
-  ) : t.to, r = t.arrowLength + t.arrowOffset, s = x(
+  ) : t.to, r = t.arrowLength + t.arrowOffset, s = p(
     { x: r, y: w.y },
     t.fromVector,
     w
-  ), h = Math.cos(t.detourDirection) * t.detourDistance, n = Math.sin(t.detourDirection) * t.detourDistance, d = h * t.flipX, c = n * t.flipY, a = { x: s.x + d, y: s.y + c }, l = x(
+  ), h = Math.cos(t.detourDirection) * t.detourDistance, n = Math.sin(t.detourDirection) * t.detourDistance, d = h * t.flipX, c = n * t.flipY, a = { x: s.x + d, y: s.y + c }, l = p(
     { x: t.to.x - r, y: t.to.y },
     t.toVector,
     t.to
   ), g = { x: l.x + d, y: l.y + c };
-  return I(
+  return B(
     [e, s, a, g, l, o],
     t.roundness
   );
 }, Te = (t) => {
-  const e = t.hasSourceArrow ? x(
+  const e = t.hasSourceArrow ? p(
     { x: t.arrowLength, y: w.y },
     t.fromVector,
     w
-  ) : w, o = t.hasTargetArrow ? x(
+  ) : w, o = t.hasTargetArrow ? p(
     { x: t.to.x - t.arrowLength, y: t.to.y },
     t.toVector,
     t.to
-  ) : t.to, r = t.arrowLength + t.arrowOffset, s = x(
+  ) : t.to, r = t.arrowLength + t.arrowOffset, s = p(
     { x: r, y: w.y },
     t.fromVector,
     w
-  ), h = x(
+  ), h = p(
     { x: t.to.x - r, y: t.to.y },
     t.toVector,
     t.to
   );
-  return I([e, s, h, o], t.roundness);
+  return B([e, s, h, o], t.roundness);
 }, Ne = (t) => {
-  const e = t.hasSourceArrow ? x(
+  const e = t.hasSourceArrow ? p(
     { x: t.arrowLength, y: w.y },
     t.fromVector,
     w
-  ) : w, o = t.hasTargetArrow ? x(
+  ) : w, o = t.hasTargetArrow ? p(
     { x: t.to.x - t.arrowLength, y: t.to.y },
     t.toVector,
     t.to
-  ) : t.to, r = t.arrowLength + t.arrowOffset, s = r - t.roundness, h = x(
+  ) : t.to, r = t.arrowLength + t.arrowOffset, s = r - t.roundness, h = p(
     { x: s, y: w.y },
     t.fromVector,
     w
-  ), n = x(
+  ), n = p(
     { x: t.to.x - s, y: t.to.y },
     t.toVector,
     t.to
@@ -549,11 +549,11 @@ const Ae = (t, e) => ({
     x: n.x,
     y: t.flipY > 0 ? t.to.y - d : t.to.y + r
   }, y = { x: c, y: g.y };
-  return I(
+  return B(
     [e, h, a, l, y, g, n, o],
     t.roundness
   );
-}, G = (t) => {
+}, j = (t) => {
   const e = t.arrowOffset, o = t.side, r = t.arrowLength + e, s = r + 2 * o, n = [
     { x: t.arrowLength, y: w.y },
     { x: r, y: w.y },
@@ -564,16 +564,16 @@ const Ae = (t, e) => ({
     { x: r, y: w.y },
     { x: t.arrowLength, y: w.y }
   ].map(
-    (c) => x(c, t.fromVector, w)
+    (c) => p(c, t.fromVector, w)
   ), d = `M ${w.x} ${w.y} L ${n[0].x} ${n[0].y} `;
-  return `${t.hasSourceArrow || t.hasTargetArrow ? "" : d}${I(n, t.roundness)}`;
+  return `${t.hasSourceArrow || t.hasTargetArrow ? "" : d}${B(n, t.roundness)}`;
 }, Pe = (t) => {
   const e = t.smallRadius, o = t.radius, r = Math.sqrt(e * e + o * o), s = e + o, h = t.arrowLength + r * (1 - o / s), n = e * o / s, c = [
     { x: t.arrowLength, y: w.y },
     { x: h, y: n },
     { x: h, y: -n }
   ].map(
-    (g) => x(g, t.fromVector, w)
+    (g) => p(g, t.fromVector, w)
   ), a = [
     `M ${c[0].x} ${c[0].y}`,
     `A ${e} ${e} 0 0 1 ${c[1].x} ${c[1].y}`,
@@ -721,7 +721,7 @@ class Me {
       y: h
     };
     let g, y = a, v = -this.arrowLength;
-    if (e.from.portId === e.to.portId ? (g = G({
+    if (e.from.portId === e.to.portId ? (g = j({
       fromVector: c,
       arrowLength: this.arrowLength,
       side: this.cycleSquareSide,
@@ -729,7 +729,7 @@ class Me {
       roundness: this.roundness,
       hasSourceArrow: this.hasSourceArrow,
       hasTargetArrow: this.hasTargetArrow
-    }), y = c, v = this.arrowLength) : e.from.nodeId === e.to.nodeId ? g = j({
+    }), y = c, v = this.arrowLength) : e.from.nodeId === e.to.nodeId ? g = H({
       to: l,
       fromVector: c,
       toVector: a,
@@ -747,97 +747,6 @@ class Me {
       fromVector: c,
       toVector: a,
       flipX: n,
-      arrowLength: this.arrowLength,
-      arrowOffset: this.arrowOffset,
-      roundness: this.roundness,
-      hasSourceArrow: this.hasSourceArrow,
-      hasTargetArrow: this.hasTargetArrow
-    }), this.line.setAttribute("d", g), this.sourceArrow) {
-      const f = N(
-        c,
-        w,
-        this.arrowLength,
-        this.arrowWidth
-      );
-      this.sourceArrow.setAttribute("d", f);
-    }
-    if (this.targetArrow) {
-      const f = N(
-        y,
-        l,
-        v,
-        this.arrowWidth
-      );
-      this.targetArrow.setAttribute("d", f);
-    }
-  }
-}
-class Ce {
-  constructor(e) {
-    i(this, "svg", $());
-    i(this, "group", W());
-    i(this, "line");
-    i(this, "sourceArrow", null);
-    i(this, "targetArrow", null);
-    i(this, "arrowLength");
-    i(this, "arrowWidth");
-    i(this, "arrowOffset");
-    i(this, "roundness");
-    i(this, "cycleSquareSide");
-    i(this, "detourDirection");
-    i(this, "detourDistance");
-    i(this, "hasSourceArrow");
-    i(this, "hasTargetArrow");
-    this.arrowLength = (e == null ? void 0 : e.arrowLength) ?? u.arrowLength, this.arrowWidth = (e == null ? void 0 : e.arrowWidth) ?? u.arrowWidth, this.arrowOffset = (e == null ? void 0 : e.arrowOffset) ?? u.arrowOffset, this.cycleSquareSide = (e == null ? void 0 : e.cycleSquareSide) ?? u.cycleSquareSide;
-    const o = (e == null ? void 0 : e.roundness) ?? u.roundness;
-    this.roundness = Math.min(
-      o,
-      this.arrowOffset,
-      this.cycleSquareSide / 2
-    ), this.detourDirection = (e == null ? void 0 : e.detourDirection) ?? u.detourDirection, this.detourDistance = (e == null ? void 0 : e.detourDistance) ?? u.detourDistance, this.hasSourceArrow = (e == null ? void 0 : e.hasSourceArrow) ?? u.hasSourceArrow, this.hasTargetArrow = (e == null ? void 0 : e.hasTargetArrow) ?? u.hasTargetArrow;
-    const r = (e == null ? void 0 : e.color) ?? u.color, s = (e == null ? void 0 : e.width) ?? u.width;
-    this.svg.appendChild(this.group), this.line = F(r, s), this.group.appendChild(this.line), this.hasSourceArrow && (this.sourceArrow = P(r), this.group.appendChild(this.sourceArrow)), this.hasTargetArrow && (this.targetArrow = P(r), this.group.appendChild(this.targetArrow));
-  }
-  render(e) {
-    const { x: o, y: r, width: s, height: h, flipX: n, flipY: d } = z(
-      e.from,
-      e.to
-    );
-    this.svg.style.transform = `translate(${o}px, ${r}px)`, this.svg.style.width = `${Math.max(s, 1)}px`, this.svg.style.height = `${Math.max(h, 1)}px`, this.group.style.transform = `scale(${n}, ${d})`;
-    const c = T(
-      e.from.direction,
-      n,
-      d
-    ), a = T(e.to.direction, n, d), l = {
-      x: s,
-      y: h
-    };
-    let g, y = a, v = -this.arrowLength;
-    if (e.from.portId === e.to.portId ? (g = G({
-      fromVector: c,
-      arrowLength: this.arrowLength,
-      side: this.cycleSquareSide,
-      arrowOffset: this.arrowOffset,
-      roundness: this.roundness,
-      hasSourceArrow: this.hasSourceArrow,
-      hasTargetArrow: this.hasTargetArrow
-    }), y = c, v = this.arrowLength) : e.from.nodeId === e.to.nodeId ? g = j({
-      to: l,
-      fromVector: c,
-      toVector: a,
-      flipX: n,
-      flipY: d,
-      arrowLength: this.arrowLength,
-      arrowOffset: this.arrowOffset,
-      roundness: this.roundness,
-      detourDirection: this.detourDirection,
-      detourDistance: this.detourDistance,
-      hasSourceArrow: this.hasSourceArrow,
-      hasTargetArrow: this.hasTargetArrow
-    }) : g = Te({
-      to: l,
-      fromVector: c,
-      toVector: a,
       arrowLength: this.arrowLength,
       arrowOffset: this.arrowOffset,
       roundness: this.roundness,
@@ -885,6 +794,97 @@ class Ve {
       o,
       this.arrowOffset,
       this.cycleSquareSide / 2
+    ), this.detourDirection = (e == null ? void 0 : e.detourDirection) ?? u.detourDirection, this.detourDistance = (e == null ? void 0 : e.detourDistance) ?? u.detourDistance, this.hasSourceArrow = (e == null ? void 0 : e.hasSourceArrow) ?? u.hasSourceArrow, this.hasTargetArrow = (e == null ? void 0 : e.hasTargetArrow) ?? u.hasTargetArrow;
+    const r = (e == null ? void 0 : e.color) ?? u.color, s = (e == null ? void 0 : e.width) ?? u.width;
+    this.svg.appendChild(this.group), this.line = F(r, s), this.group.appendChild(this.line), this.hasSourceArrow && (this.sourceArrow = P(r), this.group.appendChild(this.sourceArrow)), this.hasTargetArrow && (this.targetArrow = P(r), this.group.appendChild(this.targetArrow));
+  }
+  render(e) {
+    const { x: o, y: r, width: s, height: h, flipX: n, flipY: d } = z(
+      e.from,
+      e.to
+    );
+    this.svg.style.transform = `translate(${o}px, ${r}px)`, this.svg.style.width = `${Math.max(s, 1)}px`, this.svg.style.height = `${Math.max(h, 1)}px`, this.group.style.transform = `scale(${n}, ${d})`;
+    const c = T(
+      e.from.direction,
+      n,
+      d
+    ), a = T(e.to.direction, n, d), l = {
+      x: s,
+      y: h
+    };
+    let g, y = a, v = -this.arrowLength;
+    if (e.from.portId === e.to.portId ? (g = j({
+      fromVector: c,
+      arrowLength: this.arrowLength,
+      side: this.cycleSquareSide,
+      arrowOffset: this.arrowOffset,
+      roundness: this.roundness,
+      hasSourceArrow: this.hasSourceArrow,
+      hasTargetArrow: this.hasTargetArrow
+    }), y = c, v = this.arrowLength) : e.from.nodeId === e.to.nodeId ? g = H({
+      to: l,
+      fromVector: c,
+      toVector: a,
+      flipX: n,
+      flipY: d,
+      arrowLength: this.arrowLength,
+      arrowOffset: this.arrowOffset,
+      roundness: this.roundness,
+      detourDirection: this.detourDirection,
+      detourDistance: this.detourDistance,
+      hasSourceArrow: this.hasSourceArrow,
+      hasTargetArrow: this.hasTargetArrow
+    }) : g = Te({
+      to: l,
+      fromVector: c,
+      toVector: a,
+      arrowLength: this.arrowLength,
+      arrowOffset: this.arrowOffset,
+      roundness: this.roundness,
+      hasSourceArrow: this.hasSourceArrow,
+      hasTargetArrow: this.hasTargetArrow
+    }), this.line.setAttribute("d", g), this.sourceArrow) {
+      const f = N(
+        c,
+        w,
+        this.arrowLength,
+        this.arrowWidth
+      );
+      this.sourceArrow.setAttribute("d", f);
+    }
+    if (this.targetArrow) {
+      const f = N(
+        y,
+        l,
+        v,
+        this.arrowWidth
+      );
+      this.targetArrow.setAttribute("d", f);
+    }
+  }
+}
+class Le {
+  constructor(e) {
+    i(this, "svg", $());
+    i(this, "group", W());
+    i(this, "line");
+    i(this, "sourceArrow", null);
+    i(this, "targetArrow", null);
+    i(this, "arrowLength");
+    i(this, "arrowWidth");
+    i(this, "arrowOffset");
+    i(this, "roundness");
+    i(this, "cycleSquareSide");
+    i(this, "detourDirection");
+    i(this, "detourDistance");
+    i(this, "hasSourceArrow");
+    i(this, "hasTargetArrow");
+    this.arrowLength = (e == null ? void 0 : e.arrowLength) ?? u.arrowLength, this.arrowWidth = (e == null ? void 0 : e.arrowWidth) ?? u.arrowWidth, this.arrowOffset = (e == null ? void 0 : e.arrowOffset) ?? u.arrowOffset, this.cycleSquareSide = (e == null ? void 0 : e.cycleSquareSide) ?? u.cycleSquareSide;
+    const o = (e == null ? void 0 : e.roundness) ?? u.roundness;
+    this.roundness = Math.min(
+      o,
+      this.arrowOffset,
+      this.cycleSquareSide / 2
     ), this.detourDirection = (e == null ? void 0 : e.detourDirection) ?? u.detourDirectionVertical, this.detourDistance = (e == null ? void 0 : e.detourDistance) ?? u.detourDistance, this.hasSourceArrow = (e == null ? void 0 : e.hasSourceArrow) ?? u.hasSourceArrow, this.hasTargetArrow = (e == null ? void 0 : e.hasTargetArrow) ?? u.hasTargetArrow;
     const r = (e == null ? void 0 : e.color) ?? u.color, s = (e == null ? void 0 : e.width) ?? u.width;
     this.svg.appendChild(this.group), this.line = F(r, s), this.group.appendChild(this.line), this.hasSourceArrow && (this.sourceArrow = P(r), this.group.appendChild(this.sourceArrow)), this.hasTargetArrow && (this.targetArrow = P(r), this.group.appendChild(this.targetArrow));
@@ -904,7 +904,7 @@ class Ve {
       y: h
     };
     let g, y = a, v = -this.arrowLength;
-    if (e.from.portId === e.to.portId ? (g = G({
+    if (e.from.portId === e.to.portId ? (g = j({
       fromVector: c,
       arrowLength: this.arrowLength,
       side: this.cycleSquareSide,
@@ -912,7 +912,7 @@ class Ve {
       roundness: this.roundness,
       hasSourceArrow: this.hasSourceArrow,
       hasTargetArrow: this.hasTargetArrow
-    }), y = c, v = this.arrowLength) : e.from.nodeId === e.to.nodeId ? g = j({
+    }), y = c, v = this.arrowLength) : e.from.nodeId === e.to.nodeId ? g = H({
       to: l,
       fromVector: c,
       toVector: a,
@@ -955,12 +955,12 @@ class Ve {
     }
   }
 }
-const Le = (t) => {
+const Re = (t) => {
   if (typeof t == "function")
     return t;
   switch (t == null ? void 0 : t.type) {
     case "straight":
-      return () => new Ce({
+      return () => new Ve({
         color: t.color,
         width: t.width,
         arrowLength: t.arrowLength,
@@ -988,7 +988,7 @@ const Le = (t) => {
         detourDirection: t.detourDirection
       });
     case "vertical":
-      return () => new Ve({
+      return () => new Le({
         color: t.color,
         width: t.width,
         arrowLength: t.arrowLength,
@@ -1016,7 +1016,7 @@ const Le = (t) => {
         detourDirection: t.detourDirection
       });
   }
-}, Re = (t) => {
+}, Ie = (t) => {
   var o, r, s, h, n;
   const e = Ee(
     (o = t == null ? void 0 : t.nodes) == null ? void 0 : o.priority,
@@ -1024,14 +1024,14 @@ const Le = (t) => {
   );
   return {
     nodes: {
-      centerFn: ((s = t == null ? void 0 : t.nodes) == null ? void 0 : s.centerFn) ?? Ae,
+      centerFn: ((s = t == null ? void 0 : t.nodes) == null ? void 0 : s.centerFn) ?? xe,
       priorityFn: e.nodesPriorityFn
     },
     ports: {
       direction: ((h = t == null ? void 0 : t.ports) == null ? void 0 : h.direction) ?? 0
     },
     edges: {
-      shapeFactory: Le(((n = t == null ? void 0 : t.edges) == null ? void 0 : n.shape) ?? {}),
+      shapeFactory: Re(((n = t == null ? void 0 : t.edges) == null ? void 0 : n.shape) ?? {}),
       priorityFn: e.edgesPriorityFn
     }
   };
@@ -1105,7 +1105,7 @@ class de {
      * emits event just before destruction of canvas
      */
     i(this, "onBeforeDestroy");
-    this.element = e, this.graphStore = o, this.viewportStore = r, this.htmlView = s, this.defaults = Re(h), this.graph = new xe(this.graphStore), this.viewport = new ve(this.viewportStore), this.graphStore.onAfterNodeAdded.subscribe(this.onAfterNodeAdded), this.graphStore.onAfterNodeUpdated.subscribe(this.onAfterNodeUpdated), this.graphStore.onAfterNodePriorityUpdated.subscribe(
+    this.element = e, this.graphStore = o, this.viewportStore = r, this.htmlView = s, this.defaults = Ie(h), this.graph = new pe(this.graphStore), this.viewport = new ve(this.viewportStore), this.graphStore.onAfterNodeAdded.subscribe(this.onAfterNodeAdded), this.graphStore.onAfterNodeUpdated.subscribe(this.onAfterNodeUpdated), this.graphStore.onAfterNodePriorityUpdated.subscribe(
       this.onAfterNodePriorityUpdated
     ), this.graphStore.onBeforeNodeRemoved.subscribe(this.onBeforeNodeRemoved), this.graphStore.onAfterPortUpdated.subscribe(this.onAfterPortUpdated), this.graphStore.onBeforePortRemoved.subscribe(this.onBeforePortUnmarked), this.graphStore.onAfterEdgeAdded.subscribe(this.onAfterEdgeAdded), this.graphStore.onAfterEdgeShapeUpdated.subscribe(
       this.onAfterEdgeShapeUpdated
@@ -1437,7 +1437,7 @@ const re = (t) => ({
   x: 0,
   y: 0
 };
-class Ie {
+class Be {
   constructor() {
     i(this, "viewportMatrix", ie);
     i(this, "contentMatrix", ie);
@@ -1468,7 +1468,7 @@ class Ie {
     }, this.viewportMatrix = re(this.contentMatrix), this.afterUpdateEmitter.emit();
   }
 }
-class J {
+class G {
   constructor(e) {
     i(this, "elementToNodeId", /* @__PURE__ */ new Map());
     i(this, "nodesResizeObserver");
@@ -1494,7 +1494,7 @@ class J {
     }), this.canvas.graph.onAfterNodeAdded.subscribe(this.onAfterNodeAdded), this.canvas.graph.onBeforeNodeRemoved.subscribe(this.onBeforeNodeRemoved), this.canvas.graph.onBeforeClear.subscribe(this.onBeforeClear), this.canvas.onBeforeDestroy.subscribe(this.onBeforeDestroy);
   }
   static configure(e) {
-    new J(e);
+    new G(e);
   }
   handleNodeResize(e) {
     const o = this.elementToNodeId.get(e);
@@ -1503,11 +1503,11 @@ class J {
     });
   }
 }
-const Be = (t) => {
-  var g, y, v, f, p, A;
+const Ue = (t) => {
+  var g, y, v, f, A, x;
   const e = ((g = t == null ? void 0 : t.events) == null ? void 0 : g.onNodeDrag) ?? (() => {
   }), o = ((y = t == null ? void 0 : t.events) == null ? void 0 : y.onBeforeNodeDrag) ?? (() => !0), r = ((v = t == null ? void 0 : t.events) == null ? void 0 : v.onNodeDragFinished) ?? (() => {
-  }), s = (t == null ? void 0 : t.moveOnTop) === !1, h = (f = t == null ? void 0 : t.mouse) == null ? void 0 : f.dragCursor, n = h !== void 0 ? h : "grab", d = (p = t == null ? void 0 : t.mouse) == null ? void 0 : p.mouseDownEventVerifier, c = d !== void 0 ? d : (b) => b.button === 0, a = (A = t == null ? void 0 : t.mouse) == null ? void 0 : A.mouseUpEventVerifier;
+  }), s = (t == null ? void 0 : t.moveOnTop) === !1, h = (f = t == null ? void 0 : t.mouse) == null ? void 0 : f.dragCursor, n = h !== void 0 ? h : "grab", d = (A = t == null ? void 0 : t.mouse) == null ? void 0 : A.mouseDownEventVerifier, c = d !== void 0 ? d : (b) => b.button === 0, a = (x = t == null ? void 0 : t.mouse) == null ? void 0 : x.mouseUpEventVerifier;
   return {
     freezePriority: s,
     dragCursor: n,
@@ -1517,16 +1517,16 @@ const Be = (t) => {
     onBeforeNodeDrag: o,
     onNodeDragFinished: r
   };
-}, Ue = (t, e, o) => {
+}, Ce = (t, e, o) => {
   const { x: r, y: s, width: h, height: n } = t.getBoundingClientRect();
   return e >= r && e <= r + h && o >= s && o <= s + n;
-}, $e = (t, e, o) => e >= 0 && e <= t.innerWidth && o >= 0 && o <= t.innerHeight, V = (t, e, o, r) => Ue(e, o, r) && $e(t, o, r), U = (t, e) => {
+}, $e = (t, e, o) => e >= 0 && e <= t.innerWidth && o >= 0 && o <= t.innerHeight, L = (t, e, o, r) => Ce(e, o, r) && $e(t, o, r), C = (t, e) => {
   e !== null ? t.style.cursor = e : t.style.removeProperty("cursor");
-}, C = (t, e) => ({
+}, V = (t, e) => ({
   x: t.scale * e.x + t.x,
   y: t.scale * e.y + t.y
 });
-class K {
+class J {
   constructor(e, o, r, s) {
     i(this, "grabbedNodeId", null);
     i(this, "maxNodePriority", 0);
@@ -1554,15 +1554,15 @@ class K {
       }), this.nodeIds.clear(), this.maxNodePriority = 0;
     });
     i(this, "onMouseDown", (e) => {
-      if (!this.options.mouseDownEventVerifier(e))
+      if (!this.config.mouseDownEventVerifier(e))
         return;
       const o = e.currentTarget, r = this.nodeIds.get(o), s = this.graph.getNode(r);
-      this.options.onBeforeNodeDrag({
+      this.config.onBeforeNodeDrag({
         nodeId: r,
         element: s.element,
         x: s.x,
         y: s.y
-      }) && (e.stopImmediatePropagation(), this.grabbedNodeId = r, U(this.element, this.options.dragCursor), this.moveNodeOnTop(r), this.window.addEventListener("mouseup", this.onWindowMouseUp), this.window.addEventListener("mousemove", this.onWindowMouseMove));
+      }) && (e.stopImmediatePropagation(), this.grabbedNodeId = r, C(this.element, this.config.dragCursor), this.moveNodeOnTop(r), this.window.addEventListener("mouseup", this.onWindowMouseUp), this.window.addEventListener("mousemove", this.onWindowMouseMove));
     });
     i(this, "onTouchStart", (e) => {
       if (e.touches.length !== 1)
@@ -1572,7 +1572,7 @@ class K {
         y: e.touches[0].clientY
       };
       const o = e.currentTarget, r = this.nodeIds.get(o), s = this.graph.getNode(r);
-      this.options.onBeforeNodeDrag({
+      this.config.onBeforeNodeDrag({
         nodeId: r,
         element: s.element,
         x: s.x,
@@ -1580,7 +1580,7 @@ class K {
       }) && (this.grabbedNodeId = r, this.moveNodeOnTop(r), this.window.addEventListener("touchmove", this.onWindowTouchMove), this.window.addEventListener("touchend", this.onWindowTouchFinish), this.window.addEventListener("touchcancel", this.onWindowTouchFinish));
     });
     i(this, "onWindowMouseMove", (e) => {
-      if (!V(
+      if (!L(
         this.window,
         this.element,
         e.clientX,
@@ -1592,13 +1592,13 @@ class K {
       this.grabbedNodeId !== null && this.dragNode(this.grabbedNodeId, e.movementX, e.movementY);
     });
     i(this, "onWindowMouseUp", (e) => {
-      this.options.mouseUpEventVerifier(e) && this.cancelMouseDrag();
+      this.config.mouseUpEventVerifier(e) && this.cancelMouseDrag();
     });
     i(this, "onWindowTouchMove", (e) => {
       if (e.touches.length !== 1)
         return;
       const o = e.touches[0];
-      if (!V(
+      if (!L(
         this.window,
         this.element,
         o.clientX,
@@ -1618,24 +1618,24 @@ class K {
     i(this, "onWindowTouchFinish", () => {
       this.previousTouchCoordinates = null, this.cancelTouchDrag();
     });
-    i(this, "options");
-    this.canvas = e, this.element = o, this.window = r, this.options = Be(s), this.graph = e.graph, this.graph.onAfterNodeAdded.subscribe(this.onAfterNodeAdded), this.graph.onAfterNodeUpdated.subscribe(this.onAfterNodeUpdated), this.graph.onBeforeNodeRemoved.subscribe(this.onBeforeNodeRemoved), this.graph.onBeforeClear.subscribe(this.onBeforeClear), this.canvas.onBeforeDestroy.subscribe(this.onBeforeDestroy);
+    i(this, "config");
+    this.canvas = e, this.element = o, this.window = r, this.config = Ue(s), this.graph = e.graph, this.graph.onAfterNodeAdded.subscribe(this.onAfterNodeAdded), this.graph.onAfterNodeUpdated.subscribe(this.onAfterNodeUpdated), this.graph.onBeforeNodeRemoved.subscribe(this.onBeforeNodeRemoved), this.graph.onBeforeClear.subscribe(this.onBeforeClear), this.canvas.onBeforeDestroy.subscribe(this.onBeforeDestroy);
   }
   static configure(e, o, r, s) {
-    new K(e, o, r, s);
+    new J(e, o, r, s);
   }
   dragNode(e, o, r) {
     const s = this.graph.getNode(e);
     if (s === null)
       return;
-    const h = this.canvas.viewport.getContentMatrix(), n = C(h, {
+    const h = this.canvas.viewport.getContentMatrix(), n = V(h, {
       x: s.x,
       y: s.y
-    }), d = C(
+    }), d = V(
       { scale: 1, x: o, y: r },
       n
-    ), c = this.canvas.viewport.getViewportMatrix(), a = C(c, d);
-    this.canvas.updateNode(e, { x: a.x, y: a.y }), this.options.onNodeDrag({
+    ), c = this.canvas.viewport.getViewportMatrix(), a = V(c, d);
+    this.canvas.updateNode(e, { x: a.x, y: a.y }), this.config.onNodeDrag({
       nodeId: e,
       element: s.element,
       x: a.x,
@@ -1643,7 +1643,7 @@ class K {
     });
   }
   moveNodeOnTop(e) {
-    if (this.options.freezePriority)
+    if (this.config.freezePriority)
       return;
     this.maxNodePriority += 2, this.canvas.updateNode(e, { priority: this.maxNodePriority });
     const o = this.maxNodePriority - 1;
@@ -1653,12 +1653,12 @@ class K {
   }
   cancelMouseDrag() {
     const e = this.graph.getNode(this.grabbedNodeId);
-    e !== null && this.options.onNodeDragFinished({
+    e !== null && this.config.onNodeDragFinished({
       nodeId: this.grabbedNodeId,
       element: e.element,
       x: e.x,
       y: e.y
-    }), this.grabbedNodeId = null, U(this.element, null), this.removeMouseDragListeners();
+    }), this.grabbedNodeId = null, C(this.element, null), this.removeMouseDragListeners();
   }
   removeMouseDragListeners() {
     this.window.removeEventListener("mouseup", this.onWindowMouseUp), this.window.removeEventListener("mousemove", this.onWindowMouseMove);
@@ -1666,7 +1666,7 @@ class K {
   cancelTouchDrag() {
     this.previousTouchCoordinates = null;
     const e = this.graph.getNode(this.grabbedNodeId);
-    e !== null && this.options.onNodeDragFinished({
+    e !== null && this.config.onNodeDragFinished({
       nodeId: this.grabbedNodeId,
       element: e.element,
       x: e.x,
@@ -1738,7 +1738,7 @@ const We = (t) => {
       });
   }
 }, ke = (t) => {
-  var f, p, A, b, D, m, L, R, q, O, ee, te;
+  var f, A, x, b, D, m, R, I, _, q, ee, te;
   const e = (f = t == null ? void 0 : t.scale) == null ? void 0 : f.mouseWheelSensitivity, o = e !== void 0 ? e : 1.2, r = t == null ? void 0 : t.transformPreprocessor;
   let s;
   r !== void 0 ? Array.isArray(r) ? s = ze(
@@ -1746,14 +1746,14 @@ const We = (t) => {
       (M) => se(M)
     )
   ) : s = se(r) : s = (M) => M.nextTransform;
-  const h = ((p = t == null ? void 0 : t.shift) == null ? void 0 : p.cursor) !== void 0 ? t.shift.cursor : "grab", n = ((A = t == null ? void 0 : t.events) == null ? void 0 : A.onBeforeTransformChange) ?? (() => {
+  const h = ((A = t == null ? void 0 : t.shift) == null ? void 0 : A.cursor) !== void 0 ? t.shift.cursor : "grab", n = ((x = t == null ? void 0 : t.events) == null ? void 0 : x.onBeforeTransformChange) ?? (() => {
   }), d = ((b = t == null ? void 0 : t.events) == null ? void 0 : b.onTransformChange) ?? (() => {
-  }), c = (D = t == null ? void 0 : t.shift) == null ? void 0 : D.mouseDownEventVerifier, a = c !== void 0 ? c : (M) => M.button === 0, l = (m = t == null ? void 0 : t.shift) == null ? void 0 : m.mouseUpEventVerifier, g = l !== void 0 ? l : (M) => M.button === 0, y = (L = t == null ? void 0 : t.scale) == null ? void 0 : L.mouseWheelEventVerifier, v = y !== void 0 ? y : () => !0;
+  }), c = (D = t == null ? void 0 : t.shift) == null ? void 0 : D.mouseDownEventVerifier, a = c !== void 0 ? c : (M) => M.button === 0, l = (m = t == null ? void 0 : t.shift) == null ? void 0 : m.mouseUpEventVerifier, g = l !== void 0 ? l : (M) => M.button === 0, y = (R = t == null ? void 0 : t.scale) == null ? void 0 : R.mouseWheelEventVerifier, v = y !== void 0 ? y : () => !0;
   return {
     wheelSensitivity: o,
-    onTransformStarted: ((R = t == null ? void 0 : t.events) == null ? void 0 : R.onTransformStarted) ?? (() => {
+    onTransformStarted: ((I = t == null ? void 0 : t.events) == null ? void 0 : I.onTransformStarted) ?? (() => {
     }),
-    onTransformFinished: ((q = t == null ? void 0 : t.events) == null ? void 0 : q.onTransformFinished) ?? (() => {
+    onTransformFinished: ((_ = t == null ? void 0 : t.events) == null ? void 0 : _.onTransformFinished) ?? (() => {
     }),
     onBeforeTransformChange: n,
     onTransformChange: d,
@@ -1762,7 +1762,7 @@ const We = (t) => {
     mouseDownEventVerifier: a,
     mouseUpEventVerifier: g,
     mouseWheelEventVerifier: v,
-    scaleWheelFinishTimeout: ((O = t == null ? void 0 : t.scale) == null ? void 0 : O.wheelFinishTimeout) ?? 500,
+    scaleWheelFinishTimeout: ((q = t == null ? void 0 : t.scale) == null ? void 0 : q.wheelFinishTimeout) ?? 500,
     onResizeTransformStarted: ((ee = t == null ? void 0 : t.events) == null ? void 0 : ee.onResizeTransformStarted) ?? (() => {
     }),
     onResizeTransformFinished: ((te = t == null ? void 0 : t.events) == null ? void 0 : te.onResizeTransformFinished) ?? (() => {
@@ -1772,11 +1772,11 @@ const We = (t) => {
   scale: t.scale,
   x: t.x + t.scale * e,
   y: t.y + t.scale * o
-}), Xe = (t, e, o, r) => ({
+}), Oe = (t, e, o, r) => ({
   scale: t.scale * e,
   x: t.scale * (1 - e) * o + t.x,
   y: t.scale * (1 - e) * r + t.y
-}), B = (t) => {
+}), U = (t) => {
   const e = [], o = t.touches.length;
   for (let d = 0; d < o; d++)
     e.push([t.touches[d].clientX, t.touches[d].clientY]);
@@ -1805,10 +1805,10 @@ class k {
       this.removeMouseDragListeners(), this.removeTouchDragListeners(), this.observer.unobserve(this.element), this.element.removeEventListener("mousedown", this.onMouseDown), this.element.removeEventListener("wheel", this.onWheelScroll), this.element.removeEventListener("touchstart", this.onTouchStart), this.canvas.onBeforeDestroy.unsubscribe(this.onBeforeDestroy);
     });
     i(this, "onMouseDown", (e) => {
-      this.element === null || !this.options.mouseDownEventVerifier(e) || (U(this.element, this.options.shiftCursor), this.window.addEventListener("mousemove", this.onWindowMouseMove), this.window.addEventListener("mouseup", this.onWindowMouseUp), this.startRegisteredTransform());
+      this.element === null || !this.config.mouseDownEventVerifier(e) || (C(this.element, this.config.shiftCursor), this.window.addEventListener("mousemove", this.onWindowMouseMove), this.window.addEventListener("mouseup", this.onWindowMouseUp), this.startRegisteredTransform());
     });
     i(this, "onWindowMouseMove", (e) => {
-      const o = V(
+      const o = L(
         this.window,
         this.element,
         e.clientX,
@@ -1822,28 +1822,28 @@ class k {
       this.moveViewport(r, s);
     });
     i(this, "onWindowMouseUp", (e) => {
-      this.element === null || !this.options.mouseUpEventVerifier(e) || this.stopMouseDrag();
+      this.element === null || !this.config.mouseUpEventVerifier(e) || this.stopMouseDrag();
     });
     i(this, "onWheelScroll", (e) => {
-      if (!this.options.mouseWheelEventVerifier(e))
+      if (!this.config.mouseWheelEventVerifier(e))
         return;
       e.preventDefault();
-      const { left: o, top: r } = this.element.getBoundingClientRect(), s = e.clientX - o, h = e.clientY - r, d = 1 / (e.deltaY < 0 ? this.options.wheelSensitivity : 1 / this.options.wheelSensitivity);
-      this.wheelFinishTimer === null && this.options.onTransformStarted(), this.scaleViewport(d, s, h), this.wheelFinishTimer !== null && clearTimeout(this.wheelFinishTimer), this.wheelFinishTimer = setTimeout(() => {
-        this.transformInProgress || this.options.onTransformFinished(), this.wheelFinishTimer = null;
-      }, this.options.scaleWheelFinishTimeout);
+      const { left: o, top: r } = this.element.getBoundingClientRect(), s = e.clientX - o, h = e.clientY - r, d = 1 / (e.deltaY < 0 ? this.config.wheelSensitivity : 1 / this.config.wheelSensitivity);
+      this.wheelFinishTimer === null && this.config.onTransformStarted(), this.scaleViewport(d, s, h), this.wheelFinishTimer !== null && clearTimeout(this.wheelFinishTimer), this.wheelFinishTimer = setTimeout(() => {
+        this.transformInProgress || this.config.onTransformFinished(), this.wheelFinishTimer = null;
+      }, this.config.scaleWheelFinishTimeout);
     });
     i(this, "onTouchStart", (e) => {
       if (this.prevTouches !== null) {
-        this.prevTouches = B(e);
+        this.prevTouches = U(e);
         return;
       }
-      this.prevTouches = B(e), this.window.addEventListener("touchmove", this.onWindowTouchMove), this.window.addEventListener("touchend", this.onWindowTouchFinish), this.window.addEventListener("touchcancel", this.onWindowTouchFinish), this.startRegisteredTransform();
+      this.prevTouches = U(e), this.window.addEventListener("touchmove", this.onWindowTouchMove), this.window.addEventListener("touchend", this.onWindowTouchFinish), this.window.addEventListener("touchcancel", this.onWindowTouchFinish), this.startRegisteredTransform();
     });
     i(this, "onWindowTouchMove", (e) => {
-      const o = B(e);
+      const o = U(e);
       if (!o.touches.every(
-        (s) => V(this.window, this.element, s[0], s[1])
+        (s) => L(this.window, this.element, s[0], s[1])
       )) {
         this.stopTouchDrag();
         return;
@@ -1858,19 +1858,19 @@ class k {
       this.prevTouches = o;
     });
     i(this, "onWindowTouchFinish", (e) => {
-      e.touches.length > 0 ? this.prevTouches = B(e) : this.stopTouchDrag();
+      e.touches.length > 0 ? this.prevTouches = U(e) : this.stopTouchDrag();
     });
     i(this, "observer", new ResizeObserver(() => {
-      const e = this.viewport.getViewportMatrix(), { width: o, height: r } = this.element.getBoundingClientRect(), s = this.options.transformPreprocessor({
+      const e = this.viewport.getViewportMatrix(), { width: o, height: r } = this.element.getBoundingClientRect(), s = this.config.transformPreprocessor({
         prevTransform: e,
         nextTransform: e,
         canvasWidth: o,
         canvasHeight: r
       });
-      this.options.onResizeTransformStarted(), this.canvas.patchViewportMatrix(s), this.options.onResizeTransformFinished();
+      this.config.onResizeTransformStarted(), this.canvas.patchViewportMatrix(s), this.config.onResizeTransformFinished();
     }));
-    i(this, "options");
-    this.canvas = e, this.element = o, this.window = r, this.options = ke(s), this.viewport = e.viewport, this.observer.observe(this.element), this.element.addEventListener("mousedown", this.onMouseDown), this.element.addEventListener("wheel", this.onWheelScroll), this.element.addEventListener("touchstart", this.onTouchStart), e.onBeforeDestroy.subscribe(this.onBeforeDestroy);
+    i(this, "config");
+    this.canvas = e, this.element = o, this.window = r, this.config = ke(s), this.viewport = e.viewport, this.observer.observe(this.element), this.element.addEventListener("mousedown", this.onMouseDown), this.element.addEventListener("wheel", this.onWheelScroll), this.element.addEventListener("touchstart", this.onTouchStart), e.onBeforeDestroy.subscribe(this.onBeforeDestroy);
   }
   static configure(e, o, r, s) {
     new k(
@@ -1881,7 +1881,7 @@ class k {
     );
   }
   moveViewport(e, o) {
-    const r = this.viewport.getViewportMatrix(), s = Ye(r, e, o), { width: h, height: n } = this.element.getBoundingClientRect(), d = this.options.transformPreprocessor({
+    const r = this.viewport.getViewportMatrix(), s = Ye(r, e, o), { width: h, height: n } = this.element.getBoundingClientRect(), d = this.config.transformPreprocessor({
       prevTransform: r,
       nextTransform: s,
       canvasWidth: h,
@@ -1890,7 +1890,7 @@ class k {
     this.performTransform(d);
   }
   scaleViewport(e, o, r) {
-    const s = this.canvas.viewport.getViewportMatrix(), h = Xe(s, e, o, r), { width: n, height: d } = this.element.getBoundingClientRect(), c = this.options.transformPreprocessor({
+    const s = this.canvas.viewport.getViewportMatrix(), h = Oe(s, e, o, r), { width: n, height: d } = this.element.getBoundingClientRect(), c = this.config.transformPreprocessor({
       prevTransform: s,
       nextTransform: h,
       canvasWidth: n,
@@ -1899,7 +1899,7 @@ class k {
     this.performTransform(c);
   }
   stopMouseDrag() {
-    U(this.element, null), this.removeMouseDragListeners(), this.finishRegisteredTransform();
+    C(this.element, null), this.removeMouseDragListeners(), this.finishRegisteredTransform();
   }
   removeMouseDragListeners() {
     this.window.removeEventListener("mousemove", this.onWindowMouseMove), this.window.removeEventListener("mouseup", this.onWindowMouseUp);
@@ -1911,16 +1911,16 @@ class k {
     this.window.removeEventListener("touchmove", this.onWindowTouchMove), this.window.removeEventListener("touchend", this.onWindowTouchFinish), this.window.removeEventListener("touchcancel", this.onWindowTouchFinish);
   }
   performTransform(e) {
-    this.options.onBeforeTransformChange(), this.canvas.patchViewportMatrix(e), this.options.onTransformChange();
+    this.config.onBeforeTransformChange(), this.canvas.patchViewportMatrix(e), this.config.onTransformChange();
   }
   startRegisteredTransform() {
-    this.transformInProgress = !0, this.options.onTransformStarted();
+    this.transformInProgress = !0, this.config.onTransformStarted();
   }
   finishRegisteredTransform() {
-    this.transformInProgress = !1, this.options.onTransformFinished();
+    this.transformInProgress = !1, this.config.onTransformFinished();
   }
 }
-class Q {
+class K {
   constructor(e, o, r, s, h, n) {
     i(this, "canvasResizeObserver");
     i(this, "nodeHorizontal");
@@ -1952,15 +1952,15 @@ class Q {
       this.userTransformInProgress || (this.viewportMatrix = this.viewport.getViewportMatrix(), this.loadAreaAroundViewport());
     });
     i(this, "userTransformInProgress", !1);
-    var v, f, p, A, b;
+    var v, f, A, x, b;
     this.canvas = e, this.element = o, this.window = r, this.trigger = h, this.virtualScrollOptions = n, this.nodeHorizontal = this.virtualScrollOptions.nodeContainingRadius.horizontal, this.nodeVertical = this.virtualScrollOptions.nodeContainingRadius.vertical, this.canvasResizeObserver = new ResizeObserver((D) => {
       const m = D[0];
       this.viewportWidth = m.contentRect.width, this.viewportHeight = m.contentRect.height, this.scheduleLoadAreaAroundViewport();
     }), this.viewport = e.viewport;
     const d = ((v = s == null ? void 0 : s.events) == null ? void 0 : v.onResizeTransformStarted) ?? (() => {
     }), c = ((f = s == null ? void 0 : s.events) == null ? void 0 : f.onResizeTransformFinished) ?? (() => {
-    }), a = ((p = s == null ? void 0 : s.events) == null ? void 0 : p.onTransformChange) ?? (() => {
-    }), l = ((A = s == null ? void 0 : s.events) == null ? void 0 : A.onBeforeTransformChange) ?? (() => {
+    }), a = ((A = s == null ? void 0 : s.events) == null ? void 0 : A.onTransformChange) ?? (() => {
+    }), l = ((x = s == null ? void 0 : s.events) == null ? void 0 : x.onBeforeTransformChange) ?? (() => {
     }), g = ((b = s == null ? void 0 : s.events) == null ? void 0 : b.onTransformFinished) ?? (() => {
     }), y = {
       ...s,
@@ -1993,7 +1993,7 @@ class Q {
     ), this.viewportMatrix = this.viewport.getViewportMatrix(), this.trigger.subscribe(this.updateLoadedArea), this.canvasResizeObserver.observe(this.element), this.canvas.viewport.onAfterUpdated.subscribe(this.onAfterViewportUpdated), this.canvas.onBeforeDestroy.subscribe(this.onBeforeDestroy);
   }
   static configure(e, o, r, s, h, n) {
-    new Q(
+    new K(
       e,
       o,
       r,
@@ -2016,29 +2016,29 @@ class Q {
     this.trigger.emit({ x: r, y: s, width: h, height: n });
   }
 }
-const He = () => {
+const Xe = () => {
   const t = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   return t.style.position = "absolute", t.style.inset = "0", t;
-}, je = () => {
+}, He = () => {
   const t = document.createElementNS("http://www.w3.org/2000/svg", "rect");
   return t.setAttribute("fill", "url(#pattern)"), t;
-}, Ge = () => {
+}, je = () => {
   const t = document.createElementNS(
     "http://www.w3.org/2000/svg",
     "pattern"
   );
   return t.setAttribute("id", "pattern"), t;
-}, Je = (t, e) => {
+}, Ge = (t, e) => {
   const o = document.createElementNS(
     "http://www.w3.org/2000/svg",
     "circle"
   );
   return o.setAttribute("cx", "0"), o.setAttribute("cy", "0"), o.setAttribute("r", `${t}`), o.setAttribute("fill", `${e}`), o;
-}, Ke = (t) => t instanceof SVGElement ? t : Je(
+}, Je = (t) => t instanceof SVGElement ? t : Ge(
   (t == null ? void 0 : t.radius) ?? 1.5,
   (t == null ? void 0 : t.color) ?? "#d8d8d8"
-), Qe = (t) => {
-  const e = t.tileDimensions, o = (e == null ? void 0 : e.width) ?? 25, r = (e == null ? void 0 : e.height) ?? 25, s = Ke(t.renderer ?? {});
+), Ke = (t) => {
+  const e = t.tileDimensions, o = (e == null ? void 0 : e.width) ?? 25, r = (e == null ? void 0 : e.height) ?? 25, s = Je(t.renderer ?? {});
   return {
     tileWidth: o,
     tileHeight: r,
@@ -2046,11 +2046,11 @@ const He = () => {
     maxViewportScale: t.maxViewportScale ?? 10
   };
 };
-class Z {
+class Q {
   constructor(e, o, r) {
-    i(this, "svg", He());
-    i(this, "patternRenderingRectangle", je());
-    i(this, "pattern", Ge());
+    i(this, "svg", Xe());
+    i(this, "patternRenderingRectangle", He());
+    i(this, "pattern", je());
     i(this, "patternContent");
     i(this, "tileWidth");
     i(this, "tileHeight");
@@ -2074,7 +2074,7 @@ class Z {
       ), this.canvas.onBeforeDestroy.unsubscribe(this.onBeforeDestroy);
     });
     this.canvas = e, this.host = r;
-    const s = Qe(o);
+    const s = Ke(o);
     this.tileWidth = s.tileWidth, this.tileHeight = s.tileHeight, this.halfTileWidth = this.tileWidth / 2, this.halfTileHeight = this.tileHeight / 2, this.patternContent = s.renderer, this.maxViewportScale = s.maxViewportScale;
     const h = `translate(${this.halfTileWidth}, ${this.halfTileHeight})`;
     this.patternContent.setAttribute("transform", h), this.pattern.appendChild(this.patternContent);
@@ -2082,26 +2082,26 @@ class Z {
     n.appendChild(this.pattern), this.svg.appendChild(n), this.svg.appendChild(this.patternRenderingRectangle), this.resizeObserver.observe(this.host), this.canvas.viewport.onAfterUpdated.subscribe(this.onAfterTransformUpdated), this.onAfterTransformUpdated(), this.canvas.onBeforeDestroy.subscribe(this.onBeforeDestroy);
   }
   static configure(e, o, r) {
-    new Z(e, o, r);
+    new Q(e, o, r);
   }
   updateVisibility() {
     const o = this.canvas.viewport.getViewportMatrix().scale > this.maxViewportScale;
     o && this.visible ? (this.visible = !1, this.host.removeChild(this.svg)) : !o && !this.visible && (this.visible = !0, this.host.appendChild(this.svg));
   }
 }
-const Ze = () => "direct", _e = (t) => t, qe = (t) => t.button === 0, Oe = () => {
+const Qe = () => "direct", Ze = (t) => t, _e = (t) => t.button === 0, qe = () => {
 }, et = (t) => {
   var e;
   return {
-    connectionTypeResolver: t.connectionTypeResolver ?? Ze,
-    connectionPreprocessor: t.connectionPreprocessor ?? _e,
-    mouseDownEventVerifier: t.mouseDownEventVerifier ?? qe,
-    onAfterEdgeCreated: ((e = t.events) == null ? void 0 : e.onAfterEdgeCreated) ?? Oe
+    connectionTypeResolver: t.connectionTypeResolver ?? Qe,
+    connectionPreprocessor: t.connectionPreprocessor ?? Ze,
+    mouseDownEventVerifier: t.mouseDownEventVerifier ?? _e,
+    onAfterEdgeCreated: ((e = t.events) == null ? void 0 : e.onAfterEdgeCreated) ?? qe
   };
 };
-class _ {
+class Z {
   constructor(e, o, r, s, h, n) {
-    i(this, "options");
+    i(this, "config");
     i(this, "overlayCanvas");
     i(this, "ports", /* @__PURE__ */ new Map());
     i(this, "staticOverlayPortId", "static");
@@ -2118,10 +2118,10 @@ class _ {
     });
     i(this, "onPortMouseDown", (e) => {
       const o = e.currentTarget;
-      this.options.mouseDownEventVerifier(e) && this.isPortConnectionAllowed(o) && (e.stopPropagation(), this.grabPort(o, { x: e.clientX, y: e.clientY }), this.window.addEventListener("mousemove", this.onWindowMouseMove), this.window.addEventListener("mouseup", this.onWindowMouseUp));
+      this.config.mouseDownEventVerifier(e) && this.isPortConnectionAllowed(o) && (e.stopPropagation(), this.grabPort(o, { x: e.clientX, y: e.clientY }), this.window.addEventListener("mousemove", this.onWindowMouseMove), this.window.addEventListener("mouseup", this.onWindowMouseUp));
     });
     i(this, "onWindowMouseMove", (e) => {
-      if (!V(
+      if (!L(
         this.window,
         this.overlayLayer,
         e.clientX,
@@ -2145,7 +2145,7 @@ class _ {
     });
     i(this, "onWindowTouchMove", (e) => {
       const o = e.touches[0];
-      if (!V(
+      if (!L(
         this.window,
         this.overlayLayer,
         o.clientX,
@@ -2171,9 +2171,9 @@ class _ {
       ), this.canvas.graph.onBeforeClear.unsubscribe(this.onBeforeClear), this.canvas.onBeforeDestroy.unsubscribe(this.onBeforeDestroy);
     });
     i(this, "onEdgeCreated", (e) => {
-      this.options.onAfterEdgeCreated(e);
+      this.config.onAfterEdgeCreated(e);
     });
-    this.canvas = e, this.overlayLayer = o, this.viewportStore = r, this.window = s, this.options = et(n);
+    this.canvas = e, this.overlayLayer = o, this.viewportStore = r, this.window = s, this.config = et(n);
     const d = new ce(), c = new ne(
       d,
       this.viewportStore,
@@ -2188,7 +2188,7 @@ class _ {
     ), this.canvas.graph.onAfterPortMarked.subscribe(this.onAfterPortMarked), this.canvas.graph.onBeforePortUnmarked.subscribe(this.onBeforePortUnmarked), this.canvas.graph.onBeforeClear.subscribe(this.onBeforeClear), this.canvas.onBeforeDestroy.subscribe(this.onBeforeDestroy);
   }
   static configure(e, o, r, s, h, n) {
-    new _(
+    new Z(
       e,
       o,
       r,
@@ -2200,10 +2200,10 @@ class _ {
   grabPort(e, o) {
     const r = this.ports.get(e), s = this.canvas.graph.getPort(r);
     this.staticPortId = r;
-    const h = this.options.connectionTypeResolver(this.staticPortId), n = e.getBoundingClientRect(), d = n.x + n.width / 2, c = n.y + n.height / 2, a = this.overlayLayer.getBoundingClientRect(), l = this.canvas.viewport.getViewportMatrix(), g = C(l, {
+    const h = this.config.connectionTypeResolver(this.staticPortId), n = e.getBoundingClientRect(), d = n.x + n.width / 2, c = n.y + n.height / 2, a = this.overlayLayer.getBoundingClientRect(), l = this.canvas.viewport.getViewportMatrix(), g = V(l, {
       x: d - a.x,
       y: c - a.y
-    }), y = C(l, {
+    }), y = V(l, {
       x: o.x - a.x,
       y: o.y - a.y
     }), v = {
@@ -2216,8 +2216,8 @@ class _ {
       portDirection: void 0
     };
     this.isDirect = h === "direct";
-    const p = this.isDirect ? v : f, A = this.isDirect ? f : v;
-    this.createOverlayGraph(p, A);
+    const A = this.isDirect ? v : f, x = this.isDirect ? f : v;
+    this.createOverlayGraph(A, x);
   }
   hookPortEvents(e) {
     e.addEventListener("mousedown", this.onPortMouseDown), e.addEventListener("touchstart", this.onPortTouchStart);
@@ -2263,14 +2263,14 @@ class _ {
     const o = this.findPortAtPoint(e);
     if (o === null)
       return;
-    const r = this.isDirect ? this.staticPortId : o, s = this.isDirect ? o : this.staticPortId, h = { from: r, to: s }, n = this.options.connectionPreprocessor(h);
+    const r = this.isDirect ? this.staticPortId : o, s = this.isDirect ? o : this.staticPortId, h = { from: r, to: s }, n = this.config.connectionPreprocessor(h);
     n !== null && (this.canvas.graph.onAfterEdgeAdded.subscribe(this.onEdgeCreated), this.canvas.addEdge(n), this.canvas.graph.onAfterEdgeAdded.unsubscribe(this.onEdgeCreated));
   }
   moveDraggingNode(e) {
     const o = this.overlayLayer.getBoundingClientRect(), r = {
       x: e.x - o.x,
       y: e.y - o.y
-    }, s = this.canvas.viewport.getViewportMatrix(), h = C(s, r);
+    }, s = this.canvas.viewport.getViewportMatrix(), h = V(s, r);
     this.overlayCanvas.updateNode(this.draggingOverlayPortId, {
       x: h.x,
       y: h.y
@@ -2293,21 +2293,21 @@ class _ {
   }
   isPortConnectionAllowed(e) {
     const o = this.ports.get(e);
-    return this.options.connectionTypeResolver(o) !== null;
+    return this.config.connectionTypeResolver(o) !== null;
   }
 }
 const tt = () => {
   const t = document.createElement("div");
   return t.style.width = "100%", t.style.height = "100%", t.style.position = "relative", t;
-}, X = () => {
+}, O = () => {
   const t = document.createElement("div");
   return t.style.position = "absolute", t.style.inset = "0", t;
 };
 class ot {
   constructor(e) {
-    i(this, "background", X());
-    i(this, "main", X());
-    i(this, "overlay", X());
+    i(this, "background", O());
+    i(this, "main", O());
+    i(this, "overlay", O());
     i(this, "host", tt());
     this.element = e, this.element.appendChild(this.host), this.host.appendChild(this.background), this.host.appendChild(this.main), this.overlay.style.pointerEvents = "none", this.host.appendChild(this.overlay);
   }
@@ -2316,14 +2316,14 @@ class ot {
   }
 }
 class it {
-  constructor() {
+  constructor(e) {
     i(this, "element", null);
     i(this, "canvasDefaults", {});
-    i(this, "dragOptions", {});
-    i(this, "transformOptions", {});
-    i(this, "backgroundOptions", {});
-    i(this, "connectablePortsOptions", {});
-    i(this, "virtualScrollOptions");
+    i(this, "dragConfig", {});
+    i(this, "transformConfig", {});
+    i(this, "backgroundConfig", {});
+    i(this, "connectablePortsConfig", {});
+    i(this, "virtualScrollConfig");
     i(this, "hasDraggableNode", !1);
     i(this, "hasTransformableViewport", !1);
     i(this, "hasResizeReactiveNodes", !1);
@@ -2331,7 +2331,12 @@ class it {
     i(this, "hasUserConnectablePorts", !1);
     i(this, "boxRenderingTrigger");
     i(this, "window", window);
+    e !== void 0 && (this.element = e);
   }
+  /**
+   * @deprecated
+   * use `new CanvasBuilder(element);` instead
+   */
   setElement(e) {
     return this.element = e, this;
   }
@@ -2345,13 +2350,13 @@ class it {
    * enables nodes draggable by user
    */
   enableUserDraggableNodes(e) {
-    return this.hasDraggableNode = !0, this.dragOptions = e ?? {}, this;
+    return this.hasDraggableNode = !0, this.dragConfig = e ?? {}, this;
   }
   /**
    * enables viewport transformable by user
    */
   enableUserTransformableViewport(e) {
-    return this.hasTransformableViewport = !0, this.transformOptions = e ?? {}, this;
+    return this.hasTransformableViewport = !0, this.transformConfig = e ?? {}, this;
   }
   /**
    * enables automatic edges update on node resize
@@ -2370,19 +2375,19 @@ class it {
    * to viewport are rendered
    */
   enableVirtualScroll(e) {
-    return this.virtualScrollOptions = e, this;
+    return this.virtualScrollConfig = e, this;
   }
   /**
    * enables built-in background rendering
    */
   enableBackground(e) {
-    return this.hasBackground = !0, this.backgroundOptions = e ?? {}, this;
+    return this.hasBackground = !0, this.backgroundConfig = e ?? {}, this;
   }
   /**
    * enables edge creation by dragging one port to another
    */
   enableUserConnectablePorts(e) {
-    return this.connectablePortsOptions = e ?? {}, this.hasUserConnectablePorts = !0, this;
+    return this.connectablePortsConfig = e ?? {}, this.hasUserConnectablePorts = !0, this;
   }
   /**
    * builds final canvas
@@ -2393,8 +2398,8 @@ class it {
         "unable to build canvas when no attach element specified"
       );
     let e = this.boxRenderingTrigger;
-    this.virtualScrollOptions !== void 0 && e === void 0 && (e = new he());
-    const o = new ce(), r = new Ie(), s = new ot(this.element);
+    this.virtualScrollConfig !== void 0 && e === void 0 && (e = new he());
+    const o = new ce(), r = new Be(), s = new ot(this.element);
     let h = new ne(
       o,
       r,
@@ -2410,34 +2415,34 @@ class it {
     ), d = () => {
       s.destroy(), n.onBeforeDestroy.unsubscribe(d);
     };
-    return n.onBeforeDestroy.subscribe(d), this.hasBackground && Z.configure(
+    return n.onBeforeDestroy.subscribe(d), this.hasBackground && Q.configure(
       n,
-      this.backgroundOptions,
+      this.backgroundConfig,
       s.background
-    ), this.hasResizeReactiveNodes && J.configure(n), this.hasDraggableNode && K.configure(
+    ), this.hasResizeReactiveNodes && G.configure(n), this.hasDraggableNode && J.configure(
       n,
       s.main,
       this.window,
-      this.dragOptions
-    ), this.hasUserConnectablePorts && _.configure(
+      this.dragConfig
+    ), this.hasUserConnectablePorts && Z.configure(
       n,
       s.overlay,
       r,
       this.window,
       this.canvasDefaults,
-      this.connectablePortsOptions
-    ), this.virtualScrollOptions !== void 0 ? Q.configure(
+      this.connectablePortsConfig
+    ), this.virtualScrollConfig !== void 0 ? K.configure(
       n,
       s.main,
       this.window,
-      this.transformOptions,
+      this.transformConfig,
       e,
-      this.virtualScrollOptions
+      this.virtualScrollConfig
     ) : this.hasTransformableViewport && k.configure(
       n,
       s.main,
       this.window,
-      this.transformOptions
+      this.transformConfig
     ), this.reset(), n;
   }
   /**
@@ -2445,7 +2450,7 @@ class it {
    * CanvasBuilder should be single use object
    */
   reset() {
-    this.element = null, this.canvasDefaults = {}, this.dragOptions = {}, this.transformOptions = {}, this.backgroundOptions = {}, this.virtualScrollOptions = void 0, this.hasDraggableNode = !1, this.hasTransformableViewport = !1, this.hasResizeReactiveNodes = !1, this.hasBackground = !1, this.boxRenderingTrigger = void 0, this.hasUserConnectablePorts = !1;
+    this.element = null, this.canvasDefaults = {}, this.dragConfig = {}, this.transformConfig = {}, this.backgroundConfig = {}, this.virtualScrollConfig = void 0, this.hasDraggableNode = !1, this.hasTransformableViewport = !1, this.hasResizeReactiveNodes = !1, this.hasBackground = !1, this.boxRenderingTrigger = void 0, this.hasUserConnectablePorts = !1;
   }
 }
 export {
@@ -2454,6 +2459,6 @@ export {
   he as EventSubject,
   Me as HorizontalEdgeShape,
   S as HtmlGraphError,
-  Ce as StraightEdgeShape,
-  Ve as VerticalEdgeShape
+  Ve as StraightEdgeShape,
+  Le as VerticalEdgeShape
 };

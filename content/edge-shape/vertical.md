@@ -9,8 +9,7 @@ The Vertical edge shape can be configured by calling the `setDefaults` method on
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');
 
-const canvas = new CanvasBuilder()
-  .setElement(element)
+const canvas = new CanvasBuilder(element)
   .setDefaults({
     edges: {
       shape: {
@@ -48,8 +47,7 @@ import { VerticalEdgeShape } from "@html-graph/html-graph";
 
 const element = document.getElementById('canvas');
 
-const canvas = new CanvasBuilder()
-  .setElement(element)
+const canvas = new CanvasBuilder(element)
   .setDefaults({
     edges: {
       shape: () => new VerticalEdgeShape({ hasTargetArrow: true })

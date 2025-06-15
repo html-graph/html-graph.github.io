@@ -11,8 +11,7 @@ To enable this built-in behavior, call the `enableVirtualScroll` method on `Canv
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');
 
-const canvas = new CanvasBuilder()
-  .setElement(element)
+const canvas = new CanvasBuilder(element)
   .enableVirtualScroll({
     nodeContainingRadius: {
       vertical: 50,
@@ -52,8 +51,7 @@ The `enableVirtualScroll` method automatically configures the transformable view
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');
 
-const canvas = new CanvasBuilder()
-  .setElement(element)
+const canvas = new CanvasBuilder(element)
   .enableUserTransformableViewport({
     transformPreprocessor: {
       type: "scale-limit",

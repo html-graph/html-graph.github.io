@@ -169,7 +169,6 @@
       const sliderY = document.getElementById("y");
       const yValue = document.getElementById("y-value");
 
-      const builder = new CanvasBuilder();
       const boundsContainerElement =
         document.getElementById("bounds-container");
 
@@ -186,8 +185,7 @@
         sliderY.value = `${y}`;
       };
 
-      const canvas = builder
-        .setElement(canvasElement)
+      const canvas = new CanvasBuilder(canvasElement)
         .enableUserTransformableViewport({
           events: {
             onTransformChange: () => {

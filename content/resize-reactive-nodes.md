@@ -9,8 +9,7 @@ To enable built-in resize-reactive nodes, ensuring that edges are automatically 
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');
 
-const canvas = new CanvasBuilder()
-  .setElement(element)
+const canvas = new CanvasBuilder(element)
   .enableResizeReactiveNodes()
   .build();
 {{< /code >}}

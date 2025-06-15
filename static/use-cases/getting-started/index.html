@@ -83,9 +83,9 @@
         };
       }
 
-      const canvas = new CanvasBuilder()
-        .setElement(document.getElementById("canvas"))
-        .build();
+      const canvas = new CanvasBuilder(
+        document.getElementById("canvas"),
+      ).build();
 
       canvas
         .addNode(

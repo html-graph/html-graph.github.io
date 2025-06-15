@@ -249,8 +249,7 @@
 
       const canvasElement = document.getElementById("canvas");
 
-      const canvas = new CanvasBuilder()
-        .setElement(canvasElement)
+      const canvas = new CanvasBuilder(canvasElement)
         .setDefaults({
           nodes: {
             centerFn: () => ({ x: 0, y: 0 }),

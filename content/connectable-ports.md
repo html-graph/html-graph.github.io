@@ -12,8 +12,7 @@ To enable ports, connectable via dragging, call the `enableUserConnectablePorts`
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');
 
-const canvas = new CanvasBuilder()
-  .setElement(element)
+const canvas = new CanvasBuilder(element)
   .enableUserConnectablePorts()
   .build();
 {{< /code >}}

@@ -19,8 +19,7 @@ import { CanvasBuilder } from "@html-graph/html-graph";
 
 const element = document.getElementById('canvas');
 
-const canvas = new CanvasBuilder()
-  .setElement(element)
+const canvas = new CanvasBuilder(element)
   .build();
 {{< / code >}}
 
@@ -35,8 +34,7 @@ and use it like this
 
   const element = document.getElementById('canvas');
 
-  const canvas = new CanvasBuilder()
-    .setElement(element)
+  const canvas = new CanvasBuilder(element)
     .build();
 </script>
 {{< /code >}}
@@ -51,8 +49,7 @@ and use it like this
 <script>
   const element = document.getElementById('canvas');
 
-  const canvas = new HtmlGraph.CanvasBuilder()
-    .setElement(element)
+  const canvas = new HtmlGraph.CanvasBuilder(element)
     .build();
 </script>
 {{< /code >}}

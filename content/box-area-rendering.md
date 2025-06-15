@@ -14,8 +14,7 @@ import { CanvasBuilder, EventSubject } from '@html-graph/html-graph';
 const trigger = new EventSubject();
 const element = document.getElementById('canvas');
 
-const canvas = new CanvasBuilder()
-  .setElement(element)
+const canvas = new CanvasBuilder(element)
   .enableBoxAreaRendering(trigger)
   .build();
 {{< /code >}}

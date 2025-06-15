@@ -9,8 +9,7 @@ A custom edge shape can be defined by providing a factory function in the `setDe
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');
 
-const canvas = new CanvasBuilder()
-  .setElement(canvas)
+const canvas = new CanvasBuilder(element)
   .setDefaults({
     edges: {
       shape: () => new MyCustomEdgeShape(),
