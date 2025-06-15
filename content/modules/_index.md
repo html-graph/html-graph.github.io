@@ -4,7 +4,7 @@ title: Modules
 
 ## Modules
 
-**HTMLGraph** extends its functionality through optional modules:
+HTMLGraph extends its functionality through optional modules:
 
 ### [Transformable Viewport](/modules/transformable-viewport)
 Shift and zoom your graph using mouse or touch gestures for intuitive navigation.
