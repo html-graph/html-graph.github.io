@@ -6,7 +6,7 @@ title: Home
 It allows you to create interactive and visually dynamic graphs by integrating HTML
 elements directly into nodes, making it perfect for building complex and customizable visualizations.
 
-The library offers both low-level [core](/canvas) functionality and convenient high-level [modules](/modules):
+The library offers both low-level [core](/canvas) functionality and convenient high-level [modules](/modules).
 
 Here's an advanced example to demonstrate some capabilities of this library:
 
