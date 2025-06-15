@@ -6,8 +6,8 @@ title: Edge Shape
 
 HTMLGraph supports multiple edge visualization styles to suit different graph representation needs:
 
-| Shape          | Description                                              | Configuration Reference       |
-|----------------|----------------------------------------------------------|-------------------------------|
+| Shape          | Description                                              | Configuration Reference                   |
+|----------------|----------------------------------------------------------|-------------------------------------------|
 | **Bezier**     | Smooth curved connections with adjustable curvature      | [BezierShape](/edge-shape/bezier)         |
 | **Straight**   | Direct linear connections between nodes                  | [StraightShape](/edge-shape/straight)     |
 | **Horizontal** | Right-angle connections with horizontal primary segments | [HorizontalShape](/edge-shape/horizontal) |
