@@ -7,7 +7,7 @@ It allows you to create interactive and visually dynamic graphs by integrating H
 elements directly into nodes, making it perfect for building complex and customizable visualizations.
 To begin, check out the [getting started](/getting-started) guide.
 
-The library offers both low-level [core](/canvas) functionality and convenient high-level [modules](/modules).
+This library is divided into low-level [core](/canvas) and convenient high-level [modules](/modules).
 
 Here's an advanced example to demonstrate some capabilities of this library:
 
