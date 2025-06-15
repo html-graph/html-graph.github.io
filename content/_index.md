@@ -1,5 +1,5 @@
 ---
-title: Home
+title: Overview
 ---
 
 **HTMLGraph** is a graph visualization library that enables rich nodes customization using HTML.
