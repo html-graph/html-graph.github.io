@@ -2090,12 +2090,13 @@ class Q {
   }
 }
 const Qe = () => "direct", Ze = (t) => t, _e = (t) => t.button === 0, qe = () => {
-}, et = (t) => {
+}, et = (t) => t.button === 0, tt = (t) => {
   var e;
   return {
     connectionTypeResolver: t.connectionTypeResolver ?? Qe,
     connectionPreprocessor: t.connectionPreprocessor ?? Ze,
     mouseDownEventVerifier: t.mouseDownEventVerifier ?? _e,
+    mouseUpEventVerifier: t.mouseUpEventVerifier ?? et,
     onAfterEdgeCreated: ((e = t.events) == null ? void 0 : e.onAfterEdgeCreated) ?? qe
   };
 };
@@ -2133,7 +2134,7 @@ class Z {
       this.moveDraggingNode({ x: e.clientX, y: e.clientY });
     });
     i(this, "onWindowMouseUp", (e) => {
-      this.tryCreateConnection({ x: e.clientX, y: e.clientY }), this.stopMouseDrag();
+      this.config.mouseUpEventVerifier(e) && (this.tryCreateConnection({ x: e.clientX, y: e.clientY }), this.stopMouseDrag());
     });
     i(this, "onPortTouchStart", (e) => {
       const o = e.currentTarget;
@@ -2173,7 +2174,7 @@ class Z {
     i(this, "onEdgeCreated", (e) => {
       this.config.onAfterEdgeCreated(e);
     });
-    this.canvas = e, this.overlayLayer = o, this.viewportStore = r, this.window = s, this.config = et(n);
+    this.canvas = e, this.overlayLayer = o, this.viewportStore = r, this.window = s, this.config = tt(n);
     const d = new ce(), c = new ne(
       d,
       this.viewportStore,
@@ -2296,26 +2297,26 @@ class Z {
     return this.config.connectionTypeResolver(o) !== null;
   }
 }
-const tt = () => {
+const ot = () => {
   const t = document.createElement("div");
   return t.style.width = "100%", t.style.height = "100%", t.style.position = "relative", t;
 }, O = () => {
   const t = document.createElement("div");
   return t.style.position = "absolute", t.style.inset = "0", t;
 };
-class ot {
+class rt {
   constructor(e) {
     i(this, "background", O());
     i(this, "main", O());
     i(this, "overlay", O());
-    i(this, "host", tt());
+    i(this, "host", ot());
     this.element = e, this.element.appendChild(this.host), this.host.appendChild(this.background), this.host.appendChild(this.main), this.overlay.style.pointerEvents = "none", this.host.appendChild(this.overlay);
   }
   destroy() {
     this.host.removeChild(this.background), this.host.removeChild(this.main), this.host.removeChild(this.overlay), this.element.removeChild(this.host);
   }
 }
-class it {
+class st {
   constructor(e) {
     i(this, "element", null);
     i(this, "canvasDefaults", {});
@@ -2399,7 +2400,7 @@ class it {
       );
     let e = this.boxRenderingTrigger;
     this.virtualScrollConfig !== void 0 && e === void 0 && (e = new he());
-    const o = new ce(), r = new Be(), s = new ot(this.element);
+    const o = new ce(), r = new Be(), s = new rt(this.element);
     let h = new ne(
       o,
       r,
@@ -2455,7 +2456,7 @@ class it {
 }
 export {
   De as BezierEdgeShape,
-  it as CanvasBuilder,
+  st as CanvasBuilder,
   he as EventSubject,
   Me as HorizontalEdgeShape,
   S as HtmlGraphError,
