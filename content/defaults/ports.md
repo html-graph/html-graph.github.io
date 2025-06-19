@@ -2,7 +2,7 @@
 title: Defaults | Ports
 ---
 
-## Ports Configuration
+## Pors Defaults
 
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');

@@ -2,7 +2,7 @@
 title: Defaults | Edges
 ---
 
-## Edges Configuration
+## Edge Defaults
 
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');

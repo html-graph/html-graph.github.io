@@ -1,8 +1,8 @@
 ---
-title: Defaults Configuration
+title: Default Configuration
 ---
 
-## Defaults Configuration
+## Default Configuration
 
 Use the `setDefaults` method of `CanvasBuilder` to establish base visualization settings.
 These defaults apply to all graph entities (nodes, ports, and edges) when no explicit values are provided.

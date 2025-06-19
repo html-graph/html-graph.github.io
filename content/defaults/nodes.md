@@ -2,7 +2,7 @@
 title: Defaults | Nodes
 ---
 
-## Nodes Configuration
+## Node Defaults
 
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');
