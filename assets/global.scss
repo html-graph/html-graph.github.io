@@ -7,7 +7,7 @@
   --color-text: #02020a;
   --color-text-header: #fff;
   --color-green: #89fc00;
-  --color-link-green: #c46e13;
+  --color-link-green: #2e9609;
   --color-light-blue: #00a1e4;
   --color-blue: #126dff;
   --color-orange: #f5b700;
@@ -33,6 +33,9 @@ a {
 
   &.active {
     color: var(--color-link-green);
+    &:link {
+      text-decoration: underline;
+    }
   }
 }
 
