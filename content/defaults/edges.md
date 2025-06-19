@@ -1,5 +1,5 @@
 ---
-title: Core Configuration | Edges
+title: Defaults | Edges
 ---
 
 ## Edges Configuration

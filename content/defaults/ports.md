@@ -1,5 +1,5 @@
 ---
-title: Core Configuration | Ports
+title: Defaults | Ports
 ---
 
 ## Ports Configuration

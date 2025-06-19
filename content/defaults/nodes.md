@@ -1,5 +1,5 @@
 ---
-title: Core Configuration | Nodes
+title: Defaults | Nodes
 ---
 
 ## Nodes Configuration
