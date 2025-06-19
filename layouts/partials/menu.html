@@ -1,125 +1,278 @@
+<!-- {{ .path }} -->
 <ul>
   <li>
-    <a href="/"><b>Overview</b></a>
+    {{ partial "bold-menu-link.html" (dict
+      "path" "/"
+      "activePath" .path
+      "label" "Overview"
+    )}}
   </li>
   <li>
-    <a href="/getting-started"><b>Getting started</b></a>
+    {{ partial "bold-menu-link.html" (dict
+      "path" "/getting-started/"
+      "activePath" .path
+      "label" "Getting started"
+    )}}
   </li>
   <li>
-    <a href="/terms-and-definitions"><b>Terms and definitions</b></a>
+    {{ partial "bold-menu-link.html" (dict
+      "path" "/terms-and-definitions/"
+      "activePath" .path
+      "label" "Terms and definitions"
+    )}}
   </li>
   <li>
-    <a href="/canvas"><b>Canvas</b></a>
+    {{ partial "bold-menu-link.html" (dict
+      "path" "/canvas/"
+      "activePath" .path
+      "label" "Canvas"
+    )}}
     <ul>
       <li>
-        <a href="/canvas/add-node">addNode</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/canvas/add-node/"
+          "activePath" .path
+          "label" "addNode"
+        )}}
       </li>
       <li>
-        <a href="/canvas/update-node">updateNode</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/canvas/update-node/"
+          "activePath" .path
+          "label" "updateNode"
+        )}}
       </li>
       <li>
-        <a href="/canvas/remove-node">removeNode</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/canvas/remove-node/"
+          "activePath" .path
+          "label" "removeNode"
+        )}}
       </li>
       <li>
-        <a href="/canvas/mark-port">markPort</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/canvas/mark-port/"
+          "activePath" .path
+          "label" "markPort"
+        )}}
       </li>
       <li>
-        <a href="/canvas/update-port">updatePort</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/canvas/update-port/"
+          "activePath" .path
+          "label" "updatePort"
+        )}}
       </li>
       <li>
-        <a href="/canvas/unmark-port">unmarkPort</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/canvas/unmark-port/"
+          "activePath" .path
+          "label" "unmarkPort"
+        )}}
       </li>
       <li>
-        <a href="/canvas/add-edge">addEdge</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/canvas/add-edge/"
+          "activePath" .path
+          "label" "addEdge"
+        )}}
       </li>
       <li>
-        <a href="/canvas/update-edge">updateEdge</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/canvas/update-edge/"
+          "activePath" .path
+          "label" "updateEdge"
+        )}}
       </li>
       <li>
-        <a href="/canvas/remove-edge">removeEdge</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/canvas/remove-edge/"
+          "activePath" .path
+          "label" "removeEdge"
+        )}}
       </li>
       <li>
-        <a href="/canvas/patch-viewport-matrix">patchViewportMatrix</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/canvas/patch-viewport-matrix/"
+          "activePath" .path
+          "label" "patchViewportMatrix"
+        )}}
       </li>
       <li>
-        <a href="/canvas/patch-content-matrix">patchContentMatrix</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/canvas/patch-content-matrix/"
+          "activePath" .path
+          "label" "patchContentMatrix"
+        )}}
       </li>
       <li>
-        <a href="/canvas/clear">clear</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/canvas/clear/"
+          "activePath" .path
+          "label" "clear"
+        )}}
       </li>
       <li>
-        <a href="/canvas/destroy">destroy</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/canvas/destroy/"
+          "activePath" .path
+          "label" "destroy"
+        )}}
       </li>
     </ul>
   </li>
   <li>
-    <a href="/defaults"><b>Defaults</b></a>
+    {{ partial "bold-menu-link.html" (dict
+      "path" "/defaults/"
+      "activePath" .path
+      "label" "Defaults"
+    )}}
     <ul>
       <li>
-        <a href="/defaults/nodes">Nodes</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/defaults/nodes/"
+          "activePath" .path
+          "label" "Nodes"
+        )}}
       </li>
       <li>
-        <a href="/defaults/ports">Ports</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/defaults/ports/"
+          "activePath" .path
+          "label" "Ports"
+        )}}
       </li>
       <li>
-        <a href="/defaults/edges">Edges</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/defaults/edges/"
+          "activePath" .path
+          "label" "Edges"
+        )}}
       </li>
     </ul>
   </li>
   <li>
-    <a href="/edge-shape"><b>Edge shape</b></a>
+    {{ partial "bold-menu-link.html" (dict
+      "path" "/edge-shape/"
+      "activePath" .path
+      "label" "Edge shape"
+    )}}
     <ul>
       <li>
-        <a href="/edge-shape/bezier">Bezier</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/edge-shape/bezier/"
+          "activePath" .path
+          "label" "Bezier"
+        )}}
       </li>
       <li>
-        <a href="/edge-shape/straight">Straight</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/edge-shape/straight/"
+          "activePath" .path
+          "label" "Straight"
+        )}}
       </li>
       <li>
-        <a href="/edge-shape/horizontal">Horizontal</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/edge-shape/horizontal/"
+          "activePath" .path
+          "label" "Horizontal"
+        )}}
       </li>
       <li>
-        <a href="/edge-shape/vertical">Vertical</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/edge-shape/vertical/"
+          "activePath" .path
+          "label" "Vertical"
+        )}}
       </li>
       <li>
-        <a href="/edge-shape/custom">Custom</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/edge-shape/custom/"
+          "activePath" .path
+          "label" "Custom"
+        )}}
       </li>
     </ul>
   </li>
   <li>
-    <a href="/modules"><b>Modules</b></a>
+    {{ partial "bold-menu-link.html" (dict
+      "path" "/modules/"
+      "activePath" .path
+      "label" "Modules"
+    )}}
     <ul>
       <li>
-        <a href="/modules/transformable-viewport">Transformable viewport</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/modules/transformable-viewport/"
+          "activePath" .path
+          "label" "Transformable viewport"
+        )}}
       </li>
       <li>
-        <a href="/modules/draggable-nodes">Draggable nodes</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/modules/draggable-nodes/"
+          "activePath" .path
+          "label" "Draggable nodes"
+        )}}
       </li>
       <li>
-        <a href="/modules/background">Background</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/modules/background/"
+          "activePath" .path
+          "label" "Background"
+        )}}
       </li>
       <li>
-        <a href="/modules/connectable-ports">Connectable ports</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/modules/connectable-ports/"
+          "activePath" .path
+          "label" "Connectable ports"
+        )}}
       </li>
       <li>
-        <a href="/modules/virtual-scroll">Virtual scroll</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/modules/virtual-scroll/"
+          "activePath" .path
+          "label" "Virtual scroll"
+        )}}
       </li>
       <li>
-        <a href="/modules/resize-reactive-nodes">Resize-reactive nodes</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/modules/resize-reactive-nodes/"
+          "activePath" .path
+          "label" "Resize-reactive nodes"
+        )}}
       </li>
       <li>
-        <a href="/modules/box-area-rendering">Box area rendering</a>
+        {{ partial "menu-link.html" (dict
+          "path" "/modules/box-area-rendering/"
+          "activePath" .path
+          "label" "Box area rendering"
+        )}}
       </li>
     </ul>
   </li>
   <li>
-    <a href="/events"><b>Events</b></a>
+    {{ partial "bold-menu-link.html" (dict
+      "path" "/events/"
+      "activePath" .path
+      "label" "Events"
+    )}}
   </li>
   <li>
-    <a href="/accessing-graph-structure"><b>Accessing graph structure</b></a>
+    {{ partial "bold-menu-link.html" (dict
+      "path" "/accessing-graph-structure/"
+      "activePath" .path
+      "label" "Accessing graph structure"
+    )}}
   </li>
   <li>
-    <a href="/accessing-viewport-state"><b>Accessing viewport state</b></a>
+    {{ partial "bold-menu-link.html" (dict
+      "path" "/accessing-viewport-state/"
+      "activePath" .path
+      "label" "Accessing viewport state"
+    )}}
   </li>
   <li>
     <a

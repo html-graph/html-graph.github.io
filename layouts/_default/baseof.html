@@ -151,7 +151,9 @@
     </header>
 
     <main class="layout__content">
-      <nav class="layout__navigation">{{ partial "menu.html" }}</nav>
+      <nav class="layout__navigation">
+        {{ partial "menu.html" (dict "context" . "path" .RelPermalink) }}
+      </nav>
       <div class="layout__page">
         <div class="layout__column">
           {{ block "main" . }}
