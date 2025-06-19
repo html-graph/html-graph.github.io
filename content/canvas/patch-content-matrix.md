@@ -1,5 +1,5 @@
 ---
-title: Canvas | Patch Viewport Matrix
+title: Canvas | Patch Content Matrix
 ---
 
 ## Patch Content Matrix
