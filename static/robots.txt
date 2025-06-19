@@ -1,0 +1,4 @@
+User-agent: *
+Crawl-delay: 1
+Host: html-graph.github.io
+Sitemap: https://html-graph.github.io/sitemap.xml
