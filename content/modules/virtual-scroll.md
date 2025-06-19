@@ -1,5 +1,7 @@
 ---
 title: Virtual Scroll
+sitemap:
+  priority: 0.8
 ---
 
 ## Virtual Scroll

@@ -1,5 +1,7 @@
 ---
 title: Draggable Nodes
+sitemap:
+  priority: 0.8
 ---
 
 ## Draggable Nodes

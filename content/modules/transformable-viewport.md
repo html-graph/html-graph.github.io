@@ -1,5 +1,7 @@
 ---
 title: Transformable Viewport
+sitemap:
+  priority: 0.8
 ---
 
 ## Transformable Viewport

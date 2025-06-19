@@ -1,5 +1,7 @@
 ---
 title: Connectable Ports
+sitemap:
+  priority: 0.6
 ---
 
 ## Connectable Ports

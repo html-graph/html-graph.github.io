@@ -1,5 +1,7 @@
 ---
 title: Background
+sitemap:
+  priority: 0.7
 ---
 
 ## Background

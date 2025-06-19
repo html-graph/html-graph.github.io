@@ -1,5 +1,7 @@
 ---
 title: Getting started
+sitemap:
+  priority: 0.9
 ---
 
 ## Getting started
