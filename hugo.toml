@@ -1,6 +1,7 @@
 baseURL = 'https://html-graph.github.io/'
 languageCode = 'en-us'
 title = 'HTMLGraph'
+disableKinds = ["taxonomy", "term"]
 
 [markup.goldmark.renderer]
   unsafe = true
@@ -10,8 +11,6 @@ title = 'HTMLGraph'
   disable = false
   filename = 'sitemap.xml'
   priority = 0.5
-
-disableKinds = ["taxonomy", "term"]
 
 [taxonomies]
     category = "categories"
