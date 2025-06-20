@@ -10,3 +10,9 @@ title = 'HTMLGraph'
   disable = false
   filename = 'sitemap.xml'
   priority = 0.5
+
+disableKinds = ["taxonomy", "term"]
+
+[taxonomies]
+    category = "categories"
+    tag = "tags"
