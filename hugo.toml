@@ -13,5 +13,5 @@ disableKinds = ["taxonomy", "term"]
   priority = 0.5
 
 [taxonomies]
-    category = "categories"
-    tag = "tags"
+  category = "categories"
+  tag = "tags"
