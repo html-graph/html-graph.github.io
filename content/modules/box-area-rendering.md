@@ -41,6 +41,6 @@ trigger.emit({ x: 100, y: 100, width: 1200, height: 1200 });
 
 {{< /ref-target >}}
 
-When a box rendering trigger is specified, it becomes your responsibility to initiate rendering (unless you use the built-in [virtual scroll](/virtual-scroll)).
+When a box rendering trigger is specified, it becomes your responsibility to initiate rendering (unless you use the built-in [virtual scroll](/modules/virtual-scroll)).
 
 {{< use-case title="Box Area Rendering" src=/use-cases/box-area-rendering/ >}}
