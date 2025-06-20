@@ -4,7 +4,7 @@ title: Box Area Rendering
 
 ## Box Area Rendering
 
-Instead of relying on the built-in [virtual scroll](/virtual-scroll), you can fine-tune your own virtual scroll implementation.
+Instead of relying on the built-in [virtual scroll](/modules/virtual-scroll), you can fine-tune your own virtual scroll implementation.
 This can be achieved by providing an <span data-ref="event-subject">EventSubject</span>
 trigger for graph rendering within a bounded area using the `enableBoxAreaRendering` method of `CanvasBuilder`.
 
