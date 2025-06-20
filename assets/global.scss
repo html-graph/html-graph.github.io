@@ -2,14 +2,13 @@
   --color-background: #777777;
   --color-border: #9e9e9e;
   --color-border-dark: #454545;
-  --color-background-grey: #e8e8e8;
+  --color-background-grey: #ededed;
   --color-background-header: #2e2e2e;
   --color-text: #02020a;
   --color-text-header: #fff;
-  --color-green: #89fc00;
-  --color-link-green: #2e9609;
+  --color-link-active: #991800;
+  --color-link: #1c4c91;
   --color-light-blue: #00a1e4;
-  --color-blue: #126dff;
   --color-orange: #f5b700;
   --color-code-background: #eeeeee;
 }
@@ -29,10 +28,10 @@ body {
 }
 
 a {
-  color: var(--color-blue);
+  color: var(--color-link);
 
   &.active {
-    color: var(--color-link-green);
+    color: var(--color-link-active);
     &:link {
       text-decoration: underline;
     }
@@ -221,7 +220,7 @@ ol {
 
 [data-ref] {
   cursor: pointer;
-  color: var(--color-blue);
+  color: var(--color-link);
   font-weight: bold;
 }
 
