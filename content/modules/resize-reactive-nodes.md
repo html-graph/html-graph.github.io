@@ -1,5 +1,5 @@
 ---
-title: Resize Reactive Nodes
+title: Modules | Resize Reactive Nodes
 ---
 
 ## Resize-Reactive Nodes

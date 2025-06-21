@@ -1,5 +1,5 @@
 ---
-title: Background
+title: Modules | Background
 sitemap:
   priority: 0.7
 ---

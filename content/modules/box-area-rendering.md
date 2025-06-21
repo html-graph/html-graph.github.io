@@ -1,5 +1,5 @@
 ---
-title: Box Area Rendering
+title: Modules | Box Area Rendering
 ---
 
 ## Box Area Rendering

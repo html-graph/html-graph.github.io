@@ -1,5 +1,5 @@
 ---
-title: Connectable Ports
+title: Modules | Connectable Ports
 sitemap:
   priority: 0.6
 ---
