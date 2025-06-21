@@ -301,7 +301,7 @@ class pe {
     return this.graphStore.getNode(e) === void 0 ? null : this.graphStore.getNodeAdjacentEdgeIds(e);
   }
 }
-class Y {
+class O {
   constructor(e) {
     i(this, "counter", 0);
     this.checkExists = e;
@@ -349,7 +349,7 @@ const xe = (t, e) => ({
     { x: o, y: -r }
   ].map((a) => p(a, t, w)).map((a) => ({ x: a.x + e.x, y: a.y + e.y })), n = `M ${h[0].x} ${h[0].y}`, d = `L ${h[1].x} ${h[1].y}`, c = `L ${h[2].x} ${h[2].y}`;
   return `${n} ${d} ${c}`;
-}, B = (t, e) => {
+}, I = (t, e) => {
   const o = [];
   if (t.length > 0 && o.push(`M ${t[0].x} ${t[0].y}`), t.length === 2 && o.push(`L ${t[1].x} ${t[1].y}`), t.length > 2) {
     const r = t.length - 1;
@@ -358,8 +358,8 @@ const xe = (t, e) => ({
       let a = 0, l = 0, g = 0;
       const y = c > 0, v = c < r, f = y && v;
       if (y && (a = -s, l = -h, g = n), v) {
-        const I = t[c + 1];
-        s = I.x - d.x, h = I.y - d.y, n = Math.sqrt(s * s + h * h);
+        const B = t[c + 1];
+        s = B.x - d.x, h = B.y - d.y, n = Math.sqrt(s * s + h * h);
       }
       const x = n !== 0 ? Math.min((f ? e : 0) / n, c < r - 1 ? 0.5 : 1) : 0, b = f ? { x: d.x + s * x, y: d.y + h * x } : d, m = g !== 0 ? Math.min((f ? e : 0) / g, c > 1 ? 0.5 : 1) : 0, R = f ? { x: d.x + a * m, y: d.y + l * m } : d;
       c > 0 && o.push(`L ${R.x} ${R.y}`), f && o.push(
@@ -480,7 +480,7 @@ const xe = (t, e) => ({
     x: t.flipX > 0 ? t.to.x - d : t.to.x + r,
     y: n.y
   }, y = { x: g.x, y: c };
-  return B(
+  return I(
     [e, h, a, l, y, g, n, o],
     t.roundness
   );
@@ -502,7 +502,7 @@ const xe = (t, e) => ({
     t.toVector,
     t.to
   ), g = { x: l.x + d, y: l.y + c };
-  return B(
+  return I(
     [e, s, a, g, l, o],
     t.roundness
   );
@@ -524,7 +524,7 @@ const xe = (t, e) => ({
     t.toVector,
     t.to
   );
-  return B([e, s, h, o], t.roundness);
+  return I([e, s, h, o], t.roundness);
 }, Ne = (t) => {
   const e = t.hasSourceArrow ? p(
     { x: t.arrowLength, y: w.y },
@@ -549,7 +549,7 @@ const xe = (t, e) => ({
     x: n.x,
     y: t.flipY > 0 ? t.to.y - d : t.to.y + r
   }, y = { x: c, y: g.y };
-  return B(
+  return I(
     [e, h, a, l, y, g, n, o],
     t.roundness
   );
@@ -566,7 +566,7 @@ const xe = (t, e) => ({
   ].map(
     (c) => p(c, t.fromVector, w)
   ), d = `M ${w.x} ${w.y} L ${n[0].x} ${n[0].y} `;
-  return `${t.hasSourceArrow || t.hasTargetArrow ? "" : d}${B(n, t.roundness)}`;
+  return `${t.hasSourceArrow || t.hasTargetArrow ? "" : d}${I(n, t.roundness)}`;
 }, Pe = (t) => {
   const e = t.smallRadius, o = t.radius, r = Math.sqrt(e * e + o * o), s = e + o, h = t.arrowLength + r * (1 - o / s), n = e * o / s, c = [
     { x: t.arrowLength, y: w.y },
@@ -598,7 +598,7 @@ const xe = (t, e) => ({
   smallCycleRadius: 15,
   curvature: 90
 });
-class De {
+class Me {
   constructor(e) {
     i(this, "svg", $());
     i(this, "group", W());
@@ -680,7 +680,7 @@ class De {
     }
   }
 }
-class Me {
+class De {
   constructor(e) {
     i(this, "svg", $());
     i(this, "group", W());
@@ -974,7 +974,7 @@ const Re = (t) => {
         detourDirection: t.detourDirection
       });
     case "horizontal":
-      return () => new Me({
+      return () => new De({
         color: t.color,
         width: t.width,
         arrowLength: t.arrowLength,
@@ -1002,7 +1002,7 @@ const Re = (t) => {
         detourDirection: t.detourDirection
       });
     default:
-      return () => new De({
+      return () => new Me({
         color: t.color,
         width: t.width,
         arrowLength: t.arrowLength,
@@ -1016,7 +1016,7 @@ const Re = (t) => {
         detourDirection: t.detourDirection
       });
   }
-}, Ie = (t) => {
+}, Be = (t) => {
   var o, r, s, h, n;
   const e = Ee(
     (o = t == null ? void 0 : t.nodes) == null ? void 0 : o.priority,
@@ -1047,13 +1047,13 @@ class de {
      */
     i(this, "viewport");
     i(this, "defaults");
-    i(this, "nodeIdGenerator", new Y(
+    i(this, "nodeIdGenerator", new O(
       (e) => this.graph.getNode(e) !== null
     ));
-    i(this, "portIdGenerator", new Y(
+    i(this, "portIdGenerator", new O(
       (e) => this.graph.getPort(e) !== null
     ));
-    i(this, "edgeIdGenerator", new Y(
+    i(this, "edgeIdGenerator", new O(
       (e) => this.graph.getEdge(e) !== null
     ));
     i(this, "onAfterNodeAdded", (e) => {
@@ -1105,7 +1105,7 @@ class de {
      * emits event just before destruction of canvas
      */
     i(this, "onBeforeDestroy");
-    this.element = e, this.graphStore = o, this.viewportStore = r, this.htmlView = s, this.defaults = Ie(h), this.graph = new pe(this.graphStore), this.viewport = new ve(this.viewportStore), this.graphStore.onAfterNodeAdded.subscribe(this.onAfterNodeAdded), this.graphStore.onAfterNodeUpdated.subscribe(this.onAfterNodeUpdated), this.graphStore.onAfterNodePriorityUpdated.subscribe(
+    this.element = e, this.graphStore = o, this.viewportStore = r, this.htmlView = s, this.defaults = Be(h), this.graph = new pe(this.graphStore), this.viewport = new ve(this.viewportStore), this.graphStore.onAfterNodeAdded.subscribe(this.onAfterNodeAdded), this.graphStore.onAfterNodeUpdated.subscribe(this.onAfterNodeUpdated), this.graphStore.onAfterNodePriorityUpdated.subscribe(
       this.onAfterNodePriorityUpdated
     ), this.graphStore.onBeforeNodeRemoved.subscribe(this.onBeforeNodeRemoved), this.graphStore.onAfterPortUpdated.subscribe(this.onAfterPortUpdated), this.graphStore.onBeforePortRemoved.subscribe(this.onBeforePortUnmarked), this.graphStore.onAfterEdgeAdded.subscribe(this.onAfterEdgeAdded), this.graphStore.onAfterEdgeShapeUpdated.subscribe(
       this.onAfterEdgeShapeUpdated
@@ -1247,7 +1247,7 @@ class de {
    * canvas element gets rolled back to initial state, and can not be reused
    */
   destroy() {
-    this.onBeforeDestroyEmitter.emit(), this.clear(), this.graphStore.onAfterNodeAdded.unsubscribe(this.onAfterNodeAdded), this.graphStore.onAfterNodeUpdated.unsubscribe(this.onAfterNodeUpdated), this.graphStore.onAfterNodePriorityUpdated.unsubscribe(
+    this.clear(), this.onBeforeDestroyEmitter.emit(), this.graphStore.onAfterNodeAdded.unsubscribe(this.onAfterNodeAdded), this.graphStore.onAfterNodeUpdated.unsubscribe(this.onAfterNodeUpdated), this.graphStore.onAfterNodePriorityUpdated.unsubscribe(
       this.onAfterNodePriorityUpdated
     ), this.graphStore.onBeforeNodeRemoved.unsubscribe(this.onBeforeNodeRemoved), this.graphStore.onAfterPortUpdated.unsubscribe(this.onAfterPortUpdated), this.graphStore.onBeforePortRemoved.unsubscribe(this.onBeforePortUnmarked), this.graphStore.onAfterEdgeAdded.unsubscribe(this.onAfterEdgeAdded), this.graphStore.onAfterEdgeShapeUpdated.unsubscribe(
       this.onAfterEdgeShapeUpdated
@@ -1437,7 +1437,7 @@ const re = (t) => ({
   x: 0,
   y: 0
 };
-class Be {
+class Ie {
   constructor() {
     i(this, "viewportMatrix", ie);
     i(this, "contentMatrix", ie);
@@ -1498,9 +1498,7 @@ class G {
   }
   handleNodeResize(e) {
     const o = this.elementToNodeId.get(e);
-    this.canvas.updateNode(o), this.canvas.graph.getNodeAdjacentEdgeIds(o).forEach((s) => {
-      this.canvas.updateEdge(s);
-    });
+    this.canvas.updateNode(o);
   }
 }
 const Ue = (t) => {
@@ -1738,20 +1736,20 @@ const We = (t) => {
       });
   }
 }, ke = (t) => {
-  var f, A, x, b, D, m, R, I, _, q, ee, te;
+  var f, A, x, b, M, m, R, B, _, q, ee, te;
   const e = (f = t == null ? void 0 : t.scale) == null ? void 0 : f.mouseWheelSensitivity, o = e !== void 0 ? e : 1.2, r = t == null ? void 0 : t.transformPreprocessor;
   let s;
   r !== void 0 ? Array.isArray(r) ? s = ze(
     r.map(
-      (M) => se(M)
+      (D) => se(D)
     )
-  ) : s = se(r) : s = (M) => M.nextTransform;
+  ) : s = se(r) : s = (D) => D.nextTransform;
   const h = ((A = t == null ? void 0 : t.shift) == null ? void 0 : A.cursor) !== void 0 ? t.shift.cursor : "grab", n = ((x = t == null ? void 0 : t.events) == null ? void 0 : x.onBeforeTransformChange) ?? (() => {
   }), d = ((b = t == null ? void 0 : t.events) == null ? void 0 : b.onTransformChange) ?? (() => {
-  }), c = (D = t == null ? void 0 : t.shift) == null ? void 0 : D.mouseDownEventVerifier, a = c !== void 0 ? c : (M) => M.button === 0, l = (m = t == null ? void 0 : t.shift) == null ? void 0 : m.mouseUpEventVerifier, g = l !== void 0 ? l : (M) => M.button === 0, y = (R = t == null ? void 0 : t.scale) == null ? void 0 : R.mouseWheelEventVerifier, v = y !== void 0 ? y : () => !0;
+  }), c = (M = t == null ? void 0 : t.shift) == null ? void 0 : M.mouseDownEventVerifier, a = c !== void 0 ? c : (D) => D.button === 0, l = (m = t == null ? void 0 : t.shift) == null ? void 0 : m.mouseUpEventVerifier, g = l !== void 0 ? l : (D) => D.button === 0, y = (R = t == null ? void 0 : t.scale) == null ? void 0 : R.mouseWheelEventVerifier, v = y !== void 0 ? y : () => !0;
   return {
     wheelSensitivity: o,
-    onTransformStarted: ((I = t == null ? void 0 : t.events) == null ? void 0 : I.onTransformStarted) ?? (() => {
+    onTransformStarted: ((B = t == null ? void 0 : t.events) == null ? void 0 : B.onTransformStarted) ?? (() => {
     }),
     onTransformFinished: ((_ = t == null ? void 0 : t.events) == null ? void 0 : _.onTransformFinished) ?? (() => {
     }),
@@ -1768,11 +1766,11 @@ const We = (t) => {
     onResizeTransformFinished: ((te = t == null ? void 0 : t.events) == null ? void 0 : te.onResizeTransformFinished) ?? (() => {
     })
   };
-}, Ye = (t, e, o) => ({
+}, Oe = (t, e, o) => ({
   scale: t.scale,
   x: t.x + t.scale * e,
   y: t.y + t.scale * o
-}), Oe = (t, e, o, r) => ({
+}), Ye = (t, e, o, r) => ({
   scale: t.scale * e,
   x: t.scale * (1 - e) * o + t.x,
   y: t.scale * (1 - e) * r + t.y
@@ -1881,7 +1879,7 @@ class k {
     );
   }
   moveViewport(e, o) {
-    const r = this.viewport.getViewportMatrix(), s = Ye(r, e, o), { width: h, height: n } = this.element.getBoundingClientRect(), d = this.config.transformPreprocessor({
+    const r = this.viewport.getViewportMatrix(), s = Oe(r, e, o), { width: h, height: n } = this.element.getBoundingClientRect(), d = this.config.transformPreprocessor({
       prevTransform: r,
       nextTransform: s,
       canvasWidth: h,
@@ -1890,7 +1888,7 @@ class k {
     this.performTransform(d);
   }
   scaleViewport(e, o, r) {
-    const s = this.canvas.viewport.getViewportMatrix(), h = Oe(s, e, o, r), { width: n, height: d } = this.element.getBoundingClientRect(), c = this.config.transformPreprocessor({
+    const s = this.canvas.viewport.getViewportMatrix(), h = Ye(s, e, o, r), { width: n, height: d } = this.element.getBoundingClientRect(), c = this.config.transformPreprocessor({
       prevTransform: s,
       nextTransform: h,
       canvasWidth: n,
@@ -1953,8 +1951,8 @@ class K {
     });
     i(this, "userTransformInProgress", !1);
     var v, f, A, x, b;
-    this.canvas = e, this.element = o, this.window = r, this.trigger = h, this.virtualScrollOptions = n, this.nodeHorizontal = this.virtualScrollOptions.nodeContainingRadius.horizontal, this.nodeVertical = this.virtualScrollOptions.nodeContainingRadius.vertical, this.canvasResizeObserver = new ResizeObserver((D) => {
-      const m = D[0];
+    this.canvas = e, this.element = o, this.window = r, this.trigger = h, this.virtualScrollOptions = n, this.nodeHorizontal = this.virtualScrollOptions.nodeContainingRadius.horizontal, this.nodeVertical = this.virtualScrollOptions.nodeContainingRadius.vertical, this.canvasResizeObserver = new ResizeObserver((M) => {
+      const m = M[0];
       this.viewportWidth = m.contentRect.width, this.viewportHeight = m.contentRect.height, this.scheduleLoadAreaAroundViewport();
     }), this.viewport = e.viewport;
     const d = ((v = s == null ? void 0 : s.events) == null ? void 0 : v.onResizeTransformStarted) ?? (() => {
@@ -1977,8 +1975,8 @@ class K {
         },
         onTransformChange: () => {
           this.userTransformInProgress = !1;
-          const D = this.viewportMatrix;
-          this.viewportMatrix = this.viewport.getViewportMatrix(), D.scale !== this.viewportMatrix.scale && this.scheduleEnsureViewportAreaLoaded(), a();
+          const M = this.viewportMatrix;
+          this.viewportMatrix = this.viewport.getViewportMatrix(), M.scale !== this.viewportMatrix.scale && this.scheduleEnsureViewportAreaLoaded(), a();
         },
         onTransformFinished: () => {
           this.scheduleLoadAreaAroundViewport(), g();
@@ -2100,22 +2098,62 @@ const Qe = () => "direct", Ze = (t) => t, _e = (t) => t.button === 0, qe = () =>
     onAfterEdgeCreated: ((e = t.events) == null ? void 0 : e.onAfterEdgeCreated) ?? qe
   };
 };
+class ot {
+  constructor() {
+    i(this, "singleToMultiMap", /* @__PURE__ */ new Map());
+    i(this, "multiToSingleMap", /* @__PURE__ */ new Map());
+  }
+  addRecord(e, o) {
+    const r = this.singleToMultiMap.get(e);
+    r === void 0 ? this.singleToMultiMap.set(e, /* @__PURE__ */ new Set([o])) : r.add(o), this.multiToSingleMap.set(o, e);
+  }
+  getFirstBySingle(e) {
+    const o = this.singleToMultiMap.get(e);
+    return o === void 0 ? void 0 : Array.from(o.values())[0];
+  }
+  removeByMulti(e) {
+    const o = this.multiToSingleMap.get(e), r = this.singleToMultiMap.get(o);
+    r.delete(e), r.size === 0 && this.singleToMultiMap.delete(o), this.multiToSingleMap.delete(e);
+  }
+  getByMulti(e) {
+    return this.multiToSingleMap.get(e);
+  }
+  removeBySingle(e) {
+    this.singleToMultiMap.get(e).forEach((r) => {
+      this.multiToSingleMap.delete(r);
+    }), this.singleToMultiMap.delete(e);
+  }
+  clear() {
+    this.singleToMultiMap.clear(), this.multiToSingleMap.clear();
+  }
+  forEachSingle(e) {
+    this.singleToMultiMap.forEach((o, r) => {
+      e(r);
+    });
+  }
+  hasSingle(e) {
+    return this.singleToMultiMap.get(e) !== void 0;
+  }
+  hasMulti(e) {
+    return this.multiToSingleMap.get(e) !== void 0;
+  }
+}
 class Z {
   constructor(e, o, r, s, h, n) {
     i(this, "config");
     i(this, "overlayCanvas");
-    i(this, "ports", /* @__PURE__ */ new Map());
+    i(this, "ports", new ot());
     i(this, "staticOverlayPortId", "static");
     i(this, "draggingOverlayPortId", "dragging");
     i(this, "staticPortId", null);
     i(this, "isDirect", !0);
     i(this, "onAfterPortMarked", (e) => {
       const o = this.canvas.graph.getPort(e);
-      this.hookPortEvents(o.element), this.ports.set(o.element, e);
+      this.ports.hasSingle(o.element) || this.hookPortEvents(o.element), this.ports.addRecord(o.element, e);
     });
     i(this, "onBeforePortUnmarked", (e) => {
       const o = this.canvas.graph.getPort(e);
-      this.unhookPortEvents(o.element), this.ports.delete(o.element);
+      this.ports.removeByMulti(e), this.ports.hasSingle(o.element) || this.unhookPortEvents(o.element);
     });
     i(this, "onPortMouseDown", (e) => {
       const o = e.currentTarget;
@@ -2162,8 +2200,8 @@ class Z {
       this.tryCreateConnection({ x: o.clientX, y: o.clientY }), this.stopTouchDrag();
     });
     i(this, "onBeforeClear", () => {
-      this.ports.forEach((e, o) => {
-        this.unhookPortEvents(o);
+      this.ports.forEachSingle((e) => {
+        this.unhookPortEvents(e);
       }), this.ports.clear();
     });
     i(this, "onBeforeDestroy", () => {
@@ -2199,7 +2237,7 @@ class Z {
     );
   }
   grabPort(e, o) {
-    const r = this.ports.get(e), s = this.canvas.graph.getPort(r);
+    const r = this.ports.getFirstBySingle(e), s = this.canvas.graph.getPort(r);
     this.staticPortId = r;
     const h = this.config.connectionTypeResolver(this.staticPortId), n = e.getBoundingClientRect(), d = n.x + n.width / 2, c = n.y + n.height / 2, a = this.overlayLayer.getBoundingClientRect(), l = this.canvas.viewport.getViewportMatrix(), g = V(l, {
       x: d - a.x,
@@ -2288,35 +2326,35 @@ class Z {
   }
   findPortAtElement(e) {
     let o = e, r = null;
-    for (; o !== null && (r = this.ports.get(o) ?? null, r === null); )
+    for (; o !== null && (r = this.ports.getFirstBySingle(o) ?? null, r === null); )
       o = o.parentElement;
     return r;
   }
   isPortConnectionAllowed(e) {
-    const o = this.ports.get(e);
+    const o = this.ports.getFirstBySingle(e);
     return this.config.connectionTypeResolver(o) !== null;
   }
 }
-const ot = () => {
+const rt = () => {
   const t = document.createElement("div");
   return t.style.width = "100%", t.style.height = "100%", t.style.position = "relative", t;
-}, O = () => {
+}, Y = () => {
   const t = document.createElement("div");
   return t.style.position = "absolute", t.style.inset = "0", t;
 };
-class rt {
+class it {
   constructor(e) {
-    i(this, "background", O());
-    i(this, "main", O());
-    i(this, "overlay", O());
-    i(this, "host", ot());
+    i(this, "background", Y());
+    i(this, "main", Y());
+    i(this, "overlay", Y());
+    i(this, "host", rt());
     this.element = e, this.element.appendChild(this.host), this.host.appendChild(this.background), this.host.appendChild(this.main), this.overlay.style.pointerEvents = "none", this.host.appendChild(this.overlay);
   }
   destroy() {
     this.host.removeChild(this.background), this.host.removeChild(this.main), this.host.removeChild(this.overlay), this.element.removeChild(this.host);
   }
 }
-class st {
+class nt {
   constructor(e) {
     i(this, "element", null);
     i(this, "canvasDefaults", {});
@@ -2400,7 +2438,7 @@ class st {
       );
     let e = this.boxRenderingTrigger;
     this.virtualScrollConfig !== void 0 && e === void 0 && (e = new he());
-    const o = new ce(), r = new Be(), s = new rt(this.element);
+    const o = new ce(), r = new Ie(), s = new it(this.element);
     let h = new ne(
       o,
       r,
@@ -2455,10 +2493,10 @@ class st {
   }
 }
 export {
-  De as BezierEdgeShape,
-  st as CanvasBuilder,
+  Me as BezierEdgeShape,
+  nt as CanvasBuilder,
   he as EventSubject,
-  Me as HorizontalEdgeShape,
+  De as HorizontalEdgeShape,
   S as HtmlGraphError,
   Ve as StraightEdgeShape,
   Le as VerticalEdgeShape
