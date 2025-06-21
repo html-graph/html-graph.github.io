@@ -59,3 +59,5 @@ and use it like this
 Here's a basic example to get started with:
 
 {{< use-case title="Basic example" src=/use-cases/getting-started/ >}}
+
+All examples are designed as single HTML files to simplify setup and usage.

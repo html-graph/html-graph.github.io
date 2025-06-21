@@ -15,5 +15,3 @@ Here's an advanced example to demonstrate some capabilities of this library:
 
 {{< use-case title="Advanced example" src=/use-cases/advanced-demo/ >}}
 
-All examples are designed as single HTML files to simplify setup and usage.
-
