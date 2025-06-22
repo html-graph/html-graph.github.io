@@ -34,7 +34,7 @@ the example above.
 | connectionPreprocessor | <code>(request: AddEdgeRequest) => AddEdgeRequest \| null</code> | Applies modification to the edge about to be created. <code>null</code> means that connection is disallowed.           | no       | <code>(request) => request</code>          |
 | mouseDownEventVerifier | <code>(event) => boolean</code>                                  | Function to verify if mouse event should initiate connection creation process                                          | no       | <code>(event) => event.button === 0</code> |
 | mouseUpEventVerifier   | <code>(event) => boolean</code>                                  | Function to verify if mouse event should create connection                                                             | no       | <code>(event) => event.button === 0</code> |
-| dragPortDirection      | number | undefined                                               | Direction of dragging port                                                                                             | no       | undefined                                  |
+| dragPortDirection      | <code>number \| undefined</code>                                 | Direction of dragging port                                                                                             | no       | <code>undefined</code>                     |
 | events                 | <span data-ref="events">EventsConfig</span>                      | Handlers for available events                                                                                          | no       | <code>{}</code>                            |
 
 {{< ref-target ref="events">}}
