@@ -1,5 +1,7 @@
 ---
 title: Modules | Resize Reactive Nodes
+sitemap:
+  priority: 0.3
 ---
 
 ## Resize-Reactive Nodes

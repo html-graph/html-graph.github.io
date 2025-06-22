@@ -1,5 +1,7 @@
 ---
 title: Modules | Box Area Rendering
+sitemap:
+  priority: 0.3
 ---
 
 ## Box Area Rendering
