@@ -34,15 +34,18 @@ the example above.
 | connectionPreprocessor | <code>(request: AddEdgeRequest) => AddEdgeRequest \| null</code> | Applies modification to the edge about to be created. <code>null</code> means that connection is disallowed.           | no       | <code>(request) => request</code>          |
 | mouseDownEventVerifier | <code>(event) => boolean</code>                                  | Function to verify if mouse event should initiate connection creation process                                          | no       | <code>(event) => event.button === 0</code> |
 | mouseUpEventVerifier   | <code>(event) => boolean</code>                                  | Function to verify if mouse event should create connection                                                             | no       | <code>(event) => event.button === 0</code> |
+| dragPortDirection      | number | undefined                                               | Direction of dragging port                                                                                             | no       | undefined                                  |
 | events                 | <span data-ref="events">EventsConfig</span>                      | Handlers for available events                                                                                          | no       | <code>{}</code>                            |
 
 {{< ref-target ref="events">}}
 
 ### Events Configuration
 
-| Name               | Type     | Description                                      | Required | Default    |
-|--------------------|----------|--------------------------------------------------|----------|------------|
-| onAfterEdgeCreated | function | Function to call after a new edge has been added | no       | () => void |
+| Name                      | Type                                                                       | Description                                                       | Required | Default    |
+|---------------------------|----------------------------------------------------------------------------|-------------------------------------------------------------------|----------|------------|
+| onAfterEdgeCreated        | <code>(edgeId: any) => void</code>                                         | Function to call after a new edge has been added                  | no       | () => void |
+| onEdgeCreationInterrupted | <code>(staticPortId: any, isDirect: boolean) => void</code>                | Function to call when edge creation is interrupted in the process | no       | () => void |
+| onEdgeCreationPrevented   | <code>(addEdgeRequest: [AddEdgeRequest](/canvas/add-edge/)) => void</code> | Function to call when an attepmt to create edge is prevented      | no       | () => void |
 
 {{< /ref-target >}}
 
