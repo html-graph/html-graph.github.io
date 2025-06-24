@@ -1,0 +1,3 @@
+- gif images for modules
+- images for edges
+- canvas single page
