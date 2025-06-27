@@ -4,7 +4,7 @@ sitemap:
   priority: 0.3
 ---
 
-## Box Area Rendering
+## Box Area Rendering (advanced usage)
 
 Instead of relying on the built-in [virtual scroll](/modules/virtual-scroll), you can fine-tune your own virtual scroll implementation.
 This can be achieved by providing an <span data-ref="event-subject">EventSubject</span>
