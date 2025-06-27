@@ -1,8 +1,8 @@
 ---
-title: Events
+title: Canvas related events
 ---
 
-## Events
+## Canvas related events
 
 In some cases, it’s crucial to react to canvas state changes.
 HTMLGraph provides a simple event model for this purpose.
@@ -108,7 +108,7 @@ canvas.viewport.onAfterUpdated.subscribe(() => {
 });
 {{< / code >}}
 
-### Canvas events
+### Other events
 
 {{< code lang="javascript" >}}
 canvas.onBeforeDestroy.subscribe(() => {
