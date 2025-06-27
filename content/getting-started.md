@@ -64,5 +64,3 @@ Download `html-graph.umd.cjs` from <a target="_blank" href="https://github.com/h
 Here's a simple example to get started:
 
 {{< use-case title="Basic example" src="/use-cases/getting-started/" >}}
-
-All examples are provided as self-contained HTML files for easy setup and usage.
