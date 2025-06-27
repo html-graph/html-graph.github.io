@@ -4,10 +4,10 @@ title: Events
 
 ## Events
 
-### Event handling
-
-Subscribe to events using the `subscribe` method of `EventHandler` instance.
-Unsubscribe using `unsubscribe` with the same callback when the listener is no longer needed.
+In some cases, it’s crucial to react to canvas state changes.
+HTMLGraph provides a simple event model for this purpose.
+To subscribe to events, use the `subscribe` method of an `EventHandler` instance.
+When the listener is no longer needed, unsubscribe by calling `unsubscribe` with the same callback.
 
 ### Node events
 
