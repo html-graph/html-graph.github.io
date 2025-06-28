@@ -66,7 +66,7 @@ Download `html-graph.umd.cjs` from <a target="_blank" href="https://github.com/h
 </script>
 {{< /code >}}
 
-Now you can visualize your graph by adapting implementation of this basic example.
+Now you can visualize your graph by adapting the implementation of this basic example.
 
 {{< use-case title="Basic example" src="/use-cases/getting-started/" >}}
 
