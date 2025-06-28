@@ -151,7 +151,6 @@
             document.getElementById("bounds-container");
 
           const updateRectangleTransform = () => {
-            const viewportMatrix = this.canvas.viewport.getViewportMatrix();
             const { scale, x, y } = this.canvas.viewport.getContentMatrix();
 
             scaleValue.innerText = `${scale.toFixed(2)}`;
