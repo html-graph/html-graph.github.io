@@ -1,7 +1,7 @@
 ---
 title: Modules
 sitemap:
-  priority: 0.3
+  priority: 0.7
 ---
 
 ## Modules
