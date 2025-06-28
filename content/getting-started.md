@@ -26,6 +26,7 @@ const canvas = new CanvasBuilder(element).build();
 ### 2. Use script from CDN as ES module
 
 {{< code lang="html" >}}
+<div id="canvas"></div>
 <script type="module">
   import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@3.6.0";
 
@@ -39,6 +40,7 @@ const canvas = new CanvasBuilder(element).build();
 Download `html-graph.js` from <a target="_blank" href="https://github.com/html-graph/html-graph/releases">releases</a> and use:
 
 {{< code lang="html" >}}
+<div id="canvas"></div>
 <script type="module">
   import { CanvasBuilder } from "/html-graph.js";
 
@@ -52,6 +54,7 @@ Download `html-graph.js` from <a target="_blank" href="https://github.com/html-g
 Download `html-graph.umd.cjs` from <a target="_blank" href="https://github.com/html-graph/html-graph/releases">releases</a> and use:
 
 {{< code lang="html" >}}
+<div id="canvas"></div>
 <script src="/html-graph.umd.cjs"></script>
 <script>
   const element = document.getElementById('canvas');
