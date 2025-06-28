@@ -16,6 +16,10 @@ npm i @html-graph/html-graph
 
 Then use it:
 
+{{< code lang="html" >}}
+<div id="canvas"></div>
+{{< /code >}}
+
 {{< code lang="javascript" >}}
 import { CanvasBuilder } from "@html-graph/html-graph";
 
