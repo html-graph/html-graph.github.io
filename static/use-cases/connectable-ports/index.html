@@ -67,146 +67,157 @@
     <script type="module">
       import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@3.6.0";
 
-      function createPortElement() {
-        const port = document.createElement("div");
-        port.classList.add("node-port");
+      class Application {
+        constructor(element) {
+          this.canvas = new CanvasBuilder(element)
+            .setDefaults({
+              edges: {
+                shape: {
+                  hasTargetArrow: true,
+                },
+              },
+            })
+            .enableUserDraggableNodes()
+            .enableUserTransformableViewport()
+            .enableUserConnectablePorts({
+              connectionTypeResolver: (portId) => {
+                return portId.endsWith("-out") ? "direct" : "reverse";
+              },
+              connectionPreprocessor: (request) => {
+                const existingEdge = this.canvas.graph.getAllEdgeIds().find((edgeId) => {
+                  const edge = this.canvas.graph.getEdge(edgeId);
 
-        const grabArea = document.createElement("div");
-        grabArea.classList.add("node-port-grab-area");
+                  return edge.from === request.from && edge.to === request.to;
+                });
 
-        port.appendChild(grabArea);
+                if (existingEdge !== undefined) {
+                  return null;
+                }
 
-        const pin = document.createElement("div");
-        pin.classList.add("node-port-pin");
+                if (request.from.endsWith("-out") && request.to.endsWith("-in")) {
+                  return request;
+                }
 
-        grabArea.appendChild(pin);
+                return null;
+              },
+            })
+            .enableBackground()
+            .build();
+        }
 
-        return port;
+        initGraph() {
+          this.canvas
+            .addNode(
+              this.createNode({
+                name: "Node 1",
+                x: 200,
+                y: 300,
+                frontPortId: "node-1-in",
+                backPortId: "node-1-out",
+              }),
+            )
+            .addNode(
+              this.createNode({
+                name: "Node 2",
+                x: 200,
+                y: 500,
+                frontPortId: "node-2-in",
+                backPortId: "node-2-out",
+              }),
+            )
+            .addNode(
+              this.createNode({
+                name: "Node 3",
+                x: 500,
+                y: 400,
+                frontPortId: "node-3-in",
+                backPortId: "node-3-out",
+              }),
+            )
+            .addNode(
+              this.createNode({
+                name: "Node 4",
+                x: 500,
+                y: 200,
+                frontPortId: "node-4-in",
+                backPortId: "node-4-out",
+              }),
+            )
+            .addNode(
+              this.createNode({
+                name: "Node 5",
+                x: 500,
+                y: 600,
+                frontPortId: "node-5-in",
+                backPortId: "node-5-out",
+              }),
+            )
+            .addNode(
+              this.createNode({
+                name: "Node 6",
+                x: 800,
+                y: 300,
+                frontPortId: "node-6-in",
+                backPortId: "node-6-out",
+              }),
+            )
+            .addNode(
+              this.createNode({
+                name: "Node 7",
+                x: 800,
+                y: 500,
+                frontPortId: "node-7-in",
+                backPortId: "node-7-out",
+              }),
+            );
+        }
+
+        createPortElement() {
+          const port = document.createElement("div");
+          port.classList.add("node-port");
+
+          const grabArea = document.createElement("div");
+          grabArea.classList.add("node-port-grab-area");
+
+          port.appendChild(grabArea);
+
+          const pin = document.createElement("div");
+          pin.classList.add("node-port-pin");
+
+          grabArea.appendChild(pin);
+
+          return port;
+        }
+
+        createNode({ name, x, y, frontPortId, backPortId }) {
+          const node = document.createElement("div");
+          const text = document.createElement("div");
+          const frontPort = this.createPortElement();
+          const backPort = this.createPortElement();
+
+          node.classList.add("node");
+          text.innerText = name;
+
+          node.appendChild(frontPort);
+          node.appendChild(text);
+          node.appendChild(backPort);
+
+          return {
+            element: node,
+            x: x,
+            y: y,
+            ports: [
+              { id: frontPortId, element: frontPort },
+              { id: backPortId, element: backPort },
+            ],
+          };
+        }
       }
 
-      function createNode({ name, x, y, frontPortId, backPortId }) {
-        const node = document.createElement("div");
-        const text = document.createElement("div");
-        const frontPort = createPortElement();
-        const backPort = createPortElement();
+      const element = document.getElementById("canvas");
+      const app = new Application(element);
 
-        node.classList.add("node");
-        text.innerText = name;
-
-        node.appendChild(frontPort);
-        node.appendChild(text);
-        node.appendChild(backPort);
-
-        return {
-          element: node,
-          x: x,
-          y: y,
-          ports: [
-            { id: frontPortId, element: frontPort },
-            { id: backPortId, element: backPort },
-          ],
-        };
-      }
-
-      const canvas = new CanvasBuilder(document.getElementById("canvas"))
-        .setDefaults({
-          edges: {
-            shape: {
-              hasTargetArrow: true,
-            },
-          },
-        })
-        .enableUserDraggableNodes()
-        .enableUserTransformableViewport()
-        .enableUserConnectablePorts({
-          connectionTypeResolver: (portId) => {
-            return portId.endsWith("-out") ? "direct" : "reverse";
-          },
-          connectionPreprocessor: (request) => {
-            const existingEdge = canvas.graph.getAllEdgeIds().find((edgeId) => {
-              const edge = canvas.graph.getEdge(edgeId);
-
-              return edge.from === request.from && edge.to === request.to;
-            });
-
-            if (existingEdge !== undefined) {
-              return null;
-            }
-
-            if (request.from.endsWith("-out") && request.to.endsWith("-in")) {
-              return request;
-            }
-
-            return null;
-          },
-        })
-        .enableBackground()
-        .build();
-
-      canvas
-        .addNode(
-          createNode({
-            name: "Node 1",
-            x: 200,
-            y: 300,
-            frontPortId: "node-1-in",
-            backPortId: "node-1-out",
-          }),
-        )
-        .addNode(
-          createNode({
-            name: "Node 2",
-            x: 200,
-            y: 500,
-            frontPortId: "node-2-in",
-            backPortId: "node-2-out",
-          }),
-        )
-        .addNode(
-          createNode({
-            name: "Node 3",
-            x: 500,
-            y: 400,
-            frontPortId: "node-3-in",
-            backPortId: "node-3-out",
-          }),
-        )
-        .addNode(
-          createNode({
-            name: "Node 4",
-            x: 500,
-            y: 200,
-            frontPortId: "node-4-in",
-            backPortId: "node-4-out",
-          }),
-        )
-        .addNode(
-          createNode({
-            name: "Node 5",
-            x: 500,
-            y: 600,
-            frontPortId: "node-5-in",
-            backPortId: "node-5-out",
-          }),
-        )
-        .addNode(
-          createNode({
-            name: "Node 6",
-            x: 800,
-            y: 300,
-            frontPortId: "node-6-in",
-            backPortId: "node-6-out",
-          }),
-        )
-        .addNode(
-          createNode({
-            name: "Node 7",
-            x: 800,
-            y: 500,
-            frontPortId: "node-7-in",
-            backPortId: "node-7-out",
-          }),
-        );
+      app.initGraph();
     </script>
   </body>
 </html>

@@ -79,65 +79,36 @@
     <script type="module">
       import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@3.6.0";
 
-      function createNode({ name, x, y, frontPortId, backPortId }) {
-        const node = document.createElement("div");
-        const text = document.createElement("div");
-        const frontPort = document.createElement("div");
-        const backPort = document.createElement("div");
+      class Application {
+        constructor(element) {
+          this.canvas = new CanvasBuilder(element)
+            .setDefaults({
+              edges: {
+                shape: {
+                  type: "horizontal",
+                  hasTargetArrow: true,
+                },
+              },
+            })
+            .enableUserTransformableViewport({
+              transformPreprocessor: {
+                type: "scale-limit",
+                minContentScale: 0.3,
+              },
+            })
+            .enableVirtualScroll({
+              nodeContainingRadius: {
+                horizontal: 25,
+                vertical: 25,
+              },
+            })
+            .enableBackground()
+            .build();
 
-        node.classList.add("node");
-        frontPort.classList.add("node-port");
-        backPort.classList.add("node-port");
-        text.innerText = name;
+        }
 
-        node.appendChild(frontPort);
-        node.appendChild(text);
-        node.appendChild(backPort);
-
-        return {
-          element: node,
-          x: x,
-          y: y,
-          ports: [
-            { id: frontPortId, element: frontPort },
-            { id: backPortId, element: backPort },
-          ],
-        };
-      }
-
-      const canvas = new CanvasBuilder(document.getElementById("canvas"))
-        .setDefaults({
-          edges: {
-            shape: {
-              type: "horizontal",
-              hasTargetArrow: true,
-            },
-          },
-        })
-        .enableUserTransformableViewport({
-          transformPreprocessor: {
-            type: "scale-limit",
-            minContentScale: 0.3,
-          },
-        })
-        .enableVirtualScroll({
-          nodeContainingRadius: {
-            horizontal: 25,
-            vertical: 25,
-          },
-        })
-        .enableBackground()
-        .build();
-
-      const btn = document.getElementById("load-button");
-      const overlay = document.getElementById("overlay");
-
-      btn.addEventListener("click", () => {
-        overlay.style.display = "none";
-
-        setTimeout(() => {
+        initGraph() {
           let cnt = 0;
-
           let prevPortId = null;
 
           for (let i = 0; i < 10; i++) {
@@ -145,8 +116,8 @@
               const frontPortId = `node-${cnt}-in`;
               const backPortId = `node-${cnt}-out`;
 
-              canvas.addNode(
-                createNode({
+              this.canvas.addNode(
+                this.createNode({
                   name: `Node ${cnt}`,
                   x: j * 300,
                   y: i * 300,
@@ -156,13 +127,53 @@
               );
 
               if (prevPortId !== null) {
-                canvas.addEdge({ from: prevPortId, to: frontPortId });
+                this.canvas.addEdge({ from: prevPortId, to: frontPortId });
               }
 
               prevPortId = backPortId;
               cnt++;
             }
           }
+        }
+
+        createNode({ name, x, y, frontPortId, backPortId }) {
+          const node = document.createElement("div");
+          const text = document.createElement("div");
+          const frontPort = document.createElement("div");
+          const backPort = document.createElement("div");
+
+          node.classList.add("node");
+          frontPort.classList.add("node-port");
+          backPort.classList.add("node-port");
+          text.innerText = name;
+
+          node.appendChild(frontPort);
+          node.appendChild(text);
+          node.appendChild(backPort);
+
+          return {
+            element: node,
+            x: x,
+            y: y,
+            ports: [
+              { id: frontPortId, element: frontPort },
+              { id: backPortId, element: backPort },
+            ],
+          };
+        }
+      }
+
+      const btn = document.getElementById("load-button");
+      const overlay = document.getElementById("overlay");
+
+      btn.addEventListener("click", () => {
+        overlay.style.display = "none";
+
+        setTimeout(() => {
+          const element = document.getElementById("canvas");
+          const app = new Application(element);
+
+          app.initGraph();
         });
       });
     </script>
