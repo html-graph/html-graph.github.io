@@ -124,126 +124,139 @@
     <script type="module">
       import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@3.6.0";
 
-      function createNode({ name, x, y, frontPortId, backPortId }) {
-        const node = document.createElement("div");
-        const text = document.createElement("div");
-        const frontPort = document.createElement("div");
-        const backPort = document.createElement("div");
+      class Application {
+        constructor(element) {
+          this.element = element;
 
-        node.classList.add("node");
-        frontPort.classList.add("node-port");
-        backPort.classList.add("node-port");
-        text.innerText = name;
+          const boundsElement = document.getElementById("bounds");
 
-        node.appendChild(frontPort);
-        node.appendChild(text);
-        node.appendChild(backPort);
+          new ResizeObserver(() => {
+            const { width, height } = this.element.getBoundingClientRect();
 
-        return {
-          element: node,
-          x: x,
-          y: y,
-          ports: [
-            { id: frontPortId, element: frontPort },
-            { id: backPortId, element: backPort },
-          ],
-        };
+            boundsElement.style.visibility = "visible";
+            boundsElement.style.width = `${width - 10}px`;
+            boundsElement.style.height = `${height - 10}px`;
+          }).observe(this.element);
+
+          const sliderScale = document.getElementById("scale");
+          const scaleValue = document.getElementById("scale-value");
+
+          const sliderX = document.getElementById("x");
+          const xValue = document.getElementById("x-value");
+
+          const sliderY = document.getElementById("y");
+          const yValue = document.getElementById("y-value");
+
+          const boundsContainerElement =
+            document.getElementById("bounds-container");
+
+          const updateRectangleTransform = () => {
+            const viewportMatrix = this.canvas.viewport.getViewportMatrix();
+            const { scale, x, y } = this.canvas.viewport.getContentMatrix();
+
+            scaleValue.innerText = `${scale.toFixed(2)}`;
+            xValue.innerText = `${x.toFixed(2)}`;
+            yValue.innerText = `${y.toFixed(2)}`;
+
+            boundsContainerElement.style.transform = `matrix(${scale}, 0, 0, ${scale}, ${x}, ${y})`;
+            sliderScale.value = `${scale.toFixed(2)}`;
+            sliderX.value = `${x.toFixed(2)}`;
+            sliderY.value = `${y.toFixed(2)}`;
+          };
+
+          this.canvas = new CanvasBuilder(this.element)
+            .enableUserTransformableViewport({
+              events: {
+                onTransformChange: () => {
+                  updateRectangleTransform();
+                },
+              },
+            })
+            .enableBackground()
+            .build();
+
+          sliderScale.addEventListener("input", () => {
+            this.canvas.patchContentMatrix({
+              scale: parseFloat(sliderScale.value),
+            });
+
+            scaleValue.innerText = sliderScale.value;
+            updateRectangleTransform();
+          });
+
+          sliderX.addEventListener("input", () => {
+            this.canvas.patchContentMatrix({
+              x: parseFloat(sliderX.value),
+            });
+
+            xValue.innerText = sliderX.value;
+            updateRectangleTransform();
+          });
+
+          sliderY.addEventListener("input", () => {
+            this.canvas.patchContentMatrix({
+              y: parseFloat(sliderY.value),
+            });
+
+            yValue.innerText = sliderY.value;
+            updateRectangleTransform();
+          });
+        }
+
+        initGraph() {
+          this.canvas
+            .addNode(
+              this.createNode({
+                name: "Node 1",
+                x: 200,
+                y: 400,
+                frontPortId: "node-1-in",
+                backPortId: "node-1-out",
+              }),
+            )
+            .addNode(
+              this.createNode({
+                name: "Node 2",
+                x: 500,
+                y: 500,
+                frontPortId: "node-2-in",
+                backPortId: "node-2-out",
+              }),
+            )
+            .addEdge({ from: "node-1-out", to: "node-2-in" });
+        }
+
+        createNode({ name, x, y, frontPortId, backPortId }) {
+          const node = document.createElement("div");
+          const text = document.createElement("div");
+          const frontPort = document.createElement("div");
+          const backPort = document.createElement("div");
+
+          node.classList.add("node");
+          frontPort.classList.add("node-port");
+          backPort.classList.add("node-port");
+          text.innerText = name;
+
+          node.appendChild(frontPort);
+          node.appendChild(text);
+          node.appendChild(backPort);
+
+          return {
+            element: node,
+            x: x,
+            y: y,
+            ports: [
+              { id: frontPortId, element: frontPort },
+              { id: backPortId, element: backPort },
+            ],
+          };
+        }
       }
 
-      const canvasElement = document.getElementById("canvas");
-      const boundsElement = document.getElementById("bounds");
+      const element = document.getElementById("canvas");
+      const application = new Application(element);
 
-      new ResizeObserver(() => {
-        const { width, height } = canvasElement.getBoundingClientRect();
-
-        boundsElement.style.visibility = "visible";
-        boundsElement.style.width = `${width - 10}px`;
-        boundsElement.style.height = `${height - 10}px`;
-      }).observe(canvasElement);
-
-      const sliderScale = document.getElementById("scale");
-      const scaleValue = document.getElementById("scale-value");
-
-      const sliderX = document.getElementById("x");
-      const xValue = document.getElementById("x-value");
-
-      const sliderY = document.getElementById("y");
-      const yValue = document.getElementById("y-value");
-
-      const boundsContainerElement =
-        document.getElementById("bounds-container");
-
-      const updateRectangleTransform = () => {
-        const { scale, x, y } = canvas.viewport.getContentMatrix();
-
-        scaleValue.innerText = `${scale.toFixed(2)}`;
-        xValue.innerText = `${x.toFixed(2)}`;
-        yValue.innerText = `${y.toFixed(2)}`;
-
-        boundsContainerElement.style.transform = `matrix(${scale}, 0, 0, ${scale}, ${x}, ${y})`;
-        sliderScale.value = `${scale}`;
-        sliderX.value = `${x}`;
-        sliderY.value = `${y}`;
-      };
-
-      const canvas = new CanvasBuilder(canvasElement)
-        .enableUserTransformableViewport({
-          events: {
-            onTransformChange: () => {
-              updateRectangleTransform();
-            },
-          },
-        })
-        .enableBackground()
-        .build();
-
-      canvas
-        .addNode(
-          createNode({
-            name: "Node 1",
-            x: 200,
-            y: 400,
-            frontPortId: "node-1-in",
-            backPortId: "node-1-out",
-          }),
-        )
-        .addNode(
-          createNode({
-            name: "Node 2",
-            x: 500,
-            y: 500,
-            frontPortId: "node-2-in",
-            backPortId: "node-2-out",
-          }),
-        )
-        .addEdge({ from: "node-1-out", to: "node-2-in" });
-
-      sliderScale.addEventListener("input", () => {
-        canvas.patchContentMatrix({
-          scale: parseFloat(sliderScale.value),
-        });
-
-        scaleValue.innerText = sliderScale.value;
-        updateRectangleTransform();
-      });
-
-      sliderX.addEventListener("input", () => {
-        canvas.patchContentMatrix({
-          x: parseFloat(sliderX.value),
-        });
-
-        xValue.innerText = sliderX.value;
-        updateRectangleTransform();
-      });
-
-      sliderY.addEventListener("input", () => {
-        canvas.patchContentMatrix({
-          y: parseFloat(sliderY.value),
-        });
-
-        yValue.innerText = sliderY.value;
-        updateRectangleTransform();
-      });
+      application.initGraph();
     </script>
   </body>
 </html>
