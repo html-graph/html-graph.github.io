@@ -1,3 +1,5 @@
+- make bundler setup
+- make QAQ accordion
 - gif images for modules
 - images for edges
 - canvas single page

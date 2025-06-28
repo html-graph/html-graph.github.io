@@ -6,13 +6,27 @@ sitemap:
 
 ## Modules
 
-HTMLGraph extends its functionality through optional modules:
+HTMLGraph extends its functionality through optional modules, which can be enabled by calling their respective methods on a `CanvasBuilder` instance.
+
+`CanvasBuilder` uses a fluent interface, allowing methods to be chained for concise configuration. For example:
+
+{{< code lang="javascript" >}}
+const element = document.getElementById('canvas');
+
+const canvas = new CanvasBuilder(element)
+  .enableUserTransformableViewport() // Enables viewport shift and zoom
+  .enableUserDraggableNodes() // Allows dragging nodes
+  .enableBackground() // Renders a customizable background
+  .build();
+{{< /code >}}
+
+Here is an overview of all available modules:
 
 ### [Transformable Viewport](/modules/transformable-viewport)
 Shift and zoom your graph using mouse or touch gestures for intuitive navigation.
 
 ### [Draggable Nodes](/modules/draggable-nodes)
-Easily reposition nodes by dragging them with mouse or touch input.
+Easily reposition nodes by dragging them with mouse or touch gestures.
 
 ### [Background Rendering](/modules/background)
 Add customizable backgrounds that seamlessly work with the transformable viewport.
