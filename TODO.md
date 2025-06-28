@@ -1,5 +1,4 @@
-- make bundler setup
-- make QAQ accordion
+- make FAQ accordion
 - gif images for modules
 - images for edges
 - canvas single page
