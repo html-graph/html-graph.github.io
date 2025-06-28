@@ -4,7 +4,23 @@ title: Canvas
 
 ## Canvas
 
-The Canvas API provides a set of methods and properties for managing graph visualization. Below is an overview of its functionality:
+The `Canvas` API provides a set of methods and properties for managing graph visualization.
+
+`Canvas` uses a fluent interface, allowing methods to be chained for concise configuration. For example:
+
+{{< code lang="javascript" >}}
+const element = document.getElementById('canvas');
+
+const canvas = new CanvasBuilder(element).build();
+
+canvas
+  .addNode({ x: 100, y: 100, element: document.createElement('div') })
+  .addNode({ x: 200, y: 200, element: document.createElement('div') })
+  .addNode({ x: 300, y: 300, element: document.createElement('div') })
+  .patchViewportMatrix({ x: -100, y: -100 });
+{{< /code >}}
+
+Below is an overview of its functionality:
 
 ### [addNode](add-node)
 Create and add a node to the canvas.
