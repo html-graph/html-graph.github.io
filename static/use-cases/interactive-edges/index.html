@@ -24,6 +24,14 @@
         inset: 0;
       }
 
+      #overlay {
+        position: absolute;
+        inset:  1rem;
+        pointer-events: none;
+        font-size: 1.5rem;
+        overflow: hidden;
+      }
+
       .node {
         display: flex;
         justify-content: space-between;
@@ -56,12 +64,49 @@
   </head>
   <body>
     <div id="canvas"></div>
+    <pre id="overlay"></pre>
     <script type="module">
-      import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@3.7.0";
+      import {
+        CanvasBuilder,
+        BezierEdgeShape,
+        InteractiveEdgeShape,
+      } from "https://unpkg.com/@html-graph/html-graph@3.7.0";
 
       class Application {
         constructor(element) {
           this.canvas = new CanvasBuilder(element)
+            .setDefaults({
+              edges: {
+                shape: (edgeId) => {
+                  const baseShape = new BezierEdgeShape({
+                    hasTargetArrow: true,
+                  });
+
+                  const interactiveEdge = new InteractiveEdgeShape(baseShape, {
+                    width: 20,
+                  });
+
+                  const handler = () => {
+                    const message = `clicked on edge with id: ${edgeId}`;
+                    const overlay = document.getElementById('overlay');
+                    overlay.innerText += `${message}\n`;
+                  };
+
+                  interactiveEdge.handle.addEventListener("mousedown", (event) => {
+                    event.stopPropagation();
+                    handler();
+                  });
+
+                  interactiveEdge.handle.addEventListener("touchstart", (event) => {
+                    event.stopPropagation();
+                    handler();
+                  });
+
+                  return interactiveEdge;
+                },
+              },
+            })
+            .enableUserDraggableNodes()
             .enableUserTransformableViewport()
             .enableBackground()
             .build();
@@ -87,7 +132,17 @@
                 backPortId: "node-2-out",
               }),
             )
-            .addEdge({ from: "node-1-out", to: "node-2-in" });
+            .addNode(
+              this.createNode({
+                name: "Node 3",
+                x: 200,
+                y: 350,
+                frontPortId: "node-3-in",
+                backPortId: "node-3-out",
+              }),
+            )
+            .addEdge({ from: "node-1-out", to: "node-2-in" })
+            .addEdge({ from: "node-2-out", to: "node-3-in" });
         }
 
         createNode({ name, x, y, frontPortId, backPortId }) {
