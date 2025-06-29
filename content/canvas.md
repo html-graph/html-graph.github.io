@@ -362,6 +362,26 @@ canvas.removeEdge("edge-1");
 
 ---
 
+### Clear ### {#clear}
+
+Removes all nodes and edges from the canvas, allowing it to be reused.
+
+{{< code lang="javascript">}}
+canvas.clear();
+{{< /code >}}
+
+---
+
+### Destroy ### {#destroy}
+
+Destroys the canvas. The provided HTML element gets rolled back to its initial state. Once this method is called, the canvas cannot be reused.
+
+{{< code lang="javascript" >}}
+canvas.destroy();
+{{< /code >}}
+
+---
+
 ### Patch Viewport Matrix ### {#patch-viewport-matrix}
 
 The viewport transformation matrix consists of three values: `scale`, `x`, and `y`.
@@ -412,22 +432,3 @@ canvas.patchContentMatrix({
 
 This matrix is the inverse of the [viewport matrix](/canvas/#patch-viewport-matrix).
 
----
-
-### Clear ### {#clear}
-
-Removes all nodes and edges from the canvas, allowing it to be reused. This method does not require any parameters.
-
-{{< code lang="javascript">}}
-canvas.clear();
-{{< /code >}}
-
----
-
-### Destroy ### {#destroy}
-
-Destroys the canvas. The provided HTML element gets rolled back to its initial state. Once this method is called, the canvas cannot be reused.
-
-{{< code lang="javascript" >}}
-canvas.destroy();
-{{< /code >}}
