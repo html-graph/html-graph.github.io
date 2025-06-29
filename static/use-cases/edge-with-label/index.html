@@ -354,8 +354,7 @@
             "http://www.w3.org/2000/svg",
             "rect",
           );
-          textRect.setAttribute("fill", "#fff");
-          textRect.setAttribute("stroke", "#5c5c5c");
+          textRect.setAttribute("fill", "#888888");
           textRect.setAttribute("rx", `${r}`);
 
           return textRect;
@@ -370,6 +369,8 @@
           text.setAttribute("dominant-baseline", "middle");
           text.setAttribute("text-anchor", "middle");
           text.setAttribute("font-size", "10px");
+          text.setAttribute("font-weight", "bold");
+          text.setAttribute("fill", "#FFF");
 
           return text;
         }
