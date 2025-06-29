@@ -192,6 +192,7 @@ a {
   position: relative;
 
   pre {
+    overflow-x: auto;
     padding: 1rem;
     border-radius: 0.5rem;
     background: var(--color-code-background);
