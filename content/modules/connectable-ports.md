@@ -45,7 +45,7 @@ the example above.
 |---------------------------|----------------------------------------------------------------------------|-------------------------------------------------------------------|----------|------------|
 | onAfterEdgeCreated        | <code>(edgeId: any) => void</code>                                         | Function to call after a new edge has been added                  | no       | () => void |
 | onEdgeCreationInterrupted | <code>(staticPortId: any, isDirect: boolean) => void</code>                | Function to call when edge creation is interrupted in the process | no       | () => void |
-| onEdgeCreationPrevented   | <code>(addEdgeRequest: [AddEdgeRequest](/canvas/add-edge/)) => void</code> | Function to call when an attepmt to create edge is prevented      | no       | () => void |
+| onEdgeCreationPrevented   | <code>(addEdgeRequest: [AddEdgeRequest](/canvas/#add-edge/)) => void</code> | Function to call when an attepmt to create edge is prevented      | no       | () => void |
 
 {{< /ref-target >}}
 

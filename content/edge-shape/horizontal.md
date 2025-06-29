@@ -61,7 +61,7 @@ const canvas = new CanvasBuilder(element)
 All parameters are the same as specified in the [table](#horizontal-edge-parameters).
 
 You can also apply the Horizontal shape to a specific edge using the
-[addEdge](/canvas/add-edge) and [updateEdge](/canvas/update-edge) methods.
+[addEdge](/canvas/#add-edge) and [updateEdge](/canvas/#update-edge) methods.
 
 {{< code lang="javascript">}}
 import { HorizontalEdgeShape } from "@html-graph/html-graph";

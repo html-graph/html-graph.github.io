@@ -61,7 +61,7 @@ const canvas = new CanvasBuilder(element)
 All parameters are the same as specified in the [table](#bezier-edge-parameters).
 
 You can also apply the Bezier shape to a specific edge using the
-[addEdge](/canvas/add-edge) and [updateEdge](/canvas/update-edge) methods.
+[addEdge](/canvas/#add-edge) and [updateEdge](/canvas/#update-edge) methods.
 
 {{< code lang="javascript">}}
 import { BezierEdgeShape } from "@html-graph/html-graph";

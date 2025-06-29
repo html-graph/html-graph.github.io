@@ -19,7 +19,7 @@ const canvas = new CanvasBuilder(element)
 {{< /code >}}
 
 You can also apply a custom shape to a specific edge using the
-[addEdge](/canvas/add-edge) and [updateEdge](/canvas/update-edge) methods.
+[addEdge](/canvas/#add-edge) and [updateEdge](/canvas/#update-edge) methods.
 
 {{< code lang="javascript">}}
 canvas.addEdge({
