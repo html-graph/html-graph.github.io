@@ -1,5 +1,4 @@
-- anchor links
+- canvas single page
 - make FAQ accordion
 - gif images for modules
 - images for edges
-- canvas single page
