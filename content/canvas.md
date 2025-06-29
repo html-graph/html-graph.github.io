@@ -246,7 +246,7 @@ canvas.updatePort("port-1");
 
 ### Unmark Port ### {#unmark-port}
 
-Unmarks a specified port, removing it's relation to the node. All edges connected to the port will also be removed.
+Unmarks a specified port, removing relation to the node. All edges connected to the port will also be removed.
 
 {{< code lang="javascript">}}
 canvas.unmarkPort("port-1");
