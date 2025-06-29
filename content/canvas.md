@@ -133,7 +133,7 @@ canvas.updateNode("node-1", {
 When called without parameters, the coordinates of all edges connected to the node will be updated.
 
 {{< code lang="javascript">}}
-canvas.updateNode("node-1")
+canvas.updateNode("node-1");
 {{< /code >}}
 
 #### Parameters for `updateNode`:
@@ -224,7 +224,7 @@ canvas.updatePort("port-1", {
 When called without parameters, the coordinates of all edges connected to the port will be updated.
 
 {{< code lang="javascript">}}
-canvas.updatePort("port-1")
+canvas.updatePort("port-1");
 {{< /code >}}
 
 #### Parameters for `updatePort`:
@@ -431,4 +431,3 @@ canvas.patchContentMatrix({
 {{< /code >}}
 
 This matrix is the inverse of the [viewport matrix](/canvas/#patch-viewport-matrix).
-
