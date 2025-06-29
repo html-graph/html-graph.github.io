@@ -35,11 +35,11 @@ trigger.emit({ x: 100, y: 100, width: 1200, height: 1200 });
 
 `EventSubject<T>` provides the following methods:
 
-| Name          | Arguments                       | Description                          |
-|---------------|---------------------------------|--------------------------------------|
-| `subscribe`   | `function (payload: T) => void` | Adds a function to call on `emit`    |
-| `unsubscribe` | `function (payload: T) => void` | Removes a function to call on `emit` |
-| `emit`        | `T`                             | Calls all subscribed callbacks       |
+| Name          | Arguments              | Description                          |
+|---------------|------------------------|--------------------------------------|
+| `subscribe`   | `(payload: T) => void` | Adds a function to call on `emit`    |
+| `unsubscribe` | `(payload: T) => void` | Removes a function to call on `emit` |
+| `emit`        | `T`                    | Calls all subscribed callbacks       |
 
 {{< /ref-target >}}
 
