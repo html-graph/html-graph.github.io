@@ -1,3 +1,4 @@
+- anchor links
 - make FAQ accordion
 - gif images for modules
 - images for edges
