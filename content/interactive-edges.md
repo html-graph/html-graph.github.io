@@ -78,13 +78,15 @@ const canvas = new CanvasBuilder(element)
 | Name                  | Type                                             | Description                                                 | Required | Default |
 |-----------------------|--------------------------------------------------|-------------------------------------------------------------|----------|---------|
 | baseShape             | StructuredEdgeShape                              | The shape to make interactive                               | Yes      |         |
-| interactiveParameters | [InteractiveParams](#interactive-parameters)     | Configuration for interactive behavior                      | No       | `{}`    |
+| interactiveParameters | <span data-ref="params">InteractiveParams</span> | Configuration for interactive behavior                      | No       | `{}`    |
 
-#### Interactive Parameters
+{{< ref-target ref="params">}}
+### Interactive Parameters
 
 | Name  | Type   | Description                   | Required | Default |
 |-------|--------|-------------------------------|----------|---------|
 | width | number | Width of the interactive area | No       | `10`    |
+{{< /ref-target >}}
 
 Try out this demo to understand the mechanics of edge interaction:
 
