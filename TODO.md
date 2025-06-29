@@ -1,3 +1,5 @@
+- line edge tutorial
+- node same as port tutorial
 - make FAQ accordion
 - gif images for modules
 - images for edges
