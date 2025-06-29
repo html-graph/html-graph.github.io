@@ -38,6 +38,10 @@ a {
   }
 }
 
+h1, h2, h3, h4, h5, h6, p {
+  scroll-margin-top: 7rem;
+}
+
 .layout {
   display: flex;
   flex-direction: column;
@@ -217,12 +221,6 @@ button {
 
 ol {
   padding-left: 1rem;
-}
-
-[data-ref] {
-  cursor: pointer;
-  color: var(--color-link);
-  font-weight: bold;
 }
 
 [data-ref-target] {

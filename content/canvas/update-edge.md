@@ -32,18 +32,18 @@ canvas.updateEdge("edge-1")
 
 ### Parameters for `updateEdge`:
 
-| Name          | Type                                                          | Description                  | Required | Default |
-|---------------|---------------------------------------------------------------|------------------------------|----------|---------|
-| id            | any                                                           | Identifier of the edge to update | yes      |         |
-| updateRequest | <span data-ref="edge-update-request">EdgeUpdateRequest</span> | Properties to update         | no       | {}      |
+| Name          | Type                                      | Description                      | Required | Default |
+|---------------|-------------------------------------------|----------------------------------|----------|---------|
+| id            | any                                       | Identifier of the edge to update | yes      |         |
+| updateRequest | [EdgeUpdateRequest](#edge-update-request) | Properties to update             | no       | `{}`    |
 
 {{< ref-target ref="edge-update-request">}}
-### `EdgeUpdateRequest` Parameters
+### `EdgeUpdateRequest` Parameters ### {#edge-update-request}
 
-| Name     | Type                     | Description              | Required |
-|----------|--------------------------|--------------------------|----------|
+| Name     | Type                     | Description               | Required |
+|----------|--------------------------|---------------------------|----------|
 | from     | any                      | Identifier of source port | no       |
 | to       | any                      | Identifier of target port | no       |
-| shape    | [EdgeShape](/edge-shape) | Edge shape               | no       |
-| priority | number                   | Z-index of the edge      | no       |
+| shape    | [EdgeShape](/edge-shape) | Edge shape                | no       |
+| priority | number                   | Z-index of the edge       | no       |
 {{< /ref-target >}}

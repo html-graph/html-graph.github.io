@@ -20,13 +20,13 @@ canvas.updatePort("port-1")
 
 ### Parameters for `updatePort`:
 
-| Name          | Type                                                          | Description                  | Required | Default |
-|---------------|---------------------------------------------------------------|------------------------------|----------|---------|
-| id            | any                                                           | Identifier of the port to update | yes      |         |
-| updateRequest | <span data-ref="port-update-request">PortUpdateRequest</span> | Properties to update         | no       | {}      |
+| Name          | Type                                      | Description                      | Required | Default |
+|---------------|-------------------------------------------|----------------------------------|----------|---------|
+| id            | any                                       | Identifier of the port to update | yes      |         |
+| updateRequest | [PortUpdateRequest](#port-update-request) | Properties to update             | no       | {}      |
 
 {{< ref-target ref="port-update-request">}}
-### `PortUpdateRequest` Parameters
+### `PortUpdateRequest` Parameters ### {#port-update-request}
 
 | Name      | Type   | Description                     | Required |
 |-----------|--------|---------------------------------|----------|

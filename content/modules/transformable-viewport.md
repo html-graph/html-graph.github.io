@@ -69,16 +69,16 @@ const canvas = new CanvasBuilder(element)
 
 ### Configuration Parameters
 
-| Name                  | Type                                              | Description                                 | Required | Default |
-|-----------------------|---------------------------------------------------|---------------------------------------------|----------|---------|
-| scale                 | <span data-ref="scale">ScaleConfig</span>         | Scale-related behavior configuration        | no       | {}      |
-| shift                 | <span data-ref="shift">ShiftConfig</span>         | Shift-related behavior configuration        | no       | {}      |
-| transformPreprocessor | <span data-ref="transform">TransformConfig</span> | Transformation preprocessors configuration  | no       | {}      |
-| events                | <span data-ref="events">EventsConfig</span>       | Handlers for available events               | no       | {}      |
+| Name                  | Type                                 | Description                                 | Required | Default |
+|-----------------------|--------------------------------------|---------------------------------------------|----------|---------|
+| scale                 | [ScaleConfig](#scale-config)         | Scale-related behavior configuration        | no       | {}      |
+| shift                 | [ShiftConfig](#shift-config)         | Shift-related behavior configuration        | no       | {}      |
+| transformPreprocessor | [TransformConfig](#transform-config) | Transformation preprocessors configuration  | no       | {}      |
+| events                | [EventsConfig](#events-config)       | Handlers for available events               | no       | {}      |
 
-{{< ref-target ref="scale">}}
+{{< ref-target ref="scale-config">}}
 
-### ScaleConfig
+### ScaleConfig ### {#scale-config}
 
 | Name                    | Type     | Description                                                                                                                  | Required | Default    |
 |-------------------------|----------|------------------------------------------------------------------------------------------------------------------------------|----------|------------|
@@ -88,9 +88,9 @@ const canvas = new CanvasBuilder(element)
 
 {{< /ref-target >}}
 
-{{< ref-target ref="shift">}}
+{{< ref-target ref="shift-config">}}
 
-### ShiftConfig
+### ShiftConfig ### {#shift-config}
 
 | Name                   | Type           | Description                                              | Required | Default    |
 |------------------------|----------------|----------------------------------------------------------|----------|------------|
@@ -100,9 +100,9 @@ const canvas = new CanvasBuilder(element)
 
 {{< /ref-target >}}
 
-{{< ref-target ref="transform">}}
+{{< ref-target ref="transform-config">}}
 
-### TransformConfig
+### TransformConfig ### {#transform-config}
 
 A single transformer or an array of transformers.
 
@@ -152,9 +152,9 @@ transformPreprocessor: (params) => {
 },
 {{< /code >}}
 
-{{< ref-target ref="events">}}
+{{< ref-target ref="events-config">}}
 
-### EventsConfig
+### EventsConfig ### {#events-config}
 
 | Name                        | Description                                                                                                                       |
 |-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------|

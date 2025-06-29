@@ -19,13 +19,13 @@ const canvas = new CanvasBuilder(element)
 
 ### `NodesConfig` Fields
 
-| Name     | Type                                       | Description                                     | Required | Default                           |
-|----------|--------------------------------------------|-------------------------------------------------|----------|-----------------------------------|
-| centerFn | function                                   | Default function to determine the node’s center | no       | (w, h) => ({ x: w / 2, y: h / 2 }) |
-| priority | <span data-ref="priority">Priority</span>  | Default node priority                           | no       | 0                                 |
+| Name     | Type                       | Description                                     | Required | Default                           |
+|----------|----------------------------|-------------------------------------------------|----------|-----------------------------------|
+| centerFn | function                   | Default function to determine the node’s center | no       | (w, h) => ({ x: w / 2, y: h / 2 }) |
+| priority | [Priority](#node-priority) | Default node priority                           | no       | 0                                 |
 
-{{< ref-target ref="priority">}}
-### `Priority` Options
+{{< ref-target ref="node-priority">}}
+### `Priority` Options ### {#node-priority}
 
 | Type                   | Description                                          | Example           |
 |------------------------|------------------------------------------------------|-------------------|

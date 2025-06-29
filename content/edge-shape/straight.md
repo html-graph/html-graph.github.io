@@ -24,6 +24,8 @@ const canvas = new CanvasBuilder(element)
 
 In addition to `type: "straight"`, the following options are available:
 
+# # {#straight-edge-parameters}
+
 {{< ref-target ref="straight-edge-parameters">}}
 | Name             | Type    | Description                        | Required | Default      |
 |------------------|---------|------------------------------------|----------|--------------|
@@ -56,9 +58,10 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-All parameters are the same as specified in the <span data-ref="straight-edge-parameters">table</span>.
+All parameters are the same as specified in the [table](#straight-edge-parameters).
 
-You can also apply the Straight shape to a specific edge using the <a href="/canvas/add-edge">addEdge</a> and <a href="/canvas/update-edge">updateEdge</a> methods.
+You can also apply the Straight shape to a specific edge using the
+[addEdge](/canvas/add-edge) and [updateEdge](/canvas/update-edge) methods.
 
 {{< code lang="javascript">}}
 import { StraightEdgeShape } from "@html-graph/html-graph";
@@ -67,7 +70,7 @@ canvas.addEdge({
   from: "port-1",
   to: "port-2",
   shape: new StraightEdgeShape(),
-})
+});
 {{< /code >}}
 
 {{< code lang="javascript">}}
@@ -75,5 +78,5 @@ canvas.updateEdge("edge-1", {
   from: "port-3",
   to: "port-4",
   shape: new StraightEdgeShape(),
-})
+});
 {{< /code >}}

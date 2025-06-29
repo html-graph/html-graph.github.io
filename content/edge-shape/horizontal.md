@@ -24,6 +24,8 @@ const canvas = new CanvasBuilder(element)
 
 In addition to `type: "horizontal"`, the following options are available:
 
+# # {#horizontal-edge-parameters}
+
 {{< ref-target ref="horizontal-edge-parameters">}}
 | Name             | Type    | Description                        | Required | Default      |
 |------------------|---------|------------------------------------|----------|--------------|
@@ -56,9 +58,10 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-All parameters are the same as specified in the <span data-ref="horizontal-edge-parameters">table</span>.
+All parameters are the same as specified in the [table](#horizontal-edge-parameters).
 
-You can also apply the Horizontal shape to a specific edge using the <a href="/canvas/add-edge">addEdge</a> and <a href="/canvas/update-edge">updateEdge</a> methods.
+You can also apply the Horizontal shape to a specific edge using the
+[addEdge](/canvas/add-edge) and [updateEdge](/canvas/update-edge) methods.
 
 {{< code lang="javascript">}}
 import { HorizontalEdgeShape } from "@html-graph/html-graph";
@@ -67,7 +70,7 @@ canvas.addEdge({
   from: "port-1",
   to: "port-2",
   shape: new HorizontalEdgeShape(),
-})
+});
 {{< /code >}}
 
 {{< code lang="javascript">}}
@@ -75,5 +78,5 @@ canvas.updateEdge("edge-1", {
   from: "port-3",
   to: "port-4",
   shape: new HorizontalEdgeShape(),
-})
+});
 {{< /code >}}

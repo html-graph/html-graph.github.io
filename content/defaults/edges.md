@@ -23,13 +23,13 @@ const canvas = new CanvasBuilder(element)
 
 ### `EdgesConfig` Fields
 
-| Name      | Type                                      | Description                      | Required | Default |
-|-----------|-------------------------------------------|----------------------------------|----------|---------|
-| shape     | <span data-ref="shape">ShapeConfig</span> | Default edge shape configuration | no       | {}      |
-| priority  | <span data-ref="priority">Priority</span> | Default edge priority            | no       | 0       |
+| Name      | Type                              | Description                      | Required | Default |
+|-----------|-----------------------------------|----------------------------------|----------|---------|
+| shape     | [ShapeConfig](#edge-shape-config) | Default edge shape configuration | no       | {}      |
+| priority  | [Priority](#edge-priority)        | Default edge priority            | no       | 0       |
 
-{{< ref-target ref="shape">}}
-### `ShapeConfig` Options
+{{< ref-target ref="edge-shape-config">}}
+### `ShapeConfig` Options ### {#edge-shape-config}
 
 | Name       | Configuration                                        | Example                       |
 |------------|------------------------------------------------------|-------------------------------|
@@ -40,8 +40,8 @@ const canvas = new CanvasBuilder(element)
 | Custom     | <a href="/edge-shape/custom">CustomShape</a>         | `() => new CustomEdgeShape()` |
 {{< /ref-target >}}
 
-{{< ref-target ref="priority">}}
-### `Priority` Options
+{{< ref-target ref="edge-priority">}}
+### `Priority` Options ### {#edge-priority}
 
 | Type            | Description                                          | Example           |
 |-----------------|------------------------------------------------------|-------------------|

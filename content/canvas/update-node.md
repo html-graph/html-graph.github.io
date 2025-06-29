@@ -32,13 +32,13 @@ canvas.updateNode("node-1")
 
 ### Parameters for `updateNode`:
 
-| Name          | Type                                                          | Description                  | Required | Default |
-|---------------|---------------------------------------------------------------|------------------------------|----------|---------|
-| id            | any                                                           | Identifier of the node to update | yes      |         |
-| updateRequest | <span data-ref="node-update-request">NodeUpdateRequest</span> | Properties to update         | no       | {}      |
+| Name          | Type                                      | Description                      | Required | Default |
+|---------------|-------------------------------------------|----------------------------------|----------|---------|
+| id            | any                                       | Identifier of the node to update | yes      |         |
+| updateRequest | [NodeUpdateRequest](#node-update-request) | Properties to update             | no       | `{}`    |
 
 {{< ref-target ref="node-update-request">}}
-### `NodeUpdateRequest` Parameters
+### `NodeUpdateRequest` Parameters ### {#node-update-request}
 
 | Name     | Type     | Description                             | Required |
 |----------|----------|-----------------------------------------|----------|

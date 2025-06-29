@@ -6,8 +6,9 @@ sitemap:
 
 ## Box Area Rendering (advanced usage)
 
-Instead of relying on the built-in [virtual scroll](/modules/virtual-scroll), you can fine-tune your own virtual scroll implementation.
-This can be achieved by providing an <span data-ref="event-subject">EventSubject</span>
+Instead of relying on the built-in [virtual scroll](/modules/virtual-scroll),
+you can fine-tune your own virtual scroll implementation.
+This can be achieved by providing an [EventSubject](#event-subject)
 trigger for graph rendering within a bounded area using the `enableBoxAreaRendering` method of `CanvasBuilder`.
 
 {{< code lang="javascript">}}
@@ -29,7 +30,7 @@ trigger.emit({ x: 100, y: 100, width: 1200, height: 1200 });
 
 {{< ref-target ref="event-subject">}}
 
-### EventSubject
+### EventSubject ### {#event-subject}
 
 `EventSubject` is a straightforward implementation of the *Observer* pattern.
 
@@ -43,6 +44,7 @@ trigger.emit({ x: 100, y: 100, width: 1200, height: 1200 });
 
 {{< /ref-target >}}
 
-When a box rendering trigger is specified, it becomes your responsibility to initiate rendering (unless you use the built-in [virtual scroll](/modules/virtual-scroll)).
+When a box rendering trigger is specified, it becomes your responsibility to
+initiate rendering (unless you use the built-in [virtual scroll](/modules/virtual-scroll)).
 
 {{< use-case title="Box Area Rendering" src=/use-cases/box-area-rendering/ >}}

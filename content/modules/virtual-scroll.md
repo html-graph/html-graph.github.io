@@ -27,13 +27,13 @@ const canvas = new CanvasBuilder(element)
 
 ### Configuration Parameters
 
-| Name                      | Type                                        | Description                                         | Required |
-|---------------------------|---------------------------------------------|-----------------------------------------------------|----------|
-| `nodeContainingRadius` | <span data-ref="radius">RadiusConfig</span> | The radius that fully covers a node from its center | yes      |
+| Name                   | Type                           | Description                                         | Required |
+|------------------------|--------------------------------|-----------------------------------------------------|----------|
+| `nodeContainingRadius` | [RadiusConfig](#radius-config) | The radius that fully covers a node from its center | yes      |
 
-{{< ref-target ref="radius">}}
+{{< ref-target ref="radius-config">}}
 
-### RadiusConfig
+### RadiusConfig {#radius-config}
 
 | Name         | Type   | Description                                                     | Required |
 |--------------|--------|-----------------------------------------------------------------|----------|
@@ -69,4 +69,6 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-It is **highly recommended to set a minimum content scale limit for virtual scroll**, as shown in the example above, to ensure the number of nodes and edges within the viewport stays within manageable limits, regardless of user actions.
+It is **highly recommended to set a minimum content scale limit for virtual scroll**,
+as shown in the example above, to ensure the number of nodes and edges within the
+viewport stays within manageable limits, regardless of user actions.

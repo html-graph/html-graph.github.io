@@ -49,15 +49,15 @@ const canvas = new CanvasBuilder(element)
 
 ### Configuration Parameters
 
-| Name      | Type                                        | Description                   | Required | Default |
-|-----------|---------------------------------------------|-------------------------------|----------|---------|
-| moveOnTop | boolean                                     | Move grabbed node to the top  | no       | true    |
-| mouse     | <span data-ref="mouse">MouseConfig</span>   | Mouse-related configuration   | no       | {}      |
-| events    | <span data-ref="events">EventsConfig</span> | Handlers for available events | no       | {}      |
+| Name      | Type                                  | Description                   | Required | Default |
+|-----------|---------------------------------------|-------------------------------|----------|---------|
+| moveOnTop | boolean                               | Move grabbed node to the top  | no       | true    |
+| mouse     | [MouseConfig](#mouse-configuration)   | Mouse-related configuration   | no       | {}      |
+| events    | [EventsConfig](#events-configuration) | Handlers for available events | no       | {}      |
 
-{{< ref-target ref="mouse">}}
+{{< ref-target ref="mouse-configuration">}}
 
-### Mouse Configuration
+### Mouse Configuration ### {#mouse-configuration}
 
 | Name                   | Type           | Description                                              | Required | Default    |
 |------------------------|----------------|----------------------------------------------------------|----------|------------|
@@ -67,9 +67,9 @@ const canvas = new CanvasBuilder(element)
 
 {{< /ref-target >}}
 
-{{< ref-target ref="events">}}
+{{< ref-target ref="events-configuration">}}
 
-### Events Configuration
+### Events Configuration ### {#events-configuration}
 
 | Name               | Type     | Description                                   | Required | Default    |
 |--------------------|----------|-----------------------------------------------|----------|------------|

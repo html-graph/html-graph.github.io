@@ -75,13 +75,13 @@ const canvas = new CanvasBuilder(element)
 
 ### Decorator Parameters
 
-| Name                  | Type                                             | Description                                                 | Required | Default |
-|-----------------------|--------------------------------------------------|-------------------------------------------------------------|----------|---------|
-| baseShape             | StructuredEdgeShape                              | The shape to make interactive                               | Yes      |         |
-| interactiveParameters | <span data-ref="params">InteractiveParams</span> | Configuration for interactive behavior                      | No       | `{}`    |
+| Name                  | Type                                     | Description                            | Required | Default |
+|-----------------------|------------------------------------------|----------------------------------------|----------|---------|
+| baseShape             | StructuredEdgeShape                      | The shape to make interactive          | Yes      |         |
+| interactiveParameters | [InteractiveParams](#interactive-params) | Configuration for interactive behavior | No       | `{}`    |
 
-{{< ref-target ref="params">}}
-### Interactive Parameters
+{{< ref-target ref="interactive-params">}}
+### Interactive Parameters ### {#interactive-params}
 
 | Name  | Type   | Description                   | Required | Default |
 |-------|--------|-------------------------------|----------|---------|
