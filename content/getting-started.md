@@ -8,7 +8,7 @@ sitemap:
 
 First, include the library in your project and create a canvas. You have several options:
 
-### 1. Install via npm (recommended)
+### 1. Install via npm
 
 {{< code lang="bash" >}}
 npm i @html-graph/html-graph
