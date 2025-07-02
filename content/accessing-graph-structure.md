@@ -97,10 +97,10 @@ Note: A cycle edge is one where the source port and target port are the same. Th
 {{< / code >}}
 This method returns `null` if the node does not exist.
 
-16. To get all the port IDs for a specific HTMLElement, call
+16. To get all port IDs for a specific HTMLElement, call
 {{< code lang="javascript" >}}const portIds = canvas.graph.getElementPortIds(portElement);
 {{< / code >}}
 
-17. To get all the node ID for a specific HTMLElement, call
+17. To get node ID for a specific HTMLElement, call
 {{< code lang="javascript" >}}const nodeId = canvas.graph.getElementNodeId(nodeElement);
 {{< / code >}}
