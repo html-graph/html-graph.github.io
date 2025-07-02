@@ -1,6 +1,7 @@
 baseURL = 'https://html-graph.github.io/'
 languageCode = 'en-us'
 title = 'HTMLGraph'
+description="JavaScript library for building interactive graphs with HTML and CSS."
 disableKinds = ["taxonomy", "term"]
 
 [markup.goldmark.renderer]
