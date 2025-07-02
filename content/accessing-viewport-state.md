@@ -17,12 +17,12 @@ console.log(canvas.viewport);
 
 The `viewport` object provides two methods:
 
-1. To get the state of the [viewport matrix](/canvas/#patch-viewport-matrix), call:
+1. get the state of the [viewport matrix](/canvas/#patch-viewport-matrix)
 {{< code lang="javascript" >}}
   const viewportMatrix = canvas.viewport.getViewportMatrix();
 {{< / code >}}
 
-2. To get the state of the [content matrix](/canvas/#patch-content-matrix), call:
+2. get the state of the [content matrix](/canvas/#patch-content-matrix)
 {{< code lang="javascript" >}}
   const contentMatrix = canvas.viewport.getContentMatrix();
 {{< / code >}}
