@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>HTMLGraph | Background demo</title>
+    <title>HTMLGraph | Custom background rendering demo</title>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -66,8 +66,17 @@
 
       class Application {
         constructor(element) {
+          const renderer = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+
+          renderer.setAttribute('d', 'M -20 0 L 20 0 M 0 20 L 0 -20');
+          renderer.setAttribute('stroke-width', '1');
+          renderer.setAttribute('stroke', '#CCCCFF');
+
           this.canvas = new CanvasBuilder(element)
-            .enableBackground()
+            .enableBackground({
+              renderer,
+              tileDimensions: { width: 40, height: 40 },
+            })
             .enableUserTransformableViewport()
             .build();
         }

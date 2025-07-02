@@ -78,3 +78,5 @@ renderer.setAttribute('stroke', '#CCCCFF');
 {{< /code >}}
 
 {{< /ref-target >}}
+
+{{< use-case title="Custom background renderer" src=/use-cases/custom-background-renderer/ >}}
