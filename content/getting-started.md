@@ -67,6 +67,6 @@ Download `html-graph.umd.cjs` from <a target="_blank" href="https://github.com/h
 {{< /code >}}
 
 Now you can visualize your graph by adapting the implementation of this basic example.
-Refer to [canvas](/canvas) section for base API and [modules](/modules) section for all available advanced features.
+Refer to [canvas](/canvas) section for base API and [modules](/modules) section for all available features.
 
 {{< use-case title="Basic example" src="/use-cases/getting-started/" >}}
