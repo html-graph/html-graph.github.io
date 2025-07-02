@@ -14,9 +14,9 @@ HTMLGraph extends its functionality through optional modules, which can be enabl
 const element = document.getElementById('canvas');
 
 const canvas = new CanvasBuilder(element)
-  .enableUserTransformableViewport() // Enables viewport shift and zoom
-  .enableUserDraggableNodes() // Allows dragging nodes
-  .enableBackground() // Renders a customizable background
+  .enableUserTransformableViewport() // Enables viewport pan and zoom
+  .enableUserDraggableNodes() // Enables draggable nodes
+  .enableBackground() // Renders background
   .build();
 {{< /code >}}
 
