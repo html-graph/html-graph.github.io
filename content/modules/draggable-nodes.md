@@ -49,11 +49,12 @@ const canvas = new CanvasBuilder(element)
 
 ### Configuration Parameters
 
-| Name      | Type                                  | Description                   | Required | Default |
-|-----------|---------------------------------------|-------------------------------|----------|---------|
-| moveOnTop | boolean                               | Move grabbed node to the top  | no       | true    |
-| mouse     | [MouseConfig](#mouse-configuration)   | Mouse-related configuration   | no       | {}      |
-| events    | [EventsConfig](#events-configuration) | Handlers for available events | no       | {}      |
+| Name           | Type                                  | Description                                         | Required | Default |
+|----------------|---------------------------------------|-----------------------------------------------------|----------|---------|
+| moveOnTop      | boolean                               | Move grabbed node to the top                        | no       | true    |
+| moveEdgesOnTop | boolean                               | Move connected edges to the grabbed node beneath it | no       | true    |
+| mouse          | [MouseConfig](#mouse-configuration)   | Mouse-related configuration                         | no       | {}      |
+| events         | [EventsConfig](#events-configuration) | Handlers for available events                       | no       | {}      |
 
 {{< ref-target ref="mouse-configuration">}}
 

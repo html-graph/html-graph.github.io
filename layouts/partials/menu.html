@@ -109,6 +109,13 @@
       </li>
       <li>
         {{ partial "menu-link.html" (dict
+          "path" "/edge-shape/direct/"
+          "activePath" .path
+          "label" "Direct"
+        )}}
+      </li>
+      <li>
+        {{ partial "menu-link.html" (dict
           "path" "/edge-shape/straight/"
           "activePath" .path
           "label" "Straight"
