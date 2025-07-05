@@ -46,9 +46,14 @@
       import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@3.9.0";
 
       class Application {
+        i = 1;
+
         constructor(element) {
           this.canvas = new CanvasBuilder(element)
             .setDefaults({
+              nodes: {
+                priority: () => this.i++,
+              },
               edges: {
                 shape: {
                   type: "direct",
@@ -56,9 +61,10 @@
                   sourceOffset: 50,
                   targetOffset: 50,
                 },
+                priority: 0,
               },
             })
-            .enableUserDraggableNodes()
+            .enableUserDraggableNodes({ moveEdgesOnTop: false })
             .enableUserTransformableViewport()
             .enableBackground()
             .build();
