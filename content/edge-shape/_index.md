@@ -9,6 +9,7 @@ HTMLGraph supports multiple edge visualization styles to suit different graph re
 | Shape          | Description                                              | Configuration Reference                   |
 |----------------|----------------------------------------------------------|-------------------------------------------|
 | **Bezier**     | Smooth curved connections with adjustable curvature      | [BezierShape](/edge-shape/bezier)         |
+| **Direct**     | Direct line connections between nodes                    | [DirectShape](/edge-shape/direct)         |
 | **Straight**   | Straight linear connections between nodes                | [StraightShape](/edge-shape/straight)     |
 | **Horizontal** | Right-angle connections with horizontal primary segments | [HorizontalShape](/edge-shape/horizontal) |
 | **Vertical**   | Right-angle connections with vertical primary segments   | [VerticalShape](/edge-shape/vertical)     |

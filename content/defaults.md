@@ -97,13 +97,14 @@ const canvas = new CanvasBuilder(element)
 {{< ref-target ref="edge-shape-config">}}
 #### `ShapeConfig` Options ### {#edge-shape-config}
 
-| Name       | Configuration                                        | Example                       |
-|------------|------------------------------------------------------|-------------------------------|
-| Bezier     | <a href="/edge-shape/bezier">BezierShape</a>         | `{ type: "bezier" }`          |
-| Straight   | <a href="/edge-shape/straight">StraightShape</a>     | `{ type: "straight" }`        |
-| Horizontal | <a href="/edge-shape/horizontal">HorizontalShape</a> | `{ type: "horizontal" }`      |
-| Vertical   | <a href="/edge-shape/vertical">VerticalShape</a>     | `{ type: "vertical" }`        |
-| Custom     | <a href="/edge-shape/custom">CustomShape</a>         | `() => new CustomEdgeShape()` |
+| Name       | Configuration                             | Example                       |
+|------------|-------------------------------------------|-------------------------------|
+| Bezier     | [BezierShape](/edge-shape/bezier)         | `{ type: "bezier" }`          |
+| Direct     | [DirectShape](/edge-shape/direct)         | `{ type: "direct" }`          |
+| Straight   | [StraightShape](/edge-shape/straight)     | `{ type: "straight" }`        |
+| Horizontal | [HorizontalShape](/edge-shape/horizontal) | `{ type: "horizontal" }`      |
+| Vertical   | [VerticalShape](/edge-shape/vertical)     | `{ type: "vertical" }`        |
+| Custom     | [CustomShape](/edge-shape/custom)         | `() => new CustomEdgeShape()` |
 {{< /ref-target >}}
 
 {{< ref-target ref="edge-priority">}}
