@@ -29,14 +29,14 @@ const canvas = new CanvasBuilder(element)
 {{< /code >}}
 
 The `InteractiveEdgeShape` decorator provides an invisible interaction area around the visible edge.
-This example shows how to handle mouse and touch events:
+This example shows how to handle mouse click event for an edge:
 
 {{< code lang="javascript">}}
 import {
   CanvasBuilder,
   BezierEdgeShape,
   InteractiveEdgeShape,
-} from "@html-grapg/html-graph";
+} from "@html-graph/html-graph";
 
 const element = document.getElementById("canvas");
 
@@ -48,25 +48,15 @@ const canvas = new CanvasBuilder(element)
           hasTargetArrow: true,
         });
 
-        const interactiveEdge = new InteractiveEdgeShape(baseShape, {
+        const interactiveShape = new InteractiveEdgeShape(baseShape, {
           width: 20,
         });
 
-        const handler = () => {
+        interactiveShape.handle.addEventListener("mousedown", (event) => {
           console.log(`clicked on edge with id: ${edgeId}`);
-        };
-
-        interactiveEdge.handle.addEventListener("mousedown", (event) => {
-          event.stopPropagation();
-          handler();
         });
 
-        interactiveEdge.handle.addEventListener("touchstart", (event) => {
-          event.stopPropagation();
-          handler();
-        });
-
-        return interactiveEdge;
+        return interactiveShape;
       },
     },
   })
@@ -108,13 +98,13 @@ const canvas = new CanvasBuilder(element)
           hasTargetArrow: true,
         });
 
-        const interactiveEdge = new InteractiveEdgeShape(baseShape, {
+        const interactiveShape = new InteractiveEdgeShape(baseShape, {
           width: 10,
         });
 
         // ... event handlers ...
 
-        return interactiveEdge;
+        return interactiveShape;
       },
     },
   })
