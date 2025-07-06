@@ -53,7 +53,7 @@ const canvas = new CanvasBuilder(element)
         });
 
         const handler = () => {
-            console.log(`clicked on edge with id: ${edgeId}`);
+          console.log(`clicked on edge with id: ${edgeId}`);
         };
 
         interactiveEdge.handle.addEventListener("mousedown", (event) => {
@@ -119,7 +119,7 @@ const canvas = new CanvasBuilder(element)
     },
   })
   .enableUserDraggableNodes({
-    moveOnTop: false,
+    moveEdgesOnTop: false,
   })
   .enableUserTransformableViewport()
   .enableBackground()
@@ -129,4 +129,4 @@ const canvas = new CanvasBuilder(element)
 Key configuration:
 - Nodes: `priority: 1` (higher z-index)
 - Edges: `priority: 0` (lower z-index)
-- Draggable nodes: `moveOnTop: false` maintains priority order during interaction
+- Draggable nodes: `moveEdgesOnTop: false` keeps edges under nodes during interaction
