@@ -165,7 +165,15 @@
                   return edge.from === request.from && edge.to === request.to;
                 });
 
-                return existingEdge === undefined ? request : null;
+                if (existingEdge !== undefined) {
+                  return null;
+                }
+
+                if (request.from.startsWith("output-") && request.to.startsWith("input-")) {
+                  return request;
+                }
+
+                return null;
               },
             })
             .build();
