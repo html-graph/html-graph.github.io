@@ -137,7 +137,7 @@
                     hasTargetArrow: true,
                   });
 
-                  const median = this.createMedian();
+                  const median = this.createRemoveEdgeButton();
                   const medianShape = new MedianEdgeShape(baseShape, median);
 
                   medianShape.medianElement.addEventListener("mouseup", (event) => {
@@ -411,7 +411,7 @@
           });
         }
 
-        createMedian() {
+        createRemoveEdgeButton() {
           const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
 
           group.style.setProperty("pointer-events", "auto");
