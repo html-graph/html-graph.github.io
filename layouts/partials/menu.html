@@ -150,30 +150,30 @@
       "activePath" .path
       "label" "Advanced Edges"
     )}}
+    <ul>
+      <li>
+        {{ partial "menu-link.html" (dict
+          "path" "/advanced-edges/interactive-edges/"
+          "activePath" .path
+          "label" "Interactiveness"
+        )}}
+      </li>
+      <li>
+        {{ partial "menu-link.html" (dict
+          "path" "/advanced-edges/changing-edge-color/"
+          "activePath" .path
+          "label" "Changing color"
+        )}}
+      </li>
+      <li>
+        {{ partial "menu-link.html" (dict
+          "path" "/advanced-edges/edges-with-button-in-the-center/"
+          "activePath" .path
+          "label" "Button in the center"
+        )}}
+      </li>
+    </ul>
   </li>
-  <ul>
-    <li>
-      {{ partial "menu-link.html" (dict
-        "path" "/advanced-edges/interactive-edges/"
-        "activePath" .path
-        "label" "Interactiveness"
-      )}}
-    </li>
-    <li>
-      {{ partial "menu-link.html" (dict
-        "path" "/advanced-edges/changing-edge-color/"
-        "activePath" .path
-        "label" "Changing color"
-      )}}
-    </li>
-    <li>
-      {{ partial "menu-link.html" (dict
-        "path" "/advanced-edges/edges-with-button-in-the-center/"
-        "activePath" .path
-        "label" "Button in the center"
-      )}}
-    </li>
-  </ul>
   <li>
     {{ partial "bold-menu-link.html" (dict
       "path" "/accessing-graph-structure/"
