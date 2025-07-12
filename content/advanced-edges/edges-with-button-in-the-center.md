@@ -4,7 +4,7 @@ title: Advanced Edges | Edges with button in the center
 
 ## Edges with button in the center
 
-In no-code editor user interfaces it's common to have some way of removing edges.
+In nocode editor user interfaces it's common to have some way of removing edges.
 
 Removing an edge itself is an easy task, that can be done using the
 [`removeEdge`](/canvas/#remove-edge) method.
