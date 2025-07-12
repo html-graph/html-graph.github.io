@@ -14,7 +14,9 @@ Get started with our **[getting started guide](/getting-started)**.
 
 <a href="/use-cases/advanced-demo/" target="_blank">
   <div class="advanced-demo">
-    <img src="/images/full-demo.gif">
+    <video autoplay muted>
+      <source src="/media/advanced-demo.webm">
+    </video>
   </div>
 </a>
 
