@@ -146,17 +146,31 @@
   </li>
   <li>
     {{ partial "bold-menu-link.html" (dict
-      "path" "/interactive-edges/"
+      "path" "/advanced-edges/"
       "activePath" .path
-      "label" "Interactive Edges"
+      "label" "Advanced Edges"
     )}}
   </li>
   <ul>
     <li>
       {{ partial "menu-link.html" (dict
-        "path" "/interactive-edges/changing-edge-color/"
+        "path" "/advanced-edges/interactive-edges/"
         "activePath" .path
-        "label" "Changing edge color"
+        "label" "Interactiveness"
+      )}}
+    </li>
+    <li>
+      {{ partial "menu-link.html" (dict
+        "path" "/advanced-edges/changing-edge-color/"
+        "activePath" .path
+        "label" "Changing color"
+      )}}
+    </li>
+    <li>
+      {{ partial "menu-link.html" (dict
+        "path" "/advanced-edges/edges-with-button-in-the-center/"
+        "activePath" .path
+        "label" "Button in the center"
       )}}
     </li>
   </ul>

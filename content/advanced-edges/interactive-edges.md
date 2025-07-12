@@ -1,5 +1,5 @@
 ---
-title: Interactive Edges
+title: Advanced Edges | Interactive Edges
 ---
 
 ## Interactive Edges
@@ -28,7 +28,7 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-The `InteractiveEdgeShape` decorator provides an invisible interaction area around the visible edge.
+Then use the `InteractiveEdgeShape` decorator to create invisible interaction area around the visible edge.
 This example shows how to handle mouse click event for an edge:
 
 {{< code lang="javascript">}}
