@@ -89,13 +89,13 @@ const canvas = new CanvasBuilder(element)
 
 #### `EdgesConfig` Fields
 
-| Name      | Type                              | Description                      | Required | Default |
-|-----------|-----------------------------------|----------------------------------|----------|---------|
-| shape     | [ShapeConfig](#edge-shape-config) | Default edge shape configuration | no       | `{}`    |
-| priority  | [Priority](#edge-priority)        | Default edge priority            | no       | `0`     |
+| Name      | Type                                  | Description                      | Required | Default |
+|-----------|---------------------------------------|----------------------------------|----------|---------|
+| shape     | [EdgeShapeConfig](#edge-shape-config) | Default edge shape configuration | no       | `{}`    |
+| priority  | [Priority](#edge-priority)            | Default edge priority            | no       | `0`     |
 
 {{< ref-target ref="edge-shape-config">}}
-#### `ShapeConfig` Options ### {#edge-shape-config}
+#### `EdgeShapeConfig` Options ### {#edge-shape-config}
 
 | Name       | Configuration                             | Example                       |
 |------------|-------------------------------------------|-------------------------------|
