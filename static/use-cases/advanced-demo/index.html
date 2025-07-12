@@ -119,9 +119,9 @@
     <script type="module">
       import {
         CanvasBuilder,
-        BezierEdgeShape,
+        HorizontalEdgeShape,
         MedianEdgeShape
-      } from "https://unpkg.com/@html-graph/html-graph@3.11.1";
+      } from "https://unpkg.com/@html-graph/html-graph@3.12.0";
 
       class Application {
         constructor(canvasElement) {
@@ -132,7 +132,7 @@
               },
               edges: {
                 shape: (edgeId) => {
-                  const baseShape = new BezierEdgeShape({
+                  const baseShape = new HorizontalEdgeShape({
                     color: "var(--color-edge)",
                     hasTargetArrow: true,
                   });
@@ -155,6 +155,10 @@
             .enableResizeReactiveNodes()
             .enableBackground()
             .enableUserConnectablePorts({
+              edgeShape: {
+                type: "horizontal",
+                hasTargetArrow: true,
+              },
               connectionTypeResolver: (portId) => {
                 return portId.startsWith("output-") ? "direct" : "reverse";
               },
