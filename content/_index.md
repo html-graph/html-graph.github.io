@@ -14,7 +14,7 @@ Get started with our **[getting started guide](/getting-started)**.
 
 <a href="/use-cases/advanced-demo/" target="_blank">
   <div class="advanced-demo">
-    <video autoplay muted>
+    <video autoplay muted loop>
       <source src="/media/advanced-demo.webm">
     </video>
   </div>
