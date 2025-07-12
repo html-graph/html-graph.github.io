@@ -131,7 +131,7 @@
             .setDefaults({
               nodes: {
                 centerFn: () => ({ x: 0, y: 0 }),
-                priority: this.nodePriority++,
+                priority: () => this.nodePriority++,
               },
               edges: {
                 shape: (edgeId) => {
