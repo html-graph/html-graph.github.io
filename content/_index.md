@@ -12,5 +12,9 @@ All examples are provided as self-contained HTML pages.
 Simply copy/paste them into your project, and they will work immediately.
 Get started with our **[getting started guide](/getting-started)**.
 
-{{< use-case title="This is an advanced example to demonstrate some capabilities of this library" src=/use-cases/advanced-demo/ >}}
+<a href="/use-cases/advanced-demo/" target="_blank">
+  <div class="advanced-demo">
+    <img src="/images/full-demo.gif">
+  </div>
+</a>
 
