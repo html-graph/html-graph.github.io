@@ -24,7 +24,7 @@ Below is a list of all available methods
 
 ---
 
-### Add Node ### {#add-node}
+### Add Node [#](#add-node) ### {#add-node}
 
 Adds a node to the canvas with customizable properties.
 
@@ -108,7 +108,7 @@ canvas.addNode({
 
 ---
 
-### Update Node ### {#update-node}
+### Update Node [#](#update-node) ### {#update-node}
 
 Updates specified properties of a node.
 
@@ -156,7 +156,7 @@ canvas.updateNode("node-1");
 
 ---
 
-### Remove Node ### {#remove-node}
+### Remove Node [#](#remove-node) ### {#remove-node}
 
 Removes a specified node from the canvas. All associated ports will be unmarked, and any edges connected to the node will also be removed.
 
@@ -172,7 +172,7 @@ canvas.removeNode("node-1");
 
 ---
 
-### Mark Port ### {#mark-port}
+### Mark Port [#](#mark-port) ### {#mark-port}
 
 Marks an element as a port for a specific node.
 
@@ -211,7 +211,7 @@ Static ports can also be defined directly within the [addNode](/canvas/#add-node
 
 ---
 
-### Update Port ### {#update-port}
+### Update Port [#](#update-port) ### {#update-port}
 
 Updates specified properties of a port.
 
@@ -244,7 +244,7 @@ canvas.updatePort("port-1");
 
 ---
 
-### Unmark Port ### {#unmark-port}
+### Unmark Port [#](#unmark-port) ### {#unmark-port}
 
 Unmarks a specified port, removing relation to the node. All edges connected to the port will also be removed.
 
@@ -260,7 +260,7 @@ canvas.unmarkPort("port-1");
 
 ---
 
-### Add Edge ### {#add-edge}
+### Add Edge [#](#add-edge) ### {#add-edge}
 
 Adds an edge between two ports on the canvas.
 
@@ -298,7 +298,7 @@ canvas.addEdge({
 
 ---
 
-### Update Edge ### {#update-edge}
+### Update Edge [#](#update-edge) ### {#update-edge}
 
 Updates specified properties of an edge.
 
@@ -346,7 +346,7 @@ canvas.updateEdge("edge-1");
 
 ---
 
-### Remove Edge ### {#remove-edge}
+### Remove Edge [#](#remove-edge) ### {#remove-edge}
 
 Removes a specified edge from the canvas.
 
@@ -362,7 +362,7 @@ canvas.removeEdge("edge-1");
 
 ---
 
-### Clear ### {#clear}
+### Clear [#](#clear) ### {#clear}
 
 Removes all nodes and edges from the canvas, allowing it to be reused.
 
@@ -372,7 +372,7 @@ canvas.clear();
 
 ---
 
-### Destroy ### {#destroy}
+### Destroy [#](#destroy) ### {#destroy}
 
 Destroys the canvas. The provided HTML element gets rolled back to its initial state. Once this method is called, the canvas cannot be reused.
 
@@ -382,7 +382,7 @@ canvas.destroy();
 
 ---
 
-### Patch Viewport Matrix ### {#patch-viewport-matrix}
+### Patch Viewport Matrix [#](#patch-viewport-matrix) ### {#patch-viewport-matrix}
 
 The viewport transformation matrix consists of three values: `scale`, `x`, and `y`.
 
@@ -408,7 +408,7 @@ This matrix is the inverse of the [content matrix](/canvas/#patch-content-matrix
 
 ---
 
-### Patch Content Matrix ### {#patch-content-matrix}
+### Patch Content Matrix [#](#patch-content-matrix) ### {#patch-content-matrix}
 
 The content transformation matrix consists of three values: `scale`, `x`, and `y`.
 
