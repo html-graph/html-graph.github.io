@@ -1,4 +1,5 @@
 <picture>
   <source type="image/webp" srcset="{{ .Get "path" }}.webp">
-  <img alt="{{ .Get "alt" }}" src="{{ .Get "path" }}.jpeg" width="{{ .Get "width" }}" height="{{ .Get "height" }}">
+  <source type="image/jpeg" srcset="{{ .Get "path" }}.jpg">
+  <img alt="{{ .Get "alt" }}" src="{{ .Get "path" }}.jpg" width="{{ .Get "width" }}" height="{{ .Get "height" }}">
 </picture>
