@@ -78,7 +78,7 @@
           this.canvas = new CanvasBuilder(element)
             .setDefaults({
               edges: {
-                shape: (edgeId) => {
+                shape: () => {
                   const baseShape = new BezierEdgeShape({
                     hasTargetArrow: true,
                   });
@@ -87,20 +87,15 @@
                     width: 20,
                   });
 
-                  const handler = () => {
-                    const message = `clicked on edge with id: ${edgeId}`;
-                    const overlay = document.getElementById('overlay');
-                    overlay.innerText += `${message}\n`;
-                  };
+                  interactiveEdge.handle.addEventListener("click", (event) => {
+                    const dash = interactiveEdge.line.getAttribute("stroke-dasharray");
+                    const hasDash = dash !== "none" && dash !== null;
 
-                  interactiveEdge.handle.addEventListener("mousedown", (event) => {
-                    event.stopPropagation();
-                    handler();
-                  });
-
-                  interactiveEdge.handle.addEventListener("touchstart", (event) => {
-                    event.stopPropagation();
-                    handler();
+                    if (hasDash) {
+                      interactiveEdge.line.setAttribute("stroke-dasharray","none");
+                    } else {
+                      interactiveEdge.line.setAttribute("stroke-dasharray","10");
+                    }
                   });
 
                   return interactiveEdge;
