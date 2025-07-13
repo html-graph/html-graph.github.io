@@ -1,6 +1,4 @@
-- line edge tutorial
+- SEO, rich results
 - node same as port tutorial
 - make FAQ accordion
-- gif images for modules
-- images for edges
 - local search
