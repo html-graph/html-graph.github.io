@@ -99,12 +99,12 @@ const canvas = new CanvasBuilder(element)
 
 | Name       | Configuration                             | Example                       |
 |------------|-------------------------------------------|-------------------------------|
-| Bezier     | [BezierShape](/edge-shape/bezier)         | `{ type: "bezier" }`          |
-| Direct     | [DirectShape](/edge-shape/direct)         | `{ type: "direct" }`          |
-| Straight   | [StraightShape](/edge-shape/straight)     | `{ type: "straight" }`        |
-| Horizontal | [HorizontalShape](/edge-shape/horizontal) | `{ type: "horizontal" }`      |
-| Vertical   | [VerticalShape](/edge-shape/vertical)     | `{ type: "vertical" }`        |
-| Custom     | [CustomShape](/edge-shape/custom)         | `() => new CustomEdgeShape()` |
+| Bezier     | [BezierShape](/edge-shapes/bezier)         | `{ type: "bezier" }`          |
+| Direct     | [DirectShape](/edge-shapes/direct)         | `{ type: "direct" }`          |
+| Straight   | [StraightShape](/edge-shapes/straight)     | `{ type: "straight" }`        |
+| Horizontal | [HorizontalShape](/edge-shapes/horizontal) | `{ type: "horizontal" }`      |
+| Vertical   | [VerticalShape](/edge-shapes/vertical)     | `{ type: "vertical" }`        |
+| Custom     | [CustomShape](/edge-shapes/custom)         | `() => new CustomEdgeShape()` |
 {{< /ref-target >}}
 
 {{< ref-target ref="edge-priority">}}
