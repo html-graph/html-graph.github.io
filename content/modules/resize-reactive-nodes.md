@@ -4,7 +4,7 @@ sitemap:
   priority: 0.3
 ---
 
-## Resize-Reactive Nodes
+## Resize Reactive Nodes
 
 To enable built-in resize-reactive nodes, ensuring that edges are automatically updated when adjacent nodes are resized, call the `enableResizeReactiveNodes` method on `CanvasBuilder`.
 

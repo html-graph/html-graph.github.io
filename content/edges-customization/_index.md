@@ -1,10 +1,10 @@
 ---
-title: Advanced Edges
+title: Edges Customization
 ---
 
-## Advanced Edges
+## Edges Customization
 
-While nodes can be easily customized using HTML and CSS, edges offer similar customization capabilities through SVG.
+While nodes can be easily customized using HTML and CSS, edges offer similar customization capabilities through SVG and CSS.
 
 The following tutorials cover common edge customization scenarios:
 
