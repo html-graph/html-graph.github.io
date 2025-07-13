@@ -78,7 +78,7 @@ const canvas = new CanvasBuilder(element)
 | width | number | Width of the interactive area | No       | `10`    |
 {{< /ref-target >}}
 
-Try out this demo to understand the mechanics of edge interaction:
+Try out this demo, which toggles edge line dash on edge click:
 
 {{< use-case title="Interactive edges" src=/use-cases/interactive-edges/ >}}
 
