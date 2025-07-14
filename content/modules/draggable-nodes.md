@@ -25,7 +25,8 @@ const element = document.getElementById('canvas');
 
 const canvas = new CanvasBuilder(element)
   .enableUserDraggableNodes({
-    moveOnTop: false,
+    moveOnTop: true,
+    moveEdgesOnTop: false,
     mouse: {
       dragCursor: "crosshair",
       mouseDownEventVerifier: (event) => event.ctrlKey,
