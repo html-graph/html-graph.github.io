@@ -309,7 +309,7 @@ class Application {
 
 The end result is presented below.
 
-Every example in this documentation is a single HTML page, so you can copy/paste it, and it will work immediately.
+Every example in this documentation is a single HTML page, so you can copy/paste the implementation, and it will work immediately.
 
 # # {#end-result}
 
