@@ -1,4 +1,3 @@
-- animated dash edges
 - improve getting started
 - local search
 - SEO, rich results
