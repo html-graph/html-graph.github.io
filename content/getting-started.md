@@ -114,7 +114,7 @@ body {
 
 At this point everything is ready for graph visualization.
 Lets create a basic node. For this purpose we create a method, that returns a
-data structure, which is expected in [addNode](/canvas#add-node) method.
+data structure, which is expected in <a href="/canvas#add-node" target="_blank">addNode</a> method.
 
 This method accepts parameters:
 - `name` is a text content of a node
@@ -227,7 +227,7 @@ class Application {
 {{< /code >}}
 
 At this point we have two nodes, but they are not connected. To connect them we
-will use [addEdge](/canvas#add-edge) method. It accepts identifiers of source
+will use <a href="/canvas#add-edge" target="_blank">addEdge</a> method. It accepts identifiers of source
 port and target port.
 
 {{< code lang="javascript" >}}
@@ -262,7 +262,7 @@ class Application {
 {{< /code >}}
 
 We can customize edges, for example we can add a target arrow.
-This can be done using [setDefaults](/defaults) method of `CanvasBuilder`.
+This can be done using <a href="/defaults" target="_blank">setDefaults</a> method of `CanvasBuilder`.
 
 {{< code lang="javascript" >}}
 class Application {
@@ -283,7 +283,7 @@ class Application {
 {{< /code >}}
 
 But the resulted graph is static. We can enable transformable viewport,
-draggable nodes and other features. Refer to [Modules](/modules) for all
+draggable nodes and other features. Refer to <a href="/modules" target="_blank">Modules</a> for all
 available features.
 
 {{< code lang="javascript" >}}
