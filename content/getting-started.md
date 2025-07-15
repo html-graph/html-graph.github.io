@@ -66,8 +66,10 @@ Download `html-graph.umd.cjs` from <a target="_blank" href="https://github.com/h
 </script>
 {{< /code >}}
 
-Now that the canvas is initialized, it's time to structure an app a little better.
-ES6 classes are very useful for that purpose.
+Here's the revised section with improved wording and formatting while maintaining all code blocks exactly as provided:
+
+Now that we've initialized the canvas, let's define a proper application structure.
+Using ES6 classes helps to organize our code:
 
 {{< code lang="javascript" >}}
 class Application {
@@ -154,7 +156,7 @@ class Application {
 }
 {{< /code >}}
 
-Also here is some css for our nodes to look nice:
+Also here is some CSS for our nodes to look nice:
 
 {{< code lang="css" >}}
 .node {
