@@ -63,7 +63,7 @@ const edgeIds = canvas.graph.getNodeAdjacentEdgeIds("node-1");
 {{< / code >}}
 This method returns `null` if the node does not exist.
 
-1. get node ID for a specific HTMLElement, call
+1. get node ID for a specific HTMLElement
 {{< code lang="javascript" >}}
 const nodeId = canvas.graph.getElementNodeId(nodeElement);
 {{< / code >}}
@@ -108,7 +108,7 @@ const edgeIds = canvas.graph.getPortAdjacentEdgeIds("port-1");
 {{< / code >}}
 This method returns `null` if the port does not exist.
 
-1. get all port IDs attached to a specific HTMLElement, call
+1. get all port IDs attached to a specific HTMLElement
 {{< code lang="javascript" >}}
 const portIds = canvas.graph.getElementPortIds(portElement);
 {{< / code >}}
