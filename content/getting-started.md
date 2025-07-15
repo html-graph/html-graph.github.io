@@ -103,7 +103,6 @@ body {
 
 body {
   position: relative;
-  font-family: Arial, sans-serif;
 }
 
 #canvas {
