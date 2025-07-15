@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>HTMLGraph | Median edges demo</title>
+    <title>HTMLGraph | Midpoint edges demo</title>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -72,8 +72,8 @@
       import {
         CanvasBuilder,
         BezierEdgeShape,
-        MedianEdgeShape,
-      } from "https://unpkg.com/@html-graph/html-graph@3.12.0";
+        MidpointEdgeShape,
+      } from "https://unpkg.com/@html-graph/html-graph@3.13.0";
 
       class Application {
         constructor(element) {
@@ -83,13 +83,13 @@
                 shape: (edgeId) => {
                   const baseShape = new BezierEdgeShape({ hasTargetArrow: true });
 
-                  const median = this.createRemoveEdgeButton();
+                  const midpoint = this.createRemoveEdgeButton();
 
-                  median.addEventListener("click", (event) => {
+                  midpoint.addEventListener("click", (event) => {
                     this.canvas.removeEdge(edgeId);
                   });
 
-                  return new MedianEdgeShape(baseShape, median);
+                  return new MidpointEdgeShape(baseShape, midpoint);
                 },
               },
             })

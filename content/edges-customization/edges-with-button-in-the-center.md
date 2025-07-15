@@ -69,10 +69,10 @@ This is how the element appears:
 
 {{< image path="/images/remove-button" alt="Remove button demo" width="200" height="200">}}
 
-Now that the button element is ready, we can attach it to an edge and add event listeners using the `MedianEdgeDecorator`. This decorator positions the provided element at the point of an edge that's equidistant from both ends.
+Now that the button element is ready, we can attach it to an edge and add event listeners using the `MidpointEdgeDecorator`. This decorator positions the provided element at the point of an edge that's equidistant from both ends.
 
 {{< code lang="javascript">}}
-import { CanvasBuilder, BezierEdgeShape, MedianEdgeShape } from "@html-graph/html-graph";
+import { CanvasBuilder, BezierEdgeShape, MidpointEdgeShape } from "@html-graph/html-graph";
 
 const canvas = new CanvasBuilder(canvasElement)
   .setDefaults({
@@ -80,13 +80,13 @@ const canvas = new CanvasBuilder(canvasElement)
       shape: (edgeId) => {
         const baseShape = new BezierEdgeShape({ hasTargetArrow: true });
 
-        const median = createRemoveEdgeButton();
+        const midpoint = createRemoveEdgeButton();
 
-        median.addEventListener("click", (event) => {
+        midpoint.addEventListener("click", (event) => {
           canvas.removeEdge(edgeId);
         });
 
-        return new MedianEdgeShape(baseShape, median);
+        return new MidpointEdgeShape(baseShape, midpoint);
       },
     },
   }).build();
@@ -94,6 +94,6 @@ const canvas = new CanvasBuilder(canvasElement)
 
 The final result is presented below.
 
-{{< use-case title="Remove button in the center of an edge" src=/use-cases/median-edge/ >}}
+{{< use-case title="Remove button in the center of an edge" src=/use-cases/midpoint-edge/ >}}
 
 When combined with [connectable ports](/modules/connectable-ports), this functionality becomes particularly useful for nocode editor interfaces.

@@ -64,7 +64,7 @@ Get started with our **[getting started guide](/getting-started)**.
       </a>
     </li>
     <li>
-      <a target="_blank" href="/use-cases/median-edge/" aria-label="Removable Edges">
+      <a target="_blank" href="/use-cases/midpoint-edge/" aria-label="Removable Edges">
         {{< image path="/images/removable-edges" alt="Removable Edges" width="500" height="500">}}
         <label>Removable Edges</label>
       </a>
