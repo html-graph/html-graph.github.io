@@ -8,6 +8,6 @@ While nodes can be easily customized using HTML and CSS, edges offer similar cus
 
 The following tutorials cover common edge customization scenarios:
 
-- [Changing edge color](changing-edge-color)
 - [Interactive Edges](interactive-edges)
+- [Changing edge color](changing-edge-color)
 - [Edges with button in the center](edges-with-button-in-the-center)
