@@ -66,6 +66,10 @@ Download `html-graph.umd.cjs` from <a target="_blank" href="https://github.com/h
 </script>
 {{< /code >}}
 
+The next part will guide you through graph visualization step-by-step.
+If you prefer to see the final implementation first, you can jump directly
+to the [end result](#end-result) and explore the details afterwards.
+
 Now that we've initialized the canvas, let's define a proper application structure.
 Using ES6 classes helps to organize our code:
 
@@ -306,5 +310,7 @@ class Application {
 The end result is presented below.
 
 Every example in this documentation is a single HTML page, so you can copy/paste it, and it will work immediately.
+
+# # {#end-result}
 
 {{< use-case title="Basic example" src="/use-cases/getting-started/" >}}
