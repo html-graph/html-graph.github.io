@@ -66,8 +66,6 @@ Download `html-graph.umd.cjs` from <a target="_blank" href="https://github.com/h
 </script>
 {{< /code >}}
 
-Here's the revised section with improved wording and formatting while maintaining all code blocks exactly as provided:
-
 Now that we've initialized the canvas, let's define a proper application structure.
 Using ES6 classes helps to organize our code:
 
