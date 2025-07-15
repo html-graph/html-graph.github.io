@@ -66,10 +66,245 @@ Download `html-graph.umd.cjs` from <a target="_blank" href="https://github.com/h
 </script>
 {{< /code >}}
 
-Now you can visualize your graph by adapting the implementation of this basic example.
-Refer to these sections:
-- [Canvas](/canvas) - for managing graph
-- [Modules](/modules) - for all available features (viewport transformation, nodes dragging, etc).
-- [Defaults](/defaults) - for graph entities default configuration
+Now that the canvas is initialized, it's time to structure an app a little better.
+ES6 classes are very useful for that purpose.
+
+{{< code lang="javascript" >}}
+class Application {
+  constructor(element) {
+    this.canvas = new CanvasBuilder(element)
+      .build();
+  }
+
+  initGraph() {
+    // the graph will be initialized there
+  }
+}
+
+const element = document.getElementById("canvas");
+const app = new Application(element);
+
+app.initGraph();
+{{< /code >}}
+
+Also we need to add some basic CSS so that we have a full page canvas.
+
+{{< code lang="css" >}}
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  position: relative;
+  font-family: Arial, sans-serif;
+}
+
+#canvas {
+  position: absolute;
+  inset: 0;
+}
+{{< /code >}}
+
+At this point everything is ready for graph visualization.
+Lets create a basic node. For this purpose we create a method, that returns a
+data structure, which is expected in [addNode](/canvas#add-node) method.
+
+This method accepts parameters:
+- `name` is a text content of a node
+- `x` and `y` are node's coordinates,
+- `frontPortId` and `backPortId` are port identifiers.
+
+Port is a proxy element via
+which nodes are connected. It provides more flexibility at managing edges,
+unlike connecting nodes directly (although node element itself can be used as a
+port at the same time).
+
+{{< code lang="javascript" >}}
+class Application {
+  // ...
+
+  createNode({ name, x, y, frontPortId, backPortId }) {
+    const node = document.createElement("div");
+    const text = document.createElement("div");
+    const frontPort = document.createElement("div");
+    const backPort = document.createElement("div");
+
+    node.classList.add("node");
+    frontPort.classList.add("node-port");
+    backPort.classList.add("node-port");
+    text.innerText = name;
+
+    node.appendChild(frontPort);
+    node.appendChild(text);
+    node.appendChild(backPort);
+
+    return {
+      element: node,
+      x: x,
+      y: y,
+      ports: [
+        { id: frontPortId, element: frontPort },
+        { id: backPortId, element: backPort },
+      ],
+    };
+  }
+}
+{{< /code >}}
+
+Also here is some css for our nodes to look nice:
+
+{{< code lang="css" >}}
+.node {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  background: #daedbd;
+  border: 1px solid #9e9e9e;
+  box-shadow: 0 0 5px #9e9e9e;
+  border-radius: 50%;
+  user-select: none;
+}
+
+.node-port {
+  position: relative;
+  width: 0;
+}
+
+.node-port::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 6px;
+  height: 6px;
+  background: #777777;
+  border-radius: 3px;
+}
+{{< /code >}}
+
+Nodes are fully customizable in this library. There are literally no limits to
+how you can present nodes.
+
+It's time to use created method in `initGraph`.
+
+{{< code lang="javascript" >}}
+class Application {
+  // ...
+
+  initGraph() {
+    this.canvas
+      .addNode(
+        this.createNode({
+          name: "Node 1",
+          x: 200,
+          y: 200,
+          frontPortId: "node-1-in",
+          backPortId: "node-1-out",
+        }),
+      )
+      .addNode(
+        this.createNode({
+          name: "Node 2",
+          x: 600,
+          y: 300,
+          frontPortId: "node-2-in",
+          backPortId: "node-2-out",
+        }),
+      );
+  }
+
+  // ...
+}
+{{< /code >}}
+
+At this point we have two nodes, but they are not connected. To connect them we
+will use [addEdge](/canvas#add-edge) method. It accepts identifiers of source
+port and target port.
+
+{{< code lang="javascript" >}}
+class Application {
+  // ...
+
+  initGraph() {
+    this.canvas
+      .addNode(
+        this.createNode({
+          name: "Node 1",
+          x: 200,
+          y: 200,
+          frontPortId: "node-1-in",
+          backPortId: "node-1-out",
+        }),
+      )
+      .addNode(
+        this.createNode({
+          name: "Node 2",
+          x: 600,
+          y: 300,
+          frontPortId: "node-2-in",
+          backPortId: "node-2-out",
+        }),
+      )
+      .addEdge({ from: "node-1-out", to: "node-2-in" });
+  }
+
+  // ...
+}
+{{< /code >}}
+
+We can customize edges, for example we can add a target arrow.
+This can be done using [setDefaults](/defaults) method of `CanvasBuilder`.
+
+{{< code lang="javascript" >}}
+class Application {
+  constructor(element) {
+    this.canvas = new CanvasBuilder(element)
+      .setDefaults({
+        edges: {
+          shape: {
+            hasTargetArrow: true,
+          }
+        }
+      })
+      .build();
+  }
+
+  // ...
+}
+{{< /code >}}
+
+But the resulted graph is static. We can enable transformable viewport,
+draggable nodes and other features. Refer to [Modules](/modules) for all
+available features.
+
+{{< code lang="javascript" >}}
+class Application {
+  constructor(element) {
+    this.canvas = new CanvasBuilder(element)
+      .setDefaults({
+        edges: {
+          shape: {
+            hasTargetArrow: true,
+          }
+        }
+      })
+      .enableUserTransformableViewport()
+      .enableUserDraggableNodes()
+      .enableBackground()
+      .build();
+  }
+
+  // ...
+}
+{{< /code >}}
+
+The end result is presented below.
+
+Every example in this documentation is a single HTML page, so you can copy/paste it, and it will work immediately.
 
 {{< use-case title="Basic example" src="/use-cases/getting-started/" >}}
