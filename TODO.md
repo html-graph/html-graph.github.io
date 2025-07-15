@@ -1,4 +1,6 @@
+- animated dash edges
+- improve getting started
+- local search
 - SEO, rich results
 - node same as port tutorial
 - make FAQ accordion
-- local search
