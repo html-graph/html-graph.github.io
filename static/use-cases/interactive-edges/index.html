@@ -61,6 +61,17 @@
         background: #777777;
         border-radius: 3px;
       }
+
+      .animated-path {
+        stroke-dasharray: 10;
+        animation: dash 1s linear infinite;
+      }
+
+      @keyframes dash {
+        to {
+          stroke-dashoffset: -100;
+        }
+      }
     </style>
   </head>
   <body>
@@ -83,18 +94,19 @@
                     hasTargetArrow: true,
                   });
 
+
                   const interactiveEdge = new InteractiveEdgeShape(baseShape, {
                     width: 20,
                   });
 
+
                   interactiveEdge.handle.addEventListener("click", (event) => {
-                    const dash = interactiveEdge.line.getAttribute("stroke-dasharray");
-                    const hasDash = dash !== "none" && dash !== null;
+                    const hasDash = interactiveEdge.line.classList.contains("animated-path");
 
                     if (hasDash) {
-                      interactiveEdge.line.setAttribute("stroke-dasharray","none");
+                      interactiveEdge.line.classList.remove("animated-path");
                     } else {
-                      interactiveEdge.line.setAttribute("stroke-dasharray","10");
+                      interactiveEdge.line.classList.add("animated-path");
                     }
                   });
 
