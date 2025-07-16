@@ -71,7 +71,7 @@ If you prefer to see the final implementation first, you can jump directly
 to the [end result](#end-result) and explore the details afterwards.
 
 Now that we've initialized the canvas, let's define a proper application structure.
-Using ES6 classes helps to organize our code:
+Usage of ES6 classes helps to better organize code:
 
 {{< code lang="javascript" >}}
 class Application {
@@ -115,7 +115,7 @@ At this point everything is ready for graph visualization.
 Lets create a basic node. For this purpose we create a method, that returns a
 data structure, which is expected in <a href="/canvas#add-node" target="_blank">addNode</a> method.
 
-This method accepts parameters:
+The `createNode` method accepts parameters:
 - `name` is a text content of a node
 - `x` and `y` are node's coordinates,
 - `frontPortId` and `backPortId` are port identifiers.
@@ -157,7 +157,7 @@ class Application {
 }
 {{< /code >}}
 
-Also here is some CSS for our nodes to look nice:
+Also here is some CSS so that our nodes look nice:
 
 {{< code lang="css" >}}
 .node {
