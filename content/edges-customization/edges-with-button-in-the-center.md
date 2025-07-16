@@ -4,9 +4,14 @@ title: Advanced Edges | Edges with button in the center
 
 ## Edges with button in the center
 
-<video class="video" autoplay muted loop>
-  <source src="/media/removable-edges.webm">
-</video>
+<a href="/use-cases/midpoint-edge/" target="_blank" aria-label="Edges with button in the center">
+  <div class="video">
+    <video autoplay muted loop>
+      <source src="/media/removable-edges.webm">
+    </video>
+  </div>
+</a>
+
 
 In nocode editor user interfaces it's common to have some way of removing edges.
 

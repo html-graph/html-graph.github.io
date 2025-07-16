@@ -4,9 +4,14 @@ title: Interactive Edges | Changing Edge Color
 
 ## Changing Edge Color
 
-<video class="video" autoplay muted loop>
-  <source src="/media/changing-edge-color.webm">
-</video>
+<a href="/use-cases/changing-edge-color/" target="_blank" aria-label="Changing edge color">
+  <div class="video">
+    <video autoplay muted loop>
+      <source src="/media/changing-edge-color.webm">
+    </video>
+  </div>
+</a>
+
 
 Edge color can be dynamically modified using `--edge-color` CSS variable for edge svg element, as
 shown in the example below.

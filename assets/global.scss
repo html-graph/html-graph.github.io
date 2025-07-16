@@ -268,7 +268,7 @@ ol {
   gap: 0.5rem;
 }
 
-.advanced-demo {
+.video {
   position: relative;
   border: 1px solid var(--color-border);
   padding-top: calc(720 / 1280 * 100%);
@@ -318,9 +318,4 @@ ol {
     bottom: 0.5rem;
     pointer-events: none;
   }
-}
-
-.video {
-  width: 100%;
-  border: 1px solid var(--color-border);
 }

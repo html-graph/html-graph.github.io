@@ -11,7 +11,7 @@ nodes - perfect for building complex visualizations with custom UI components, s
 Get started with our **[getting started guide](/getting-started)**.
 
 <a href="/use-cases/advanced-demo/" target="_blank" aria-label="Advanced demo">
-  <div class="advanced-demo">
+  <div class="video">
     <video autoplay muted loop>
       <source src="/media/advanced-demo.webm">
     </video>
