@@ -1,4 +1,4 @@
-- improve getting started
+- add nodes customization recommendations
 - local search
 - SEO, rich results
 - node same as port tutorial
