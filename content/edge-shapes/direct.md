@@ -49,7 +49,7 @@ const element = document.getElementById('canvas');
 const canvas = new CanvasBuilder(element)
   .setDefaults({
     edges: {
-      shape: () => new DirectEdgeShape({ hasTargetArrow: true })
+      shape: (edgeId) => new DirectEdgeShape({ hasTargetArrow: true })
     },
   })
   .build();

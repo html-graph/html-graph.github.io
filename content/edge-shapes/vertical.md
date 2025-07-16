@@ -52,7 +52,7 @@ const element = document.getElementById('canvas');
 const canvas = new CanvasBuilder(element)
   .setDefaults({
     edges: {
-      shape: () => new VerticalEdgeShape({ hasTargetArrow: true })
+      shape: (edgeId) => new VerticalEdgeShape({ hasTargetArrow: true })
     },
   })
   .build();
