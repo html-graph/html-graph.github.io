@@ -1,0 +1,379 @@
+<!doctype html>
+<html>
+  <head>
+    <title>HTMLGraph | Nodes Customization</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        position: relative;
+        font-family: Arial, sans-serif;
+      }
+
+      #canvas {
+        position: absolute;
+        inset: 0;
+      }
+
+      .circle-node {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        background: #daedbd;
+        border: 1px solid #9e9e9e;
+        box-shadow: 0 0 5px #9e9e9e;
+        border-radius: 50%;
+        user-select: none;
+      }
+
+      .rectangle-node {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 200px;
+        height: 100px;
+        background: #f2cf8a;
+        border: 1px solid #9e9e9e;
+        box-shadow: 0 0 5px #9e9e9e;
+        border-radius: 5px;
+        user-select: none;
+      }
+
+      .rectangle-many-ports-node {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 300px;
+        height: 150px;
+        background: #a6d6f4;
+        border: 1px solid #9e9e9e;
+        box-shadow: 0 0 5px #9e9e9e;
+        border-radius: 5px;
+        user-select: none;
+      }
+
+      .rounded-rectangle-node {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 250px;
+        height: 50px;
+        background: #ecf29d;
+        border: 1px solid #9e9e9e;
+        box-shadow: 0 0 5px #9e9e9e;
+        border-radius: 25px;
+        user-select: none;
+      }
+
+      .button-node {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        width: 200px;
+        background: #a8f7ec;
+        border: 1px solid #9e9e9e;
+        box-shadow: 0 0 5px #9e9e9e;
+        border-radius: 5px;
+        user-select: none;
+      }
+
+      .button-node-toggled {
+        background: #c9a8f7;
+      }
+
+      .button {
+        padding: 0.5rem;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+
+      .ports-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 100%;
+      }
+
+      .node-port {
+        position: relative;
+        width: 0;
+      }
+
+      .node-port::after {
+        content: "";
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        width: 6px;
+        height: 6px;
+        background: #777777;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="canvas"></div>
+    <script type="module">
+      import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@3.13.0";
+
+      class Application {
+        constructor(canvasElement) {
+          this.canvas = new CanvasBuilder(canvasElement)
+            .enableUserTransformableViewport()
+            .enableUserDraggableNodes()
+            .enableBackground()
+            .build();
+        }
+
+        initGraph() {
+          this.canvas.addNode(
+            this.createCircleNode({
+              name: "Circle",
+              x: 200,
+              y: 200,
+              frontPortId: "circle-node-in",
+              backPortId: "circle-node-out",
+            }),
+          ).addNode(
+            this.createRectangleNode({
+              name: "Rectangle",
+              x: 500,
+              y: 200,
+              frontPortId: "rectangle-node-in",
+              backPortId: "rectangle-node-out",
+            }),
+          ).addNode(
+            this.createRectangleManyPortsNode({
+              name: "Rectangle with Many Ports",
+              x: 900,
+              y: 200,
+              frontPorts: [
+                "many-ports-1-in",
+                "many-ports-2-in",
+                "many-ports-3-in",
+                "many-ports-4-in",
+                "many-ports-5-in",
+              ],
+              backPorts: [
+                "many-ports-1-out",
+                "many-ports-2-out",
+                "many-ports-3-out",
+                "many-ports-4-out",
+                "many-ports-5-out",
+              ],
+            }),
+          ).addNode(
+            this.createRoundedRectangleNode({
+              name: "Rounded Rectangle",
+              x: 200,
+              y: 500,
+              frontPortId: "rounded-rectangle-node-in",
+              backPortId: "rounded-rectangle-node-out",
+            }),
+          ).addNode(
+            this.createButtonNode({
+              name: "Click Me!",
+              x: 500,
+              y: 500,
+              frontPortId: "button-node-in",
+              backPortId: "button-node-out",
+            }),
+          ).addNode(
+            this.createImageNode({
+              src: "/static/images/pepe.svg",
+              x: 800,
+              y: 500,
+              portId: "image-port",
+            }),
+          );
+        }
+
+        createCircleNode({ name, x, y, frontPortId, backPortId }) {
+          const node = document.createElement("div");
+          const text = document.createElement("div");
+          const frontPort = document.createElement("div");
+          const backPort = document.createElement("div");
+
+          node.classList.add("circle-node");
+          frontPort.classList.add("node-port");
+          backPort.classList.add("node-port");
+          text.innerText = name;
+
+          node.appendChild(frontPort);
+          node.appendChild(text);
+          node.appendChild(backPort);
+
+          return {
+            element: node,
+            x: x,
+            y: y,
+            ports: [
+              { id: frontPortId, element: frontPort },
+              { id: backPortId, element: backPort },
+            ],
+          };
+        }
+
+        createRectangleNode({ name, x, y, frontPortId, backPortId }) {
+          const node = document.createElement("div");
+          const text = document.createElement("div");
+          const frontPort = document.createElement("div");
+          const backPort = document.createElement("div");
+
+          node.classList.add("rectangle-node");
+          frontPort.classList.add("node-port");
+          backPort.classList.add("node-port");
+          text.innerText = name;
+
+          node.appendChild(frontPort);
+          node.appendChild(text);
+          node.appendChild(backPort);
+
+          return {
+            element: node,
+            x: x,
+            y: y,
+            ports: [
+              { id: frontPortId, element: frontPort },
+              { id: backPortId, element: backPort },
+            ],
+          };
+        }
+
+        createRectangleManyPortsNode({ name, x, y, frontPorts, backPorts }) {
+          const node = document.createElement("div");
+          const text = document.createElement("div");
+          const frontPortsContainer = document.createElement("div");
+          const backPortsContainer = document.createElement("div");
+
+          node.classList.add("rectangle-many-ports-node");
+          frontPortsContainer.classList.add("ports-container");
+          backPortsContainer.classList.add("ports-container");
+          text.innerText = name;
+
+          node.appendChild(frontPortsContainer);
+          node.appendChild(text);
+          node.appendChild(backPortsContainer);
+
+          const ports = [];
+
+          frontPorts.forEach(id => {
+            const portElement = document.createElement("div");
+            portElement.classList.add("node-port");
+
+            frontPortsContainer.appendChild(portElement);
+            ports.push({ id: id, element: portElement });
+          });
+
+          backPorts.forEach(id => {
+            const portElement = document.createElement("div");
+            portElement.classList.add("node-port");
+
+            backPortsContainer.appendChild(portElement)
+            ports.push({ id: id, element: portElement });
+          })
+
+          return {
+            element: node,
+            x: x,
+            y: y,
+            ports: ports,
+          };
+        }
+
+        createRoundedRectangleNode({ name, x, y, frontPortId, backPortId }) {
+          const node = document.createElement("div");
+          const text = document.createElement("div");
+          const frontPort = document.createElement("div");
+          const backPort = document.createElement("div");
+
+          node.classList.add("rounded-rectangle-node");
+          frontPort.classList.add("node-port");
+          backPort.classList.add("node-port");
+          text.innerText = name;
+
+          node.appendChild(frontPort);
+          node.appendChild(text);
+          node.appendChild(backPort);
+
+          return {
+            element: node,
+            x: x,
+            y: y,
+            ports: [
+              { id: frontPortId, element: frontPort },
+              { id: backPortId, element: backPort },
+            ],
+          };
+        }
+
+        createButtonNode({ name, x, y, frontPortId, backPortId }) {
+          const node = document.createElement("div");
+          const button = document.createElement("button");
+          const frontPort = document.createElement("div");
+          const backPort = document.createElement("div");
+
+          node.classList.add("button-node");
+          frontPort.classList.add("node-port");
+          backPort.classList.add("node-port");
+
+          button.classList.add('button');
+          button.innerText = name;
+          button.addEventListener('click', () => {
+            node.classList.toggle("button-node-toggled");
+          });
+
+          node.appendChild(frontPort);
+          node.appendChild(button);
+          node.appendChild(backPort);
+
+          return {
+            element: node,
+            x: x,
+            y: y,
+            ports: [
+              { id: frontPortId, element: frontPort },
+              { id: backPortId, element: backPort },
+            ],
+          };
+        }
+
+        createImageNode({ src, x, y, portId }) {
+          const node = document.createElement("div");
+          const img = document.createElement("img");
+          img.src = src;
+
+          node.classList.add("image-node");
+          node.appendChild(img);
+
+          return {
+            element: node,
+            x: x,
+            y: y,
+            ports: [
+              { id: portId, element: node },
+            ],
+          };
+        }
+      }
+
+      const canvasElement = document.getElementById("canvas");
+      const app = new Application(canvasElement);
+
+      app.initGraph();
+    </script>
+  </body>
+</html>
