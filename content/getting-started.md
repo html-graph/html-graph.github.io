@@ -190,8 +190,7 @@ Also here is some CSS so that our nodes look nice:
 }
 {{< /code >}}
 
-Nodes are fully customizable in this library. There are literally no limits to
-how you can present nodes.
+Nodes are fully customizable using HTML and CSS.
 
 It's time to use created method in `initGraph`.
 
