@@ -4,6 +4,10 @@ title: Advanced Edges | Edges with button in the center
 
 ## Edges with button in the center
 
+<video class="video" autoplay muted loop>
+  <source src="/media/removable-edges.webm">
+</video>
+
 In nocode editor user interfaces it's common to have some way of removing edges.
 
 Removing an edge itself is an easy task, that can be done using the

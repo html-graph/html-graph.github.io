@@ -4,6 +4,10 @@ title: Advanced Edges | Interactive Edges
 
 ## Interactive Edges
 
+<video class="video" autoplay muted loop>
+  <source src="/media/interactive-edges.webm">
+</video>
+
 By default, edges in the graph are not interactive.
 To enable interaction with edges, you need to use the `InteractiveEdgeShape`
 decorator.
