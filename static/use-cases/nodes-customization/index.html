@@ -145,6 +145,13 @@
       class Application {
         constructor(canvasElement) {
           this.canvas = new CanvasBuilder(canvasElement)
+            .setDefaults({
+              edges: {
+                shape: {
+                  type: "horizontal",
+                }
+              }
+            })
             .enableUserTransformableViewport()
             .enableUserDraggableNodes()
             .enableBackground()
@@ -211,7 +218,22 @@
               y: 500,
               portId: "image-port",
             }),
-          );
+          ).addEdge({
+            from: "circle-node-out",
+            to: "rectangle-node-in",
+          }).addEdge({
+            from: "rectangle-node-out",
+            to: "many-ports-1-in",
+          }).addEdge({
+            from: "many-ports-5-out",
+            to: "rounded-rectangle-node-in",
+          }).addEdge({
+            from: "rounded-rectangle-node-out",
+            to: "button-node-in",
+          }).addEdge({
+            from: "button-node-out",
+            to: "image-port",
+          });
         }
 
         createCircleNode({ name, x, y, frontPortId, backPortId }) {
