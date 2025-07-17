@@ -34,6 +34,36 @@ Get started with our **[getting started guide](/getting-started)**.
       </a>
     </li>
     <li>
+      <a target="_blank" href="/use-cases/connectable-ports/" aria-label="Connectable Ports">
+        {{< image path="/images/connectable-ports" alt="Connectable Ports" width="500" height="500">}}
+        <label>Connectable Ports</label>
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="/use-cases/midpoint-edge/" aria-label="Removable Edges">
+        {{< image path="/images/removable-edges" alt="Removable Edges" width="500" height="500">}}
+        <label>Removable Edges</label>
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="/use-cases/custom-background-renderer/" aria-label="Custom Background">
+        {{< image path="/images/custom-background" alt="Custom Background" width="500" height="500">}}
+        <label>Custom Background</label>
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="/use-cases/virtual-scroll/" aria-label="Virtual Scroll">
+        {{< image path="/images/virtual-scroll" alt="Virtual Scroll" width="500" height="500">}}
+        <label>Virtual Scroll</label>
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="/use-cases/changing-edge-color/" aria-label="Changing Edge Color">
+        {{< image path="/images/changing-edge-color" alt="Changing Edge Color" width="500" height="500">}}
+        <label>Changing Edge Color</label>
+      </a>
+    </li>
+    <li>
       <a target="_blank" href="/use-cases/bezier-edge/" aria-label="Bezier Edges">
         {{< image path="/images/bezier-edge" alt="Bezier Edges" width="500" height="500">}}
         <label>Bezier Edges</label>
@@ -67,36 +97,6 @@ Get started with our **[getting started guide](/getting-started)**.
       <a target="_blank" href="/use-cases/edge-with-label/" aria-label="Custom Edges">
         {{< image path="/images/custom-edge" alt="Custom Edge" width="500" height="500">}}
         <label>Custom Edges</label>
-      </a>
-    </li>
-    <li>
-      <a target="_blank" href="/use-cases/connectable-ports/" aria-label="Connectable Ports">
-        {{< image path="/images/connectable-ports" alt="Connectable Ports" width="500" height="500">}}
-        <label>Connectable Ports</label>
-      </a>
-    </li>
-    <li>
-      <a target="_blank" href="/use-cases/midpoint-edge/" aria-label="Removable Edges">
-        {{< image path="/images/removable-edges" alt="Removable Edges" width="500" height="500">}}
-        <label>Removable Edges</label>
-      </a>
-    </li>
-    <li>
-      <a target="_blank" href="/use-cases/custom-background-renderer/" aria-label="Custom Background">
-        {{< image path="/images/custom-background" alt="Custom Background" width="500" height="500">}}
-        <label>Custom Background</label>
-      </a>
-    </li>
-    <li>
-      <a target="_blank" href="/use-cases/virtual-scroll/" aria-label="Virtual Scroll">
-        {{< image path="/images/virtual-scroll" alt="Virtual Scroll" width="500" height="500">}}
-        <label>Virtual Scroll</label>
-      </a>
-    </li>
-    <li>
-      <a target="_blank" href="/use-cases/changing-edge-color/" aria-label="Changing Edge Color">
-        {{< image path="/images/changing-edge-color" alt="Changing Edge Color" width="500" height="500">}}
-        <label>Changing Edge Color</label>
       </a>
     </li>
     <li>
