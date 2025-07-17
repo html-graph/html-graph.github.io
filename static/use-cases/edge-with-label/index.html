@@ -63,6 +63,13 @@
       class Application {
         constructor(element) {
           this.canvas = new CanvasBuilder(element)
+            .setDefaults({
+              edges: {
+                shape: (edgeId) => {
+                  return new EdgeWithLabelShape(`Connection ${edgeId}`);
+                }
+              }
+            })
             .enableUserDraggableNodes()
             .enableUserTransformableViewport()
             .enableBackground()
@@ -90,9 +97,9 @@
               }),
             )
             .addEdge({
+              id: "1",
               from: "node-1-out",
               to: "node-2-in",
-              shape: new EdgeWithLabelShape("Connection 1"),
             });
         }
 
