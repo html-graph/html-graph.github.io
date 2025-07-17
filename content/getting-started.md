@@ -115,7 +115,7 @@ At this point everything is ready for graph visualization.
 Lets create a basic node. For this purpose we create a method, that returns a
 data structure, which is expected in <a href="/canvas#add-node" target="_blank">addNode</a> method.
 
-The `createNode` method accepts parameters:
+The `createNode` method of `Application` class accepts parameters:
 - `name` is a text content of a node
 - `x` and `y` are node's coordinates,
 - `frontPortId` and `backPortId` are port identifiers.
