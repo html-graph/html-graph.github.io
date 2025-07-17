@@ -22,8 +22,20 @@ Get started with our **[getting started guide](/getting-started)**.
 <div class="previews">
   <ul>
     <li>
+      <a target="_blank" href="/use-cases/nodes-customization/" aria-label="Nodes Customization">
+        {{< image path="/images/nodes-customization" alt="Nodes Customization" width="500" height="500">}}
+        <label>Nodes Customization</label>
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="/use-cases/interactive-edges/" aria-label="Interactive Edges">
+        {{< image path="/images/interactive-edges" alt="Interactive Edges" width="500" height="500">}}
+        <label>Interactive Edges</label>
+      </a>
+    </li>
+    <li>
       <a target="_blank" href="/use-cases/bezier-edge/" aria-label="Bezier Edges">
-        {{< image path="/images/bezier-edge" alt="Bezier Edge" width="500" height="500">}}
+        {{< image path="/images/bezier-edge" alt="Bezier Edges" width="500" height="500">}}
         <label>Bezier Edges</label>
       </a>
     </li>
@@ -85,12 +97,6 @@ Get started with our **[getting started guide](/getting-started)**.
       <a target="_blank" href="/use-cases/changing-edge-color/" aria-label="Changing Edge Color">
         {{< image path="/images/changing-edge-color" alt="Changing Edge Color" width="500" height="500">}}
         <label>Changing Edge Color</label>
-      </a>
-    </li>
-    <li>
-      <a target="_blank" href="/use-cases/interactive-edges/" aria-label="Interactive Edges">
-        {{< image path="/images/interactive-edges" alt="Interactive Edges" width="500" height="500">}}
-        <label>Interactive Edges</label>
       </a>
     </li>
     <li>
