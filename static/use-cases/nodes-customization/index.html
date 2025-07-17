@@ -149,11 +149,15 @@
               edges: {
                 shape: {
                   type: "horizontal",
-                }
-              }
+                },
+                priority: 0,
+              },
+              nodes: {
+                priority: 1,
+              },
             })
             .enableUserTransformableViewport()
-            .enableUserDraggableNodes()
+            .enableUserDraggableNodes({ moveEdgesOnTop: false })
             .enableBackground()
             .build();
         }
