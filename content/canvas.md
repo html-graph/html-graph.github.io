@@ -26,7 +26,7 @@ Below is a list of all available methods
 
 ### Add Node [#](#add-node) ### {#add-node}
 
-Adds a node to the canvas with customizable properties.
+Adds a node to the canvas.
 
 {{< code lang="javascript">}}
 canvas.addNode({
@@ -37,7 +37,7 @@ canvas.addNode({
 });
 {{< /code >}}
 
-For convenience, static ports can be defined directly during node creation.
+For convenience, ports can be specified directly during node creation.
 
 {{< code lang="javascript">}}
 const node = document.createElement('div');
