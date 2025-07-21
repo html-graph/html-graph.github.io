@@ -71,7 +71,7 @@ If you prefer to see the final implementation first, you can jump directly
 to the [end result](#end-result) and explore the details afterwards.
 
 Now that we've initialized the canvas, let's define a proper application structure.
-Usage of ES6 classes helps to better organize code:
+Usage of ES6 classes helps to organize code:
 
 {{< code lang="javascript" >}}
 class Application {
