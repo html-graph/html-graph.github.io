@@ -44,9 +44,9 @@ const edgeIds = canvas.graph.getNodeIncomingEdgeIds("node-1");
 {{< / code >}}
 This method returns `null` if the node does not exist.
 
-1. get the IDs of outcoming edges for a specific node
+1. get the IDs of outgoing edges for a specific node
 {{< code lang="javascript" >}}
-const edgeIds = canvas.graph.getNodeOutcomingEdgeIds("node-1");
+const edgeIds = canvas.graph.getNodeOutgoingEdgeIds("node-1");
 {{< / code >}}
 This method returns `null` if the node does not exist.
 
@@ -90,9 +90,9 @@ const edgeIds = canvas.graph.getPortIncomingEdgeIds("port-1");
 {{< / code >}}
 This method returns `null` if the port does not exist.
 
-1. get the IDs of outcoming edges for a specific port
+1. get the IDs of outgoing edges for a specific port
 {{< code lang="javascript" >}}
-const edgeIds = canvas.graph.getPortOutcomingEdgeIds("port-1");
+const edgeIds = canvas.graph.getPortOutgoingEdgeIds("port-1");
 {{< / code >}}
 This method returns `null` if the port does not exist.
 
