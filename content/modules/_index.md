@@ -34,6 +34,9 @@ Add customizable backgrounds that seamlessly work with the transformable viewpor
 ### [Connectable Ports](/modules/connectable-ports)
 Create connections by dragging between ports, enabling dynamic graph editing.
 
+### [Draggable Edges](/modules/draggable-edges)
+Update existing connections by dragging adjacent ports, enabling dynamic graph editing.
+
 ### [Virtual Scroll](/modules/virtual-scroll)
 Optimize performance for large graphs with intelligent rendering of visible elements only.
 

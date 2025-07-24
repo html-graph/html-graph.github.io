@@ -65,6 +65,13 @@
       </li>
       <li>
         {{ partial "menu-link.html" (dict
+          "path" "/modules/draggable-edges/"
+          "activePath" .path
+          "label" "Draggable Edges"
+        )}}
+      </li>
+      <li>
+        {{ partial "menu-link.html" (dict
           "path" "/modules/virtual-scroll/"
           "activePath" .path
           "label" "Virtual Scroll"
