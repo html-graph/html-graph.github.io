@@ -120,38 +120,133 @@
       import {
         CanvasBuilder,
         HorizontalEdgeShape,
-        MidpointEdgeShape
-      } from "https://unpkg.com/@html-graph/html-graph@3.14.0";
+        MidpointEdgeShape,
+        InteractiveEdgeShape,
+      } from "https://unpkg.com/@html-graph/html-graph@3.16.0";
 
       class Application {
         nodePriority = 1;
 
+        selectedEdgeId = null;
+
+        edgeShapeFactory = (edgeId) => {
+          const baseShape = new HorizontalEdgeShape({
+            color: "var(--color-edge)",
+            hasTargetArrow: true,
+            detourDistance: 150,
+          });
+
+          const interactiveShape = new InteractiveEdgeShape(baseShape, { width: 20 });
+
+          interactiveShape.handle.addEventListener("click", (event) => {
+            event.stopPropagation();
+            this.setSelectedEdge(edgeId);
+          });
+
+          const midpoint = this.createRemoveEdgeButton();
+          const midpointShape = new MidpointEdgeShape(interactiveShape, midpoint);
+
+          midpointShape.midpointElement.addEventListener("click", (event) => {
+            event.stopPropagation();
+            this.canvas.removeEdge(edgeId);
+          });
+
+          return midpointShape;
+        };
+
+        connectionTypeResolver = (portId) => {
+          const edgeIds = this.canvas.graph.getPortAdjacentEdgeIds(portId);
+          const hasSelectedEdge = edgeIds.find((edgeId) => edgeId === this.selectedEdgeId);
+
+          if (hasSelectedEdge !== undefined) {
+            return null;
+          }
+
+          return portId.startsWith("output-") ? "direct" : "reverse";
+        };
+
+        connectionPreprocessor = (request) => {
+          const existingEdge = this.canvas.graph.getAllEdgeIds().find((edgeId) => {
+            const edge = this.canvas.graph.getEdge(edgeId);
+
+            return edge.from === request.from && edge.to === request.to;
+          });
+
+          if (existingEdge !== undefined) {
+            return null;
+          }
+
+          if (request.from.startsWith("output-") && request.to.startsWith("input-")) {
+            return request;
+          }
+
+          return null;
+        };
+
+        draggingEdgeResolver = (portId) => {
+          const edgeIds = this.canvas.graph.getPortAdjacentEdgeIds(portId);
+
+          const hasSelectedEdge = edgeIds.find((edgeId) => edgeId === this.selectedEdgeId);
+
+          if (hasSelectedEdge !== undefined) {
+            return this.selectedEdgeId;
+          }
+
+          return null;
+        };
+
+        connectionPreprocessor = (request) => {
+          const existingEdge = this.canvas.graph.getAllEdgeIds().find((edgeId) => {
+            const edge = this.canvas.graph.getEdge(edgeId);
+
+            return edge.from === request.from && edge.to === request.to;
+          });
+
+          if (existingEdge !== undefined) {
+            return null;
+          }
+
+          if (
+            `${request.from}`.startsWith("output-") &&
+            `${request.to}`.startsWith("input-")
+          ) {
+            return request;
+          }
+
+          return null;
+        };
+
+        onEdgeReattachPrevented = (payload) => {
+          this.canvas.addEdge({
+            id: payload.id,
+            from: payload.from,
+            to: payload.to,
+            shape: payload.shape,
+            priority: payload.priority,
+          });
+        };
+
+        onEdgeReattachInterrupted = (payload) => {
+          this.canvas.addEdge({
+            id: payload.id,
+            from: payload.from,
+            to: payload.to,
+            shape: payload.shape,
+            priority: payload.priority,
+          });
+        };
+
         constructor(canvasElement) {
-          this.canvas = new CanvasBuilder(canvasElement)
+          this.canvasElement = canvasElement;
+
+          this.canvas = new CanvasBuilder(this.canvasElement)
             .setDefaults({
               nodes: {
                 centerFn: () => ({ x: 0, y: 0 }),
                 priority: () => this.nodePriority++,
               },
               edges: {
-                shape: (edgeId) => {
-                  const baseShape = new HorizontalEdgeShape({
-                    color: "var(--color-edge)",
-                    hasTargetArrow: true,
-                    detourDistance: 150,
-                  });
-
-                  const midpoint = this.createRemoveEdgeButton();
-                  const midpointShape = new MidpointEdgeShape(baseShape, midpoint);
-
-                  midpointShape.midpointElement.addEventListener("mouseup", (event) => {
-                    if (event.button === 0) {
-                      this.canvas.removeEdge(edgeId);
-                    }
-                  });
-
-                  return midpointShape;
-                },
+                shape: this.edgeShapeFactory,
                 priority: 0,
               },
             })
@@ -165,28 +260,37 @@
                 color: "var(--color-edge)",
                 hasTargetArrow: true,
               },
-              connectionTypeResolver: (portId) => {
-                return portId.startsWith("output-") ? "direct" : "reverse";
-              },
-              connectionPreprocessor: (request) => {
-                const existingEdge = this.canvas.graph.getAllEdgeIds().find((edgeId) => {
-                  const edge = this.canvas.graph.getEdge(edgeId);
-
-                  return edge.from === request.from && edge.to === request.to;
-                });
-
-                if (existingEdge !== undefined) {
-                  return null;
-                }
-
-                if (request.from.startsWith("output-") && request.to.startsWith("input-")) {
-                  return request;
-                }
-
-                return null;
+              connectionTypeResolver: this.connectionTypeResolver,
+              connectionPreprocessor: this.connectionPreprocessor,
+            })
+            .enableUserDraggableEdges({
+              mouseDownEventVerifier: (event) => event.button === 0,
+              draggingEdgeResolver: this.draggingEdgeResolver,
+              connectionPreprocessor: this.connectionPreprocessor,
+              events: {
+                onEdgeReattachPrevented: this.onEdgeReattachPrevented,
+                onEdgeReattachInterrupted: this.onEdgeReattachInterrupted,
               },
             })
             .build();
+
+          this.canvasElement.addEventListener("pointerup", () => {
+            this.setSelectedEdge(null);
+          });
+        }
+
+        setSelectedEdge(selectedEdgeId) {
+          this.selectedEdgeId = selectedEdgeId;
+          this.updateEdges();
+        }
+
+        updateEdges() {
+          this.canvas.graph.getAllEdgeIds().forEach(edgeId => {
+            const shape = this.canvas.graph.getEdge(edgeId).shape;
+            const strokeWidth = edgeId === this.selectedEdgeId ? 2 : 1;
+
+            shape.line.setAttribute('stroke-width', `${strokeWidth}`);
+          });
         }
 
         initGraph() {
