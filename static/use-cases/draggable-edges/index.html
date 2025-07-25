@@ -103,20 +103,22 @@
                 return null;
               },
               events: {
-                onEdgeReattachPrevented: (edge) => {
+                onEdgeReattachPrevented: (payload) => {
                   this.canvas.addEdge({
-                    from: edge.from,
-                    to: edge.to,
-                    shape: edge.shape,
-                    priority: edge.priority,
+                    id: payload.id,
+                    from: payload.from,
+                    to: payload.to,
+                    shape: payload.shape,
+                    priority: payload.priority,
                   });
                 },
-                onEdgeReattachInterrupted: (edge) => {
+                onEdgeReattachInterrupted: (payload) => {
                   this.canvas.addEdge({
-                    from: edge.from,
-                    to: edge.to,
-                    shape: edge.shape,
-                    priority: edge.priority,
+                    id: payload.id,
+                    from: payload.from,
+                    to: payload.to,
+                    shape: payload.shape,
+                    priority: payload.priority,
                   });
                 },
               },
