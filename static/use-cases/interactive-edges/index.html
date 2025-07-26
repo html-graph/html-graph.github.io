@@ -94,20 +94,12 @@
                     hasTargetArrow: true,
                   });
 
-
                   const interactiveEdge = new InteractiveEdgeShape(baseShape, {
                     width: 20,
                   });
 
-
                   interactiveEdge.handle.addEventListener("click", (event) => {
-                    const hasDash = interactiveEdge.line.classList.contains("animated-path");
-
-                    if (hasDash) {
-                      interactiveEdge.line.classList.remove("animated-path");
-                    } else {
-                      interactiveEdge.line.classList.add("animated-path");
-                    }
+                    interactiveEdge.line.classList.toggle("animated-path");
                   });
 
                   return interactiveEdge;
