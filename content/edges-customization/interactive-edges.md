@@ -37,7 +37,7 @@ const canvas = new CanvasBuilder(element)
 {{< /code >}}
 
 Then use the `InteractiveEdgeShape` decorator to create invisible interaction area around the visible edge.
-This example shows how to handle mouse click event for an edge:
+This example shows how to handle click event for an edge:
 
 {{< code lang="javascript">}}
 import {
@@ -60,7 +60,7 @@ const canvas = new CanvasBuilder(element)
           width: 20,
         });
 
-        interactiveShape.handle.addEventListener("mousedown", (event) => {
+        interactiveShape.handle.addEventListener("click", (event) => {
           console.log(`clicked on edge with id: ${edgeId}`);
         });
 
