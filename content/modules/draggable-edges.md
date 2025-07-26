@@ -26,7 +26,7 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-It is crucial for the edge to have a "grabable" area large enough to actually be grabbed by the user, as shown in the example below.
+It is crucial for the port to have a "grabable" area large enough to actually be grabbed by the user, as shown in the example below.
 
 {{< use-case title="Draggable Edges" src=/use-cases/draggable-edges/ >}}
 
