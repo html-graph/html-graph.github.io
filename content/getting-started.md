@@ -93,7 +93,7 @@ const app = new Application(element);
 app.initGraph();
 {{< /code >}}
 
-Also we need to add some basic CSS so that we have a full page canvas.
+Also we need to add some basic CSS so that we have a full screen canvas.
 
 {{< code lang="css" >}}
 html,
