@@ -11,6 +11,7 @@
   --color-light-blue: #00a1e4;
   --color-orange: #f5b700;
   --color-code-background: #eeeeee;
+  --color-tab-bg: #efefef;
 }
 
 html,
@@ -181,11 +182,12 @@ h1, h2, h3, h4, h5, h6, p {
 
   &__btn {
     display: flex;
+    gap: 0.5rem;
     align-items: center;
     border-radius: 0.25rem;
     border: 2px solid var(--color-border);
     padding: 0.25rem 0.5rem;
-    background: var(--color-background-grey);
+    background: var(--color-tab-bg);
 
     &_active {
       border-color: var(--color-border-dark);
