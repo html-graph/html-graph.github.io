@@ -127,4 +127,4 @@ const canvas = new CanvasBuilder(element)
 Key configuration:
 - Nodes: `priority: 1` (higher z-index)
 - Edges: `priority: 0` (lower z-index)
-- Draggable nodes: `moveEdgesOnTop: false` keeps edges under nodes during interaction
+- Draggable nodes: `moveEdgesOnTop: false` keeps edges under nodes during node dragging
