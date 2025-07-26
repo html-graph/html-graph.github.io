@@ -99,11 +99,5 @@ Get started with our **[getting started guide](/getting-started)**.
         <label>Custom Edges</label>
       </a>
     </li>
-    <li>
-      <a target="_blank" href="/use-cases/box-area-rendering/" aria-label="Box Area Rendering">
-        {{< image path="/images/box-area-rendering" alt="Box Area Rendering" width="500" height="500">}}
-        <label>Box Area Rendering</label>
-      </a>
-    </li>
   </ul>
 </div>

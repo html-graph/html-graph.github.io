@@ -98,14 +98,3 @@ Automatically maintain edge connections when nodes are resized.
     </video>
   </div>
 </a>
-
-### [Box Area Rendering](/modules/box-area-rendering)
-Advanced control for virtual scrolling with precise rendering regions.
-
-<a href="/use-cases/box-area-rendering/" target="_blank" aria-label="Box Area Rendering">
-  <div class="video">
-    <video autoplay muted loop>
-      <source src="/media/box-area-rendering.webm">
-    </video>
-  </div>
-</a>
