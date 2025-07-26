@@ -104,8 +104,13 @@
       }
 
       .remove-button {
+        display: none;
         --remove-color: #e88b74;
         --remove-background: white;
+      }
+
+      .selected-edge .remove-button {
+        display: block;
       }
 
       .remove-button:hover {
@@ -308,6 +313,12 @@
           this.canvas.graph.getAllEdgeIds().forEach(edgeId => {
             const shape = this.canvas.graph.getEdge(edgeId).shape;
             const strokeWidth = edgeId === this.selectedEdgeId ? 2 : 1;
+
+            if (edgeId === this.selectedEdgeId) {
+              shape.svg.classList.add("selected-edge");
+            } else {
+              shape.svg.classList.remove("selected-edge");
+            }
 
             shape.line.setAttribute('stroke-width', `${strokeWidth}`);
           });
