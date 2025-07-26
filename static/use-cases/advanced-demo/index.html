@@ -129,6 +129,12 @@
 
         selectedEdgeId = null;
 
+        clickReset = false;
+
+        resetClick = () => {
+          this.clickReset = true;
+        };
+
         edgeShapeFactory = (edgeId) => {
           const baseShape = new HorizontalEdgeShape({
             color: "var(--color-edge)",
@@ -274,7 +280,21 @@
             })
             .build();
 
+          this.canvasElement.addEventListener("pointerdown", () => {
+            this.clickReset = false;
+
+            this.canvasElement.addEventListener("pointermove", this.resetClick);
+          });
+
+          this.canvasElement.addEventListener("pointerup", () => {
+            this.canvasElement.removeEventListener("pointermove", this.resetClick);
+          });
+
           this.canvasElement.addEventListener("click", () => {
+            if (this.clickReset) {
+              return;
+            }
+
             this.setSelectedEdge(null);
           });
         }
