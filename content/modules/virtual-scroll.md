@@ -39,6 +39,7 @@ const canvas = new CanvasBuilder(element)
 | Name                   | Type                           | Description                                         | Required |
 |------------------------|--------------------------------|-----------------------------------------------------|----------|
 | `nodeContainingRadius` | [RadiusConfig](#radius-config) | The radius that fully covers a node from its center | yes      |
+| `events`               | [EventsConfig](#events-config) | Virtual scroll retated events                       | no       |
 
 {{< ref-target ref="radius-config">}}
 
@@ -48,6 +49,19 @@ const canvas = new CanvasBuilder(element)
 |--------------|--------|-----------------------------------------------------------------|----------|
 | `vertical`   | number | The vertical maximum distance from node's center to it's side   | yes      |
 | `horizontal` | number | The horizontal maximum distance from node's center to it's side | yes      |
+
+{{< /ref-target >}}
+
+{{< ref-target ref="events-config">}}
+
+### EventsConfig {#events-config}
+
+Here's your table with the formatting preserved exactly as requested:
+
+| Name                   | Type                    | Description                                           | Required | Default      |
+|------------------------|-------------------------|-------------------------------------------------------|----------|--------------|
+| `onBeforeNodeAttached` | `(nodeId: any) => void` | Function called just before node is attached to DOM   | no       | `() => void` |
+| `onAfterNodeDetached`  | `(nodeId: any) => void` | Function called right after node is detached from DOM | no       | `() => void` |
 
 {{< /ref-target >}}
 

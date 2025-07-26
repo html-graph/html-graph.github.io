@@ -69,22 +69,22 @@ const canvas = new CanvasBuilder(element)
 
 ### Configuration Parameters
 
-| Name                  | Type                                 | Description                                 | Required | Default |
-|-----------------------|--------------------------------------|---------------------------------------------|----------|---------|
-| scale                 | [ScaleConfig](#scale-config)         | Scale-related behavior configuration        | no       | {}      |
-| shift                 | [ShiftConfig](#shift-config)         | Shift-related behavior configuration        | no       | {}      |
-| transformPreprocessor | [TransformConfig](#transform-config) | Transformation preprocessors configuration  | no       | {}      |
-| events                | [EventsConfig](#events-config)       | Handlers for available events               | no       | {}      |
+| Name                    | Type                                 | Description                                 | Required | Default |
+|-------------------------|--------------------------------------|---------------------------------------------|----------|---------|
+| `scale`                 | [ScaleConfig](#scale-config)         | Scale-related behavior configuration        | no       | `{}`    |
+| `shift`                 | [ShiftConfig](#shift-config)         | Shift-related behavior configuration        | no       | `{}`    |
+| `transformPreprocessor` | [TransformConfig](#transform-config) | Transformation preprocessors configuration  | no       | `{}`    |
+| `events`                | [EventsConfig](#events-config)       | Handlers for available events               | no       | `{}`    |
 
 {{< ref-target ref="scale-config">}}
 
 ### ScaleConfig ### {#scale-config}
 
-| Name                    | Type     | Description                                                                                                                  | Required | Default    |
-|-------------------------|----------|------------------------------------------------------------------------------------------------------------------------------|----------|------------|
-| mouseWheelSensitivity   | number   | How much to scale on wheel scroll                                                                                            | no       | 1          |
-| mouseWheelEventVerifier | function | Function to verify if wheel event should apply scaling                                                                       | no       | () => true |
-| wheelFinishTimeout      | number   | Timeout in milliseconds after which scaling with wheel regarded as finished (and `onTransformFinished` event gets triggered) | no       | 500        |
+| Name                      | Type       | Description                                                                                                                  | Required | Default      |
+|---------------------------|------------|------------------------------------------------------------------------------------------------------------------------------|----------|--------------|
+| `mouseWheelSensitivity`   | `number`   | How much to scale on wheel scroll                                                                                            | no       | `1`          |
+| `mouseWheelEventVerifier` | `function` | Function to verify if wheel event should apply scaling                                                                       | no       | `() => true` |
+| `wheelFinishTimeout`      | `number`   | Timeout in milliseconds after which scaling with wheel regarded as finished (and `onTransformFinished` event gets triggered) | no       | `500`        |
 
 {{< /ref-target >}}
 
@@ -92,11 +92,11 @@ const canvas = new CanvasBuilder(element)
 
 ### ShiftConfig ### {#shift-config}
 
-| Name                   | Type           | Description                                              | Required | Default    |
-|------------------------|----------------|----------------------------------------------------------|----------|------------|
-| cursor                 | string \| null | Cursor to set on mouse grab                              | no       | "grab"     |
-| mouseDownEventVerifier | function       | Function to verify if mouse event should trigger grab    | no       | () => true |
-| mouseUpEventVerifier   | function       | Function to verify if mouse event should trigger release | no       | () => true |
+| Name                     | Type             | Description                                              | Required | Default      |
+|--------------------------|------------------|----------------------------------------------------------|----------|--------------|
+| `cursor`                 | `string \| null` | Cursor to set on mouse grab                              | no       | `"grab"`     |
+| `mouseDownEventVerifier` | `function`       | Function to verify if mouse event should trigger grab    | no       | `() => true` |
+| `mouseUpEventVerifier`   | `function`       | Function to verify if mouse event should trigger release | no       | `() => true` |
 
 {{< /ref-target >}}
 

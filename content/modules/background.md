@@ -40,20 +40,20 @@ const canvas = new CanvasBuilder(element)
 
 ### Configuration Parameters
 
-| Name             | Type                               | Description                                                       | Required | Default                             |
-|------------------|------------------------------------|-------------------------------------------------------------------|----------|-------------------------------------|
-| tileDimensions   | [TileDimensions](#tile-dimensions) | Dimensions of rendered tile                                       | no       | `{ width: 25, height: 25 }`         |
-| renderer         | [Renderer](#renderer)              | Specifies the content of tile                                     | no       | `{ radius: 1.5, color: '#d8d8d8' }` |
-| maxViewportScale | number                             | Viewport scale threshold when background should not be rendered   | no       | `10`                                |
+| Name               | Type                               | Description                                                       | Required | Default                             |
+|--------------------|------------------------------------|-------------------------------------------------------------------|----------|-------------------------------------|
+| `tileDimensions`   | [TileDimensions](#tile-dimensions) | Dimensions of rendered tile                                       | no       | `{ width: 25, height: 25 }`         |
+| `renderer`         | [Renderer](#renderer)              | Specifies the content of tile                                     | no       | `{ radius: 1.5, color: '#d8d8d8' }` |
+| `maxViewportScale` | number                             | Viewport scale threshold when background should not be rendered   | no       | `10`                                |
 
 {{< ref-target ref="tile-dimensions">}}
 
 ### TileDimensions ### {#tile-dimensions}
 
-| Name   | Type   | Description | Required | Default |
-|--------|--------|-------------|----------|---------|
-| width  | number | Tile width  | no       | 25      |
-| height | number | Tile height | no       | 25      |
+| Name     | Type     | Description | Required | Default |
+|----------|----------|-------------|----------|---------|
+| `width`  | `number` | Tile width  | no       | `25`    |
+| `height` | `number` | Tile height | no       | `25`    |
 
 {{< /ref-target >}}
 

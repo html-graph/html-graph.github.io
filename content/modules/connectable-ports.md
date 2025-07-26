@@ -35,25 +35,25 @@ The `enableUserConnectablePorts` method accepts optional configuration.
 
 ### Configuration Parameters
 
-| Name                   | Type                                                                      | Description                                                                                                            | Required | Default                                    |
-|------------------------|---------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|----------|--------------------------------------------|
-| edgeShape              | <a href="/defaults#edge-shape-config" target="_blank">EdgeShapeConfig</a> | Default edge shape configuration while port is in the process of dragging                                              | no       | Same as for canvas                         |
-| connectionTypeResolver | `(portId) => "direct" \| "reverse" \| null`                               | Resolves connection type when edge creation has been initiated. `null` means that connection is disallowed             | no       | `() => "direct"`                           |
-| connectionPreprocessor | `(request: AddEdgeRequest) => AddEdgeRequest \| null`                     | Applies modifications to the edge about to be created. `null` means that connection is disallowed.                     | no       | `(request) => request`                     |
-| mouseDownEventVerifier | `(event) => boolean`                                                      | Function to verify if mouse event should initiate connection creation process                                          | no       | `(event) => event.button === 0`            |
-| mouseUpEventVerifier   | `(event) => boolean`                                                      | Function to verify if mouse event should create connection                                                             | no       | `(event) => event.button === 0`            |
-| dragPortDirection      | `number \| undefined`                                                     | Direction of dragging port                                                                                             | no       | `undefined`                                |
-| events                 | [EventsConfig](#events)                                                   | Handlers for available events                                                                                          | no       | `{}`                                       |
+| Name                     | Type                                                                      | Description                                                                                                            | Required | Default                                    |
+|--------------------------|---------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|----------|--------------------------------------------|
+| `edgeShape`              | <a href="/defaults#edge-shape-config" target="_blank">EdgeShapeConfig</a> | Default edge shape configuration while port is in the process of dragging                                              | no       | Same as for canvas                         |
+| `connectionTypeResolver` | `(portId) => "direct" \| "reverse" \| null`                               | Resolves connection type when edge creation has been initiated. `null` means that connection is disallowed             | no       | `() => "direct"`                           |
+| `connectionPreprocessor` | `(request: AddEdgeRequest) => AddEdgeRequest \| null`                     | Applies modifications to the edge about to be created. `null` means that connection is disallowed.                     | no       | `(request) => request`                     |
+| `mouseDownEventVerifier` | `(event) => boolean`                                                      | Function to verify if mouse event should initiate connection creation process                                          | no       | `(event) => event.button === 0`            |
+| `mouseUpEventVerifier`   | `(event) => boolean`                                                      | Function to verify if mouse event should create connection                                                             | no       | `(event) => event.button === 0`            |
+| `dragPortDirection`      | `number \| undefined`                                                     | Direction of dragging port                                                                                             | no       | `undefined`                                |
+| `events`                 | [EventsConfig](#events)                                                   | Handlers for available events                                                                                          | no       | `{}`                                       |
 
 {{< ref-target ref="events">}}
 
 ### Events Configuration ### {#events}
 
-| Name                      | Type                                                            | Description                                                      | Required | Default      |
-|---------------------------|-----------------------------------------------------------------|------------------------------------------------------------------|----------|--------------|
-| onAfterEdgeCreated        | `(edgeId: any) => void`                                         | Function called after a new edge has been added                  | no       | `() => void` |
-| onEdgeCreationInterrupted | `(staticPortId: any, isDirect: boolean) => void`                | Function called when edge creation is interrupted in the process | no       | `() => void` |
-| onEdgeCreationPrevented   | `(addEdgeRequest: [AddEdgeRequest](/canvas/#add-edge)) => void` | Function called when an attempt to create edge is prevented      | no       | `() => void` |
+| Name                        | Type                                                            | Description                                                      | Required | Default      |
+|-----------------------------|-----------------------------------------------------------------|------------------------------------------------------------------|----------|--------------|
+| `onAfterEdgeCreated`        | `(edgeId: any) => void`                                         | Function called after a new edge has been added                  | no       | `() => void` |
+| `onEdgeCreationInterrupted` | `(staticPortId: any, isDirect: boolean) => void`                | Function called when edge creation is interrupted in the process | no       | `() => void` |
+| `onEdgeCreationPrevented`   | `(addEdgeRequest: [AddEdgeRequest](/canvas/#add-edge)) => void` | Function called when an attempt to create edge is prevented      | no       | `() => void` |
 
 {{< /ref-target >}}
 
