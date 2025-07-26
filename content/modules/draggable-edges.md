@@ -47,10 +47,10 @@ The `enableUserDraggableEdges` method accepts optional configuration.
 
 ### Events Configuration ### {#events}
 
-| Name                      | Type                                   | Description                                                      | Required | Default      |
-|---------------------------|----------------------------------------|------------------------------------------------------------------|----------|--------------|
-| onAfterEdgeReattached     | `(edgeId: any) => void`                | Function called after an edge has been reattached                | no       | `() => void` |
-| onEdgeReattachInterrupted | `(edge: GraphEdge) => void`            | Function called when edge reattach is interrupted in the process | no       | `() => void` |
-| onEdgeReattachPrevented   | `(edge: GraphEdge) => void`            | Function called when an attempt to reattach edge is prevented    | no       | `() => void` |
+| Name                      | Type                                  | Description                                                      | Required | Default      |
+|---------------------------|---------------------------------------|------------------------------------------------------------------|----------|--------------|
+| onAfterEdgeReattached     | `(edgeId: any) => void`               | Function called after an edge has been reattached                | no       | `() => void` |
+| onEdgeReattachInterrupted | `(edge: DraggingEdgePayload) => void` | Function called when edge reattach is interrupted in the process | no       | `() => void` |
+| onEdgeReattachPrevented   | `(edge: DraggingEdgePayload) => void` | Function called when an attempt to reattach edge is prevented    | no       | `() => void` |
 
 {{< /ref-target >}}
