@@ -66,6 +66,8 @@ Download `html-graph.umd.cjs` from <a target="_blank" href="https://github.com/h
 </script>
 {{< /code >}}
 
+---
+
 The next part will guide you through graph visualization step-by-step.
 If you prefer to see the final implementation first, you can jump directly
 to the [end result](#end-result) and explore the details afterwards.
