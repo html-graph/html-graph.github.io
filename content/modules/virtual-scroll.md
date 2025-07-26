@@ -71,7 +71,8 @@ For example, if the center of every node is at (50%, 50%), and the maximum node 
 
 Smaller values for these radii result in greater optimization.
 
-The `enableVirtualScroll` method automatically configures the transformable viewport, but you can still customize transform settings by calling `setTransformableViewport`.
+The `enableVirtualScroll` method automatically configures the transformable viewport,
+but you can still customize transform settings by calling `enableUserTransformableViewport`.
 
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');
