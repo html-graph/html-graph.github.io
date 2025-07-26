@@ -6,6 +6,14 @@ sitemap:
 
 ## Box Area Rendering (advanced usage)
 
+<a href="/use-cases/box-area-rendering/" target="_blank" aria-label="Box Area Rendering">
+  <div class="video">
+    <video autoplay muted loop>
+      <source src="/media/box-area-rendering.webm">
+    </video>
+  </div>
+</a>
+
 Instead of relying on the built-in [virtual scroll](/modules/virtual-scroll),
 you can fine-tune your own virtual scroll implementation.
 This can be achieved by providing an [EventSubject](#event-subject)

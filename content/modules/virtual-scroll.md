@@ -8,6 +8,15 @@ sitemap:
 
 For particularly large graphs (starting at around 500 nodes and edges), it's crucial to optimize rendering by loading only the nodes and edges that are within or near the viewport.
 
+<a href="/use-cases/virtual-scroll/" target="_blank" aria-label="Virtual Scroll">
+  <div class="video">
+    <video autoplay muted loop>
+      <source src="/media/virtual-scroll.webm">
+    </video>
+  </div>
+</a>
+
+
 To enable this built-in behavior, call the `enableVirtualScroll` method on `CanvasBuilder`. This method requires a configuration object.
 
 {{< code lang="javascript">}}

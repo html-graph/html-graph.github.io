@@ -6,6 +6,14 @@ sitemap:
 
 ## Resize Reactive Nodes
 
+<a href="/use-cases/resize-reactive-nodes/" target="_blank" aria-label="Responsive Nodes">
+  <div class="video">
+    <video autoplay muted loop>
+      <source src="/media/resize-reactive-nodes.webm">
+    </video>
+  </div>
+</a>
+
 To enable built-in resize reactive nodes, ensuring that edges are automatically updated when adjacent nodes are resized, call the `enableResizeReactiveNodes` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
