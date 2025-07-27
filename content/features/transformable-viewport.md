@@ -1,5 +1,5 @@
 ---
-title: Modules | Transformable Viewport
+title: Features | Transformable Viewport
 sitemap:
   priority: 0.8
 ---

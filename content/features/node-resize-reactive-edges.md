@@ -1,5 +1,5 @@
 ---
-title: Modules | Node Resize Reactive Edges
+title: Features | Node Resize Reactive Edges
 sitemap:
   priority: 0.3
 ---

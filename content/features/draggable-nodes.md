@@ -1,5 +1,5 @@
 ---
-title: Modules | Draggable Nodes
+title: Features | Draggable Nodes
 sitemap:
   priority: 0.8
 ---

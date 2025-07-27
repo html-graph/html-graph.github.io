@@ -283,7 +283,7 @@ class Application {
 {{< /code >}}
 
 But the resulted graph is static. We can enable transformable viewport,
-draggable nodes and other features. Refer to <a href="/modules" target="_blank">Modules</a> for all
+draggable nodes and other features. Refer to <a href="/features" target="_blank">Features</a> for all
 available features.
 
 {{< code lang="javascript" >}}

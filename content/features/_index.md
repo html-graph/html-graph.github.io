@@ -1,12 +1,12 @@
 ---
-title: Modules
+title: Features
 sitemap:
   priority: 0.7
 ---
 
-## Modules
+## Features
 
-HTMLGraph extends its functionality through optional modules, which can be enabled by calling their respective methods on a `CanvasBuilder` instance.
+HTMLGraph extends its functionality through optional features, which can be enabled by calling their respective methods on a `CanvasBuilder` instance.
 
 `CanvasBuilder` uses a fluent interface, allowing methods to be chained for concise configuration. For example:
 
@@ -20,9 +20,9 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-Here is an overview of all available modules:
+Here is an overview of all available features:
 
-### [Transformable Viewport](/modules/transformable-viewport)
+### [Transformable Viewport](/features/transformable-viewport)
 Shift and zoom your graph using mouse or touch gestures for intuitive navigation.
 
 <a href="/use-cases/transformable-viewport/" target="_blank" aria-label="Transformable Viewport">
@@ -33,7 +33,7 @@ Shift and zoom your graph using mouse or touch gestures for intuitive navigation
   </div>
 </a>
 
-### [Draggable Nodes](/modules/draggable-nodes)
+### [Draggable Nodes](/features/draggable-nodes)
 Easily reposition nodes by dragging them with mouse or touch gestures.
 
 <a href="/use-cases/draggable-nodes/" target="_blank" aria-label="Draggable Nodes">
@@ -44,7 +44,7 @@ Easily reposition nodes by dragging them with mouse or touch gestures.
   </div>
 </a>
 
-### [Background Rendering](/modules/background)
+### [Background Rendering](/features/background)
 Add customizable backgrounds that seamlessly work with the transformable viewport.
 
 <a href="/use-cases/custom-background-renderer/" target="_blank" aria-label="Background">
@@ -55,7 +55,7 @@ Add customizable backgrounds that seamlessly work with the transformable viewpor
   </div>
 </a>
 
-### [Connectable Ports](/modules/connectable-ports)
+### [Connectable Ports](/features/connectable-ports)
 Create connections by dragging between ports, enabling dynamic graph editing.
 
 <a href="/use-cases/connectable-ports/" target="_blank" aria-label="Connectable Ports">
@@ -66,7 +66,7 @@ Create connections by dragging between ports, enabling dynamic graph editing.
   </div>
 </a>
 
-### [Draggable Edges](/modules/draggable-edges)
+### [Draggable Edges](/features/draggable-edges)
 Update existing connections by dragging adjacent ports, enabling dynamic graph editing.
 
 <a href="/use-cases/draggable-edges/" target="_blank" aria-label="Draggable Edges">
@@ -77,7 +77,7 @@ Update existing connections by dragging adjacent ports, enabling dynamic graph e
   </div>
 </a>
 
-### [Virtual Scroll](/modules/virtual-scroll)
+### [Virtual Scroll](/features/virtual-scroll)
 Optimize performance for large graphs with intelligent rendering of visible elements only.
 
 <a href="/use-cases/virtual-scroll/" target="_blank" aria-label="Virtual Scroll">
@@ -88,7 +88,7 @@ Optimize performance for large graphs with intelligent rendering of visible elem
   </div>
 </a>
 
-### [Node Resize Reactive Edges](/modules/node-resize-reactive-edges)
+### [Node Resize Reactive Edges](/features/node-resize-reactive-edges)
 Automatically maintain edge connections when nodes are resized.
 
 <a href="/use-cases/node-resize-reactive-edges/" target="_blank" aria-label="Responsive Nodes">

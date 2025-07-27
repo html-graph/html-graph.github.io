@@ -105,4 +105,4 @@ The final result is presented below.
 
 {{< use-case title="Remove button in the center of an edge" src=/use-cases/midpoint-edge/ >}}
 
-When combined with [connectable ports](/modules/connectable-ports), this functionality becomes particularly useful for nocode editor interfaces.
+When combined with [connectable ports](/features/connectable-ports), this functionality becomes particularly useful for nocode editor interfaces.

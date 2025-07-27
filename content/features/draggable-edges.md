@@ -1,12 +1,12 @@
 ---
-title: Modules | Draggable Edges
+title: Features | Draggable Edges
 sitemap:
   priority: 0.6
 ---
 
 ## Draggable Edges
 
-In addition to [connectable ports](/modules/connectable-ports), it is useful to provide functionality for modifying existing edges.
+In addition to [connectable ports](/features/connectable-ports), it is useful to provide functionality for modifying existing edges.
 
 <a href="/use-cases/draggable-edges/" target="_blank" aria-label="Draggable edges">
   <div class="video">

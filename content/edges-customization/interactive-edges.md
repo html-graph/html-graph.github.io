@@ -90,7 +90,7 @@ Try out this demo, which toggles edge line animated dash on edge click:
 
 {{< use-case title="Interactive edges" src=/use-cases/interactive-edges/ >}}
 
-When used with [connectable ports](/modules/connectable-ports) it is recommended to set edge priority below node priority
+When used with [connectable ports](/features/connectable-ports) it is recommended to set edge priority below node priority
 to ensure ports remain accessible:
 
 {{< code lang="javascript">}}

@@ -1,5 +1,5 @@
 ---
-title: Modules | Virtual Scroll
+title: Features | Virtual Scroll
 sitemap:
   priority: 0.8
 ---
