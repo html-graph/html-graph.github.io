@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>HTMLGraph | Resize reactive nodes demo</title>
+    <title>HTMLGraph | Node Resize Reactive Edges Demo</title>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no"
@@ -79,14 +79,14 @@
     />
     <div id="canvas"></div>
     <script type="module">
-      import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@3.18.0";
+      import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@3.19.0";
 
       class Application {
         constructor(element) {
           this.canvas = new CanvasBuilder(element)
             .enableUserDraggableNodes()
             .enableUserTransformableViewport()
-            .enableResizeReactiveNodes()
+            .enableNodeResizeReactiveEdges()
             .enableBackground()
             .build();
 
