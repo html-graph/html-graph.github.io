@@ -95,13 +95,6 @@ canvas.graph.onBeforeEdgeRemoved.subscribe((edgeId) => {
 ### Viewport events
 
 {{< code lang="javascript" >}}
-canvas.viewport.onBeforeUpdated.subscribe(() => {
-  console.log('viewport state is about to be updated');
-  console.log(canvas.viewport.getViewportMatrix());
-});
-{{< / code >}}
-
-{{< code lang="javascript" >}}
 canvas.viewport.onAfterUpdated.subscribe(() => {
   console.log('viewport state has just been updated');
   console.log(canvas.viewport.getViewportMatrix());
