@@ -14,7 +14,8 @@ sitemap:
   </div>
 </a>
 
-To enable built-in resize reactive nodes, ensuring that edges are automatically updated when adjacent nodes are resized, call the `enableNodeResizeReactiveEdges` method on `CanvasBuilder`.
+To enable built-in node resize reactive edges, ensuring that edges are automatically updated
+when adjacent nodes are resized, call the `enableNodeResizeReactiveEdges` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');
