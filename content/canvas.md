@@ -265,7 +265,6 @@ Adds an edge between two ports on the canvas.
 
 {{< code lang="javascript">}}
 canvas.addEdge({
-  id: "edge-1",
   from: "port-1",
   to: "port-2",
 });
