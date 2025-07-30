@@ -127,7 +127,7 @@
         HorizontalEdgeShape,
         MidpointEdgeShape,
         InteractiveEdgeShape,
-      } from "https://unpkg.com/@html-graph/html-graph@3.19.0";
+      } from "https://unpkg.com/@html-graph/html-graph@3.20.0";
 
       class Application {
         nodePriority = 1;
@@ -144,7 +144,7 @@
           const baseShape = new HorizontalEdgeShape({
             color: "var(--color-edge)",
             hasTargetArrow: true,
-            detourDistance: 150,
+            detourDistance: -150,
           });
 
           const interactiveShape = new InteractiveEdgeShape(baseShape, { width: 20 });
