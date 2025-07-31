@@ -51,23 +51,24 @@ const canvas = new CanvasBuilder(element)
 
 ### Configuration Parameters
 
-| Name             | Type                                  | Description                                         | Required | Default |
-|------------------|---------------------------------------|-----------------------------------------------------|----------|---------|
-| `moveOnTop`      | `boolean`                             | Move grabbed node to the top                        | no       | `true`  |
-| `moveEdgesOnTop` | `boolean`                             | Move connected edges to the grabbed node beneath it | no       | `true`  |
-| `gridSize`       | `number \| null`                      | Grid size for nodes to be snapped to                | no       | `null`  |
-| `mouse`          | [MouseConfig](#mouse-configuration)   | Mouse-related configuration                         | no       | `{}`    |
-| `events`         | [EventsConfig](#events-configuration) | Handlers for available events                       | no       | `{}`    |
+| Name               | Type                                  | Description                                         | Required | Default      |
+|--------------------|---------------------------------------|-----------------------------------------------------|----------|--------------|
+| `moveOnTop`        | `boolean`                             | Move grabbed node to the top                        | no       | `true`       |
+| `moveEdgesOnTop`   | `boolean`                             | Move connected edges to the grabbed node beneath it | no       | `true`       |
+| `nodeDragVerifier` | `(payload: NodePayload) => boolean`   | Function to verify if node should be dragged        | no       | `() => true` |
+| `gridSize`         | `number \| null`                      | Grid size for nodes to be snapped to                | no       | `null`       |
+| `mouse`            | [MouseConfig](#mouse-configuration)   | Mouse-related configuration                         | no       | `{}`         |
+| `events`           | [EventsConfig](#events-configuration) | Handlers for available events                       | no       | `{}`         |
 
 {{< ref-target ref="mouse-configuration">}}
 
 ### Mouse Configuration ### {#mouse-configuration}
 
-| Name                     | Type             | Description                                              | Required | Default      |
-|--------------------------|------------------|----------------------------------------------------------|----------|--------------|
-| `dragCursor`             | `string \| null` | Cursor to set on grab                                    | no       | `"grab"`     |
-| `mouseDownEventVerifier` | `function`       | Function to verify if mouse event should trigger grab    | no       | `() => true` |
-| `mouseUpEventVerifier`   | `function`       | Function to verify if mouse event should trigger release | no       | `() => true` |
+| Name                     | Type                             | Description                                              | Required | Default      |
+|--------------------------|----------------------------------|----------------------------------------------------------|----------|--------------|
+| `dragCursor`             | `string \| null`                 | Cursor to set on grab                                    | no       | `"grab"`     |
+| `mouseDownEventVerifier` | `(event: MouseEvent) => boolean` | Function to verify if mouse event should trigger grab    | no       | `() => true` |
+| `mouseUpEventVerifier`   | `(event: MouseEvent) => boolean` | Function to verify if mouse event should trigger release | no       | `() => true` |
 
 {{< /ref-target >}}
 
@@ -78,7 +79,6 @@ const canvas = new CanvasBuilder(element)
 | Name                 | Type       | Description                                   | Required | Default      |
 |----------------------|------------|-----------------------------------------------|----------|--------------|
 | `onNodeDrag`         | `function` | Function to call when node is dragged         | no       | `() => void` |
-| `onBeforeNodeDrag`   | `function` | Function to verify if node should be dragged  | no       | `() => true` |
 | `onNodeDragFinished` | `function` | Function to call when node drag is finished   | no       | `() => void` |
 
 {{< /ref-target >}}
