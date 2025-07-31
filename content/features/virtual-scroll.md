@@ -56,8 +56,6 @@ const canvas = new CanvasBuilder(element)
 
 ### EventsConfig {#events-config}
 
-Here's your table with the formatting preserved exactly as requested:
-
 | Name                   | Type                    | Description                                           | Required | Default      |
 |------------------------|-------------------------|-------------------------------------------------------|----------|--------------|
 | `onBeforeNodeAttached` | `(nodeId: any) => void` | Function called just before node is attached to DOM   | no       | `() => void` |
