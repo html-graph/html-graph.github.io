@@ -39,7 +39,6 @@ In addition to `type: "vertical"`, the following options are available:
 | cycleSquareSide  | number  | Port cycle square side size        | no       | `30`         |
 | roundness        | number  | Roundness of the line angles       | no       | `10`         |
 | detourDistance   | number  | Node cycle detour distance         | no       | `100`        |
-| detourDirection  | number  | Node cycle detour direction        | no       | `-Math.PI/2` |
 {{< /ref-target >}}
 
 Alternatively, you can create a Vertical shape by passing a factory function into the configuration.
