@@ -38,7 +38,7 @@ const canvas = new CanvasBuilder(element)
         });
 
         const interactiveShape = new InteractiveEdgeShape(baseShape, {
-          width: 20,
+          distance: 20,
         });
 
         interactiveShape.handle.addEventListener("mouseenter", () => {

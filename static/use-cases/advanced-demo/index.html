@@ -127,7 +127,7 @@
         HorizontalEdgeShape,
         MidpointEdgeShape,
         InteractiveEdgeShape,
-      } from "https://unpkg.com/@html-graph/html-graph@3.21.0";
+      } from "https://unpkg.com/@html-graph/html-graph@4.0.0";
 
       class Application {
         nodePriority = 1;
@@ -147,7 +147,7 @@
             detourDistance: -150,
           });
 
-          const interactiveShape = new InteractiveEdgeShape(baseShape, { width: 20 });
+          const interactiveShape = new InteractiveEdgeShape(baseShape, { distance: 20 });
 
           interactiveShape.handle.addEventListener("click", (event) => {
             event.stopPropagation();

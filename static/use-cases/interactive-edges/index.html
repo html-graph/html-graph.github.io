@@ -82,7 +82,7 @@
         CanvasBuilder,
         BezierEdgeShape,
         InteractiveEdgeShape,
-      } from "https://unpkg.com/@html-graph/html-graph@3.21.0";
+      } from "https://unpkg.com/@html-graph/html-graph@4.0.0";
 
       class Application {
         constructor(element) {
@@ -95,7 +95,7 @@
                   });
 
                   const interactiveEdge = new InteractiveEdgeShape(baseShape, {
-                    width: 20,
+                    distance: 20,
                   });
 
                   interactiveEdge.handle.addEventListener("click", (event) => {

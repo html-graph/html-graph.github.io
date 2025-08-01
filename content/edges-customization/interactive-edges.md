@@ -57,7 +57,7 @@ const canvas = new CanvasBuilder(element)
         });
 
         const interactiveShape = new InteractiveEdgeShape(baseShape, {
-          width: 20,
+          distance: 20,
         });
 
         interactiveShape.handle.addEventListener("click", (event) => {
@@ -81,9 +81,9 @@ const canvas = new CanvasBuilder(element)
 {{< ref-target ref="interactive-params">}}
 ### Interactive Parameters ### {#interactive-params}
 
-| Name  | Type   | Description                   | Required | Default |
-|-------|--------|-------------------------------|----------|---------|
-| width | number | Width of the interactive area | No       | `10`    |
+| Name     | Type   | Description                                    | Required | Default |
+|----------|--------|------------------------------------------------|----------|---------|
+| distance | number | Distance of the interactive area from the edge | No       | `10`    |
 {{< /ref-target >}}
 
 Try out this demo, which toggles edge line animated dash on edge click:
@@ -107,7 +107,7 @@ const canvas = new CanvasBuilder(element)
         });
 
         const interactiveShape = new InteractiveEdgeShape(baseShape, {
-          width: 10,
+          distance: 10,
         });
 
         // ... event handlers ...

@@ -52,7 +52,7 @@ The `enableUserConnectablePorts` method accepts optional configuration.
 | Name                        | Type                                                            | Description                                                      | Required | Default      |
 |-----------------------------|-----------------------------------------------------------------|------------------------------------------------------------------|----------|--------------|
 | `onAfterEdgeCreated`        | `(edgeId: any) => void`                                         | Function called after a new edge has been added                  | no       | `() => void` |
-| `onEdgeCreationInterrupted` | `(staticPortId: any, isDirect: boolean) => void`                | Function called when edge creation is interrupted in the process | no       | `() => void` |
+| `onEdgeCreationInterrupted` | `(params: { staticPortId: any, isDirect: boolean}) => void`     | Function called when edge creation is interrupted in the process | no       | `() => void` |
 | `onEdgeCreationPrevented`   | `(addEdgeRequest: [AddEdgeRequest](/canvas/#add-edge)) => void` | Function called when an attempt to create edge is prevented      | no       | `() => void` |
 
 {{< /ref-target >}}
