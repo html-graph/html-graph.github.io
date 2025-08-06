@@ -39,7 +39,7 @@ const canvas = new CanvasBuilder(element)
 | Name                   | Type                           | Description                                         | Required |
 |------------------------|--------------------------------|-----------------------------------------------------|----------|
 | `nodeContainingRadius` | [RadiusConfig](#radius-config) | The radius that fully covers a node from its center | yes      |
-| `events`               | [EventsConfig](#events-config) | Virtual scroll retated events                       | no       |
+| `events`               | [EventsConfig](#events-config) | Virtual scroll related events                       | no       |
 
 {{< ref-target ref="radius-config">}}
 
