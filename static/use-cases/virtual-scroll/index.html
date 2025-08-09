@@ -107,6 +107,8 @@
       import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@4.0.0";
 
       class Application {
+        status = document.getElementById("status");
+
         constructor(element) {
           this.canvas = new CanvasBuilder(element)
             .setDefaults({
@@ -180,7 +182,7 @@
 
               const percent = (processedTotal / total) * 100;
 
-              document.getElementById("status").innerText = `${Math.floor(percent)}%`;
+              this.status.innerText = `${Math.floor(percent)}%`;
             });
           }
         }
