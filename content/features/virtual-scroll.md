@@ -56,10 +56,10 @@ const canvas = new CanvasBuilder(element)
 
 ### EventsConfig {#events-config}
 
-| Name                   | Type                    | Description                                           | Required | Default      |
-|------------------------|-------------------------|-------------------------------------------------------|----------|--------------|
-| `onBeforeNodeAttached` | `(nodeId: any) => void` | Function called just before node is attached to DOM   | no       | `() => void` |
-| `onAfterNodeDetached`  | `(nodeId: any) => void` | Function called right after node is detached from DOM | no       | `() => void` |
+| Name                   | Type               | Description                                           | Required | Default      |
+|------------------------|--------------------|-------------------------------------------------------|----------|--------------|
+| `onBeforeNodeAttached` | `(nodeId) => void` | Function called just before node is attached to DOM   | no       | `() => void` |
+| `onAfterNodeDetached`  | `(nodeId) => void` | Function called right after node is detached from DOM | no       | `() => void` |
 
 {{< /ref-target >}}
 

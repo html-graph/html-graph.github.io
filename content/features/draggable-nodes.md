@@ -55,7 +55,7 @@ const canvas = new CanvasBuilder(element)
 |--------------------|---------------------------------------|-----------------------------------------------------|----------|--------------|
 | `moveOnTop`        | `boolean`                             | Move grabbed node to the top                        | no       | `true`       |
 | `moveEdgesOnTop`   | `boolean`                             | Move connected edges to the grabbed node beneath it | no       | `true`       |
-| `nodeDragVerifier` | `(nodeId: any) => boolean`            | Function to verify if node should be dragged        | no       | `() => true` |
+| `nodeDragVerifier` | `(nodeId) => boolean`                 | Function to verify if node should be dragged        | no       | `() => true` |
 | `gridSize`         | `number \| null`                      | Grid size for nodes to be snapped to                | no       | `null`       |
 | `mouse`            | [MouseConfig](#mouse-configuration)   | Mouse-related configuration                         | no       | `{}`         |
 | `events`           | [EventsConfig](#events-configuration) | Handlers for available events                       | no       | `{}`         |
@@ -76,9 +76,9 @@ const canvas = new CanvasBuilder(element)
 
 ### Events Configuration ### {#events-configuration}
 
-| Name                 | Type       | Description                                   | Required | Default      |
-|----------------------|------------|-----------------------------------------------|----------|--------------|
-| `onNodeDrag`         | `(nodeId: any) => void` | Function to call when node is dragged         | no       | `() => void` |
-| `onNodeDragFinished` | `(nodeId: any) => void` | Function to call when node drag is finished   | no       | `() => void` |
+| Name                 | Type               | Description                                   | Required | Default      |
+|----------------------|--------------------|-----------------------------------------------|----------|--------------|
+| `onNodeDrag`         | `(nodeId) => void` | Function to call when node is dragged         | no       | `() => void` |
+| `onNodeDragFinished` | `(nodeId) => void` | Function to call when node drag is finished   | no       | `() => void` |
 
 {{< /ref-target >}}
