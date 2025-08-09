@@ -35,8 +35,10 @@
         position: absolute;
         inset: 0;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
+        background: #ffffffaa;
       }
 
       .node {
@@ -78,6 +80,10 @@
         display: none;
       }
 
+      .status {
+        margin-top: 1rem;
+      }
+
       @keyframes rotation {
         0% {
           transform: rotate(0deg);
@@ -91,9 +97,9 @@
   <body>
     <div id="overlay" class="overlay">
       <div id="spinner" class="spinner"></div>
+      <div id="status" class="status"></div>
       <button id="load-button">
         <h2>Load 100 000 nodes</h2>
-        <h3>(it might take a few seconds)</h3>
       </button>
     </div>
     <div id="canvas"></div>
@@ -128,32 +134,54 @@
 
         }
 
-        initGraph() {
-          let cnt = 0;
+        async initGraph() {
           let prevPortId = null;
 
-          for (let i = 0; i < 10; i++) {
-            for (let j = 0; j < 10000; j++) {
-              const frontPortId = `node-${cnt}-in`;
-              const backPortId = `node-${cnt}-out`;
+          const total = 100_000;
+          const layer = total / 10;
+          const collection = Array.from({ length: total }).map((_, i) => i);
 
-              this.canvas.addNode(
-                this.createNode({
-                  name: `Node ${cnt}`,
-                  x: j * 300,
-                  y: i * 300,
+          const iterator = collection.values();
+          let current = iterator.next();
+          let processedTotal = 0;
+
+          while (!current.done) {
+            await this.executeMacrotask(() => {
+              let processed = 0;
+
+              while (!current.done && processed < 1000) {
+                const iter = current.value;
+                const frontPortId = `node-${iter}-in`;
+                const backPortId = `node-${iter}-out`;
+
+                const i = iter % layer;
+                const j = Math.floor(iter / layer);
+
+                const request = this.createNode({
+                  name: `Node ${iter}`,
+                  x: i * 300,
+                  y: j * 300,
                   frontPortId,
                   backPortId,
-                }),
-              );
+                });
 
-              if (prevPortId !== null) {
-                this.canvas.addEdge({ from: prevPortId, to: frontPortId });
+                this.canvas.addNode(request);
+
+                if (prevPortId !== null) {
+                  this.canvas.addEdge({ from: prevPortId, to: frontPortId });
+                }
+
+                prevPortId = backPortId;
+                current = iterator.next();
+                processed++;
               }
 
-              prevPortId = backPortId;
-              cnt++;
-            }
+              processedTotal += processed;
+
+              const percent = (processedTotal / total) * 100;
+
+              document.getElementById("status").innerText = `${Math.floor(percent)}%`;
+            });
           }
         }
 
@@ -182,6 +210,15 @@
             ],
           };
         }
+
+        executeMacrotask(task) {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              task();
+              resolve();
+            });
+          });
+        };
       }
 
       const btn = document.getElementById("load-button");
@@ -192,11 +229,11 @@
         btn.style.display = "none";
         spinner.style.display = "block";
 
-        setTimeout(() => {
+        setTimeout(async () => {
           const element = document.getElementById("canvas");
           const app = new Application(element);
 
-          app.initGraph();
+          await app.initGraph();
           overlay.style.display = "none";
         });
       });
