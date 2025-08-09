@@ -67,10 +67,30 @@
         background: #777777;
         border-radius: 3px;
       }
+
+      .spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid green;
+        border-radius: 50%;
+        border-bottom-color: transparent;
+        animation: rotation 1s linear infinite;
+        display: none;
+      }
+
+      @keyframes rotation {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
     </style>
   </head>
   <body>
     <div id="overlay" class="overlay">
+      <div id="spinner" class="spinner"></div>
       <button id="load-button">
         <h2>Load 100 000 nodes</h2>
         <h3>(it might take a few seconds)</h3>
@@ -166,15 +186,18 @@
 
       const btn = document.getElementById("load-button");
       const overlay = document.getElementById("overlay");
+      const spinner = document.getElementById("spinner");
 
       btn.addEventListener("click", () => {
-        overlay.style.display = "none";
+        btn.style.display = "none";
+        spinner.style.display = "block";
 
         setTimeout(() => {
           const element = document.getElementById("canvas");
           const app = new Application(element);
 
           app.initGraph();
+          overlay.style.display = "none";
         });
       });
     </script>
