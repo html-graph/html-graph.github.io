@@ -93,4 +93,4 @@ const canvas = new CanvasBuilder(element)
 
 It is **highly recommended to set a minimum content scale limit for virtual scroll**,
 as shown in the example above, to ensure the number of nodes and edges within the
-viewport stays within manageable limits, regardless of user actions.
+viewport stays within manageable limits.
