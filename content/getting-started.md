@@ -32,7 +32,7 @@ const canvas = new CanvasBuilder(element).build();
 {{< code lang="html" >}}
 <div id="canvas"></div>
 <script type="module">
-  import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@4.1.0";
+  import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@5.0.0";
 
   const element = document.getElementById('canvas');
   const canvas = new CanvasBuilder(element).build();

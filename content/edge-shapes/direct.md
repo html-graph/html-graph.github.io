@@ -32,7 +32,6 @@ In addition to `type: "direct"`, the following options are available:
 | color            | string  | Color of the line and arrows                     | no       | `"#777777"`  |
 | width            | number  | Line width                                       | no       | `1`          |
 | arrowLength      | number  | Full length of the arrow                         | no       | `15`         |
-| arrowWidth       | number  | Width of the arrow from center to side           | no       | `4`          |
 | sourceOffset     | number  | Empty space distance from source port to an edge | no       | `0`          |
 | targetOffset     | number  | Empty space distance from target port to an edge | no       | `0`          |
 | hasSourceArrow   | boolean | Draw an arrow near the source port               | no       | `false`      |

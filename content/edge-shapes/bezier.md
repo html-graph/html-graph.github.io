@@ -32,7 +32,6 @@ In addition to `type: "bezier"`, the following options are available:
 | color            | string  | Color of the line and arrows       | no       | `"#777777"`  |
 | width            | number  | Line width                         | no       | `1`          |
 | arrowLength      | number  | Full length of the arrow           | no       | `15`         |
-| arrowWidth       | number  | Width of the arrow from center to side | no    | `4`          |
 | curvature        | number  | Bezier curvature                   | no       | `90`         |
 | hasSourceArrow   | boolean | Draw an arrow near the source port | no       | `false`      |
 | hasTargetArrow   | boolean | Draw an arrow near the target port | no       | `false`      |
