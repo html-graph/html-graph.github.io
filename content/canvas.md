@@ -93,6 +93,8 @@ canvas.addNode({
 | centerFn | `function`                                          | Function to determine the node's center | no       | `(w, h) => ({x: w/2, y: h/2})` |
 | priority | `number`                                            | Z-index of the node                     | no       | `0`                            |
 
+\* Only nodes with defined coordinates are displayed.
+
 {{< ref-target ref="add-node-port-params">}}
 
 #### Port Parameters #### {#add-node-port-params}
