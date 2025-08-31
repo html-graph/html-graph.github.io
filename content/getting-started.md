@@ -146,6 +146,7 @@ class Application {
     node.appendChild(text);
     node.appendChild(backPort);
 
+    // this data structure is expected in canvas.addNode method
     return {
       element: node,
       x: x,
