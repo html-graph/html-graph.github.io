@@ -4,7 +4,11 @@ title: Advanced Edges | Edges with button in the center
 
 ## Edges with button in the center
 
-<a href="/use-cases/midpoint-edge/" target="_blank" aria-label="Edges with button in the center">
+<a
+  href="/use-cases/midpoint-edge/"
+  target="_blank"
+  aria-label="Edges with button in the center"
+>
   <div class="video">
     <video autoplay muted loop>
       <source src="/media/removable-edges.webm">
@@ -22,9 +26,12 @@ Removing an edge itself is an easy task, that can be done using the
 canvas.removeEdge("edge-1");
 {{< /code >}}
 
-The challenge is to add some interactive element in the center of an edge to handle click events that trigger edge removal.
+The challenge is to add some interactive element in the center of an edge to
+handle click events that trigger edge removal.
 
-This can be done using another edge decorator, but first we need to create a function that would generate an interactive element. As a basis for a remove button, you can use this implementation:
+This can be done using another edge decorator, but first we need to create a
+function that would generate an interactive element. As a basis for a remove
+button, you can use this implementation:
 
 {{< code lang="javascript">}}
 const createRemoveEdgeButton = () => {
@@ -78,7 +85,9 @@ This is how the element appears:
 
 {{< image path="/images/remove-button" alt="Remove button demo" width="200" height="200">}}
 
-Now that the button element is ready, we can attach it to an edge and add event listeners using the `MidpointEdgeDecorator`. This decorator positions the provided element at the point of an edge that's equidistant from both ends.
+Now that the button element is ready, we can attach it to an edge and add event
+listeners using the `MidpointEdgeShape`. This decorator positions the provided
+element at the point of an edge that's equidistant from both ends.
 
 {{< code lang="javascript">}}
 import { CanvasBuilder, BezierEdgeShape, MidpointEdgeShape } from "@html-graph/html-graph";
@@ -105,4 +114,5 @@ The final result is presented below.
 
 {{< use-case title="Remove button in the center of an edge" src=/use-cases/midpoint-edge/ >}}
 
-When combined with [connectable ports](/features/connectable-ports), this functionality becomes particularly useful for nocode editor interfaces.
+When combined with [connectable ports](/features/connectable-ports), this
+functionality becomes particularly useful for nocode editor interfaces.
