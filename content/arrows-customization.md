@@ -36,20 +36,17 @@ Also custom renderer function can be specified such as:
 
 {{< code lang="javascript">}}
 const arrowRenderer = (renderingParams) => {
-  const length = renderingParams.arrowLength;
+  const { arrowLength, direction, shift } = renderingParams;
 
   const arrowPoints = [
     { x: 4, y: 0 },
-    { x: length, y: 10 },
-    { x: length, y: -10 },
+    { x: arrowLength, y: 10 },
+    { x: arrowLength, y: -10 },
   ];
 
-  const dir = renderingParams.direction;
-  const shift = renderingParams.shift;
-
   const points = arrowPoints.map((point) => ({
-    x: dir.x * point.x - dir.y * point.y + shift.x,
-    y: dir.y * point.x + dir.x * point.y + shift.y,
+    x: direction.x * point.x - direction.y * point.y + shift.x,
+    y: direction.y * point.x + direction.x * point.y + shift.y,
   }));
 
   const move = `M ${points[0].x} ${points[0].y}`;
