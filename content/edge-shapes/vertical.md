@@ -15,6 +15,9 @@ const canvas = new CanvasBuilder(element)
       shape: {
         type: "vertical",
       },
+      ports: {
+        direction: Math.PI / 2,
+      },
     },
   })
   .build();
