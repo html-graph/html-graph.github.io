@@ -55,7 +55,6 @@ This method returns `null` if the node does not exist.
 const edgeIds = canvas.graph.getNodeCycleEdgeIds("node-1");
 {{< / code >}}
 This method returns `null` if the node does not exist.
-Note: A cycle edge is one where the source port and target port are the same. Therefore, edges with the same source and target node are not necessarily cycle edges.
 
 1. get the IDs of adjacent edges for a specific node
 {{< code lang="javascript" >}}
