@@ -42,14 +42,14 @@ const canvas = new CanvasBuilder(element)
     algorithm: {
       type: "forceDirected",
       dtSec: 0.02,
-      maxIterations: 100,
-      seed: "HTMLGraph is awesome",
       nodeCharge: 10000,
       nodeMass: 1,
       edgeEquilibriumLength: 300,
       edgeStiffness: 100,
-      effectiveDistance: 100,
+      effectiveDistance: 1000,
+      maxIterations: 100,
       convergenceDelta: 0.001,
+      seed: "HTMLGraph is awesome",
     },
     applyOn: "topologyChangeTimeout"
   })
@@ -58,10 +58,10 @@ const canvas = new CanvasBuilder(element)
 
 ### Configuration Parameters
 
-| Name        | Type                                 | Description                       | Required | Default                   |
-|-------------|--------------------------------------|-----------------------------------|----------|---------------------------|
+| Name        | Type                                 | Description                             | Required | Default                   |
+|-------------|--------------------------------------|-----------------------------------------|----------|---------------------------|
 | `algorithm` | [AlgorithmConfig](#algorithm-config) | Specifies the layout algorithm to apply | no       | `{type: "forceDirected"}` |
-| `applyOn`   | [Trigger](#trigger)                  | Specifies when to apply the algorithm | no       | `"topologyChangeTimeout"` |
+| `applyOn`   | [Trigger](#trigger)                  | Specifies when to apply the algorithm   | no       | `"topologyChangeTimeout"` |
 
 {{< ref-target ref="algorithm-config">}}
 ### `AlgorithmConfig` Options ### {#algorithm-config}
