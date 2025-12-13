@@ -27,7 +27,7 @@ canvas.addNode({
   id: "node-1",
   element: element,
   ports: [
-    { id: "port-1", element: element }
+    { id: "node-1", element: element }
   ],
 });
 {{< /code >}}
