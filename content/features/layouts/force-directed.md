@@ -8,8 +8,6 @@ sitemap:
 
 A force-directed layout is utilized by default whenever the `enableLayout` method is invoked on a `CanvasBuilder` instance.
 
-{{< use-case title="Force-directed layout" src=/use-cases/force-directed-layout/ >}}
-
 You can also explicitly specify it through its `type`.
 
 {{< code lang="typescript">}}
@@ -23,6 +21,8 @@ const canvas = new CanvasBuilder(element)
   })
   .build();
 {{< /code >}}
+
+{{< use-case title="Force-directed layout" src=/use-cases/force-directed-layout/ >}}
 
 The force-directed layout supports optional configuration parameters.
 
