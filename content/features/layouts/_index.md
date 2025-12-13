@@ -16,7 +16,7 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-<use-case title="Force-directed layout" src=/use-cases/force-directed-layout/ >
+{{< use-case title="Force-directed layout" src=/use-cases/force-directed-layout/ >}}
 
 As shown below, coordinates are calculated automatically and do not need to be specified explicitly when calling the <a href="/canvas#add-node" target="_blank">addNode</a> method.
 
@@ -73,7 +73,7 @@ const canvas = new CanvasBuilder(element)
 {{< /ref-target >}}
 
 {{< ref-target ref="trigger">}}
-### Trigger Options ### {#trigger}
+### Trigger strategies ### {#trigger}
 
 | Strategy               | Description                                                                                                                                                                                  | Example                   |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
