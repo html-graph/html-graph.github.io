@@ -6,7 +6,7 @@ sitemap:
 
 ## Getting Started
 
-First, include the library in your project and create a canvas. You have several options:
+To include the library in your project, use one of the following methods:
 
 ### 1. Install via npm
 
@@ -68,12 +68,17 @@ Download `html-graph.umd.cjs` from <a target="_blank" href="https://github.com/h
 
 ---
 
-The next part will guide you through graph visualization step-by-step.
-If you prefer to see the final implementation first, you can jump directly
-to the [end result](#end-result) and explore the details afterwards.
+The next section explains how to achieve the result presented below.
+Feel free to copy-paste the implementation and adapt it to your needs.
 
-Now that we've initialized the canvas, let's define a proper application structure.
-Usage of ES6 classes helps to organize code:
+# # {#end-result}
+
+{{< use-case title="Basic example" src="/use-cases/getting-started/" >}}
+
+---
+
+First, let's define a proper application structure.
+Using ES6 classes helps to organize code:
 
 {{< code lang="javascript" >}}
 class Application {
@@ -83,7 +88,7 @@ class Application {
   }
 
   initGraph() {
-    // the graph will be initialized there
+    // the graph will be initialized here
   }
 }
 
@@ -93,7 +98,7 @@ const app = new Application(element);
 app.initGraph();
 {{< /code >}}
 
-Also we need to add some basic CSS so that we have a full screen canvas.
+Also, add some basic CSS so that we have a full-screen canvas.
 
 {{< code lang="css" >}}
 html,
@@ -113,19 +118,10 @@ body {
 }
 {{< /code >}}
 
-At this point everything is ready for graph visualization.
-Lets create a basic node. For this purpose we create a method, that returns a
-data structure, which is expected in <a href="/canvas#add-node" target="_blank">addNode</a> method.
+---
 
-The `createNode` method of `Application` class accepts parameters:
-- `name` is a text content of a node
-- `x` and `y` are node's coordinates,
-- `frontPortId` and `backPortId` are port identifiers.
-
-Port is a proxy element via
-which nodes are connected. It provides more flexibility at managing edges,
-unlike connecting nodes directly (although node element itself can be used as a
-port at the same time).
+Second, let's create a basic node. For this purpose we create a method that returns a
+data structure expected by the <a href="/canvas#add-node" target="_blank">addNode</a> method.
 
 {{< code lang="javascript" >}}
 class Application {
@@ -160,7 +156,17 @@ class Application {
 }
 {{< /code >}}
 
-Also here is some CSS so that our nodes look nice:
+The `createNode` method of the `Application` class accepts parameters:
+- `name` is the text content of a node,
+- `x` and `y` are the node's coordinates,
+- `frontPortId` and `backPortId` are port identifiers.
+
+A port is a proxy element through
+which nodes are connected. It provides more flexibility when managing edges,
+unlike connecting nodes directly (although the node element itself can be used as a
+port at the same time).
+
+Also, here is some CSS so that our nodes look nice:
 
 {{< code lang="css" >}}
 .node {
@@ -195,7 +201,7 @@ Also here is some CSS so that our nodes look nice:
 
 Nodes are fully customizable using HTML and CSS.
 
-It's time to use created method in `initGraph`.
+It's time to use the created method in `initGraph`.
 
 {{< code lang="javascript" >}}
 class Application {
@@ -227,9 +233,11 @@ class Application {
 }
 {{< /code >}}
 
-At this point we have two nodes, but they are not connected. To connect them we
-will use <a href="/canvas#add-edge" target="_blank">addEdge</a> method. It accepts identifiers of source
-port and target port.
+---
+
+Third, let's connect these two nodes. For this purpose we will use the
+<a href="/canvas#add-edge" target="_blank">addEdge</a> method.
+It accepts identifiers of the source port and target port.
 
 {{< code lang="javascript" >}}
 class Application {
@@ -262,8 +270,8 @@ class Application {
 }
 {{< /code >}}
 
-We can customize edges, for example we can add a target arrow.
-This can be done using <a href="/defaults" target="_blank">setDefaults</a> method of `CanvasBuilder`.
+We can customize edges, for example by adding a target arrow.
+This can be done using the <a href="/defaults" target="_blank">setDefaults</a> method of `CanvasBuilder`.
 
 {{< code lang="javascript" >}}
 class Application {
@@ -283,9 +291,11 @@ class Application {
 }
 {{< /code >}}
 
-But the resulted graph is static. We can enable transformable viewport,
-draggable nodes and other features. Refer to <a href="/features" target="_blank">Features</a> for all
-available features.
+---
+
+Fourth, let's enable some built-in features, such as a transformable viewport, draggable nodes,
+and background rendering. Refer to <a href="/features" target="_blank">Features</a> for all
+available options.
 
 {{< code lang="javascript" >}}
 class Application {
@@ -308,10 +318,4 @@ class Application {
 }
 {{< /code >}}
 
-The end result is presented below.
-
-Every example in this documentation is a single HTML page, so you can copy/paste the implementation, and it will work immediately.
-
-# # {#end-result}
-
-{{< use-case title="Basic example" src="/use-cases/getting-started/" >}}
+The [end result](#end-result) is presented above.
