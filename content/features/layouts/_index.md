@@ -18,7 +18,7 @@ const canvas = new CanvasBuilder(element)
 
 <use-case title="Force-directed layout" src=/use-cases/force-directed-layout/ >
 
-As shown above, coordinates are calculated automatically and do not need to be specified explicitly when calling the <a href="/canvas#add-node" target="_blank">addNode</a> method.
+As shown below, coordinates are calculated automatically and do not need to be specified explicitly when calling the <a href="/canvas#add-node" target="_blank">addNode</a> method.
 
 {{< code lang="javascript">}}
 const element = document.createElement('div');
