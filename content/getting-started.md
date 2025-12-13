@@ -123,6 +123,9 @@ body {
 Second, let's create a basic node. For this purpose we create a method that returns a
 data structure expected by the <a href="/canvas#add-node" target="_blank">addNode</a> method.
 
+Refer to <a href="/canvas" target="_blank">Canvas</a> for all available
+methods.
+
 {{< code lang="javascript" >}}
 class Application {
   // ...
@@ -271,7 +274,9 @@ class Application {
 {{< /code >}}
 
 We can customize edges, for example by adding a target arrow.
-This can be done using the <a href="/defaults" target="_blank">setDefaults</a> method of `CanvasBuilder`.
+This can be done using the `setDefaults` method of `CanvasBuilder`.
+Refer to  <a href="/defaults" target="_blank">Defaults</a> for all available
+options.
 
 {{< code lang="javascript" >}}
 class Application {
