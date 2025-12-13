@@ -383,7 +383,7 @@ canvas.destroy();
 
 ---
 
-### Patch Viewport Matrix [#](#patch-viewport-matrix) ### {#patch-viewport-matrix}
+### Patch Viewport Matrix (advanced) [#](#patch-viewport-matrix) ### {#patch-viewport-matrix}
 
 The viewport transformation matrix consists of three values: `scale`, `x`, and `y`.
 
@@ -409,7 +409,7 @@ This matrix is the inverse of the [content matrix](/canvas/#patch-content-matrix
 
 ---
 
-### Patch Content Matrix [#](#patch-content-matrix) ### {#patch-content-matrix}
+### Patch Content Matrix (advanced) [#](#patch-content-matrix) ### {#patch-content-matrix}
 
 The content transformation matrix consists of three values: `scale`, `x`, and `y`.
 
