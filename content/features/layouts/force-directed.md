@@ -34,9 +34,9 @@ const canvas = new CanvasBuilder(element)
       dtSec: 0.02,
       nodeCharge: 10000,
       nodeMass: 1,
+      effectiveDistance: 1000,
       edgeEquilibriumLength: 300,
       edgeStiffness: 100,
-      effectiveDistance: 1000,
       maxIterations: 100,
       convergenceDelta: 0.001,
       seed: "HTMLGraph is awesome",
@@ -50,9 +50,9 @@ const canvas = new CanvasBuilder(element)
 | `dtSec`                 | `number` | Time step duration in seconds per iteration                                                                                          | No       | `0.02`                   |
 | `nodeCharge`            | `number` | Represents electrostatic-like repulsive forces between nodes. Higher values increase repulsion                                       | No       | `10000`                  |
 | `nodeMass`              | `number` | Determines node's inertia during movement. Larger masses slow down convergence but enhance stability                                 | No       | `1`                      |
+| `effectiveDistance`     | `number` | Cutoff distance beyond which nodes' interactions become negligible                                                                   | No       | `1000`                   |
 | `edgeEquilibriumLength` | `number` | Perfect edge length when attractive and repulsive forces are absent                                                                  | No       | `300`                    |
 | `edgeStiffness`         | `number` | Measures spring-like behavior of edges. High stiffness enforces equilibrium lengths strictly                                         | No       | `100`                    |
-| `effectiveDistance`     | `number` | Cutoff distance beyond which nodes' interactions become negligible                                                                   | No       | `1000`                   |
 | `maxIterations`         | `number` | Maximum allowed iterations before stopping the layout process                                                                        | No       | `100`                    |
 | `convergenceDelta`      | `number` | Threshold determining whether nodes have settled sufficiently after moving distances smaller than this threshold within an iteration | No       | `0.001`                  |
 | `seed`                  | `string` | A randomization seed used to initialize nodes' starting positions if they lack predefined coordinates                                | No       | `"HTMLGraph is awesome"` |
