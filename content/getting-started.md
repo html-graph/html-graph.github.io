@@ -78,7 +78,7 @@ Feel free to copy-paste the implementation and adapt it to your needs.
 ---
 
 First, let's define a proper application structure.
-Using ES6 classes helps to organize code:
+Usage of ES6 classes helps to organize code:
 
 {{< code lang="javascript" >}}
 class Application {
