@@ -13,8 +13,7 @@ The following example demonstrates implementation of a layout algorithm using Ty
 
 {{< code lang="typescript">}}
 
-import { LayoutAlgorithm } from "@html-graph/html-graph";
-import type { Point, Identifier, Graph } from "@html-graph/html-graph";
+import type { Point, Identifier, Graph, LayoutAlgorithm } from "@html-graph/html-graph";
 
 class MyCustomLayoutAlgorithm implements LayoutAlgorithm {
   calculateCoordinates(graph: Graph): ReadonlyMap<Identifier, Point> {

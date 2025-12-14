@@ -12,9 +12,7 @@ implementation of an animated layout algorithm.
 The following example demonstrates implementation of a layout algorithm using TypeScript.
 
 {{< code lang="typescript">}}
-
-import { AnimatedLayoutAlgorithm } from "@html-graph/html-graph";
-import type { Point, Identifier, Graph } from "@html-graph/html-graph";
+import type { Point, Identifier, Graph, AnimatedLayoutAlgorithm } from "@html-graph/html-graph";
 
 class MyCustomAnimatedLayoutAlgorithm implements AnimatedLayoutAlgorithm {
   calculateNextCoordinates(graph: Graph, dt: number): ReadonlyMap<Identifier, Point> {
