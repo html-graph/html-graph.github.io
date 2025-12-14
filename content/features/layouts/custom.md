@@ -6,8 +6,8 @@ sitemap:
 
 ## Custom Layout
 
-When built-in algorithms are insufficient, it's possible to provide a custom
-implementation of an algorithm.
+When built-in layout algorithms are insufficient, it's possible to provide a custom
+implementation of a layout algorithm.
 
 The following example demonstrates implementation of a layout algorithm using TypeScript.
 
@@ -32,15 +32,17 @@ class MyCustomLayoutAlgorithm implements LayoutAlgorithm {
 }
 {{< /code >}}
 
-As seen above, any custom algorithm must implement the `LayoutAlgorithm` interface.
-This interface requires one mandatory method: `calculateCoordinates`.
-The method takes a single argument - a <a href="/accessing-graph-structure/" target="_blank">Graph</a> object.
+As shown above, any custom algorithm must implement the `LayoutAlgorithm` interface.
+This interface requires one mandatory method, `calculateCoordinates`, which provides coordinates for each node.
+
+The method accepts a single argument:
+- `graph`: A `<a href="/accessing-graph-structure/" target="_blank">Graph</a>` object.
 
 The return value should be a `Map` where keys correspond to node identifiers and values represent their respective coordinates.
 
 If the map contains coordinates for certain nodes but omits others, those omitted nodes retain their original positions.
 
-To specify your custom algorithm implementation follow the example below.
+To specify your custom layout algorithm implementation follow the example below.
 
 {{< code lang="typescript">}}
 const element = document.getElementById('canvas');

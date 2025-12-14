@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>HTMLGraph | Force-directed layout demo</title>
+    <title>HTMLGraph | Force-directed animated layout demo</title>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -97,7 +97,12 @@
             .enableUserDraggableNodes({ moveEdgesOnTop: false })
             .enableUserTransformableViewport()
             .enableBackground()
-            .enableLayout()
+            .enableAnimatedLayout({
+              algorithm: {
+                type: "forceDirected",
+                nodeMass: 2,
+              }
+            })
             .build();
         }
 

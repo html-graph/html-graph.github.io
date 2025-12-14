@@ -81,6 +81,29 @@
       </li>
       <li>
         {{ partial "menu-link.html" (dict
+          "path" "/features/animated-layouts/"
+          "activePath" .path
+          "label" "Animated Layouts"
+        )}}
+        <ul>
+          <li>
+            {{ partial "menu-link.html" (dict
+              "path" "/features/animated-layouts/force-directed/"
+              "activePath" .path
+              "label" "Force-directed Animated Layout"
+            )}}
+          </li>
+          <li>
+            {{ partial "menu-link.html" (dict
+              "path" "/features/animated-layouts/custom/"
+              "activePath" .path
+              "label" "Custom Animated Layout"
+            )}}
+          </li>
+        </ul>
+      </li>
+      <li>
+        {{ partial "menu-link.html" (dict
           "path" "/features/connectable-ports/"
           "activePath" .path
           "label" "Connectable Ports"
