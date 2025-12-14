@@ -2,7 +2,7 @@
 title: Advanced Edges | Edges with button in the center
 ---
 
-## Edges with button in the center
+## Edges with Remove Button
 
 <a href="/use-cases/midpoint-edge/" target="_blank" aria-label="Edges with button in the center">
   <div class="video">

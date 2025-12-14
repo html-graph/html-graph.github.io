@@ -2,11 +2,10 @@
 title: Edges Customization
 ---
 
-## Edges Customization
+## Tutorials
 
-While nodes can be easily customized using HTML and CSS, edges offer similar customization capabilities through SVG and CSS.
-
-The following tutorials cover common edge customization scenarios:
+The following tutorials explain how to implement common scenarios for graph
+visualization.
 
 ### [Interactive Edges](interactive-edges)
 
@@ -18,9 +17,9 @@ The following tutorials cover common edge customization scenarios:
   </div>
 </a>
 
-### [Changing edge color](changing-edge-color)
+### [Changing Edge Color](changing-edge-color)
 
-<a href="/use-cases/changing-edge-color/" target="_blank" aria-label="Changing edge color">
+<a href="/use-cases/changing-edge-color/" target="_blank" aria-label="Changing Edge Color">
   <div class="video">
     <video autoplay muted loop>
       <source src="/media/changing-edge-color.webm">
@@ -29,9 +28,9 @@ The following tutorials cover common edge customization scenarios:
 </a>
 
 
-### [Edges with button in the center](edges-with-button-in-the-center)
+### [Edges with Remove Button](edges-with-remove-button)
 
-<a href="/use-cases/midpoint-edge/" target="_blank" aria-label="Edges with button in the center">
+<a href="/use-cases/midpoint-edge/" target="_blank" aria-label="Edges with Remove Button">
   <div class="video">
     <video autoplay muted loop>
       <source src="/media/removable-edges.webm">
