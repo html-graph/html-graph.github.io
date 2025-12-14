@@ -68,8 +68,8 @@ const canvas = new CanvasBuilder(element)
 
 | Algorithm     | Configuration                                     | Example                     |
 |---------------|---------------------------------------------------|-----------------------------|
-| ForceDirected | [ForceDirected](/features/layouts/force-directed) | `{ type: "forceDirected" }` |
-| Custom        | [Custom](/features/layouts/custom)                | `{ type: "custom" }`        |
+| ForceDirected | [ForceDirected](/layouts/force-directed) | `{ type: "forceDirected" }` |
+| Custom        | [Custom](/layouts/custom)                | `{ type: "custom" }`        |
 {{< /ref-target >}}
 
 {{< ref-target ref="trigger">}}

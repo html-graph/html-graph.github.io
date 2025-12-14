@@ -58,52 +58,6 @@
       </li>
       <li>
         {{ partial "menu-link.html" (dict
-          "path" "/features/layouts/"
-          "activePath" .path
-          "label" "Layouts"
-        )}}
-        <ul>
-          <li>
-            {{ partial "menu-link.html" (dict
-              "path" "/features/layouts/force-directed/"
-              "activePath" .path
-              "label" "Force-directed Layout"
-            )}}
-          </li>
-          <li>
-            {{ partial "menu-link.html" (dict
-              "path" "/features/layouts/custom/"
-              "activePath" .path
-              "label" "Custom Layout"
-            )}}
-          </li>
-        </ul>
-      </li>
-      <li>
-        {{ partial "menu-link.html" (dict
-          "path" "/features/animated-layouts/"
-          "activePath" .path
-          "label" "Animated Layouts"
-        )}}
-        <ul>
-          <li>
-            {{ partial "menu-link.html" (dict
-              "path" "/features/animated-layouts/force-directed/"
-              "activePath" .path
-              "label" "Force-directed Animated Layout"
-            )}}
-          </li>
-          <li>
-            {{ partial "menu-link.html" (dict
-              "path" "/features/animated-layouts/custom/"
-              "activePath" .path
-              "label" "Custom Animated Layout"
-            )}}
-          </li>
-        </ul>
-      </li>
-      <li>
-        {{ partial "menu-link.html" (dict
           "path" "/features/connectable-ports/"
           "activePath" .path
           "label" "Connectable Ports"
@@ -128,6 +82,52 @@
           "path" "/features/node-resize-reactive-edges/"
           "activePath" .path
           "label" "Node Resize Reactive Edges"
+        )}}
+      </li>
+    </ul>
+  </li>
+  <li>
+    {{ partial "bold-menu-link.html" (dict
+      "path" "/layouts/"
+      "activePath" .path
+      "label" "Layouts"
+    )}}
+    <ul>
+      <li>
+        {{ partial "menu-link.html" (dict
+          "path" "/layouts/force-directed/"
+          "activePath" .path
+          "label" "Force-directed Layout"
+        )}}
+      </li>
+      <li>
+        {{ partial "menu-link.html" (dict
+          "path" "/layouts/custom/"
+          "activePath" .path
+          "label" "Custom Layout"
+        )}}
+      </li>
+    </ul>
+  </li>
+  <li>
+    {{ partial "bold-menu-link.html" (dict
+      "path" "/animated-layouts/"
+      "activePath" .path
+      "label" "Animated Layouts"
+    )}}
+    <ul>
+      <li>
+        {{ partial "menu-link.html" (dict
+          "path" "/animated-layouts/force-directed/"
+          "activePath" .path
+          "label" "Force-directed Animated Layout"
+        )}}
+      </li>
+      <li>
+        {{ partial "menu-link.html" (dict
+          "path" "/animated-layouts/custom/"
+          "activePath" .path
+          "label" "Custom Animated Layout"
         )}}
       </li>
     </ul>

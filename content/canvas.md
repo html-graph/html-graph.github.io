@@ -94,8 +94,8 @@ canvas.addNode({
 | priority | `number`                                            | Z-index of the node                     | no       | `0`                            |
 
 \* Only nodes with defined coordinates are actually displayed on the canvas.
-When using `null` coordinates, make sure to update them later using a <a href="/features/layouts/">layout algorithm</a>
-or an <a href="/features/animated-layouts/">animated layout algorithm</a>.
+When using `null` coordinates, make sure to update them later using a <a href="/layouts/">layout algorithm</a>
+or an <a href="/animated-layouts/">animated layout algorithm</a>.
 
 {{< ref-target ref="add-node-port-params">}}
 

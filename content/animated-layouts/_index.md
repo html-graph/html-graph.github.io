@@ -70,6 +70,6 @@ const canvas = new CanvasBuilder(element)
 
 | Algorithm     | Configuration                                              | Example                     |
 |---------------|------------------------------------------------------------|-----------------------------|
-| ForceDirected | [ForceDirected](/features/animated-layouts/force-directed) | `{ type: "forceDirected" }` |
-| Custom        | [Custom](/features/animated-layouts/custom)                | `{ type: "custom" }`        |
+| ForceDirected | [ForceDirected](/animated-layouts/force-directed) | `{ type: "forceDirected" }` |
+| Custom        | [Custom](/animated-layouts/custom)                | `{ type: "custom" }`        |
 {{< /ref-target >}}
