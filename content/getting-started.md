@@ -8,8 +8,27 @@ sitemap:
 
 To include the library into your project, use one of the following options:
 
-### 1. Install via npm
+<div data-tabs>
+<div data-tabs-btns>
+  <button data-tab="0" data-tab-active>
+    <b>NPM</b>
+  </button>
 
+  <button data-tab="1">
+    <b>CDN</b>
+  </button>
+
+  <button data-tab="2">
+    <b>Local ESM</b>
+  </button>
+
+  <button data-tab="3">
+    <b>Local UMD</b>
+  </button>
+</div>
+
+<div data-tab-content="0" data-tab-content-visible>
+Install NPM package
 {{< code lang="bash" >}}
 npm i @html-graph/html-graph
 {{< /code >}}
@@ -26,9 +45,10 @@ import { CanvasBuilder } from "@html-graph/html-graph";
 const element = document.getElementById('canvas');
 const canvas = new CanvasBuilder(element).build();
 {{< /code >}}
+</div>
 
-### 2. Use script from CDN as ES module
-
+<div data-tab-content="1">
+Paste content into HTML
 {{< code lang="html" >}}
 <div id="canvas"></div>
 <script type="module">
@@ -38,10 +58,10 @@ const canvas = new CanvasBuilder(element).build();
   const canvas = new CanvasBuilder(element).build();
 </script>
 {{< /code >}}
+</div>
 
-### 3. Use local file as ES module
-
-Download `html-graph.js` from <a target="_blank" href="https://github.com/html-graph/html-graph/releases">releases</a> and use:
+<div data-tab-content="2">
+Download <code>html-graph.js</code> from <a target="_blank" href="https://github.com/html-graph/html-graph/releases">releases</a> and use:
 
 {{< code lang="html" >}}
 <div id="canvas"></div>
@@ -52,10 +72,10 @@ Download `html-graph.js` from <a target="_blank" href="https://github.com/html-g
   const canvas = new CanvasBuilder(element).build();
 </script>
 {{< /code >}}
+</div>
 
-### 4. Use local file as UMD
-
-Download `html-graph.umd.cjs` from <a target="_blank" href="https://github.com/html-graph/html-graph/releases">releases</a> and use:
+<div data-tab-content="3">
+Download <code>html-graph.umd.cjs</code> from <a target="_blank" href="https://github.com/html-graph/html-graph/releases">releases</a> and use:
 
 {{< code lang="html" >}}
 <div id="canvas"></div>
@@ -65,6 +85,8 @@ Download `html-graph.umd.cjs` from <a target="_blank" href="https://github.com/h
   const canvas = new HtmlGraph.CanvasBuilder(element).build();
 </script>
 {{< /code >}}
+</div>
+</div>
 
 ---
 

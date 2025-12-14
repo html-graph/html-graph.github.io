@@ -331,3 +331,37 @@ ol {
     pointer-events: none;
   }
 }
+
+[data-tabs] {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+[data-tabs-btns] {
+  display: flex;
+  gap: 0.25rem;
+}
+
+[data-tab] {
+  align-items: center;
+  border-radius: 0.25rem;
+  border: 2px solid var(--color-border);
+  padding: 0.25rem 0.5rem;
+  background: var(--color-tab-bg);
+  color: var(--color-link);
+
+  &[data-tab-active] {
+    background: var(--color-tab-bg-active);
+    border-color: var(--color-link-active);
+    color: var(--color-button-active);
+  }
+}
+
+[data-tab-content] {
+  display: none;
+
+  &[data-tab-content-visible] {
+    display: block;
+  }
+}

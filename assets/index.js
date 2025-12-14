@@ -109,3 +109,35 @@ window.addEventListener("hashchange", () => {
 }, false);
 
 highlightElement();
+
+const setActiveTab = (tabs, index) => {
+  tabs.querySelectorAll("[data-tab]").forEach((tab) => {
+    const currentIndex = tab.dataset.tab;
+
+    if (currentIndex === index) {
+      tab.dataset.tabActive = "";
+    } else {
+      delete tab.dataset.tabActive;
+    }
+  });
+
+  tabs.querySelectorAll("[data-tab-content]").forEach((tab) => {
+    const currentIndex = tab.dataset.tabContent;
+
+    if (currentIndex === index) {
+      tab.style.display = "block";
+    } else {
+      tab.style.display = "none";
+    }
+  });
+}
+
+document.querySelectorAll("[data-tabs]").forEach((tabs) => {
+  tabs.querySelectorAll("[data-tab]").forEach((tab) => {
+    tab.addEventListener('click', () => {
+      const index = tab.dataset.tab;
+
+      setActiveTab(tabs, index);
+    });
+  });
+});
