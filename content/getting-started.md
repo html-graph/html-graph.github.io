@@ -163,8 +163,7 @@ The `createNode` method of the `Application` class accepts parameters:
 
 A port is a proxy element through
 which nodes are connected. It provides more flexibility when managing edges,
-unlike connecting nodes directly (although the node element itself can be used as a
-port at the same time).
+unlike connecting nodes directly. Node element itself can also be used as a port at the same time.
 
 Also, here is some CSS so that our nodes look nice:
 
