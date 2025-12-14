@@ -6,7 +6,7 @@ sitemap:
 
 ## Getting Started
 
-To include the library in your project, use one of the following methods:
+To include the library into your project, use one of the following methods:
 
 ### 1. Install via npm
 
