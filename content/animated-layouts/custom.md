@@ -24,10 +24,10 @@ class MyCustomAnimatedLayoutAlgorithm implements AnimatedLayoutAlgorithm {
       const x = node.x ?? Math.random() * 1000;
       const y = node.y ?? Math.random() * 1000;
 
-      const dtLimited = Math.min(dt, 0.1) * 0.01;
+      const angle = Math.min(dt, 0.1) * 0.01;
 
-      const nextX = x * Math.cos(dtLimited) - y * Math.sin(dtLimited);
-      const nextY = x * Math.sin(dtLimited) + y * Math.cos(dtLimited);
+      const nextX = x * Math.cos(angle) - y * Math.sin(angle);
+      const nextY = x * Math.sin(angle) + y * Math.cos(angle);
 
       result.set(nodeId, { x: nextX, y: nextY });
     });
