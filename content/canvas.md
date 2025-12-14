@@ -93,9 +93,9 @@ canvas.addNode({
 | centerFn | `function`                                          | Function to determine the node's center | no       | `(w, h) => ({x: w/2, y: h/2})` |
 | priority | `number`                                            | Z-index of the node                     | no       | `0`                            |
 
-\* Only nodes with defined coordinates are actually displayed on the canvas.
+<b>\* Only nodes with defined coordinates are actually displayed on the canvas.
 When using `null` coordinates, make sure to update them later using a <a href="/layouts/">layout algorithm</a>
-or an <a href="/animated-layouts/">animated layout algorithm</a>.
+or an <a href="/animated-layouts/">animated layout algorithm</a>.</b>
 
 {{< ref-target ref="add-node-port-params">}}
 
