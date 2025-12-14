@@ -351,6 +351,10 @@ ol {
   background: var(--color-tab-bg);
   color: var(--color-link);
 
+  &:hover {
+    background: var(--color-tab-bg-hover);
+  }
+
   &[data-tab-active] {
     background: var(--color-tab-bg-active);
     border-color: var(--color-link-active);
