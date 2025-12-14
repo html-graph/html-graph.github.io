@@ -66,10 +66,10 @@ const canvas = new CanvasBuilder(element)
 {{< ref-target ref="algorithm-config">}}
 ### `AlgorithmConfig` Options ### {#algorithm-config}
 
-| Algorithm     | Configuration                                     | Example                     |
-|---------------|---------------------------------------------------|-----------------------------|
-| ForceDirected | [ForceDirected](/layouts/force-directed) | `{ type: "forceDirected" }` |
-| Custom        | [Custom](/layouts/custom)                | `{ type: "custom" }`        |
+| Algorithm     | Configuration                            | Example                                           |
+|---------------|------------------------------------------|---------------------------------------------------|
+| ForceDirected | [ForceDirected](/layouts/force-directed) | `{ type: "forceDirected" }`                       |
+| Custom        | [Custom](/layouts/custom)                | `{ type: "custom", instance: new MyAlgorithm() }` |
 {{< /ref-target >}}
 
 {{< ref-target ref="trigger">}}
