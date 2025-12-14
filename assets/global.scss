@@ -13,6 +13,7 @@
   --color-tab-bg: #f4f4f4;
   --color-tab-bg-active: #ededed;
   --color-tab-border: #454545;
+  --color-icon: #010e84;
 }
 
 html,
@@ -201,6 +202,14 @@ h1, h2, h3, h4, h5, h6, p {
     position: absolute;
     inset: 0;
   }
+
+  .demo-icon {
+    color: var(--color-icon);
+  }
+
+  .code-icon {
+    color: var(--color-icon);
+  }
 }
 
 .code {
@@ -322,12 +331,4 @@ ol {
     bottom: 0.5rem;
     pointer-events: none;
   }
-}
-
-.demo-icon {
-  color: #010e84;
-}
-
-.code-icon {
-  color: #010e84;
 }
