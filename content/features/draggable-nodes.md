@@ -37,10 +37,6 @@ const canvas = new CanvasBuilder(element)
       onNodeDrag: (payload) => {
         console.log(payload);
       },
-      onBeforeNodeDrag: (payload) => {
-        console.log(payload);
-        return true;
-      },
       onNodeDragFinished: (payload) => {
         console.log(payload);
       },
