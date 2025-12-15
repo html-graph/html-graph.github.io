@@ -348,7 +348,7 @@ HTMLGraph supports numerous useful features, including:
 
 Refer to the <a href="/features" target="_blank">Features</a> page for all available options.
 
-These features can be enabled by invoking their corresponding methods on the `CanvasBuilder`, like so:
+These features can be enabled by invoking their corresponding methods on the `CanvasBuilder` instance, like so:
 
 {{< code lang="javascript" >}}
 class Application {
