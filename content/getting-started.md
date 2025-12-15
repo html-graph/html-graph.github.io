@@ -107,7 +107,7 @@ The whole process consists of four steps:
 ### 1. Initialization [#](#initialization) {#initialization}
 
 As a basis for our application, we will use this simple template.
-It defines a full-screen canvas and `Application` class.
+It defines a full-screen canvas and an `Application` class.
 
 {{< code lang="html" >}}
 <!doctype html>
