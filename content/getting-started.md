@@ -106,7 +106,7 @@ The whole process consists of four steps:
 
 ---
 
-### 1. Initialization {#initialization}
+### 1. Initialization [#](#initialization) {#initialization}
 
 As a basis for our application, we will use this template, which defines a
 full-screen canvas and an application structure utilizing ES6 classes to help
@@ -162,7 +162,7 @@ organize the code.
 
 ---
 
-### 2. Adding Nodes {#adding-nodes}
+### 2. Adding Nodes [#](#adding-nodes) {#adding-nodes}
 
 Nodes can be added using the <a href="/canvas#add-node" target="_blank">addNode</a> method. This method accepts a specific object, which needs to be constructed first. For this purpose, we add a `createNode` method to the `Application` class.
 
@@ -278,7 +278,7 @@ class Application {
 
 ---
 
-### 3. Adding Edges {#adding-edges}
+### 3. Adding Edges [#](#adding-edges) {#adding-edges}
 
 To connect these two nodes, the <a href="/canvas#add-edge" target="_blank">addEdge</a> method can be used.
 It accepts the identifiers of the source port and target port.
@@ -339,7 +339,7 @@ Refer to the <a href="/defaults" target="_blank">Defaults</a> page for all avail
 
 ---
 
-### 4. Enabling Features {#enabling-features}
+### 4. Enabling Features [#](#enabling-features) {#enabling-features}
 
 HTMLGraph supports numerous useful features, including:
 - transformable viewport
