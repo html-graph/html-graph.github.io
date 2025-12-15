@@ -95,55 +95,76 @@ Feel free to copy-paste the implementation and adapt it to your needs.
 
 # # {#end-result}
 
-{{< use-case title="Basic example" src="/use-cases/getting-started/" >}}
+{{< use-case title="Getting Started Example" src="/use-cases/getting-started/" >}}
+
+The whole process consists of four steps:
+
+1. [Initialization](#initialization)
+2. [Adding Nodes](#adding-nodes)
+3. [Adding Edges](#adding-edges)
+4. [Enabling Features](#enabling-features)
 
 ---
 
-First, let's define a proper application structure.
-Usage of ES6 classes helps to organize code:
+### 1. Initialization {#initialization}
 
-{{< code lang="javascript" >}}
-class Application {
-  constructor(element) {
-    this.canvas = new CanvasBuilder(element)
-      .build();
-  }
+As a basis for our application, we will use this template, which defines a
+full-screen canvas and an application structure utilizing ES6 classes to help
+organize the code.
 
-  initGraph() {
-    // the graph will be initialized here
-  }
-}
+{{< code lang="html" >}}
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+      html,
+      body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
 
-const element = document.getElementById("canvas");
-const app = new Application(element);
+      body {
+        position: relative;
+      }
 
-app.initGraph();
-{{< /code >}}
+      #canvas {
+        position: absolute;
+        inset: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="canvas"></div>
+    <script type="module">
+      import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@7.0.1";
 
-Also, add some basic CSS so that we have a full-screen canvas.
+      class Application {
+        constructor(element) {
+          this.canvas = new CanvasBuilder(element)
+            .build();
+        }
 
-{{< code lang="css" >}}
-html,
-body {
-  height: 100%;
-  padding: 0;
-  margin: 0;
-}
+        initGraph() {
+          // the graph will be initialized here
+        }
+      }
 
-body {
-  position: relative;
-}
+      const element = document.getElementById("canvas");
+      const app = new Application(element);
 
-#canvas {
-  position: absolute;
-  inset: 0;
-}
+      app.initGraph();
+    </script>
+  </body>
+</html>
 {{< /code >}}
 
 ---
 
-Second, let's create a basic node. For this purpose we create a method that returns a
-data structure expected by the <a href="/canvas#add-node" target="_blank">addNode</a> method.
+### 2. Adding Nodes {#adding-nodes}
+
+Nodes can be added using the <a href="/canvas#add-node" target="_blank">addNode</a> method. This method accepts a specific object, which needs to be constructed first. For this purpose, we add a `createNode` method to the `Application` class.
 
 {{< code lang="javascript" >}}
 class Application {
@@ -178,16 +199,17 @@ class Application {
 }
 {{< /code >}}
 
-The `createNode` method of the `Application` class accepts parameters:
+The `createNode` method accepts parameters:
+
 - `name` is the text content of a node,
 - `x` and `y` are the node's coordinates,
 - `frontPortId` and `backPortId` are port identifiers.
 
-A port is a proxy element through
-which nodes are connected. It provides more flexibility when managing edges,
-unlike connecting nodes directly. Node element itself can also be used as a port at the same time.
+A port is a proxy element through which nodes are connected.
+It provides more flexibility when managing edges, although the node element
+itself can also be used as a port simultaneously.
 
-Also, here is some CSS so that our nodes look nice:
+Here’s some CSS to make our nodes look nice:
 
 {{< code lang="css" >}}
 .node {
@@ -256,9 +278,10 @@ class Application {
 
 ---
 
-Third, let's connect these two nodes. For this purpose we will use the
-<a href="/canvas#add-edge" target="_blank">addEdge</a> method.
-It accepts identifiers of the source port and target port.
+### 3. Adding Edges {#adding-edges}
+
+To connect these two nodes, the <a href="/canvas#add-edge" target="_blank">addEdge</a> method can be used.
+It accepts the identifiers of the source port and target port.
 
 {{< code lang="javascript" >}}
 class Application {
@@ -291,10 +314,9 @@ class Application {
 }
 {{< /code >}}
 
-We can customize edges, for example by adding a target arrow.
-This can be done using the `setDefaults` method of `CanvasBuilder`.
-Refer to  <a href="/defaults" target="_blank">Defaults</a> for all available
-options.
+Edges can be customized, for instance, by adding a target arrow.
+This can be achieved using the `setDefaults` method of `CanvasBuilder`.
+Refer to the <a href="/defaults" target="_blank">Defaults</a> page for all available options.
 
 {{< code lang="javascript" >}}
 class Application {
@@ -316,9 +338,17 @@ class Application {
 
 ---
 
-Fourth, let's enable some built-in features, such as a transformable viewport, draggable nodes,
-and background rendering. Refer to <a href="/features" target="_blank">Features</a> for all
-available options.
+### 4. Enabling Features {#enabling-features}
+
+HTMLGraph supports numerous useful features, including:
+- transformable viewport
+- draggable nodes
+- background rendering
+- and many more
+
+Refer to the <a href="/features" target="_blank">Features</a> page for all available options.
+
+These features can be enabled by invoking their corresponding methods on the `CanvasBuilder`, like so:
 
 {{< code lang="javascript" >}}
 class Application {
@@ -340,5 +370,3 @@ class Application {
   // ...
 }
 {{< /code >}}
-
-The [end result](#end-result) is presented above.
