@@ -6,7 +6,7 @@ sitemap:
 
 ## Getting Started
 
-To include the library into your project, use one of the following options:
+Use one of the following options to include the library into your project:
 
 <div data-tabs>
 <div data-tabs-btns>
