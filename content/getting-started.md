@@ -259,7 +259,7 @@ class Application {
           y: 200,
           frontPortId: "node-1-in",
           backPortId: "node-1-out",
-        }),
+        })
       )
       .addNode(
         this.createNode({
@@ -268,7 +268,7 @@ class Application {
           y: 300,
           frontPortId: "node-2-in",
           backPortId: "node-2-out",
-        }),
+        })
       );
   }
 
@@ -296,7 +296,7 @@ class Application {
           y: 200,
           frontPortId: "node-1-in",
           backPortId: "node-1-out",
-        }),
+        })
       )
       .addNode(
         this.createNode({
@@ -305,7 +305,7 @@ class Application {
           y: 300,
           frontPortId: "node-2-in",
           backPortId: "node-2-out",
-        }),
+        })
       )
       .addEdge({ from: "node-1-out", to: "node-2-in" });
   }
@@ -325,8 +325,8 @@ class Application {
         edges: {
           shape: {
             hasTargetArrow: true,
-          }
-        }
+          },
+        },
       })
       .build();
   }
@@ -357,8 +357,8 @@ class Application {
         edges: {
           shape: {
             hasTargetArrow: true,
-          }
-        }
+          },
+        },
       })
       .enableUserTransformableViewport()
       .enableUserDraggableNodes()
