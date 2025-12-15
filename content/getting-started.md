@@ -161,7 +161,7 @@ It defines a full-screen canvas and an `Application` class.
 
 ### 2. Adding Nodes [#](#adding-nodes) {#adding-nodes}
 
-Nodes can be added using the <a href="/canvas#add-node" target="_blank">addNode</a> method. This method accepts a specific object, which needs to be constructed first. For this purpose, we add a `createNode` method to the `Application` class.
+Nodes can be added using the <a href="/canvas/#add-node" target="_blank">addNode</a> method. This method accepts a specific object, which needs to be constructed first. For this purpose, we add a `createNode` method to the `Application` class.
 
 {{< code lang="javascript" >}}
 class Application {
@@ -277,7 +277,7 @@ class Application {
 
 ### 3. Adding Edges [#](#adding-edges) {#adding-edges}
 
-To connect these two nodes, the <a href="/canvas#add-edge" target="_blank">addEdge</a> method can be used.
+To connect these two nodes, the <a href="/canvas/#add-edge" target="_blank">addEdge</a> method can be used.
 It accepts the identifiers of the source port and target port.
 
 {{< code lang="javascript" >}}
@@ -332,7 +332,7 @@ class Application {
 }
 {{< /code >}}
 
-Refer to the <a href="/defaults" target="_blank">Defaults</a> page for all available options.
+Refer to the <a href="/defaults/" target="_blank">Defaults</a> page for all available options.
 
 ---
 
@@ -367,5 +367,5 @@ class Application {
 }
 {{< /code >}}
 
-Refer to <a href="/features" target="_blank">Features</a> for all available options.
+Refer to <a href="/features/" target="_blank">Features</a> for all available options.
 
