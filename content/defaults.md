@@ -10,7 +10,7 @@ These defaults apply to all graph entities (nodes, ports, and edges) when no exp
 
 ---
 
-### Nodes
+### Nodes [#](#nodes) {#nodes}
 
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');
@@ -45,7 +45,7 @@ const canvas = new CanvasBuilder(element)
 
 ---
 
-### Ports
+### Ports [#](#ports) {#ports}
 
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');
@@ -67,8 +67,7 @@ const canvas = new CanvasBuilder(element)
 
 ---
 
-
-### Edges
+### Edges [#](#edges) {#edges}
 
 {{< code lang="javascript">}}
 const element = document.getElementById('canvas');
