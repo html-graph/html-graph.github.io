@@ -106,9 +106,8 @@ The whole process consists of four steps:
 
 ### 1. Initialization [#](#initialization) {#initialization}
 
-As a basis for our application, we will use this template, which defines a
-full-screen canvas and an application structure utilizing ES6 classes to help
-organize the code.
+As a basis for our application, we will use this simple template.
+It defines a full-screen canvas and an `Application` class.
 
 {{< code lang="html" >}}
 <!doctype html>
