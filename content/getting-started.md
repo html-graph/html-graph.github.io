@@ -316,7 +316,6 @@ class Application {
 
 Edges can be customized, for instance, by adding a target arrow.
 This can be achieved using the `setDefaults` method of `CanvasBuilder`.
-Refer to the <a href="/defaults" target="_blank">Defaults</a> page for all available options.
 
 {{< code lang="javascript" >}}
 class Application {
@@ -335,6 +334,8 @@ class Application {
   // ...
 }
 {{< /code >}}
+
+Refer to the <a href="/defaults" target="_blank">Defaults</a> page for all available options.
 
 ---
 
