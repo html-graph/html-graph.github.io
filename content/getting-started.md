@@ -345,7 +345,7 @@ HTMLGraph supports numerous useful features, including:
 - transformable viewport
 - draggable nodes
 - background rendering
-- and many more
+- and many more ...
 
 Refer to the <a href="/features" target="_blank">Features</a> page for all available options.
 
