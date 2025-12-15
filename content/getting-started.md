@@ -88,8 +88,6 @@ Download <code>html-graph.umd.cjs</code> from <a target="_blank" href="https://g
 </div>
 </div>
 
----
-
 The next section explains how to achieve the result presented below.
 Feel free to copy-paste the implementation and adapt it to your needs.
 
