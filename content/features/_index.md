@@ -91,7 +91,7 @@ Optimize performance for large graphs with intelligent rendering of visible elem
 ### [Node Resize Reactive Edges](/features/node-resize-reactive-edges/)
 Automatically maintain edge connections when nodes are resized.
 
-<a href="/use-cases/node-resize-reactive-edges/" target="_blank" aria-label="Responsive Nodes">
+<a href="/use-cases/node-resize-reactive-edges/" target="_blank" aria-label="Node Resize Reactive Edges">
   <div class="video">
     <video autoplay muted loop>
       <source src="/media/node-resize-reactive-edges.webm">
