@@ -1,4 +1,3 @@
-- draggable edges
 - add nodes customization recommendations
 - local search
 - SEO, rich results
