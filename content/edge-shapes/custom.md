@@ -87,6 +87,14 @@ This interface requires:
 - public property `svg`, which stores edge svg element
 - method `render`, which updates `svg` property based on provided parameters.
 
+{{< use-case title="Minimal Custom Edge Shape Example" src=/use-cases/minimal-custom-edge-shape/ >}}
+
+You can also apply a custom shape to a specific edge using the
+<a href="/canvas/#add-edge" target="_blank"><code>addEdge</code></a>
+and
+<a href="/canvas/#update-edge" target="_blank"><code>updateEdge</code></a>
+methods.
+
 A custom edge shape can be provided via a factory function in the `setDefaults` method of `CanvasBuilder`.
 
 {{< code lang="javascript">}}
@@ -100,14 +108,6 @@ const canvas = new CanvasBuilder(element)
   })
   .build();
 {{< /code >}}
-
-{{< use-case title="Minimal Custom Edge Shape Example" src=/use-cases/minimal-custom-edge-shape/ >}}
-
-You can also apply a custom shape to a specific edge using the
-<a href="/canvas/#add-edge" target="_blank"><code>addEdge</code></a>
-and
-<a href="/canvas/#update-edge" target="_blank"><code>updateEdge</code></a>
-methods.
 
 {{< code lang="javascript">}}
 canvas.addEdge({
