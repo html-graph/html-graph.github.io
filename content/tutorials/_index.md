@@ -30,7 +30,7 @@ visualization.
 
 ### [Edges with Remove Button](edges-with-remove-button)
 
-<a href="/tutorials/midpoint-edge/" target="_blank" aria-label="Edges with Remove Button">
+<a href="/tutorials/edges-with-remove-button/" target="_blank" aria-label="Edges with Remove Button">
   <div class="video">
     <video autoplay muted loop>
       <source src="/media/removable-edges.webm">
