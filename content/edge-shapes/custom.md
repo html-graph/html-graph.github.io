@@ -1,8 +1,8 @@
 ---
-title: Edge Shape | Custom
+title: Edge Shape | Custom Edge Shape (advanced)
 ---
 
-## Custom Edge Shape
+## Custom Edge Shape (advanced)
 
 A custom edge shape can be defined by providing a factory function in the `setDefaults` method of `CanvasBuilder`.
 

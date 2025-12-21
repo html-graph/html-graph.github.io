@@ -1,10 +1,10 @@
 ---
-title: Animated Layouts | Custom
+title: Animated Layouts | Custom Animated Layout (advanced)
 sitemap:
   priority: 0.3
 ---
 
-## Custom Animated Layout
+## Custom Animated Layout (advanced)
 
 When built-in animated layout algorithms are insufficient, it's possible to provide a custom
 implementation of an animated layout algorithm.
