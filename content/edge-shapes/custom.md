@@ -90,9 +90,9 @@ This interface requires:
 {{< use-case title="Minimal Custom Edge Shape Example" src=/use-cases/minimal-custom-edge-shape/ >}}
 
 You can also apply a custom shape to a specific edge using the
-<a href="/canvas/#add-edge" target="_blank"><code>addEdge</code></a>
+<a href="/canvas/#add-edge" target="_blank">addEdge</a>
 and
-<a href="/canvas/#update-edge" target="_blank"><code>updateEdge</code></a>
+<a href="/canvas/#update-edge" target="_blank">updateEdge</a>
 methods.
 
 A custom edge shape can be provided via a factory function in the `setDefaults` method of `CanvasBuilder`.
