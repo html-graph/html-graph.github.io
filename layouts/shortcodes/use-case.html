@@ -1,8 +1,5 @@
 <div class="use-case" data-use-case>
   <div class="use-case__head">
-    <span class="use-case__title">
-      {{ .Get "title" }}
-    </span>
     <button data-use-case-demo-btn class="use-case__btn use-case__btn_active demo-btn">
       <svg class="demo-icon" width="20px" height="20px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
         <g>
@@ -20,6 +17,9 @@
       </svg>
       <b>Implementation</b>
     </button>
+    <span class="use-case__title">
+      {{ .Get "title" }}
+    </span>
   </div>
   <div class="use-case__frame">
     <a data-anchor class="use-case__ref" href="{{ .Get "src" }}" target="_blank"
