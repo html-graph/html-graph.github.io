@@ -8,7 +8,12 @@ sitemap:
 It allows you to create interactive and dynamic graphs by incorporating complete HTML content within
 nodes - perfect for building complex visualizations with custom UI components, styled content, and interactive elements.
 
-Get started with our **[getting started guide](/getting-started)**.
+
+<div class="cta">
+  <h2>
+    Get started with our <a href="/getting-started/" target="_blank">getting started</a> guide.
+  </h2>
+</div>
 
 <a href="/use-cases/advanced-demo/" target="_blank" aria-label="Advanced demo">
   <div class="video">
