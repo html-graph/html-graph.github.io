@@ -113,7 +113,7 @@ methods.
 canvas.addEdge({
   from: "port-1",
   to: "port-2",
-  shape: new MyCustomEdgeShape("Edge 1"),
+  shape: new MyCustomEdgeShape(),
 });
 {{< /code >}}
 
@@ -121,7 +121,7 @@ canvas.addEdge({
 canvas.updateEdge("edge-1", {
   from: "port-3",
   to: "port-4",
-  shape: new MyCustomEdgeShape("Edge 2"),
+  shape: new MyCustomEdgeShape(),
 });
 {{< /code >}}
 
