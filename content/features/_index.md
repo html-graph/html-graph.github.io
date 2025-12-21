@@ -25,7 +25,7 @@ Here is an overview of all available features:
 ### [Transformable Viewport](/features/transformable-viewport/)
 Shift and zoom your graph using mouse or touch gestures for intuitive navigation.
 
-<a href="/use-cases/transformable-viewport/" target="_blank" aria-label="Transformable Viewport">
+<a href="/features/transformable-viewport/" target="_blank" aria-label="Transformable Viewport">
   <div class="video">
     <video autoplay muted loop>
       <source src="/media/transformable-viewport.webm">
@@ -36,7 +36,7 @@ Shift and zoom your graph using mouse or touch gestures for intuitive navigation
 ### [Draggable Nodes](/features/draggable-nodes/)
 Easily reposition nodes by dragging them with mouse or touch gestures.
 
-<a href="/use-cases/draggable-nodes/" target="_blank" aria-label="Draggable Nodes">
+<a href="/features/draggable-nodes/" target="_blank" aria-label="Draggable Nodes">
   <div class="video">
     <video autoplay muted loop>
       <source src="/media/draggable-nodes.webm">
@@ -47,7 +47,7 @@ Easily reposition nodes by dragging them with mouse or touch gestures.
 ### [Background Rendering](/features/background/)
 Add customizable backgrounds that seamlessly work with the transformable viewport.
 
-<a href="/use-cases/custom-background-renderer/" target="_blank" aria-label="Background">
+<a href="/features/background/" target="_blank" aria-label="Background">
   <div class="video">
     <video autoplay muted loop>
       <source src="/media/background.webm">
@@ -58,7 +58,7 @@ Add customizable backgrounds that seamlessly work with the transformable viewpor
 ### [Connectable Ports](/features/connectable-ports/)
 Create connections by dragging between ports, enabling dynamic graph editing.
 
-<a href="/use-cases/connectable-ports/" target="_blank" aria-label="Connectable Ports">
+<a href="/features/connectable-ports/" target="_blank" aria-label="Connectable Ports">
   <div class="video">
     <video autoplay muted loop>
       <source src="/media/connectable-ports.webm">
@@ -69,7 +69,7 @@ Create connections by dragging between ports, enabling dynamic graph editing.
 ### [Draggable Edges](/features/draggable-edges/)
 Update existing connections by dragging adjacent ports, enabling dynamic graph editing.
 
-<a href="/use-cases/draggable-edges/" target="_blank" aria-label="Draggable Edges">
+<a href="/features/draggable-edges/" target="_blank" aria-label="Draggable Edges">
   <div class="video">
     <video autoplay muted loop>
       <source src="/media/draggable-edges.webm">
@@ -80,7 +80,7 @@ Update existing connections by dragging adjacent ports, enabling dynamic graph e
 ### [Virtual Scroll](/features/virtual-scroll/)
 Optimize performance for large graphs with intelligent rendering of visible elements only.
 
-<a href="/use-cases/virtual-scroll/" target="_blank" aria-label="Virtual Scroll">
+<a href="/features/virtual-scroll/" target="_blank" aria-label="Virtual Scroll">
   <div class="video">
     <video autoplay muted loop>
       <source src="/media/virtual-scroll.webm">
@@ -91,7 +91,7 @@ Optimize performance for large graphs with intelligent rendering of visible elem
 ### [Node Resize Reactive Edges](/features/node-resize-reactive-edges/)
 Automatically maintain edge connections when nodes are resized.
 
-<a href="/use-cases/node-resize-reactive-edges/" target="_blank" aria-label="Node Resize Reactive Edges">
+<a href="/features/node-resize-reactive-edges/" target="_blank" aria-label="Node Resize Reactive Edges">
   <div class="video">
     <video autoplay muted loop>
       <source src="/media/node-resize-reactive-edges.webm">
