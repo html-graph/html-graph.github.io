@@ -27,9 +27,11 @@ const canvas = new CanvasBuilder(element)
   .setDefaults({
     edges: {
       shape: () => {
-        return new BezierEdgeShape({
+        const baseShape = new BezierEdgeShape({
           hasTargetArrow: true,
         });
+
+        return baseShape;
       },
     },
   })
