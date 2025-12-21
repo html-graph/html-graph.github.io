@@ -9,7 +9,7 @@ visualization.
 
 ### [Interactive Edges](interactive-edges)
 
-<a href="/use-cases/interactive-edges/" target="_blank" aria-label="Interactive Edges">
+<a href="/tutorials/interactive-edges/" target="_blank" aria-label="Interactive Edges">
   <div class="video">
     <video autoplay muted loop>
       <source src="/media/interactive-edges.webm">
@@ -19,7 +19,7 @@ visualization.
 
 ### [Changing Edge Color](changing-edge-color)
 
-<a href="/use-cases/changing-edge-color/" target="_blank" aria-label="Changing Edge Color">
+<a href="/tutorials/changing-edge-color/" target="_blank" aria-label="Changing Edge Color">
   <div class="video">
     <video autoplay muted loop>
       <source src="/media/changing-edge-color.webm">
@@ -30,7 +30,7 @@ visualization.
 
 ### [Edges with Remove Button](edges-with-remove-button)
 
-<a href="/use-cases/midpoint-edge/" target="_blank" aria-label="Edges with Remove Button">
+<a href="/tutorials/midpoint-edge/" target="_blank" aria-label="Edges with Remove Button">
   <div class="video">
     <video autoplay muted loop>
       <source src="/media/removable-edges.webm">
