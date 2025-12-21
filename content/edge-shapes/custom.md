@@ -85,7 +85,7 @@ As shown above, any custom edge shape must implement the `EdgeShape` interface.
 
 This interface requires:
 - public property `svg`, which stores edge svg element
-- method `render`, which updates `svg` property based on provided parameters.
+- method `render`, which updates `svg` property based on provided parameters
 
 {{< use-case title="Minimal Custom Edge Shape Example" src=/use-cases/minimal-custom-edge-shape/ >}}
 
