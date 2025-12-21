@@ -1,5 +1,5 @@
 ---
-title: Advanced Edges | Edges with Remove Button
+title: HTMLGraph | Tutorials | Edges with Remove Button
 ---
 
 ## Edges with Remove Button
