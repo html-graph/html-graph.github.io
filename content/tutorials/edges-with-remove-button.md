@@ -1,5 +1,5 @@
 ---
-title: Advanced Edges | Edges with button in the center
+title: Advanced Edges | Edges with Remove Button
 ---
 
 ## Edges with Remove Button
@@ -16,7 +16,7 @@ title: Advanced Edges | Edges with button in the center
 In nocode editor user interfaces it's common to have some way of removing edges.
 
 Removing an edge itself is an easy task, that can be done using the
-[`removeEdge`](/canvas/#remove-edge) method.
+<a href="/canvas/#remove-edge" target="_blank">`removeEdge`</a> method.
 
 {{< code lang="javascript">}}
 canvas.removeEdge("edge-1");
