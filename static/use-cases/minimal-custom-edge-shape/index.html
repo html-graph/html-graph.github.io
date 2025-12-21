@@ -132,8 +132,8 @@
           this.canvas = new CanvasBuilder(element)
             .setDefaults({
               edges: {
-                shape: (edgeId) => {
-                  return new MyCustomEdgeShape(`Connection ${edgeId}`);
+                shape: () => {
+                  return new MyCustomEdgeShape();
                 }
               }
             })
