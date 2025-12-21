@@ -48,7 +48,7 @@ const canvas = new CanvasBuilder(element).build();
 </div>
 
 <div data-tab-content="1">
-Paste content into HTML
+Paste the content into HTML
 {{< code lang="html" >}}
 <div id="canvas"></div>
 <script type="module">
