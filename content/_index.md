@@ -4,10 +4,11 @@ sitemap:
   priority: 1
 ---
 
-**HTMLGraph** is a graph visualization library that enables rich nodes customization using HTML elements.
+<div class="introduction">
+<b>HTMLGraph</b> is a graph visualization library that enables rich nodes customization using HTML elements.<br>
 It allows you to create interactive and dynamic graphs by incorporating complete HTML content within
 nodes - perfect for building complex visualizations with custom UI components, styled content, and interactive elements.
-
+</div>
 
 <div class="cta">
   <h2>
