@@ -25,7 +25,7 @@ canvas.removeEdge("edge-1");
 The challenge is to add some interactive element in the center of an edge to
 handle click events that trigger edge removal.
 
-This can be done using another edge decorator, but first we need to create a
+This can be done using `MidpointEdgeShape` decorator, but first we need to create a
 function that would generate an interactive element. As a basis for a remove
 button, you can use this implementation:
 
