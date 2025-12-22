@@ -28,13 +28,13 @@ In addition to `type: "bezier"`, the following options are available:
 
 {{< ref-target ref="bezier-edge-parameters">}}
 | Name             | Type                                                              | Description                        | Required | Default      |
-|------------------|-------------------------------------------------------------------|------------------------------------|----------|--------------|
-| color            | string                                                            | Color of the line and arrows       | no       | `"#777777"`  |
-| width            | number                                                            | Line width                         | no       | `1`          |
-| arrowRenderer    | <a target="_blank" href="/arrows-customization">ArrowRenderer</a> | Arrow shape                        | no       | `{}`         |
-| arrowLength      | number                                                            | Full length of the arrow           | no       | `20`         |
-| curvature        | number                                                            | Bezier curvature                   | no       | `90`         |
-| hasSourceArrow   | boolean                                                           | Draw an arrow near the source port | no       | `false`      |
+|------------------|-----------------------------------------------------------|------------------------------------|----------|--------------|
+| color            | string                                                    | Color of the line and arrows       | no       | `"#777777"`  |
+| width            | number                                                    | Line width                         | no       | `1`          |
+| arrowRenderer    | <a target="_blank" href="/edge-arrows/">ArrowRenderer</a> | Arrow shape                        | no       | `{}`         |
+| arrowLength      | number                                                    | Full length of the arrow           | no       | `20`         |
+| curvature        | number                                                    | Bezier curvature                   | no       | `90`         |
+| hasSourceArrow   | boolean                                                   | Draw an arrow near the source port | no       | `false`      |
 | hasTargetArrow   | boolean                                                           | Draw an arrow near the target port | no       | `false`      |
 | cycleRadius      | number                                                            | Port cycle line radius             | no       | `30`         |
 | smallCycleRadius | number                                                            | Port-cycle radius near the port    | no       | `15`         |

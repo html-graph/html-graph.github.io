@@ -31,13 +31,13 @@ In addition to `type: "vertical"`, the following options are available:
 
 {{< ref-target ref="vertical-edge-parameters">}}
 | Name             | Type                                                              | Description                            | Required | Default      |
-|------------------|-------------------------------------------------------------------|----------------------------------------|----------|--------------|
-| color            | string                                                            | Color of the line and arrows           | no       | `"#777777"`  |
-| width            | number                                                            | Line width                             | no       | `1`          |
-| arrowRenderer    | <a target="_blank" href="/arrows-customization">ArrowRenderer</a> | Arrow shape                            | no       | `{}`         |
-| arrowLength      | number                                                            | Full length of the arrow               | no       | `20`         |
-| arrowOffset      | number                                                            | Offset from the arrow to the edge bend | no       | `15`         |
-| hasSourceArrow   | boolean                                                           | Draw an arrow near the source port     | no       | `false`      |
+|------------------|-----------------------------------------------------------|----------------------------------------|----------|--------------|
+| color            | string                                                    | Color of the line and arrows           | no       | `"#777777"`  |
+| width            | number                                                    | Line width                             | no       | `1`          |
+| arrowRenderer    | <a target="_blank" href="/edge-arrows/">ArrowRenderer</a> | Arrow shape                            | no       | `{}`         |
+| arrowLength      | number                                                    | Full length of the arrow               | no       | `20`         |
+| arrowOffset      | number                                                    | Offset from the arrow to the edge bend | no       | `15`         |
+| hasSourceArrow   | boolean                                                   | Draw an arrow near the source port     | no       | `false`      |
 | hasTargetArrow   | boolean                                                           | Draw an arrow near the target port     | no       | `false`      |
 | cycleSquareSide  | number                                                            | Port cycle square side size            | no       | `30`         |
 | roundness        | number                                                            | Roundness of the line angles           | no       | `10`         |

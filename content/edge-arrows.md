@@ -1,8 +1,8 @@
 ---
-title: Arrows Customization
+title: Edge Arrows
 ---
 
-## Arrows Customization
+## Edge Arrows
 
 Arrow shape can be customized by setting `arrowRenderer` edge shape parameter,
 for example:
