@@ -1,8 +1,8 @@
 ---
-title: Events
+title: Canvas State Events
 ---
 
-## Events
+## Canvas State Events
 
 HTMLGraph offers a basic event system to handle changes in the canvas state.
 Events can be subscribed to via the `subscribe` method provided by the `EventHandler` instance.
