@@ -185,6 +185,13 @@
   </li>
   <li>
     {{ partial "bold-menu-link.html" (dict
+      "path" "/edge-arrows/"
+      "activePath" .path
+      "label" "Edge Arrows"
+    )}}
+  </li>
+  <li>
+    {{ partial "bold-menu-link.html" (dict
       "path" "/tutorials/"
       "activePath" .path
       "label" "Tutorials"
@@ -212,13 +219,6 @@
         )}}
       </li>
     </ul>
-  </li>
-  <li>
-    {{ partial "bold-menu-link.html" (dict
-      "path" "/edge-arrows/"
-      "activePath" .path
-      "label" "Edge Arrows"
-    )}}
   </li>
   <li>
     {{ partial "bold-menu-link.html" (dict
