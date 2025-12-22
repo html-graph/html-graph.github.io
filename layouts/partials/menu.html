@@ -134,6 +134,36 @@
   </li>
   <li>
     {{ partial "bold-menu-link.html" (dict
+      "path" "/tutorials/"
+      "activePath" .path
+      "label" "Tutorials"
+    )}}
+    <ul>
+      <li>
+        {{ partial "menu-link.html" (dict
+          "path" "/tutorials/interactive-edges/"
+          "activePath" .path
+          "label" "Interactive Edges"
+        )}}
+      </li>
+      <li>
+        {{ partial "menu-link.html" (dict
+          "path" "/tutorials/changing-edge-color/"
+          "activePath" .path
+          "label" "Changing Edge Color"
+        )}}
+      </li>
+      <li>
+        {{ partial "menu-link.html" (dict
+          "path" "/tutorials/edges-with-remove-button/"
+          "activePath" .path
+          "label" "Edge with Remove Button"
+        )}}
+      </li>
+    </ul>
+  </li>
+  <li>
+    {{ partial "bold-menu-link.html" (dict
       "path" "/edge-shapes/"
       "activePath" .path
       "label" "Edge Shapes"
@@ -179,36 +209,6 @@
           "path" "/edge-shapes/custom/"
           "activePath" .path
           "label" "Custom"
-        )}}
-      </li>
-    </ul>
-  </li>
-  <li>
-    {{ partial "bold-menu-link.html" (dict
-      "path" "/tutorials/"
-      "activePath" .path
-      "label" "Tutorials"
-    )}}
-    <ul>
-      <li>
-        {{ partial "menu-link.html" (dict
-          "path" "/tutorials/interactive-edges/"
-          "activePath" .path
-          "label" "Interactive Edges"
-        )}}
-      </li>
-      <li>
-        {{ partial "menu-link.html" (dict
-          "path" "/tutorials/changing-edge-color/"
-          "activePath" .path
-          "label" "Changing Edge Color"
-        )}}
-      </li>
-      <li>
-        {{ partial "menu-link.html" (dict
-          "path" "/tutorials/edges-with-remove-button/"
-          "activePath" .path
-          "label" "Edge with Remove Button"
         )}}
       </li>
     </ul>
