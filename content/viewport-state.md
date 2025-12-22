@@ -1,8 +1,8 @@
 ---
-title: Accessing Viewport Transform State
+title: Viewport Transform State
 ---
 
-## Accessing Viewport State
+## Viewport State
 
 The read-only viewport transform state can be accessed via the `viewport` property of the `canvas`.
 

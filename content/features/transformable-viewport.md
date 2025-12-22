@@ -165,6 +165,6 @@ transformPreprocessor: (params) => {
 | `onResizeTransformStarted`  | Triggered when transformation is about to change due to canvas element resize.                                                    |
 | `onResizeTransformFinished` | Triggered after transformation was changed due to canvas element resize.                                                          |
 
-All events have no arguments, but the up-to-date transform state can be retrieved via the [`canvas.viewport`](/accessing-viewport-state) property.
+All events have no arguments, but the up-to-date transform state can be retrieved via the [`canvas.viewport`](/viewport-state) property.
 
 {{< /ref-target >}}

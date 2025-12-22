@@ -42,7 +42,7 @@ This interface requires one mandatory method `calculateNextCoordinates`, which
 provides next iteration coordinates for each node.
 
 The method takes two arguments:
-- `graph` - a <a href="/accessing-graph-structure/" target="_blank">Graph</a> object.
+- `graph` - a <a href="/graph-structure/" target="_blank">Graph</a> object.
 - `dt` - time elapsed form the previous iteration (note, that this value might be very high, so usage of `Math.min` function might be necessary)
 
 The return value should be a `Map` where keys correspond to node identifiers and values represent their respective coordinates.

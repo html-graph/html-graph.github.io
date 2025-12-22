@@ -1,8 +1,8 @@
 ---
-title: Accessing Graph Structure
+title: Graph Structure
 ---
 
-## Accessing Graph Structure
+## Graph Structure
 
 The read-only graph structure can be accessed via the `graph` property of the `canvas`.
 
