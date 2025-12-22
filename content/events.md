@@ -1,11 +1,10 @@
 ---
-title: Canvas related events
+title: Events
 ---
 
-## Canvas related events
+## Events
 
-In some cases, it’s crucial to react to canvas state changes.
-HTMLGraph provides a simple event model for this purpose.
+HTMLGraph provides a simple event model to respond to canvas state changes.
 To subscribe to events, use the `subscribe` method of an `EventHandler` instance.
 When the listener is no longer needed, unsubscribe by calling `unsubscribe` with the same callback.
 
