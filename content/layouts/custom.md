@@ -35,7 +35,7 @@ As shown above, any custom algorithm must implement the `LayoutAlgorithm` interf
 This interface requires one mandatory method, `calculateCoordinates`, which provides coordinates for each node.
 
 The method accepts a single argument:
-- `graph` - a <a href="/graph-structure/" target="_blank">Graph</a> object.
+- `graph` - a <a href="/graph-state/" target="_blank">Graph</a> object.
 
 The return value should be a `Map` where keys correspond to node identifiers and values represent their respective coordinates.
 

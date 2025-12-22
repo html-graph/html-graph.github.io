@@ -1,10 +1,10 @@
 ---
-title: Graph Structure
+title: Graph State
 ---
 
-## Graph Structure
+## Graph State
 
-The read-only graph structure can be accessed via the `graph` property of the `canvas`.
+The read-only graph state can be accessed via the `graph` property of the `canvas`.
 
 {{< code lang="javascript" >}}
 const element = document.getElementById('canvas');
