@@ -79,4 +79,4 @@ renderer.setAttribute('stroke', '#CCCCFF');
 
 {{< /ref-target >}}
 
-{{< use-case title="Custom background renderer" src=/use-cases/custom-background-renderer/ >}}
+{{< use-case src=/use-cases/custom-background-renderer/ >}}

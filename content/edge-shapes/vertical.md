@@ -23,7 +23,7 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-{{< use-case title="Vertical Edge" src=/use-cases/vertical-edge/ >}}
+{{< use-case src=/use-cases/vertical-edge/ >}}
 
 In addition to `type: "vertical"`, the following options are available:
 

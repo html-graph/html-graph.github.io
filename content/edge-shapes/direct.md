@@ -20,7 +20,7 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-{{< use-case title="Direct Edge" src=/use-cases/direct-edge/ >}}
+{{< use-case src=/use-cases/direct-edge/ >}}
 
 In addition to `type: "direct"`, the following options are available:
 

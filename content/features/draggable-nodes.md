@@ -16,7 +16,7 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-{{< use-case title="Draggable Nodes" src=/use-cases/draggable-nodes/ >}}
+{{< use-case src=/use-cases/draggable-nodes/ >}}
 
 This method accepts optional configuration:
 

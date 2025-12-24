@@ -20,7 +20,7 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-{{< use-case title="Horizontal Edge" src=/use-cases/horizontal-edge/ >}}
+{{< use-case src=/use-cases/horizontal-edge/ >}}
 
 In addition to `type: "horizontal"`, the following options are available:
 

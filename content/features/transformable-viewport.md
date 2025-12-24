@@ -16,7 +16,7 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-{{< use-case title="Transformable Viewport" src=/use-cases/transformable-viewport/ >}}
+{{< use-case src=/use-cases/transformable-viewport/ >}}
 
 This method accepts optional configuration:
 

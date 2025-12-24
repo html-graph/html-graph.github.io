@@ -87,7 +87,7 @@ This interface requires:
 - public property `svg`, which stores edge svg element
 - method `render`, which updates `svg` property based on provided parameters
 
-{{< use-case title="Minimal Custom Edge Shape Example" src=/use-cases/minimal-custom-edge-shape/ >}}
+{{< use-case src=/use-cases/minimal-custom-edge-shape/ >}}
 
 A custom edge shape can be provided via a factory function in the `setDefaults` method of `CanvasBuilder`.
 

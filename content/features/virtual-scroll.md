@@ -32,7 +32,7 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-{{< use-case title="Virtual scroll with 100k nodes" src=/use-cases/virtual-scroll/ >}}
+{{< use-case src=/use-cases/virtual-scroll/ >}}
 
 ### Configuration Parameters
 

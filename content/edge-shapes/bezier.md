@@ -20,7 +20,7 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-{{< use-case title="Bezier Edge" src=/use-cases/bezier-edge/ >}}
+{{< use-case src=/use-cases/bezier-edge/ >}}
 
 In addition to `type: "bezier"`, the following options are available:
 

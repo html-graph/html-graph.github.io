@@ -61,4 +61,4 @@ const arrowRenderer = (renderingParams) => {
 - `renderingParams.shift` - vector to which arrow should be shifted
 - `renderingParams.arrowLength` - length that arrow should cover
 
-{{< use-case title="Custom Arrows" src=/use-cases/custom-arrows/ >}}
+{{< use-case src=/use-cases/custom-arrows/ >}}

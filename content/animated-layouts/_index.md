@@ -20,7 +20,7 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-{{< use-case title="Force-directed animated layout" src=/use-cases/force-directed-animated-layout/ >}}
+{{< use-case src=/use-cases/force-directed-animated-layout/ >}}
 
 As shown below, coordinates are calculated automatically and do not need to be
 specified explicitly when calling the <a href="/canvas#add-node" target="_blank">addNode</a> method.

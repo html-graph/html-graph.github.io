@@ -29,7 +29,7 @@ const canvas = new CanvasBuilder(element)
 
 It is crucial for a port to have a "grabable" area large enough to actually be grabbed by the user, as shown in the example below.
 
-{{< use-case title="Connectable ports" src=/use-cases/connectable-ports/ >}}
+{{< use-case src=/use-cases/connectable-ports/ >}}
 
 The `enableUserConnectablePorts` method accepts optional configuration.
 

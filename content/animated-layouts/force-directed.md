@@ -22,7 +22,7 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-{{< use-case title="Force-directed animated layout" src=/use-cases/force-directed-animated-layout/ >}}
+{{< use-case src=/use-cases/force-directed-animated-layout/ >}}
 
 The force-directed layout supports optional configuration parameters.
 

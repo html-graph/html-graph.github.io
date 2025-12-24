@@ -56,4 +56,4 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-{{< use-case title="Changing edge color on mouse hover" src=/use-cases/changing-edge-color/ >}}
+{{< use-case src=/use-cases/changing-edge-color/ >}}

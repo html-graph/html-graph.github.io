@@ -93,7 +93,7 @@ Feel free to copy-paste the implementation and adapt it to your needs.
 
 # # {#end-result}
 
-{{< use-case title="Getting Started Example" src="/use-cases/getting-started/" >}}
+{{< use-case src="/use-cases/getting-started/" >}}
 
 The whole process consists of four steps:
 

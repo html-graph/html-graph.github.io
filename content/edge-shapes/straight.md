@@ -20,7 +20,7 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-{{< use-case title="Straight Edge" src=/use-cases/straight-edge/ >}}
+{{< use-case src=/use-cases/straight-edge/ >}}
 
 In addition to `type: "straight"`, the following options are available:
 

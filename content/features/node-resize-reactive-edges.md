@@ -25,4 +25,4 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-{{< use-case title="Node Resize Reactive Edges" src=/use-cases/node-resize-reactive-edges/ >}}
+{{< use-case src=/use-cases/node-resize-reactive-edges/ >}}
