@@ -34,11 +34,14 @@ const canvas = new CanvasBuilder(element)
       mouseUpEventVerifier: (event) => true,
     },
     events: {
-      onNodeDrag: (payload) => {
-        console.log(payload);
+      onNodeDragStarted: (nodeId) => {
+        console.log(nodeId);
       },
-      onNodeDragFinished: (payload) => {
-        console.log(payload);
+      onNodeDrag: (nodeId) => {
+        console.log(nodeId);
+      },
+      onNodeDragFinished: (nodeId) => {
+        console.log(nodeId);
       },
     },
   })
@@ -74,6 +77,7 @@ const canvas = new CanvasBuilder(element)
 
 | Name                 | Type               | Description                                   | Required | Default      |
 |----------------------|--------------------|-----------------------------------------------|----------|--------------|
+| `onNodeDragStarted`  | `(nodeId) => void` | Function to call when node drag is started    | no       | `() => void` |
 | `onNodeDrag`         | `(nodeId) => void` | Function to call when node is dragged         | no       | `() => void` |
 | `onNodeDragFinished` | `(nodeId) => void` | Function to call when node drag is finished   | no       | `() => void` |
 
