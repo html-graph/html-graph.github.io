@@ -88,11 +88,15 @@ Download <code>html-graph.umd.cjs</code> from <a target="_blank" href="https://g
 </div>
 </div>
 
-The next section explains how to achieve the result shown below.
+The next section explains how to achieve the result shown below. It demonstrates
+a basic configuration consisting of two nodes connected by an edge.
+Additionally, it configures:
 
-It includes a basic configuration featuring two nodes connected by an edge, along with a
-transformable viewport, draggable nodes, and a background. Feel free to
-copy-paste the implementation and modify it according to your needs.
+- Transformable viewport
+- Draggable nodes
+- Background
+
+Feel free to copy-paste the implementation and adjust it to meet your specific requirements.
 
 # # {#end-result}
 
