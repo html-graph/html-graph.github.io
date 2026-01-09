@@ -69,9 +69,9 @@ const canvas = new CanvasBuilder(element)
 
 ### Barnes-Hut approximation configuration ### {#barnes-hut}
 
-| Name                  | Type     | Description                                                                                                                                                                                                                                   | Required | Default |
-|-----------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|---------|
-| `theta`               | `number` | Controls the trade-off between optimization and accuracy. Higher values lead to greater optimization but reduced accuracy. With `theta = 0`, the algorithm's complexity is `O(n²)`; with `theta = 1`, the complexity becomes `O(n * log(n))`. | no       | `1`     |
-| `areaRadiusThreshold` | `number` | Specifies the radius of the mesh squares where further subdivision stops. Smaller values produce a finer mesh.                                                                                                                                | no       | `0.01`  |
+| Name                  | Type     | Description                                                                                                                                                                                                                             | Required | Default |
+|-----------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|---------|
+| `theta`               | `number` | Controls the trade-off between optimization and accuracy. Higher values lead to greater optimization but reduced accuracy. With `theta=0`, the algorithm's complexity is `O(n²)`; with `theta=1`, the complexity becomes `O(n*log(n))`. | no       | `1`     |
+| `areaRadiusThreshold` | `number` | Specifies the radius of the mesh squares where further subdivision stops. Smaller values produce a finer mesh.                                                                                                                          | no       | `0.01`  |
 
 {{< /ref-target >}}
