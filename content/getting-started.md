@@ -11,19 +11,19 @@ Use one of the following options to include the library into your project:
 <div data-tabs>
 <div data-tabs-btns>
   <button data-tab="0" data-tab-active>
-    <b>NPM</b>
+    NPM
   </button>
 
   <button data-tab="1">
-    <b>CDN</b>
+    CDN
   </button>
 
   <button data-tab="2">
-    <b>Local ESM</b>
+    Local ESM
   </button>
 
   <button data-tab="3">
-    <b>Local UMD</b>
+    Local UMD
   </button>
 </div>
 
@@ -88,8 +88,9 @@ Download <code>html-graph.umd.cjs</code> from <a target="_blank" href="https://g
 </div>
 </div>
 
-The next section explains how to achieve the result shown below. It includes a
-basic configuration featuring two nodes connected by an edge, along with a
+The next section explains how to achieve the result shown below.
+
+It includes a basic configuration featuring two nodes connected by an edge, along with a
 transformable viewport, draggable nodes, and a background. Feel free to
 copy-paste the implementation and modify it according to your needs.
 
