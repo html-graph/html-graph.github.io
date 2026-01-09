@@ -31,28 +31,47 @@ const canvas = new CanvasBuilder(element)
   .enableLayout({
     algorithm: {
       type: "forceDirected",
-      dtSec: 0.02,
+      dtSec: 0.01,
       nodeCharge: 10000,
       nodeMass: 1,
-      effectiveDistance: 1000,
+      nodeForceCoefficient: 1,
+      maxForce: 10000000,
       edgeEquilibriumLength: 300,
-      edgeStiffness: 100,
-      maxIterations: 100,
-      convergenceDelta: 0.001,
+      edgeStiffness: 1000,
+      maxIterations: 1000,
+      convergenceDelta: 1,
+      barnesHut: {
+        theta: 1,
+        areaRadiusThreshold: 0.01,
+      },
       seed: "HTMLGraph is awesome",
     },
   })
   .build();
 {{< /code >}}
 
-| Name                    | Type     | Description                                                                                                                          | Required | Default                  |
-|-------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------------|----------|--------------------------|
-| `dtSec`                 | `number` | Time step duration in seconds per iteration                                                                                          | No       | `0.02`                   |
-| `nodeCharge`            | `number` | Represents electrostatic-like repulsive forces between nodes. Higher values increase repulsion                                       | No       | `10000`                  |
-| `nodeMass`              | `number` | Determines node's inertia during movement. Larger masses slow down convergence but enhance stability                                 | No       | `1`                      |
-| `effectiveDistance`     | `number` | Cutoff distance beyond which nodes' interactions become negligible                                                                   | No       | `1000`                   |
-| `edgeEquilibriumLength` | `number` | Perfect edge length when attractive and repulsive forces are absent                                                                  | No       | `300`                    |
-| `edgeStiffness`         | `number` | Measures spring-like behavior of edges. High stiffness enforces equilibrium lengths strictly                                         | No       | `100`                    |
-| `maxIterations`         | `number` | Maximum allowed iterations before stopping the layout process                                                                        | No       | `100`                    |
-| `convergenceDelta`      | `number` | Threshold determining whether nodes have settled sufficiently after moving distances smaller than this threshold within an iteration | No       | `0.001`                  |
-| `seed`                  | `string` | A randomization seed used to initialize nodes' starting positions if they lack predefined coordinates                                | No       | `"HTMLGraph is awesome"` |
+| Name                    | Type     | Description                                                                                                                                                   | Required | Default                  |
+|-------------------------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|--------------------------|
+| `dtSec`                 | `number` | Time step duration in seconds per iteration                                                                                                                   | No       | `0.01`                   |
+| `nodeCharge`            | `number` | Represents electrostatic-like repulsive forces between nodes. Higher values increase repulsion                                                                | No       | `10000`                  |
+| `nodeMass`              | `number` | Determines node's inertia during movement. Larger masses slow down convergence but enhance stability                                                          | No       | `1`                      |
+| `nodeForceCoefficient`  | `number` | Multiplier for the repulsive force between nodes. A higher value increases the repulsion effect given the same node charges.                                  | No       | `1`                      |
+| `maxForce`              | `number` | Sets the maximum amount of force applicable to a node. Useful when nodes are very close together, preventing repulsive forces from becoming infinitely large. | No       | `10000000`               |
+| `edgeEquilibriumLength` | `number` | Perfect edge length when attractive and repulsive forces are absent                                                                                           | No       | `300`                    |
+| `edgeStiffness`         | `number` | Measures spring-like behavior of edges. High stiffness enforces equilibrium lengths strictly                                                                  | No       | `1000`                   |
+| `maxIterations`         | `number` | Maximum allowed iterations before stopping the layout process                                                                                                 | No       | `1000`                   |
+| `convergenceDelta`      | `number` | Threshold determining whether nodes have settled sufficiently after moving distances smaller than this threshold within an iteration                          | No       | `1`                      |
+| `barnesHut`             | `object` | Configuration settings for approximating node forces calculations. See detailed explanation under [Barnes-Hut approximation configuration](#barnes-hut).      | No       | `{}`                     |
+| `seed`                  | `string` | A randomization seed used to initialize nodes' starting positions if they lack predefined coordinates                                                         | No       | `"HTMLGraph is awesome"` |
+
+
+{{< ref-target ref="barnes-hut">}}
+
+### Barnes-Hut approximation configuration
+
+| Name                  | Type     | Description                                                                                                                                                                                                                                   | Required | Default |
+|-----------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|---------|
+| `theta`               | `number` | Controls the trade-off between optimization and accuracy. Higher values lead to greater optimization but reduced accuracy. With `theta = 0`, the algorithm's complexity is `O(n²)`; with `theta = 1`, the complexity becomes `O(n * log(n))`. | no       | `1`     |
+| `areaRadiusThreshold` | `number` | Specifies the radius of the mesh squares where further subdivision stops. Smaller values produce a finer mesh.                                                                                                                                | no       | `0.01`  |
+
+{{< /ref-target >}}

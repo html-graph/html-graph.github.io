@@ -76,7 +76,7 @@
     </div>
     <div id="canvas"></div>
     <script type="module">
-      import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@7.2.0";
+      import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@7.3.0";
 
       class Application {
         constructor(element) {
@@ -97,12 +97,7 @@
             .enableUserDraggableNodes({ moveEdgesOnTop: false })
             .enableUserTransformableViewport()
             .enableBackground()
-            .enableAnimatedLayout({
-              algorithm: {
-                type: "forceDirected",
-                nodeMass: 2,
-              }
-            })
+            .enableAnimatedLayout()
             .build();
         }
 

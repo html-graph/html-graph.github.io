@@ -41,14 +41,19 @@ const canvas = new CanvasBuilder(element)
   .enableLayout({
     algorithm: {
       type: "forceDirected",
-      dtSec: 0.02,
+      dtSec: 0.01,
       nodeCharge: 10000,
       nodeMass: 1,
-      effectiveDistance: 1000,
+      nodeForceCoefficient: 1,
+      maxForce: 10000000,
       edgeEquilibriumLength: 300,
-      edgeStiffness: 100,
-      maxIterations: 100,
-      convergenceDelta: 0.001,
+      edgeStiffness: 1000,
+      maxIterations: 1000,
+      convergenceDelta: 1,
+      barnesHut: {
+        theta: 1,
+        areaRadiusThreshold: 0.01,
+      },
       seed: "HTMLGraph is awesome",
     },
     applyOn: "topologyChangeTimeout"
