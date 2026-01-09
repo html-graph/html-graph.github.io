@@ -2,4 +2,4 @@
 - local search
 - SEO, rich results
 - node same as port tutorial
-- make FAQ accordion
+- make FAQ page

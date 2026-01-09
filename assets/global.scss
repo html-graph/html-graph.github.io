@@ -18,6 +18,7 @@
   --color-tab-frame: #c5c6c4;
   --color-text-tab: #5e5e5e;
   --color-text-tab-active: #2d2d2d;
+  --color-tab-content: #f1f1f1;
 }
 
 html,
@@ -136,17 +137,15 @@ h1, h2, h3, h4, h5, h6, p {
   }
 }
 
-.use-case {
-  &__frame {
-    position: relative;
-    padding-top: 75%;
-    border: 1px solid var(--color-border);
+.use-case-frame {
+  position: relative;
+  padding-top: 75%;
+  z-index: 1;
 
-    iframe {
-      border: none;
-      z-index: -1;
-      position: relative;
-    }
+  iframe {
+    border: none;
+    z-index: -1;
+    position: relative;
   }
 
   &__impl {
@@ -156,10 +155,10 @@ h1, h2, h3, h4, h5, h6, p {
     padding: 0;
 
     pre {
+      background: var(--color-tab-content);
       position: absolute;
       inset: 0;
       overflow: scroll;
-      background: var(--color-code-background);
       padding: 1rem;
       margin: 0;
     }
@@ -173,34 +172,6 @@ h1, h2, h3, h4, h5, h6, p {
     width: 1rem;
     height: 1rem;
     cursor: pointer;
-  }
-
-  &__head {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.25rem;
-  }
-
-  &__btn {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    border-radius: 0.25rem;
-    border: 2px solid var(--color-border);
-    padding: 0.25rem 0.5rem;
-    background: var(--color-tab-bg);
-    color: var(--color-link);
-
-    &_active {
-      background: var(--color-tab-bg-active);
-      border-color: var(--color-link-active);
-      color: var(--color-button-active);
-    }
-
-    &:hover {
-      background: var(--color-tab-bg-hover);
-    }
   }
 
   &__ref {
@@ -217,7 +188,7 @@ h1, h2, h3, h4, h5, h6, p {
     overflow-x: auto;
     padding: 1rem;
     border-radius: 0.5rem;
-    background: var(--color-code-background);
+    background: var(--color-tab-content);
   }
 
   svg {
@@ -336,6 +307,7 @@ ol {
   flex-direction: column;
   border: 1px solid var(--color-tab-frame);
   border-radius: 0.5rem;
+  overflow: hidden;
 }
 
 [data-tabs-btns] {
@@ -345,10 +317,13 @@ ol {
 }
 
 [data-tab] {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   align-items: center;
   border-radius: 0;
   border: none;
-  padding: 0.25rem 0.5rem 0.75rem;
+  padding: 0.25rem 0.75rem 0.75rem;
   background: transparent;
   position: relative;
   color: var(--color-text-tab);
@@ -378,6 +353,11 @@ ol {
   display: none;
   padding: 1rem 1.5rem;
   border-top: 1px solid var(--color-tab-frame);
+
+  &[data-tab-content-full] {
+    padding: 0;
+  }
+
 
   &[data-tab-content-visible] {
     display: block;

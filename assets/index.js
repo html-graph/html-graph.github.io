@@ -12,27 +12,9 @@ document.querySelectorAll("[data-impl]").forEach((element) => {
 });
 
 document.querySelectorAll("[data-use-case]").forEach((element) => {
-  const demoBtn = element.querySelector("[data-use-case-demo-btn]");
-  const implBtn = element.querySelector("[data-use-case-impl-btn]");
-  const demo = element.querySelector("[data-use-case-demo]");
-  const impl = element.querySelector("[data-use-case-impl]");
   const copyBtn = element.querySelector("[data-use-case-copy]");
-  const implCode = element.querySelector("[data-impl]");
-  const anchor = element.querySelector("[data-anchor]");
-
-  demoBtn.addEventListener("click", () => {
-    demo.style.display = "block";
-    demoBtn.classList.add("use-case__btn_active");
-    impl.style.display = "none";
-    implBtn.classList.remove("use-case__btn_active");
-  });
-
-  implBtn.addEventListener("click", () => {
-    demo.style.display = "none";
-    demoBtn.classList.remove("use-case__btn_active");
-    impl.style.display = "block";
-    implBtn.classList.add("use-case__btn_active");
-  });
+  const implCode = element.querySelector("[data-use-case-impl]");
+  const anchor = element.querySelector("[data-use-case-anchor]");
 
   copyBtn.addEventListener("click", () => {
     copy(implCode.innerText);
