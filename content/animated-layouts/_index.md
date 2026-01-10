@@ -53,7 +53,7 @@ const canvas = new CanvasBuilder(element)
       maxForce: 10000000,
       edgeEquilibriumLength: 300,
       edgeStiffness: 1000,
-      convergenceDelta: 1,
+      convergenceVelocity: 10,
       barnesHut: {
         theta: 1,
         areaRadiusThreshold: 0.01,

@@ -49,7 +49,7 @@ const canvas = new CanvasBuilder(element)
       edgeEquilibriumLength: 300,
       edgeStiffness: 1000,
       maxIterations: 1000,
-      convergenceDelta: 1,
+      convergenceVelocity: 10,
       barnesHut: {
         theta: 1,
         areaRadiusThreshold: 0.01,

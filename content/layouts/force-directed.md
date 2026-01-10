@@ -39,7 +39,7 @@ const canvas = new CanvasBuilder(element)
       edgeEquilibriumLength: 300,
       edgeStiffness: 1000,
       maxIterations: 1000,
-      convergenceDelta: 1,
+      convergenceVelocity: 10,
       barnesHut: {
         theta: 1,
         areaRadiusThreshold: 0.01,
@@ -50,19 +50,19 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-| Name                    | Type                           | Description                                                                                                                                                   | Required | Default                  |
-|-------------------------|--------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|--------------------------|
-| `dtSec`                 | `number`                       | Time step duration in seconds per iteration                                                                                                                   | No       | `0.01`                   |
-| `nodeCharge`            | `number`                       | Represents electrostatic-like repulsive forces between nodes. Higher values increase repulsion                                                                | No       | `10000`                  |
-| `nodeMass`              | `number`                       | Determines node's inertia during movement. Larger masses slow down convergence but enhance stability                                                          | No       | `1`                      |
-| `nodeForceCoefficient`  | `number`                       | Multiplier for the repulsive force between nodes. A higher value increases the repulsion effect given the same node charges.                                  | No       | `1`                      |
-| `maxForce`              | `number`                       | Sets the maximum amount of force applicable to a node. Useful when nodes are very close together, preventing repulsive forces from becoming infinitely large. | No       | `10000000`               |
-| `edgeEquilibriumLength` | `number`                       | Perfect edge length when attractive and repulsive forces are absent                                                                                           | No       | `300`                    |
-| `edgeStiffness`         | `number`                       | Measures spring-like behavior of edges. High stiffness enforces equilibrium lengths strictly                                                                  | No       | `1000`                   |
-| `maxIterations`         | `number`                       | Maximum allowed iterations before stopping the layout process                                                                                                 | No       | `1000`                   |
-| `convergenceDelta`      | `number`                       | Threshold determining whether nodes have settled sufficiently after moving distances smaller than this threshold within an iteration                          | No       | `1`                      |
-| `barnesHut`             | [BarnesHutConfig](#barnes-hut) | Configuration settings for approximating node forces calculations.                                                                                            | No       | `{}`                     |
-| `seed`                  | `string`                       | A randomization seed used to initialize nodes' starting positions if they lack predefined coordinates                                                         | No       | `"HTMLGraph is awesome"` |
+| Name                    | Type                           | Description                                                                                                                                                                                      | Required | Default                  |
+|-------------------------|--------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|--------------------------|
+| `dtSec`                 | `number`                       | Time step duration in seconds per iteration                                                                                                                                                      | No       | `0.01`                   |
+| `nodeCharge`            | `number`                       | Represents electrostatic-like repulsive forces between nodes. Higher values increase repulsion                                                                                                   | No       | `10000`                  |
+| `nodeMass`              | `number`                       | Determines node's inertia during movement. Larger masses slow down convergence but enhance stability                                                                                             | No       | `1`                      |
+| `nodeForceCoefficient`  | `number`                       | Multiplier for the repulsive force between nodes. A higher value increases the repulsion effect given the same node charges.                                                                     | No       | `1`                      |
+| `maxForce`              | `number`                       | Sets the maximum amount of force applicable to a node. Useful when nodes are very close together, preventing repulsive forces from becoming infinitely large.                                    | No       | `10000000`               |
+| `edgeEquilibriumLength` | `number`                       | Perfect edge length when attractive and repulsive forces are absent                                                                                                                              | No       | `300`                    |
+| `edgeStiffness`         | `number`                       | Measures spring-like behavior of edges. High stiffness enforces equilibrium lengths strictly                                                                                                     | No       | `1000`                   |
+| `maxIterations`         | `number`                       | Maximum allowed iterations before stopping the layout process                                                                                                                                    | No       | `1000`                   |
+| `convergenceVelocity`   | `number`                       | Threshold determining whether nodes have stabilized sufficiently based on their movement speed (measured as absolute content distance per second) being less than this value during an iteration | No       | `10`                    |
+| `barnesHut`             | [BarnesHutConfig](#barnes-hut) | Configuration settings for approximating node forces calculations.                                                                                                                               | No       | `{}`                     |
+| `seed`                  | `string`                       | A randomization seed used to initialize nodes' starting positions if they lack predefined coordinates                                                                                            | No       | `"HTMLGraph is awesome"` |
 
 
 {{< ref-target ref="barnes-hut">}}
