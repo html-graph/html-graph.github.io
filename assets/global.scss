@@ -383,6 +383,10 @@ ol {
       ul {
         display: none;
       }
+
+      .chevron {
+        transform: scaleY(1);
+      }
     }
   }
 
@@ -416,7 +420,7 @@ ol {
 
     background-image: url(/chevron.svg);
     background-position: center;
-
+    transform: scaleY(-1);
   }
 }
 
