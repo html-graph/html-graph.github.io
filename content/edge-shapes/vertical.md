@@ -77,8 +77,6 @@ canvas.addEdge({
 
 {{< code lang="javascript">}}
 canvas.updateEdge("edge-1", {
-  from: "port-3",
-  to: "port-4",
   shape: new VerticalEdgeShape(),
 });
 {{< /code >}}
