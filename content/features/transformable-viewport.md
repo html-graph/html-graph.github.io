@@ -6,6 +6,14 @@ sitemap:
 
 ## Transformable Viewport
 
+<a href="/use-cases/transformable-viewport/" target="_blank" aria-label="Transformable Viewport">
+  <div class="video">
+    <video autoplay muted loop>
+      <source src="/media/transformable-viewport.webm">
+    </video>
+  </div>
+</a>
+
 To enable the built-in transformable viewport, call the `enableUserTransformableViewport` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}

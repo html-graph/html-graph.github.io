@@ -6,6 +6,14 @@ sitemap:
 
 ## Draggable Nodes
 
+<a href="/use-cases/draggable-nodes/" target="_blank" aria-label="Draggable Nodes">
+  <div class="video">
+    <video autoplay muted loop>
+      <source src="/media/draggable-nodes.webm">
+    </video>
+  </div>
+</a>
+
 To enable built-in draggable nodes, call the `enableUserDraggableNodes` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}

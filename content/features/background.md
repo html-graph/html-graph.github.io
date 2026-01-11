@@ -6,6 +6,14 @@ sitemap:
 
 ## Background
 
+<a href="/use-cases/background/" target="_blank" aria-label="Background">
+  <div class="video">
+    <video autoplay muted loop>
+      <source src="/media/background.webm">
+    </video>
+  </div>
+</a>
+
 To enable built-in background rendering, call the `enableBackground` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
@@ -15,8 +23,8 @@ const canvas = new CanvasBuilder(element)
   .enableBackground()
   .build();
 {{< /code >}}
-
 {{< use-case title="Built-in background rendering" src=/use-cases/background/ >}}
+
 
 This method accepts optional configuration:
 
