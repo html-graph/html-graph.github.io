@@ -370,10 +370,6 @@ ol {
     border-top: 1px solid transparent;
     border-bottom: 1px solid transparent;
 
-    &:not(.submenu-closed) {
-      border-bottom: 1px solid var(--color-border);
-    }
-
     & > a {
       font-weight: bold;
     }
@@ -387,10 +383,6 @@ ol {
         transform: scaleY(1);
       }
     }
-  }
-
-  li.submenu-closed + li:not(.submenu-closed) {
-    border-top: 1px solid var(--color-border);
   }
 
   ul {
