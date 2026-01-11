@@ -1,5 +1,5 @@
 <!-- {{ .path }} -->
-<ul>
+<ul data-menu class="menu">
   <li>
     {{ partial "bold-menu-link.html" (dict
       "path" "/"
@@ -34,7 +34,7 @@
       "activePath" .path
       "label" "Features"
     )}}
-    <ul>
+    <ul class="submenu-closed" data-submenu="0">
       <li>
         {{ partial "menu-link.html" (dict
           "path" "/features/transformable-viewport/"
@@ -92,7 +92,7 @@
       "activePath" .path
       "label" "Layouts"
     )}}
-    <ul>
+    <ul class="submenu-closed" data-submenu="1">
       <li>
         {{ partial "menu-link.html" (dict
           "path" "/layouts/force-directed/"
@@ -115,7 +115,7 @@
       "activePath" .path
       "label" "Animated Layouts"
     )}}
-    <ul>
+    <ul class="submenu-closed" data-submenu="2">
       <li>
         {{ partial "menu-link.html" (dict
           "path" "/animated-layouts/force-directed/"
@@ -138,7 +138,7 @@
       "activePath" .path
       "label" "Edge Shapes"
     )}}
-    <ul>
+    <ul class="submenu-closed" data-submenu="3">
       <li>
         {{ partial "menu-link.html" (dict
           "path" "/edge-shapes/bezier/"
@@ -192,11 +192,32 @@
   </li>
   <li>
     {{ partial "bold-menu-link.html" (dict
+      "path" "/graph-state/"
+      "activePath" .path
+      "label" "Graph State"
+    )}}
+  </li>
+  <li>
+    {{ partial "bold-menu-link.html" (dict
+      "path" "/viewport-state/"
+      "activePath" .path
+      "label" "Viewport State"
+    )}}
+  </li>
+  <li>
+    {{ partial "bold-menu-link.html" (dict
+      "path" "/canvas-state-events/"
+      "activePath" .path
+      "label" "Canvas State Events"
+    )}}
+  </li>
+  <li>
+    {{ partial "bold-menu-link.html" (dict
       "path" "/tutorials/"
       "activePath" .path
       "label" "Tutorials"
     )}}
-    <ul>
+    <ul class="submenu-closed" data-submenu="4">
       <li>
         {{ partial "menu-link.html" (dict
           "path" "/tutorials/interactive-edges/"
@@ -221,27 +242,6 @@
     </ul>
   </li>
   <li>
-    {{ partial "bold-menu-link.html" (dict
-      "path" "/graph-state/"
-      "activePath" .path
-      "label" "Graph State"
-    )}}
-  </li>
-  <li>
-    {{ partial "bold-menu-link.html" (dict
-      "path" "/viewport-state/"
-      "activePath" .path
-      "label" "Viewport State"
-    )}}
-  </li>
-  <li>
-    {{ partial "bold-menu-link.html" (dict
-      "path" "/canvas-state-events/"
-      "activePath" .path
-      "label" "Canvas State Events"
-    )}}
-  </li>
-  <li>
     <a
       href="https://github.com/html-graph/html-graph/issues"
       target="_blank"
@@ -262,3 +262,16 @@
     </a>
   </li>
 </ul>
+<script>
+  document.querySelectorAll("[data-menu]").forEach((menu) => {
+    const children = Array.from(menu.children);
+
+    children.forEach((child) => {
+      if (child.querySelector("a.active") !== null) {
+        child.querySelectorAll("[data-submenu]").forEach((submenu) => {
+          submenu.classList.remove("submenu-closed");
+        })
+      }
+    })
+  });
+</script>
