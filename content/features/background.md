@@ -6,7 +6,7 @@ sitemap:
 
 ## Background
 
-<a href="/use-cases/background/" target="_blank" aria-label="Background">
+<a href="/use-cases/custom-background-renderer/" target="_blank" aria-label="Background">
   <div class="video">
     <video autoplay muted loop>
       <source src="/media/background.webm">
