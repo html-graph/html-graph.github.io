@@ -96,14 +96,14 @@ const canvas = new CanvasBuilder(element)
 {{< ref-target ref="edge-shape-config">}}
 #### `EdgeShapeConfig` Options ### {#edge-shape-config}
 
-| Name       | Configuration                               | Example                                   |
-|------------|---------------------------------------------|-------------------------------------------|
-| Bezier     | [BezierShape](/edge-shapes/bezier/)         | `{ type: "bezier" }`                      |
-| Direct     | [DirectShape](/edge-shapes/direct/)         | `{ type: "direct" }`                      |
-| Straight   | [StraightShape](/edge-shapes/straight/)     | `{ type: "straight" }`                    |
-| Horizontal | [HorizontalShape](/edge-shapes/horizontal/) | `{ type: "horizontal" }`                  |
-| Vertical   | [VerticalShape](/edge-shapes/vertical/)     | `{ type: "vertical" }`                    |
-| Custom     | [CustomShape](/edge-shapes/custom/)         | `(edgeId) => new CustomEdgeShape(edgeId)` |
+| Name       | Configuration                                   | Example                                   |
+|------------|-------------------------------------------------|-------------------------------------------|
+| Bezier     | [BezierEdgeShape](/edge-shapes/bezier/)         | `{ type: "bezier" }`                      |
+| Direct     | [DirectEdgeShape](/edge-shapes/direct/)         | `{ type: "direct" }`                      |
+| Straight   | [StraightEdgeShape](/edge-shapes/straight/)     | `{ type: "straight" }`                    |
+| Horizontal | [HorizontalEdgeShape](/edge-shapes/horizontal/) | `{ type: "horizontal" }`                  |
+| Vertical   | [VerticalEdgeShape](/edge-shapes/vertical/)     | `{ type: "vertical" }`                    |
+| Custom     | [CustomEdgeShape](/edge-shapes/custom/)         | `(edgeId) => new CustomEdgeShape(edgeId)` |
 {{< /ref-target >}}
 
 {{< ref-target ref="edge-priority">}}
