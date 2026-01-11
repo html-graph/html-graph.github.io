@@ -414,7 +414,9 @@ ol {
     inset-block: 0;
     width: 2rem;
 
-    background: url(/chevron.svg);
+    background-image: url(/chevron.svg);
+    background-position: center;
+
   }
 }
 
