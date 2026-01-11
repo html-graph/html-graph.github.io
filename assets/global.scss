@@ -378,6 +378,12 @@ ol {
     & > a {
       font-weight: bold;
     }
+
+    &.submenu-closed {
+      ul {
+        display: none;
+      }
+    }
   }
 
   ul {
@@ -398,12 +404,6 @@ ol {
 
     &:hover, &.active {
       background: var(--color-background-menu-hover);
-    }
-  }
-
-  .submenu-closed {
-    ul {
-      display: none;
     }
   }
 }
