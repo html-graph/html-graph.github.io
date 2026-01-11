@@ -43,12 +43,6 @@ hr {
 
 a {
   color: var(--color-link);
-
-  &.active {
-    &:link {
-      text-decoration: underline;
-    }
-  }
 }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -393,6 +387,12 @@ ol {
 
     &:hover, &.active {
       background: var(--color-background-menu-hover);
+    }
+
+    &.active {
+      &:link {
+        text-decoration: underline;
+      }
     }
   }
 }
