@@ -401,10 +401,18 @@ ol {
     text-decoration: none;
     padding: 0.625rem 1rem;
     transition: background linear 0.16s;
+    position: relative;
 
     &:hover, &.active {
       background: var(--color-background-menu-hover);
     }
+  }
+
+  .chevron {
+    position: absolute;
+    inset-inline-end: 0;
+    inset-block: 0;
+    width: 2rem;
   }
 }
 
