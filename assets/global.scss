@@ -20,7 +20,7 @@
   --color-text-tab-active: #2d2d2d;
   --color-tab-content: #f1f1f1;
   --color-background-menu: #f2f2f2;
-  --color-background-menu-hover: #e8e8e8;
+  --color-background-menu-hover: #e0e0e0;
 }
 
 html,
@@ -45,7 +45,6 @@ a {
   color: var(--color-link);
 
   &.active {
-    color: var(--color-link-active);
     &:link {
       text-decoration: underline;
     }
@@ -370,26 +369,31 @@ ol {
   background: var(--color-background-menu);
   list-style-type: none;
   margin: 0;
-  padding: 1rem;
+  padding: 1rem 0;
 
   & > li > a {
-      font-weight: bold;
+    font-weight: bold;
   }
 
   ul {
     list-style-type: none;
-    padding-left: 1rem;
-  }
+    padding: 0.5rem 0;
 
-  li {
-    padding: 0;
+    li {
+      padding: 0;
+    }
   }
 
   a {
     display: flex;
     align-items: center;
     text-decoration: none;
-    padding: 0.25rem 0;
+    padding: 0.5rem 1rem;
+    transition: background linear 0.16s;
+
+    &:hover, &.active {
+      background: var(--color-background-menu-hover);
+    }
   }
 }
 
