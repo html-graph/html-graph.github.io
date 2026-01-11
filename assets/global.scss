@@ -355,7 +355,7 @@ ol {
 }
 
 .menu {
-  width: 16rem;
+  width: 18rem;
   flex-grow: 1;
   overflow-y: auto;
   scrollbar-width: thin;
@@ -387,12 +387,6 @@ ol {
 
     &:hover, &.active {
       background: var(--color-background-menu-hover);
-    }
-
-    &.active {
-      &:link {
-        text-decoration: underline;
-      }
     }
   }
 }
