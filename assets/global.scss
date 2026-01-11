@@ -371,7 +371,6 @@ ol {
     border-bottom: 1px solid transparent;
 
     &:not(.submenu-closed) {
-      border-top: 1px solid var(--color-border);
       border-bottom: 1px solid var(--color-border);
     }
 
@@ -388,6 +387,10 @@ ol {
         transform: scaleY(1);
       }
     }
+  }
+
+  li.submenu-closed + li:not(.submenu-closed) {
+    border-top: 1px solid var(--color-border);
   }
 
   ul {
