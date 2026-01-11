@@ -365,13 +365,24 @@ ol {
   margin: 0;
   padding: 1rem 0;
 
-  & > li > a {
-    font-weight: bold;
+  & > li {
+    box-sizing: content-box;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+
+    &:not(.submenu-closed) {
+      border-top: 1px solid var(--color-border);
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    & > a {
+      font-weight: bold;
+    }
   }
 
   ul {
     list-style-type: none;
-    padding: 0.5rem 0;
+    padding: 0;
 
     li {
       padding: 0;
@@ -389,8 +400,11 @@ ol {
       background: var(--color-background-menu-hover);
     }
   }
+
+  .submenu-closed {
+    ul {
+      display: none;
+    }
+  }
 }
 
-.submenu-closed {
-  display: none;
-}

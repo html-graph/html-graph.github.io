@@ -1,40 +1,40 @@
 <!-- {{ .path }} -->
 <ul data-menu class="menu">
-  <li>
+  <li class="submenu-closed">
     {{ partial "menu-link.html" (dict
       "path" "/"
       "activePath" .path
       "label" "Overview"
     )}}
   </li>
-  <li>
+  <li class="submenu-closed">
     {{ partial "menu-link.html" (dict
       "path" "/getting-started/"
       "activePath" .path
       "label" "Getting Started"
     )}}
   </li>
-  <li>
+  <li class="submenu-closed">
     {{ partial "menu-link.html" (dict
       "path" "/canvas/"
       "activePath" .path
       "label" "Canvas"
     )}}
   </li>
-  <li>
+  <li class="submenu-closed">
     {{ partial "menu-link.html" (dict
       "path" "/defaults/"
       "activePath" .path
       "label" "Defaults"
     )}}
   </li>
-  <li>
+  <li class="submenu-closed">
     {{ partial "menu-link.html" (dict
       "path" "/features/"
       "activePath" .path
       "label" "Features"
     )}}
-    <ul class="submenu-closed" data-submenu="0">
+    <ul data-submenu="0">
       <li>
         {{ partial "menu-link.html" (dict
           "path" "/features/transformable-viewport/"
@@ -86,13 +86,13 @@
       </li>
     </ul>
   </li>
-  <li>
+  <li class="submenu-closed">
     {{ partial "menu-link.html" (dict
       "path" "/layouts/"
       "activePath" .path
       "label" "Layouts"
     )}}
-    <ul class="submenu-closed" data-submenu="1">
+    <ul data-submenu="1">
       <li>
         {{ partial "menu-link.html" (dict
           "path" "/layouts/force-directed/"
@@ -109,13 +109,13 @@
       </li>
     </ul>
   </li>
-  <li>
+  <li class="submenu-closed">
     {{ partial "menu-link.html" (dict
       "path" "/animated-layouts/"
       "activePath" .path
       "label" "Animated Layouts"
     )}}
-    <ul class="submenu-closed" data-submenu="2">
+    <ul data-submenu="2">
       <li>
         {{ partial "menu-link.html" (dict
           "path" "/animated-layouts/force-directed/"
@@ -132,13 +132,13 @@
       </li>
     </ul>
   </li>
-  <li>
+  <li class="submenu-closed">
     {{ partial "menu-link.html" (dict
       "path" "/edge-shapes/"
       "activePath" .path
       "label" "Edge Shapes"
     )}}
-    <ul class="submenu-closed" data-submenu="3">
+    <ul data-submenu="3">
       <li>
         {{ partial "menu-link.html" (dict
           "path" "/edge-shapes/bezier/"
@@ -183,41 +183,41 @@
       </li>
     </ul>
   </li>
-  <li>
+  <li class="submenu-closed">
     {{ partial "menu-link.html" (dict
       "path" "/edge-arrows/"
       "activePath" .path
       "label" "Edge Arrows"
     )}}
   </li>
-  <li>
+  <li class="submenu-closed">
     {{ partial "menu-link.html" (dict
       "path" "/graph-state/"
       "activePath" .path
       "label" "Graph State"
     )}}
   </li>
-  <li>
+  <li class="submenu-closed">
     {{ partial "menu-link.html" (dict
       "path" "/viewport-state/"
       "activePath" .path
       "label" "Viewport State"
     )}}
   </li>
-  <li>
+  <li class="submenu-closed">
     {{ partial "menu-link.html" (dict
       "path" "/canvas-state-events/"
       "activePath" .path
       "label" "Canvas State Events"
     )}}
   </li>
-  <li>
+  <li class="submenu-closed">
     {{ partial "menu-link.html" (dict
       "path" "/tutorials/"
       "activePath" .path
       "label" "Tutorials"
     )}}
-    <ul class="submenu-closed" data-submenu="4">
+    <ul data-submenu="4">
       <li>
         {{ partial "menu-link.html" (dict
           "path" "/tutorials/interactive-edges/"
@@ -241,7 +241,7 @@
       </li>
     </ul>
   </li>
-  <li>
+  <li class="submenu-closed">
     <a
       href="https://github.com/html-graph/html-graph"
       target="_blank"
@@ -251,7 +251,7 @@
       <img alt="Github Logo" width="16" height="16" src="/github.svg">
     </a>
   </li>
-  <li>
+  <li class="submenu-closed">
     <a
       href="https://github.com/html-graph/html-graph/issues"
       target="_blank"
@@ -268,9 +268,7 @@
 
     children.forEach((child) => {
       if (child.querySelector("a.active") !== null) {
-        child.querySelectorAll("[data-submenu]").forEach((submenu) => {
-          submenu.classList.remove("submenu-closed");
-        })
+        child.classList.remove("submenu-closed");
       }
     })
   });
