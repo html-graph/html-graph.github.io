@@ -96,8 +96,6 @@ Additionally, it configures:
 - Draggable nodes
 - Background
 
-Feel free to copy-paste the implementation and adjust it to meet your specific requirements.
-
 # # {#end-result}
 
 {{< use-case src="/use-cases/getting-started/" >}}
