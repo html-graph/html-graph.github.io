@@ -270,6 +270,13 @@
       if (child.querySelector("a.active") !== null) {
         child.classList.remove("submenu-closed");
       }
-    })
+
+      if (child.children.length > 1) {
+        const chevron = document.createElement('div');
+        chevron.classList.add("chevron");
+        child.children[0].appendChild(chevron);
+      }
+
+    });
   });
 </script>
