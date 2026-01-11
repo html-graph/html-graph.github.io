@@ -275,8 +275,11 @@
         const chevron = document.createElement('div');
         chevron.classList.add("chevron");
         child.children[0].appendChild(chevron);
-      }
 
+        chevron.addEventListener("click", (event) => {
+          event.preventDefault();
+        });
+      }
     });
   });
 </script>
