@@ -366,10 +366,6 @@ ol {
   padding: 1rem 0;
 
   & > li {
-    box-sizing: content-box;
-    border-top: 1px solid transparent;
-    border-bottom: 1px solid transparent;
-
     & > a {
       font-weight: bold;
     }
@@ -399,7 +395,7 @@ ol {
     display: flex;
     align-items: center;
     text-decoration: none;
-    padding: 0.5625rem 1rem;
+    padding: 0.625rem 1rem;
     transition: background linear 0.16s;
     position: relative;
 
