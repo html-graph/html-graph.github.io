@@ -27,16 +27,16 @@ In addition to `type: "direct"`, the following options are available:
 # #{#direct-edge-parameters}
 
 {{< ref-target ref="direct-edge-parameters">}}
-| Name             | Type                                                              | Description                                      | Required | Default      |
-|------------------|-----------------------------------------------------------|--------------------------------------------------|----------|--------------|
-| color            | string                                                    | Color of the line and arrows                     | no       | `"#777777"`  |
-| width            | number                                                    | Line width                                       | no       | `1`          |
-| arrowRenderer    | <a target="_blank" href="/edge-arrows/">ArrowRenderer</a> | Arrow shape                                      | no       | `{}`         |
-| arrowLength      | number                                                    | Full length of the arrow                         | no       | `20`         |
-| sourceOffset     | number                                                    | Empty space distance from source port to an edge | no       | `0`          |
-| targetOffset     | number                                                    | Empty space distance from target port to an edge | no       | `0`          |
-| hasSourceArrow   | boolean                                                           | Draw an arrow near the source port               | no       | `false`      |
-| hasTargetArrow   | boolean                                                           | Draw an arrow near the target port               | no       | `false`      |
+| Name             | Type                                                                   | Description                                      | Required | Default      |
+|------------------|------------------------------------------------------------------------|--------------------------------------------------|----------|--------------|
+| color            | `string`                                                               | Color of the line and arrows                     | no       | `"#777777"`  |
+| width            | `number`                                                               | Line width                                       | no       | `1`          |
+| arrowRenderer    | <code><a target="_blank" href="/edge-arrows/">ArrowRenderer</a></code> | Arrow shape                                      | no       | `{}`         |
+| arrowLength      | `number`                                                               | Full length of the arrow                         | no       | `20`         |
+| sourceOffset     | `number`                                                               | Empty space distance from source port to an edge | no       | `0`          |
+| targetOffset     | `number`                                                               | Empty space distance from target port to an edge | no       | `0`          |
+| hasSourceArrow   | `boolean`                                                              | Draw an arrow near the source port               | no       | `false`      |
+| hasTargetArrow   | `boolean`                                                              | Draw an arrow near the target port               | no       | `false`      |
 {{< /ref-target >}}
 
 Alternatively, you can create a Direct shape by passing a factory function into the configuration.

@@ -8,7 +8,9 @@ HTMLGraph offers a basic event system to handle changes in the canvas state.
 Events can be subscribed to via the `subscribe` method provided by the `EventHandler` instance.
 Once the listener is no longer necessary, simply call `unsubscribe` with the same callback to remove it.
 
-### Graph Node Events
+---
+
+### Graph Node Events [#](#graph-node-events) ### {#graph-node-events}
 
 {{< code lang="javascript" >}}
 canvas.graph.onAfterNodeAdded.subscribe((nodeId) => {
@@ -40,7 +42,9 @@ canvas.graph.onBeforeNodeRemoved.subscribe((nodeId) => {
 
 **Note:** Nodes removed via `canvas.clear()` are managed separately within the `canvas.graph.onBeforeClear` handler.
 
-### Graph Port Events
+---
+
+### Graph Port Events [#](#graph-port-events) ### {#graph-port-events}
 
 {{< code lang="javascript" >}}
 canvas.graph.onAfterPortMarked.subscribe((portId) => {
@@ -65,7 +69,9 @@ canvas.graph.onBeforePortUnmarked.subscribe((portId) => {
 
 **Note:** Ports removed via `canvas.clear()` are managed separately within the `canvas.graph.onBeforeClear` handler.
 
-### Graph Edge Events
+---
+
+### Graph Edge Events [#](#graph-edge-events) ### {#graph-edge-events}
 
 {{< code lang="javascript" >}}
 canvas.graph.onAfterEdgeAdded.subscribe((edgeId) => {
@@ -97,7 +103,9 @@ canvas.graph.onBeforeEdgeRemoved.subscribe((edgeId) => {
 
 **Note:** Edges removed via `canvas.clear()` are managed separately within the `canvas.graph.onBeforeClear` handler.
 
-### Other Graph Events
+---
+
+### Other Graph Events [#](#other-graph-events) ### {#other-graph-events}
 
 {{< code lang="javascript" >}}
 canvas.graph.onBeforeClear.subscribe((nodeId) => {
@@ -105,7 +113,9 @@ canvas.graph.onBeforeClear.subscribe((nodeId) => {
 });
 {{< / code >}}
 
-### Viewport Events
+---
+
+### Viewport Events [#](#viewport-events) ### {#viewport-events}
 
 {{< code lang="javascript" >}}
 canvas.viewport.onAfterUpdated.subscribe(() => {
@@ -114,7 +124,9 @@ canvas.viewport.onAfterUpdated.subscribe(() => {
 });
 {{< / code >}}
 
-### Canvas Events
+---
+
+### Canvas Events [#](#canvas-events) ### {#canvas-events}
 
 {{< code lang="javascript" >}}
 canvas.onBeforeDestroy.subscribe(() => {
