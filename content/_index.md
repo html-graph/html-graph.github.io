@@ -12,7 +12,7 @@ nodes - perfect for building complex visualizations with custom UI components, s
 
 <div class="cta">
   <h2>
-    Get started with our <a href="/getting-started/">Getting Started</a> guide.
+    Check out <a href="/getting-started/">Getting Started</a> guide.
   </h2>
 </div>
 
