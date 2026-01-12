@@ -92,9 +92,9 @@ The next section explains how to achieve the result shown below. It demonstrates
 a basic configuration consisting of two nodes connected by an edge.
 Additionally, it configures:
 
-- Transformable viewport
-- Draggable nodes
-- Background
+- transformable viewport
+- draggable nodes
+- background
 
 # # {#end-result}
 
