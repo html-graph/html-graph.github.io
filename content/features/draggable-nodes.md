@@ -58,14 +58,14 @@ const canvas = new CanvasBuilder(element)
 
 ### Configuration Parameters
 
-| Name               | Type                                  | Description                                         | Required | Default      |
-|--------------------|---------------------------------------|-----------------------------------------------------|----------|--------------|
-| `moveOnTop`        | `boolean`                             | Move grabbed node to the top                        | no       | `true`       |
-| `moveEdgesOnTop`   | `boolean`                             | Move connected edges to the grabbed node beneath it | no       | `true`       |
-| `nodeDragVerifier` | `(nodeId) => boolean`                 | Function to verify if node should be dragged        | no       | `() => true` |
-| `gridSize`         | `number \| null`                      | Grid size for nodes to be snapped to                | no       | `null`       |
-| `mouse`            | [MouseConfig](#mouse-configuration)   | Mouse-related configuration                         | no       | `{}`         |
-| `events`           | [EventsConfig](#events-configuration) | Handlers for available events                       | no       | `{}`         |
+| Name               | Type                                               | Description                                         | Required | Default      |
+|--------------------|----------------------------------------------------|-----------------------------------------------------|----------|--------------|
+| `moveOnTop`        | `boolean`                                          | Move grabbed node to the top                        | no       | `true`       |
+| `moveEdgesOnTop`   | `boolean`                                          | Move connected edges to the grabbed node beneath it | no       | `true`       |
+| `nodeDragVerifier` | `(nodeId) => boolean`                              | Function to verify if node should be dragged        | no       | `() => true` |
+| `gridSize`         | `number \| null`                                   | Grid size for nodes to be snapped to                | no       | `null`       |
+| `mouse`            | <code>[MouseConfig](#mouse-configuration)</code>   | Mouse-related configuration                         | no       | `{}`         |
+| `events`           | <code>[EventsConfig](#events-configuration)</code> | Handlers for available events                       | no       | `{}`         |
 
 {{< ref-target ref="mouse-configuration">}}
 
