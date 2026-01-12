@@ -36,25 +36,25 @@ const canvas = new CanvasBuilder(element)
 
 ### Configuration Parameters
 
-| Name                   | Type                           | Description                                         | Required |
-|------------------------|--------------------------------|-----------------------------------------------------|----------|
-| `nodeContainingRadius` | [RadiusConfig](#radius-config) | The radius that fully covers a node from its center | yes      |
-| `events`               | [EventsConfig](#events-config) | Virtual scroll related events                       | no       |
+| Name                   | Type                                        | Description                                         | Required |
+|------------------------|---------------------------------------------|-----------------------------------------------------|----------|
+| `nodeContainingRadius` | <code>[RadiusConfig](#radius-config)</code> | The radius that fully covers a node from its center | yes      |
+| `events`               | <code>[EventsConfig](#events-config)</code> | Virtual scroll related events                       | no       |
 
 {{< ref-target ref="radius-config">}}
 
-### RadiusConfig {#radius-config}
+### `RadiusConfig` parameters {#radius-config}
 
-| Name         | Type   | Description                                                     | Required |
-|--------------|--------|-----------------------------------------------------------------|----------|
-| `vertical`   | number | The vertical maximum distance from node's center to it's side   | yes      |
-| `horizontal` | number | The horizontal maximum distance from node's center to it's side | yes      |
+| Name         | Type     | Description                                                     | Required |
+|--------------|----------|-----------------------------------------------------------------|----------|
+| `vertical`   | `number` | The vertical maximum distance from node's center to it's side   | yes      |
+| `horizontal` | `number` | The horizontal maximum distance from node's center to it's side | yes      |
 
 {{< /ref-target >}}
 
 {{< ref-target ref="events-config">}}
 
-### EventsConfig {#events-config}
+### `EventsConfig` parameters {#events-config}
 
 | Name                   | Type               | Description                                           | Required | Default      |
 |------------------------|--------------------|-------------------------------------------------------|----------|--------------|
