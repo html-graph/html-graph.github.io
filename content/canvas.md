@@ -389,8 +389,8 @@ canvas.destroy();
 The viewport transformation matrix consists of three values: `scale`, `x`, and `y`.
 
 - **Scale**: Represents the current scaling factor of the viewport. A larger scale zooms out, making the content appear smaller, while a smaller scale zooms in, making the content appear larger.
-- **X**: The horizontal distance from the absolute zero point to the top-left corner of the viewport.
-- **Y**: The vertical distance from the absolute zero point to the top-left corner of the viewport.
+- **X**: The horizontal distance from the absolute zero point to the absolute coordinate of top-left corner of the viewport.
+- **Y**: The vertical distance from the absolute zero point to the absolute coordinate of the top-left corner of the viewport.
 
 To better understand how these values work, experiment with the demo below.
 
@@ -415,8 +415,8 @@ This matrix is the inverse of the [content matrix](/canvas/#patch-content-matrix
 The content transformation matrix consists of three values: `scale`, `x`, and `y`.
 
 - **Scale**: Represents the current scaling factor of the content. A larger scale makes the content appear bigger, while a smaller scale zooms out, making the content appear smaller.
-- **X**: The horizontal distance from the top-left corner of the viewport to the absolute zero point.
-- **Y**: The vertical distance from the top-left corner of the viewport to the absolute zero point.
+- **X**: The horizontal distance from the top-left corner of the viewport to the screen coordinate of the absolute zero point.
+- **Y**: The vertical distance from the top-left corner of the viewport to the screen coordinate of the absolute zero point.
 
 To better understand how these values work, experiment with the demo below.
 
