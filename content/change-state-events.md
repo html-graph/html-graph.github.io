@@ -8,7 +8,7 @@ HTMLGraph offers a basic event system to handle changes in the canvas state.
 Events can be subscribed to via the `subscribe` method provided by the `EventHandler` instance.
 Once the listener is no longer necessary, simply call `unsubscribe` with the same callback to remove it.
 
-### Node Events
+### Graph Node Events
 
 {{< code lang="javascript" >}}
 canvas.graph.onAfterNodeAdded.subscribe((nodeId) => {
@@ -38,7 +38,7 @@ canvas.graph.onBeforeNodeRemoved.subscribe((nodeId) => {
 });
 {{< / code >}}
 
-### Port Events
+### Graph Port Events
 
 {{< code lang="javascript" >}}
 canvas.graph.onAfterPortMarked.subscribe((portId) => {
@@ -61,7 +61,7 @@ canvas.graph.onBeforePortUnmarked.subscribe((portId) => {
 });
 {{< / code >}}
 
-### Edge Events
+### Graph Edge Events
 
 {{< code lang="javascript" >}}
 canvas.graph.onAfterEdgeAdded.subscribe((edgeId) => {
@@ -91,6 +91,14 @@ canvas.graph.onBeforeEdgeRemoved.subscribe((edgeId) => {
 });
 {{< / code >}}
 
+### Other Graph Events
+
+{{< code lang="javascript" >}}
+canvas.graph.onBeforeClear.subscribe((nodeId) => {
+  console.log('all nodes, ports, and edges are about to be removed');
+});
+{{< / code >}}
+
 ### Viewport Events
 
 {{< code lang="javascript" >}}
@@ -100,7 +108,7 @@ canvas.viewport.onAfterUpdated.subscribe(() => {
 });
 {{< / code >}}
 
-### Other Events
+### Canvas Events
 
 {{< code lang="javascript" >}}
 canvas.onBeforeDestroy.subscribe(() => {
