@@ -27,19 +27,19 @@ In addition to `type: "bezier"`, the following options are available:
 # #{#bezier-edge-parameters}
 
 {{< ref-target ref="bezier-edge-parameters">}}
-| Name             | Type                                                                   | Description                        | Required | Default      |
-|------------------|------------------------------------------------------------------------|------------------------------------|----------|--------------|
-| color            | `string`                                                               | Color of the line and arrows       | no       | `"#777777"`  |
-| width            | `number`                                                               | Line width                         | no       | `1`          |
-| arrowRenderer    | <code><a target="_blank" href="/edge-arrows/">ArrowRenderer</a></code> | Arrow shape                        | no       | `{}`         |
-| arrowLength      | `number`                                                               | Full length of the arrow           | no       | `20`         |
-| curvature        | `number`                                                               | Bezier curvature                   | no       | `90`         |
-| hasSourceArrow   | `boolean`                                                              | Draw an arrow near the source port | no       | `false`      |
-| hasTargetArrow   | `boolean`                                                              | Draw an arrow near the target port | no       | `false`      |
-| cycleRadius      | `number`                                                               | Port cycle line radius             | no       | `30`         |
-| smallCycleRadius | `number`                                                               | Port-cycle radius near the port    | no       | `15`         |
-| detourDistance   | `number`                                                               | Node cycle detour distance         | no       | `100`        |
-| detourDirection  | `number`                                                               | Node cycle detour direction        | no       | `-Math.PI/2` |
+| Name               | Type                                                                   | Description                        | Required | Default      |
+|--------------------|------------------------------------------------------------------------|------------------------------------|----------|--------------|
+| `color`            | `string`                                                               | Color of the line and arrows       | no       | `"#777777"`  |
+| `width`            | `number`                                                               | Line width                         | no       | `1`          |
+| `arrowRenderer`    | <code><a target="_blank" href="/edge-arrows/">ArrowRenderer</a></code> | Arrow shape                        | no       | `{}`         |
+| `arrowLength`      | `number`                                                               | Full length of the arrow           | no       | `20`         |
+| `curvature`        | `number`                                                               | Bezier curvature                   | no       | `90`         |
+| `hasSourceArrow`   | `boolean`                                                              | Draw an arrow near the source port | no       | `false`      |
+| `hasTargetArrow`   | `boolean`                                                              | Draw an arrow near the target port | no       | `false`      |
+| `cycleRadius`      | `number`                                                               | Port cycle line radius             | no       | `30`         |
+| `smallCycleRadius` | `number`                                                               | Port-cycle radius near the port    | no       | `15`         |
+| `detourDistance`   | `number`                                                               | Node cycle detour distance         | no       | `100`        |
+| `detourDirection`  | `number`                                                               | Node cycle detour direction        | no       | `-Math.PI/2` |
 {{< /ref-target >}}
 
 Alternatively, you can create a Bezier shape by passing a factory function into the configuration.

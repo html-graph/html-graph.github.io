@@ -27,18 +27,18 @@ In addition to `type: "horizontal"`, the following options are available:
 # # {#horizontal-edge-parameters}
 
 {{< ref-target ref="horizontal-edge-parameters">}}
-| Name             | Type                                                                   | Description                            | Required | Default      |
-|------------------|------------------------------------------------------------------------|----------------------------------------|----------|--------------|
-| color            | `string`                                                               | Color of the line and arrows           | no       | `"#777777"`  |
-| width            | `number`                                                               | Line width                             | no       | `1`          |
-| arrowRenderer    | <code><a target="_blank" href="/edge-arrows/">ArrowRenderer</a></code> | Arrow shape                            | no       | `{}`         |
-| arrowLength      | `number`                                                               | Full length of the arrow               | no       | `20`         |
-| arrowOffset      | `number`                                                               | Offset from the arrow to the edge bend | no       | `15`         |
-| hasSourceArrow   | `boolean`                                                              | Draw an arrow near the source port     | no       | `false`      |
-| hasTargetArrow   | `boolean`                                                              | Draw an arrow near the target port     | no       | `false`      |
-| cycleSquareSide  | `number`                                                               | Port cycle square side size            | no       | `30`         |
-| roundness        | `number`                                                               | Roundness of the line angles           | no       | `10`         |
-| detourDistance   | `number`                                                               | Node cycle detour distance             | no       | `100`        |
+| Name              | Type                                                                   | Description                            | Required | Default      |
+|-------------------|------------------------------------------------------------------------|----------------------------------------|----------|--------------|
+| `color`           | `string`                                                               | Color of the line and arrows           | no       | `"#777777"`  |
+| `width`           | `number`                                                               | Line width                             | no       | `1`          |
+| `arrowRenderer`   | <code><a target="_blank" href="/edge-arrows/">ArrowRenderer</a></code> | Arrow shape                            | no       | `{}`         |
+| `arrowLength`     | `number`                                                               | Full length of the arrow               | no       | `20`         |
+| `arrowOffset`     | `number`                                                               | Offset from the arrow to the edge bend | no       | `15`         |
+| `hasSourceArrow`  | `boolean`                                                              | Draw an arrow near the source port     | no       | `false`      |
+| `hasTargetArrow`  | `boolean`                                                              | Draw an arrow near the target port     | no       | `false`      |
+| `cycleSquareSide` | `number`                                                               | Port cycle square side size            | no       | `30`         |
+| `roundness`       | `number`                                                               | Roundness of the line angles           | no       | `10`         |
+| `detourDistance`  | `number`                                                               | Node cycle detour distance             | no       | `100`        |
 {{< /ref-target >}}
 
 Alternatively, you can create a Horizontal shape by passing a factory function into the configuration.
