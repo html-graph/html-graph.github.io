@@ -6,10 +6,10 @@ sitemap:
 
 ## Background
 
-<a href="/use-cases/custom-background-renderer/" target="_blank" aria-label="Background">
+<a href="/use-cases/transformable-viewport/" target="_blank" aria-label="Transformable Viewport">
   <div class="video">
     <video autoplay muted loop>
-      <source src="/media/background.webm">
+      <source src="/media/transformable-viewport.webm">
     </video>
   </div>
 </a>
