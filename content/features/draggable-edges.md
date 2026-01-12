@@ -6,7 +6,8 @@ sitemap:
 
 ## Draggable Edges
 
-In addition to [connectable ports](/features/connectable-ports), it is useful to provide functionality for modifying existing edges.
+In addition to <a href="/features/connectable-ports" target="_blank">connectable ports</a>,
+it is useful to provide functionality for modifying existing edges.
 
 <a href="/use-cases/draggable-edges/" target="_blank" aria-label="Draggable edges">
   <div class="video">
