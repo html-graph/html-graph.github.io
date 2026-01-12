@@ -27,10 +27,10 @@ const canvas = new CanvasBuilder(element)
 
 #### `NodesConfig` Fields
 
-| Name     | Type                                    | Description                                     | Required | Default                          |
-|----------|-----------------------------------------|-------------------------------------------------|----------|----------------------------------|
-| centerFn | `function`                              | Default function to determine the node’s center | no       | `(w, h) => ({ x: w/2, y: h/2 })` |
-| priority | <code>[Priority](#node-priority)</code> | Default node priority                           | no       | `0`                              |
+| Name       | Type                                    | Description                                     | Required | Default                          |
+|------------|-----------------------------------------|-------------------------------------------------|----------|----------------------------------|
+| `centerFn` | `function`                              | Default function to determine the node’s center | no       | `(w, h) => ({ x: w/2, y: h/2 })` |
+| `priority` | <code>[Priority](#node-priority)</code> | Default node priority                           | no       | `0`                              |
 
 {{< ref-target ref="node-priority">}}
 #### `Priority` Options ### {#node-priority}
@@ -61,9 +61,9 @@ const canvas = new CanvasBuilder(element)
 
 #### `PortsConfig` Fields
 
-| Name      | Type     | Description             | Required | Default |
-|-----------|----------|-------------------------|----------|---------|
-| direction | `number` | Default port direction  | no       | `0`     |
+| Name        | Type     | Description             | Required | Default |
+|-------------|----------|-------------------------|----------|---------|
+| `direction` | `number` | Default port direction  | no       | `0`     |
 
 ---
 
@@ -88,10 +88,10 @@ const canvas = new CanvasBuilder(element)
 
 #### `EdgesConfig` Fields
 
-| Name      | Type                                               | Description                      | Required | Default |
-|-----------|----------------------------------------------------|----------------------------------|----------|---------|
-| shape     | <code>[EdgeShapeConfig](#edge-shape-config)</code> | Default edge shape configuration | no       | `{}`    |
-| priority  | <code>[Priority](#edge-priority)</code>            | Default edge priority            | no       | `0`     |
+| Name        | Type                                               | Description                      | Required | Default |
+|-------------|----------------------------------------------------|----------------------------------|----------|---------|
+| `shape`     | <code>[EdgeShapeConfig](#edge-shape-config)</code> | Default edge shape configuration | no       | `{}`    |
+| `priority`  | <code>[Priority](#edge-priority)</code>            | Default edge priority            | no       | `0`     |
 
 {{< ref-target ref="edge-shape-config">}}
 #### `EdgeShapeConfig` Options ### {#edge-shape-config}
