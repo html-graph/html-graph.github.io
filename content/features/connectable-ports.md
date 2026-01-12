@@ -80,3 +80,5 @@ const connectionPreprocessor = (request) => {
   return existingEdge === undefined ? request : null;
 };
 {{< /code>}}
+
+You might also be interested in the <a href="/tutorials/edges-with-remove-button/" target="_blank">Edges with Remove Button</a> tutorial.

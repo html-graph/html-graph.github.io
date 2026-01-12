@@ -54,3 +54,5 @@ The `enableUserDraggableEdges` method accepts optional configuration.
 | `onEdgeReattachPrevented`   | `(edge: DraggingEdgePayload) => void` | Function called when an attempt to reattach edge is prevented    | no       | `() => void` |
 
 {{< /ref-target >}}
+
+You might also be interested in the <a href="/tutorials/edges-with-remove-button/" target="_blank">Edges with Remove Button</a> tutorial.
