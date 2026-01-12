@@ -96,14 +96,14 @@ const canvas = new CanvasBuilder(element)
 {{< ref-target ref="edge-shape-config">}}
 #### `EdgeShapeConfig` Options ### {#edge-shape-config}
 
-| Name       | Configuration                                   | Example                                   |
-|------------|-------------------------------------------------|-------------------------------------------|
-| Bezier     | [BezierEdgeShape](/edge-shapes/bezier/)         | `{ type: "bezier" }`                      |
-| Direct     | [DirectEdgeShape](/edge-shapes/direct/)         | `{ type: "direct" }`                      |
-| Straight   | [StraightEdgeShape](/edge-shapes/straight/)     | `{ type: "straight" }`                    |
-| Horizontal | [HorizontalEdgeShape](/edge-shapes/horizontal/) | `{ type: "horizontal" }`                  |
-| Vertical   | [VerticalEdgeShape](/edge-shapes/vertical/)     | `{ type: "vertical" }`                    |
-| Custom     | [CustomEdgeShape](/edge-shapes/custom/)         | `(edgeId) => new CustomEdgeShape(edgeId)` |
+| Name       | Configuration                                                                           | Example                                   |
+|------------|-----------------------------------------------------------------------------------------|-------------------------------------------|
+| Bezier     | <code><a href="/edge-shapes/bezier/" target="_blank">BezierEdgeShape</a></code>         | `{ type: "bezier" }`                      |
+| Direct     | <code><a href="/edge-shapes/direct/" target="_blank">DirectEdgeShape</a></code>         | `{ type: "direct" }`                      |
+| Straight   | <code><a href="/edge-shapes/straight/" target="_blank">StraightEdgeShape</a></code>     | `{ type: "straight" }`                    |
+| Horizontal | <code><a href="/edge-shapes/horizontal/" target="_blank">HorizontalEdgeShape</a></code> | `{ type: "horizontal" }`                  |
+| Vertical   | <code><a href="/edge-shapes/vertical/" target="_blank">VerticalEdgeShape</a></code>     | `{ type: "vertical" }`                    |
+| Custom     | <code><a href="/edge-shapes/custom/" target="_blank">CustomEdgeShape</a></code>         | `(edgeId) => new CustomEdgeShape(edgeId)` |
 {{< /ref-target >}}
 
 {{< ref-target ref="edge-priority">}}
