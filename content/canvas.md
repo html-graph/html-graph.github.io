@@ -210,7 +210,7 @@ canvas.markPort({
 | `element`   | `HTMLElement` | HTML element for the port       | yes      |                 |
 | `direction` | `number`      | Radian angle for edge direction | no       | `0`             |
 
-Static ports can also be defined directly within the [addNode](/canvas/#add-node) method.
+Initial ports can also be defined directly within the [addNode](/canvas/#add-node) method.
 
 ---
 
