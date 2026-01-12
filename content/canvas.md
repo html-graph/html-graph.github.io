@@ -388,9 +388,9 @@ canvas.destroy();
 
 The viewport transformation matrix consists of three values: `scale`, `x`, and `y`.
 
-- **Scale**: Represents the current scaling factor of the viewport. A larger scale zooms out, making the content appear smaller, while a smaller scale zooms in, making the content appear larger.
-- **X**: The horizontal distance from the absolute zero point to the absolute coordinate of top-left corner of the viewport on canvas.
-- **Y**: The vertical distance from the absolute zero point to the absolute coordinate of the top-left corner of the viewport on canvas.
+- **Scale**: Represents the current scaling factor of the viewport. Increasing the scale expands the viewport itself, thereby making objects appear smaller, while decreasing the scale shrinks the viewport, causing objects to appear larger.
+- **X**: Measures the horizontal distance from the absolute zero point to the top-left corner of the viewport on the canvas.
+- **Y**: Measures the vertical distance from the absolute zero point to the top-left corner of the viewport on the canvas.
 
 To better understand how these values work, experiment with the demo below.
 
@@ -414,9 +414,9 @@ This matrix is the inverse of the [content matrix](/canvas/#patch-content-matrix
 
 The content transformation matrix consists of three values: `scale`, `x`, and `y`.
 
-- **Scale**: Represents the current scaling factor of the content. A larger scale makes the content appear bigger, while a smaller scale zooms out, making the content appear smaller.
-- **X**: The horizontal distance from the top-left corner of the viewport to the coordinate of the absolute zero point on screen.
-- **Y**: The vertical distance from the top-left corner of the viewport to the coordinate of the absolute zero point on screen.
+- **Scale**: Represents the current scaling factor of the content. A larger scale amplifies the size of the content, making it appear bigger, while a smaller scale reduces its visual size, creating a zoomed-out appearance.
+- **X**: Measures the horizontal distance from the top-left corner of the viewport to the absolute zero point on the screen.
+- **Y**: Measures the vertical distance from the top-left corner of the viewport to the absolute zero point on the screen.
 
 To better understand how these values work, experiment with the demo below.
 
