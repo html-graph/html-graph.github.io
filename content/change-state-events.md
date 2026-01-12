@@ -108,7 +108,7 @@ canvas.graph.onBeforeEdgeRemoved.subscribe((edgeId) => {
 ### Other Graph Events [#](#other-graph-events) ### {#other-graph-events}
 
 {{< code lang="javascript" >}}
-canvas.graph.onBeforeClear.subscribe((nodeId) => {
+canvas.graph.onBeforeClear.subscribe(() => {
   console.log('all nodes, ports, and edges are about to be removed');
 });
 {{< / code >}}
