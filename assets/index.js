@@ -25,6 +25,10 @@ document.querySelectorAll("[data-use-case]").forEach((element) => {
   });
 
   anchor.addEventListener("pointerdown", (event) => {
+    if (event.button !== 0) {
+      return;
+    }
+
     const href = event.currentTarget.href;
 
     setTimeout(() => {
