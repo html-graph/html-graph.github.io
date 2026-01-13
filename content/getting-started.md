@@ -208,7 +208,7 @@ The `createNode` method accepts parameters:
 - `frontPortId` and `backPortId` are port identifiers.
 
 A port is a proxy element through which nodes are connected.
-It provides more flexibility when managing edges.
+It provides more flexibility for managing edges.
 
 <b>\* The node element itself can also be used as a port element simultaneously.</b>
 
