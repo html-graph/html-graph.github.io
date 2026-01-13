@@ -15,14 +15,19 @@ const canvas = new CanvasBuilder(element)
 console.log(canvas.viewport);
 {{< / code >}}
 
-The `viewport` object provides two methods:
+The `viewport` object provides the following methods:
 
-1. get the state of the <a href="/canvas/#patch-viewport-matrix" target="_blank">viewport matrix</a>
+1. Retrieve the state of the <a href="/canvas/#patch-viewport-matrix" target="_blank">viewport matrix</a>.
 {{< code lang="javascript" >}}
 const viewportMatrix = canvas.viewport.getViewportMatrix();
 {{< / code >}}
 
-2. get the state of the <a href="/canvas/#patch-content-matrix" target="_blank">content matrix</a>
+1. Retrieve the state of the <a href="/canvas/#patch-content-matrix" target="_blank">content matrix</a>.
 {{< code lang="javascript" >}}
 const contentMatrix = canvas.viewport.getContentMatrix();
+{{< / code >}}
+
+3. Retrieve the current dimensions of the viewport:
+{{< code lang="javascript" >}}
+const { width, height } = canvas.viewport.getDimensions();
 {{< / code >}}
