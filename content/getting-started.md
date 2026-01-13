@@ -52,7 +52,7 @@ Paste the content into HTML
 {{< code lang="html" >}}
 <div id="canvas"></div>
 <script type="module">
-  import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@7.4.0";
+  import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@7.5.0";
 
   const element = document.getElementById('canvas');
   const canvas = new CanvasBuilder(element).build();
@@ -140,7 +140,7 @@ It defines a full-screen canvas and an `Application` class.
   <body>
     <div id="canvas"></div>
     <script type="module">
-      import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@7.4.0";
+      import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@7.5.0";
 
       class Application {
         constructor(element) {
