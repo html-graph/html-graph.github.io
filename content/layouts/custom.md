@@ -13,15 +13,21 @@ The following example demonstrates implementation of a layout algorithm using Ty
 
 {{< code lang="typescript">}}
 
-import type { Point, Identifier, Graph, LayoutAlgorithm } from "@html-graph/html-graph";
+import type { Point, Identifier, Graph, Viewport, LayoutAlgorithm } from "@html-graph/html-graph";
 
 class MyCustomLayoutAlgorithm implements LayoutAlgorithm {
-  calculateCoordinates(graph: Graph): ReadonlyMap<Identifier, Point> {
+  calculateCoordinates(
+    graph: Graph,
+    viewport: Viewport,
+  ): ReadonlyMap<Identifier, Point> {
     const result = new Map<Identifier, Point>();
+    const { width, height } = viewport.getDimensions();
+    const bottomLeft: Point = viewport.createContentCoords({ x: 0, y: 0 });
+    const topRight: Point = viewport.createContentCoords({ x: width, y: height });
 
     graph.getAllNodeIds().forEach((nodeId) => {
-      const x = Math.random() * 1000;
-      const y = Math.random() * 1000;
+      const x = Math.random() * (topRight.x - bottomLeft.x) + bottomLeft.x;
+      const y = Math.random() * (topRight.y - bottomLeft.y) + bottomLeft.y;
 
       result.set(nodeId, { x, y });
     });
@@ -34,8 +40,9 @@ class MyCustomLayoutAlgorithm implements LayoutAlgorithm {
 As shown above, any custom algorithm must implement the `LayoutAlgorithm` interface.
 This interface requires one mandatory method, `calculateCoordinates`, which provides coordinates for each node.
 
-The method accepts a single argument:
+The method accepts two arguments:
 - `graph` - a <a href="/graph-state/" target="_blank">Graph</a> object.
+- `viewport` - a <a href="/viewport-state/" target="_blank">Viewport</a> object.
 
 The return value should be a `Map` where keys correspond to node identifiers and values represent their respective coordinates.
 

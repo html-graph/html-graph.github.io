@@ -12,10 +12,14 @@ implementation of an animated layout algorithm.
 The following example demonstrates implementation of a layout algorithm using TypeScript.
 
 {{< code lang="typescript">}}
-import type { Point, Identifier, Graph, AnimatedLayoutAlgorithm } from "@html-graph/html-graph";
+import type { Point, Identifier, Graph, Viewport, AnimatedLayoutAlgorithm } from "@html-graph/html-graph";
 
 class MyCustomAnimatedLayoutAlgorithm implements AnimatedLayoutAlgorithm {
-  calculateNextCoordinates(graph: Graph, dt: number): ReadonlyMap<Identifier, Point> {
+  calculateNextCoordinates(
+    graph: Graph,
+    dt: number,
+    viewport: Viewport,
+  ): ReadonlyMap<Identifier, Point> {
     const result = new Map<Identifier, Point>();
 
     graph.getAllNodeIds().forEach((nodeId) => {
@@ -41,9 +45,10 @@ As shown above, any custom algorithm must implement the `AnimatedLayoutAlgorithm
 This interface requires one mandatory method `calculateNextCoordinates`, which
 provides next iteration coordinates for each node.
 
-The method takes two arguments:
+The method takes three arguments:
 - `graph` - a <a href="/graph-state/" target="_blank">Graph</a> object.
 - `dt` - time elapsed form the previous iteration (note, that this value might be very high, so usage of `Math.min` function might be necessary)
+- `viewport` - a <a href="/viewport-state/" target="_blank">Viewport</a> object.
 
 The return value should be a `Map` where keys correspond to node identifiers and values represent their respective coordinates.
 
