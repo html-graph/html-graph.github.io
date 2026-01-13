@@ -31,3 +31,13 @@ const contentMatrix = canvas.viewport.getContentMatrix();
 {{< code lang="javascript" >}}
 const { width, height } = canvas.viewport.getDimensions();
 {{< / code >}}
+
+4. Calculate content coordinates based on viewport coordinates
+{{< code lang="javascript" >}}
+const { x, y } = canvas.viewport.createContentCoords({ x: 10, y: 20 });
+{{< / code >}}
+
+5. Calculate viewport coordinates based on content coordinates
+{{< code lang="javascript" >}}
+const { x, y } = canvas.viewport.createViewportCoords({ x: 10, y: 20 });
+{{< / code >}}
