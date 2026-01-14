@@ -21,6 +21,11 @@ The `graph` object provides all the necessary methods to retrieve the structure 
 
 ### Nodes
 
+1. check if node exists
+{{< code lang="javascript" >}}
+const exists = canvas.graph.hasNode("node-1");
+{{< / code >}}
+
 1. get the state of a node
 {{< code lang="javascript" >}}
 const node = canvas.graph.getNode("node-1");
@@ -72,6 +77,11 @@ This method returns `null` if specified element is not a node.
 
 ### Ports
 
+1. check if port exists
+{{< code lang="javascript" >}}
+const exists = canvas.graph.hasPort("port-1");
+{{< / code >}}
+
 1. get the state of a port
 {{< code lang="javascript" >}}
 const port = canvas.graph.getPort("port-1");
@@ -115,6 +125,11 @@ const portIds = canvas.graph.findPortIdsByElement(portElement);
 ---
 
 ### Edges
+
+1. check if edge exists
+{{< code lang="javascript" >}}
+const exists = canvas.graph.hasEdge("edge-1");
+{{< / code >}}
 
 1. get the IDs of all edges
 {{< code lang="javascript" >}}
