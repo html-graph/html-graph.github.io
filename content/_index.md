@@ -5,9 +5,10 @@ sitemap:
 ---
 
 <div class="introduction">
-<b>HTMLGraph</b> is a graph visualization library that enables rich nodes customization using HTML elements.<br>
-It allows you to create interactive and dynamic graphs by incorporating complete HTML content within
-nodes - perfect for building complex visualizations with custom UI components, styled content, and interactive elements.
+<b>HTMLGraph</b> is a JavaScript library empowering developers to create customizable
+visualizations for graphs using the full potential of HTML and CSS, with zero dependencies,
+versatile layouts, extensive built-in functionalities tailored for various use
+cases, and complete TypeScript support.
 </div>
 
 <div class="cta">

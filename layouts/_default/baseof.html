@@ -2,22 +2,22 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <title>{{ .Site.Title }} | {{ .Page.Title }}</title>
     <meta
       name="description"
-      content="{{ .Description | default "HTMLGraph is a graph visualization library that enables rich nodes customization using HTML" }}"
+      content="{{ .Description | default "JavaScript library empowering developers to create customizable visualizations for graphs using the full potential of HTML and CSS, with zero dependencies, versatile layouts, extensive built-in functionalities tailored for various use cases, and complete TypeScript support." }}"
     />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=5"
     />
     <meta name="keywords" content="library, graph, html, visualization, interactive" />
-    <title>{{ .Site.Title }} | {{ .Page.Title }}</title>
     {{ partial "favicon-head.html" }}
     <meta name="theme-color" content="#ffffff" />
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="HTMLGraph | Graph visualization using HTML and CSS">
-    <meta property="og:description" content="Create interactive and dynamic graphs by incorporating complete HTML content within nodes. Use custom UI components, styled content, and interactive elements.">
+    <meta property="og:title" content="HTMLGraph">
+    <meta property="og:description" content="JavaScript library empowering developers to create customizable visualizations for graphs using the full potential of HTML and CSS, with zero dependencies, versatile layouts, extensive built-in functionalities tailored for various use cases, and complete TypeScript support.">
     <meta property="og:url" content="{{ .Site.BaseURL }}">
     <meta property="og:image" content="{{ .Site.BaseURL }}htmlgraph-og.png">
 
