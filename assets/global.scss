@@ -373,6 +373,7 @@ ol {
 .menu-wrapper {
   display: flex;
   flex-direction: column;
+  z-index: 1;
 
   @media (max-width: 765px) {
     position: absolute;
@@ -380,6 +381,11 @@ ol {
     top: 0;
     bottom: 0;
     transform: translateX(-18rem);
+    transition: transform linear 0.2s;
+
+    &.show {
+      transform: translateX(0);
+    }
   }
 }
 
