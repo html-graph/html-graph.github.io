@@ -361,6 +361,11 @@ ol {
   display: flex;
   justify-content: center;
   padding-block: 2.5rem;
+  text-align: center;
+
+  @media (max-width: 765px) {
+    font-size: 0.7rem;
+  }
 }
 
 .introduction {
@@ -454,4 +459,5 @@ ol {
 
 .burger {
   cursor: pointer;
+  user-select: none;
 }
