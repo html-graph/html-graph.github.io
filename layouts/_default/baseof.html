@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta
       name="description"
-      content="{{ .Description | default "HTMLGraph is a powerful graph visualization library that enables rich node customization using HTML. Create interactive, dynamic graphs with draggable nodes, transformable viewports, and resize-reactive elements. Perfect for building complex and customizable visualizations with ease." }}"
+      content="{{ .Description | default "Graph visualization library that enables rich nodes customization using HTML" }}"
     />
     <meta
       name="viewport"
@@ -14,6 +14,12 @@
     <title>{{ .Site.Title }} | {{ .Page.Title }}</title>
     {{ partial "favicon-head.html" }}
     <meta name="theme-color" content="#ffffff" />
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="HTMLGraph">
+    <meta property="og:description" content="Graph visualization library that enables rich nodes customization using HTML">
+    <meta property="og:url" content="{{ .Site.BaseURL }}">
+    <meta property="og:image" content="{{ .Site.BaseURL }}/htmlgraph-og.png">
 
     <link rel="prefetch" href="https://unpkg.com/@html-graph/html-graph@7.9.0">
 
