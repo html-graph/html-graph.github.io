@@ -127,3 +127,12 @@ document.querySelectorAll("[data-tabs]").forEach((tabs) => {
     });
   });
 });
+
+const burger = document.querySelector("[data-burger]");
+const menuWrapper = document.querySelector("[data-menu-wrapper]");
+
+burger.classList.toggle("show");
+
+burger.addEventListener("click", () => {
+  menuWrapper.classList.toggle("show");
+});

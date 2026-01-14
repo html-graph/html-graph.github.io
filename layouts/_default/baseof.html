@@ -105,7 +105,7 @@
   <body class="layout">
     <header class="layout__header">
       <img class="layout__logo" alt="HTMLGraph logo" width="32" height="32" src="/favicons/favicon-96x96.png" />
-      <div class="layout__burger">
+      <div class="layout__burger" data-burger>
         test
       </div>
       <span class="layout__title"> {{ .Site.Title }} </span>
@@ -165,7 +165,7 @@
     </header>
 
     <main class="layout__content">
-      <nav class="menu-wrapper">
+      <nav data-menu-wrapper class="menu-wrapper">
         {{ partial "menu.html" (dict "context" . "path" .RelPermalink) }}
       </nav>
       <div class="layout__page">
