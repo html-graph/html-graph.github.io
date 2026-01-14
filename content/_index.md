@@ -13,7 +13,7 @@ cases, and complete TypeScript support.
 
 <div class="cta">
   <h2>
-    Check out <a href="/getting-started/">Getting Started</a> guide.
+    Check out the <a href="/getting-started/">Getting Started</a> guide.
   </h2>
 </div>
 
