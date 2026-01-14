@@ -64,7 +64,7 @@ This method returns `null` if the node does not exist.
 
 1. get node ID for a specific HTMLElement
 {{< code lang="javascript" >}}
-const nodeId = canvas.graph.getElementNodeId(nodeElement);
+const nodeId = canvas.graph.findNodeIdByElement(nodeElement);
 {{< / code >}}
 This method returns `null` if specified element is not a node.
 
@@ -109,7 +109,7 @@ This method returns `null` if the port does not exist.
 
 1. get all port IDs attached to a specific HTMLElement
 {{< code lang="javascript" >}}
-const portIds = canvas.graph.getElementPortIds(portElement);
+const portIds = canvas.graph.findPortIdsByElement(portElement);
 {{< / code >}}
 
 ---
