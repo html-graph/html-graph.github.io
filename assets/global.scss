@@ -119,6 +119,10 @@ h1, h2, h3, h4, h5, h6, p {
     margin: 0 auto;
     max-width: 60rem;
     padding: 4rem 0 10rem;
+
+    @media (max-width: 765px) {
+      padding: 1rem 0 5rem;
+    }
   }
 }
 
@@ -263,6 +267,11 @@ ol {
     position: relative;
     padding-top: 50%;
     width: 50%;
+
+    @media (max-width: 765px) {
+      padding-top: 100%;
+      width: 100%;
+    }
   }
 
   a {
