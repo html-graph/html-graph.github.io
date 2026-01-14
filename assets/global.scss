@@ -75,6 +75,20 @@ h1, h2, h3, h4, h5, h6, p {
     }
   }
 
+  &__logo {
+    @media (max-width: 765px) {
+      display: none;
+    }
+  }
+
+  &__burger {
+    display: none;
+
+    @media (max-width: 765px) {
+      display: block;
+    }
+  }
+
   &__github {
     margin-left: auto;
     display: flex;
