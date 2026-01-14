@@ -80,6 +80,7 @@ h1, h2, h3, h4, h5, h6, p {
   }
 
   &__content {
+    position: relative;
     min-height: 0;
     display: flex;
     flex-grow: 1;
@@ -354,6 +355,14 @@ ol {
 .menu-wrapper {
   display: flex;
   flex-direction: column;
+
+  @media (max-width: 765px) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    transform: translateX(-18rem);
+  }
 }
 
 .menu {
