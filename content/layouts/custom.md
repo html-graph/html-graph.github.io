@@ -16,16 +16,14 @@ The following example demonstrates implementation of a layout algorithm using Ty
 import type {
   Point,
   Identifier,
-  Graph,
-  Viewport,
   LayoutAlgorithm,
+  LayoutAlgorithmParams,
 } from "@html-graph/html-graph";
 
 class MyCustomLayoutAlgorithm implements LayoutAlgorithm {
-  calculateCoordinates(
-    graph: Graph,
-    viewport: Viewport,
-  ): ReadonlyMap<Identifier, Point> {
+  calculateCoordinates(params: LayoutAlgorithmParams): ReadonlyMap<Identifier, Point> {
+    const { graph, viewport } = params;
+
     const result = new Map<Identifier, Point>();
     const { width, height } = viewport.getDimensions();
     const bottomLeft: Point = viewport.createContentCoords({ x: 0, y: 0 });
@@ -46,7 +44,7 @@ class MyCustomLayoutAlgorithm implements LayoutAlgorithm {
 As shown above, any custom algorithm must implement the `LayoutAlgorithm` interface.
 This interface requires one mandatory method, `calculateCoordinates`, which provides coordinates for each node.
 
-The method accepts two arguments:
+The method takes one argument consisting of:
 - `graph` - a <a href="/graph-state/" target="_blank">Graph</a> object.
 - `viewport` - a <a href="/viewport-state/" target="_blank">Viewport</a> object.
 

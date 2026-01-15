@@ -15,17 +15,15 @@ The following example demonstrates implementation of a layout algorithm using Ty
 import type {
   Point,
   Identifier,
-  Graph,
-  Viewport,
   AnimatedLayoutAlgorithm,
+  AnimatedLayoutAlgorithmParams,
 } from "@html-graph/html-graph";
 
 class MyCustomAnimatedLayoutAlgorithm implements AnimatedLayoutAlgorithm {
   calculateNextCoordinates(
-    graph: Graph,
-    dt: number,
-    viewport: Viewport,
+    params: AnimatedLayoutAlgorithmParams,
   ): ReadonlyMap<Identifier, Point> {
+    const { graph, dt, viewport } = params;
     const result = new Map<Identifier, Point>();
 
     graph.getAllNodeIds().forEach((nodeId) => {
@@ -51,7 +49,7 @@ As shown above, any custom algorithm must implement the `AnimatedLayoutAlgorithm
 This interface requires one mandatory method `calculateNextCoordinates`, which
 provides next iteration coordinates for each node.
 
-The method takes three arguments:
+The method takes one argument consisting of:
 - `graph` - a <a href="/graph-state/" target="_blank">Graph</a> object.
 - `dt` - time elapsed form the previous iteration (note, that this value might be very high, so usage of `Math.min` function might be necessary)
 - `viewport` - a <a href="/viewport-state/" target="_blank">Viewport</a> object.
