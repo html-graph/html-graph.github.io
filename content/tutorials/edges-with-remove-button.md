@@ -4,7 +4,7 @@ title: HTMLGraph | Tutorials | Edges with Remove Button
 
 ## Edges with Remove Button
 
-<a href="/use-cases/midpoint-edge/" target="_blank" aria-label="Edges with button in the center">
+<a href="/use-cases/midpoint-edge/" target="_blank" aria-label="Edges with Remove Button">
   <div class="video">
     <video autoplay muted loop>
       <source src="/media/removable-edges.webm">
