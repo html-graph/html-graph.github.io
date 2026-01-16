@@ -255,7 +255,7 @@ ol {
 
 .video {
   position: relative;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-tab-frame);
   padding-top: calc(720 / 1280 * 100%);
 
   video {
@@ -290,7 +290,7 @@ ol {
 
   a {
     display: block;
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-tab-frame);
     box-sizing: border-box;
     position: absolute;
     inset: 1rem;
