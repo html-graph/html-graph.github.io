@@ -135,6 +135,17 @@
         background: #777777;
         border-radius: 3px;
       }
+
+      .svg-node {
+        pointer-events: none;
+        width: 200px;
+        height: 100px;
+        overflow: visible;
+      }
+
+      .svg-shape {
+        pointer-events: auto;
+      }
     </style>
   </head>
   <body>
@@ -166,24 +177,24 @@
           this.canvas.addNode(
             this.createCircleNode({
               name: "Circle",
-              x: 200,
-              y: 200,
+              x: 500,
+              y: 700,
               frontPortId: "circle-node-in",
               backPortId: "circle-node-out",
             }),
           ).addNode(
             this.createRectangleNode({
               name: "Rectangle",
-              x: 500,
-              y: 200,
+              x: 200,
+              y: 600,
               frontPortId: "rectangle-node-in",
               backPortId: "rectangle-node-out",
             }),
           ).addNode(
             this.createRectangleManyPortsNode({
               name: "Rectangle with Many Ports",
-              x: 900,
-              y: 200,
+              x: 500,
+              y: 500,
               frontPorts: [
                 "many-ports-1-in",
                 "many-ports-2-in",
@@ -203,41 +214,33 @@
             this.createRoundedRectangleNode({
               name: "Rounded Rectangle",
               x: 200,
-              y: 500,
+              y: 400,
               frontPortId: "rounded-rectangle-node-in",
               backPortId: "rounded-rectangle-node-out",
             }),
           ).addNode(
             this.createButtonNode({
               name: "Click Me!",
-              x: 500,
-              y: 500,
+              x: 800,
+              y: 600,
               frontPortId: "button-node-in",
               backPortId: "button-node-out",
             }),
           ).addNode(
             this.createImageNode({
               src: "/images/pepe.png",
-              x: 900,
-              y: 500,
+              x: 800,
+              y: 400,
               portId: "image-port",
             }),
-          ).addEdge({
-            from: "circle-node-out",
-            to: "rectangle-node-in",
-          }).addEdge({
-            from: "rectangle-node-out",
-            to: "many-ports-1-in",
-          }).addEdge({
-            from: "many-ports-5-out",
-            to: "rounded-rectangle-node-in",
-          }).addEdge({
-            from: "rounded-rectangle-node-out",
-            to: "button-node-in",
-          }).addEdge({
-            from: "button-node-out",
-            to: "image-port",
-          });
+          ).addNode(
+            this.createSvgNode({
+              x: 500,
+              y: 300,
+              frontPortId: "svg-node-in",
+              backPortId: "svg-node-out",
+            }),
+          );
         }
 
         createCircleNode({ name, x, y, frontPortId, backPortId }) {
@@ -404,6 +407,78 @@
             y: y,
             ports: [
               { id: portId, element: node },
+            ],
+          };
+        }
+
+        createSvgNode({ x, y, frontPortId, backPortId }) {
+          const svg = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "svg",
+          );
+
+          svg.classList.add("svg-node");
+
+          const polygon = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "path",
+          );
+
+          polygon.setAttribute(
+            "d",
+            `M 10 0 L 20 0 L 20 10 L 180 10 L 180 0 L 190 0 L 200 10 L 200 20 L
+            190 20 L 190 80 L 200 80 L 200 90 L 190 100 L 180 100 L 180 90 L 20
+            90 L 20 100 L 10 100 L 0 90 L 0 80 L 10 80 L 10 20 L 0 20 L 0 10 Z`,
+          );
+          polygon.setAttribute("fill", "#e3f285");
+          polygon.setAttribute("stroke", "#777777");
+          polygon.classList.add("svg-shape");
+
+          svg.appendChild(polygon);
+
+          const circleOut = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "circle",
+          );
+
+          circleOut.setAttribute("r", "4");
+          circleOut.setAttribute("cx", "190");
+          circleOut.setAttribute("cy", "50");
+          circleOut.setAttribute("fill", "#777777");
+
+          svg.appendChild(circleOut);
+
+          const circleIn = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "circle",
+          );
+
+          circleIn.setAttribute("r", "4");
+          circleIn.setAttribute("cx", "10");
+          circleIn.setAttribute("cy", "50");
+          circleIn.setAttribute("fill", "#777777");
+
+          svg.appendChild(circleIn);
+
+          const text = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "text",
+          );
+
+          text.innerHTML = "SVG";
+          text.setAttribute("x", "100");
+          text.setAttribute("y", "55");
+          text.setAttribute("text-anchor", "middle");
+
+          svg.appendChild(text);
+
+          return {
+            element: svg,
+            x: x,
+            y: y,
+            ports: [
+              { id: backPortId, element: circleOut },
+              { id: frontPortId, element: circleIn },
             ],
           };
         }
