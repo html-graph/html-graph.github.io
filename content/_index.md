@@ -29,7 +29,7 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li>
-      <a target="_blank" href="/use-cases/force-directed-layout/" aria-label="Layouts">
+      <a target="_blank" href="/use-cases/force-directed-animated-layout/" aria-label="Layouts">
         {{< image path="/images/layouts" alt="Layouts" width="500" height="500">}}
         <label>Layouts</label>
       </a>
