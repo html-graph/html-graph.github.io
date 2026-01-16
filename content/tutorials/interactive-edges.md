@@ -75,17 +75,17 @@ const canvas = new CanvasBuilder(element)
 
 ### Decorator Parameters
 
-| Name                  | Type                                     | Description                            | Required | Default |
-|-----------------------|------------------------------------------|----------------------------------------|----------|---------|
-| baseShape             | StructuredEdgeShape                      | The shape to make interactive          | Yes      |         |
-| interactiveParameters | [InteractiveParams](#interactive-params) | Configuration for interactive behavior | No       | `{}`    |
+| Name                    | Type                                                  | Description                            | Required | Default |
+|-------------------------|-------------------------------------------------------|----------------------------------------|----------|---------|
+| `baseShape`             | `StructuredEdgeShape`                                 | The shape to make interactive          | Yes      |         |
+| `interactiveParameters` | <code>[InteractiveParams](#interactive-params)</code> | Configuration for interactive behavior | No       | `{}`    |
 
 {{< ref-target ref="interactive-params">}}
 ### Interactive Parameters ### {#interactive-params}
 
-| Name     | Type   | Description                                    | Required | Default |
-|----------|--------|------------------------------------------------|----------|---------|
-| distance | number | Distance of the interactive area from the edge | No       | `10`    |
+| Name       | Type     | Description                                    | Required | Default |
+|------------|----------|------------------------------------------------|----------|---------|
+| `distance` | `number` | Distance of the interactive area from the edge | No       | `10`    |
 {{< /ref-target >}}
 
 Try out this demo, which toggles edge line animated dash on edge click:
