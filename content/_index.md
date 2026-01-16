@@ -35,6 +35,12 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li>
+      <a target="_blank" href="/use-cases/force-directed-layout/" aria-label="Layouts">
+        {{< image path="/images/layouts" alt="Layouts" width="500" height="500">}}
+        <label>Layouts</label>
+      </a>
+    </li>
+    <li>
       <a target="_blank" href="/use-cases/interactive-edges/" aria-label="Interactive Edges">
         {{< image path="/images/interactive-edges" alt="Interactive Edges" width="500" height="500">}}
         <label>Interactive Edges</label>
