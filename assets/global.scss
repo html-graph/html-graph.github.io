@@ -79,6 +79,14 @@ h1, h2, h3, h4, h5, h6, p {
     @media (max-width: 765px) {
       display: none;
     }
+
+    &_mobile {
+      display: none;
+
+      @media (max-width: 765px) {
+        display: block;
+      }
+    }
   }
 
   &__github {
@@ -104,6 +112,10 @@ h1, h2, h3, h4, h5, h6, p {
     flex: 1 1 auto;
     overflow-y: auto;
     padding: 0 2rem;
+
+    @media (max-width: 765px) {
+      padding: 0 1rem;
+    }
 
     th,
     td {
@@ -240,6 +252,10 @@ ol {
   gap: 2rem;
   margin-left: auto;
   flex-basis: 20rem;
+
+  @media (max-width: 765px) {
+    gap: 1rem;
+  }
 }
 
 #ya-site-form0 .ya-site-form__form .ya-site-form__input-text,
