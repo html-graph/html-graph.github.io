@@ -7,7 +7,7 @@ title: Edge Shape | Horizontal
 The Horizontal edge shape can be configured by calling the `setDefaults` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .setDefaults({
@@ -46,7 +46,7 @@ Alternatively, you can create a Horizontal shape by passing a factory function i
 {{< code lang="javascript">}}
 import { HorizontalEdgeShape } from "@html-graph/html-graph";
 
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .setDefaults({

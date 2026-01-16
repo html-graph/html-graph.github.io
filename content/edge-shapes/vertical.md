@@ -7,7 +7,7 @@ title: Edge Shape | Vertical
 The Vertical edge shape can be configured by calling the `setDefaults` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .setDefaults({
@@ -49,7 +49,7 @@ Alternatively, you can create a Vertical shape by passing a factory function int
 {{< code lang="javascript">}}
 import { VerticalEdgeShape } from "@html-graph/html-graph";
 
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .setDefaults({

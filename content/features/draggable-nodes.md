@@ -17,7 +17,7 @@ sitemap:
 To enable built-in draggable nodes, call the `enableUserDraggableNodes` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .enableUserDraggableNodes()
@@ -29,7 +29,7 @@ const canvas = new CanvasBuilder(element)
 This method accepts optional configuration:
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .enableUserDraggableNodes({

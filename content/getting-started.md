@@ -42,7 +42,7 @@ Then use it:
 {{< code lang="javascript" >}}
 import { CanvasBuilder } from "@html-graph/html-graph";
 
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 const canvas = new CanvasBuilder(element).build();
 {{< /code >}}
 </div>
@@ -54,7 +54,7 @@ Paste the content into HTML
 <script type="module">
   import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@8.1.0";
 
-  const element = document.getElementById('canvas');
+  const element = document.getElementById("canvas");
   const canvas = new CanvasBuilder(element).build();
 </script>
 {{< /code >}}
@@ -68,7 +68,7 @@ Download <code>html-graph.js</code> from <a target="_blank" href="https://github
 <script type="module">
   import { CanvasBuilder } from "/html-graph.js";
 
-  const element = document.getElementById('canvas');
+  const element = document.getElementById("canvas");
   const canvas = new CanvasBuilder(element).build();
 </script>
 {{< /code >}}
@@ -81,7 +81,7 @@ Download <code>html-graph.umd.cjs</code> from <a target="_blank" href="https://g
 <div id="canvas"></div>
 <script src="/html-graph.umd.cjs"></script>
 <script>
-  const element = document.getElementById('canvas');
+  const element = document.getElementById("canvas");
   const canvas = new HtmlGraph.CanvasBuilder(element).build();
 </script>
 {{< /code >}}

@@ -9,7 +9,7 @@ sitemap:
 To enable automatic node positioning using a layout algorithm, call the `enableLayout` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .enableLayout()
@@ -35,7 +35,7 @@ canvas.addNode({
 The `enableLayout` method accepts optional configuration parameters:
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .enableLayout({
@@ -92,7 +92,7 @@ const canvas = new CanvasBuilder(element)
 {{< code lang="javascript">}}
 import { CanvasBuilder, EventSubject } from "@html-graph/html-graph";
 
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 const trigger = new EventSubject();
 
 const canvas = new CanvasBuilder(element)

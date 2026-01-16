@@ -8,7 +8,7 @@ Arrow shape can be customized by setting `arrowRenderer` edge shape parameter,
 for example:
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .setDefaults({

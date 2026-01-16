@@ -11,7 +11,7 @@ A force-directed layout is utilized by default whenever the `enableAnimatedLayou
 You can also explicitly specify it through its `type`.
 
 {{< code lang="typescript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .enableAnimatedLayout({

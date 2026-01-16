@@ -11,7 +11,7 @@ HTMLGraph extends its functionality through optional features, which can be enab
 `CanvasBuilder` uses a fluent interface, allowing methods to be chained for concise configuration. For example:
 
 {{< code lang="javascript" >}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .enableUserTransformableViewport() // Enables viewport pan and zoom

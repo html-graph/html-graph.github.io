@@ -20,7 +20,7 @@ it is useful to provide functionality for modifying existing edges.
 To enable draggable edges, call the `enableUserDraggableEdges` method on a `CanvasBuilder` instance:
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .enableUserDraggableEdges()

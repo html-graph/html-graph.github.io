@@ -18,7 +18,7 @@ To enable built-in node resize reactive edges, ensuring that edges are automatic
 when adjacent nodes are resized, call the `enableNodeResizeReactiveEdges` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .enableNodeResizeReactiveEdges()

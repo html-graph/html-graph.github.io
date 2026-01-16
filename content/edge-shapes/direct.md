@@ -7,7 +7,7 @@ title: Edge Shape | Direct
 The Direct edge shape can be configured by calling the `setDefaults` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .setDefaults({
@@ -44,7 +44,7 @@ Alternatively, you can create a Direct shape by passing a factory function into 
 {{< code lang="javascript">}}
 import { DirectEdgeShape } from "@html-graph/html-graph";
 
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .setDefaults({

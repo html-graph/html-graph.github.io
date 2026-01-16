@@ -55,7 +55,7 @@ If the map contains coordinates for certain nodes but omits others, those omitte
 To specify your custom layout algorithm implementation follow the example below.
 
 {{< code lang="typescript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .enableLayout({

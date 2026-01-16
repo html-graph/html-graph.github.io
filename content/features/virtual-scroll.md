@@ -20,7 +20,7 @@ For particularly large graphs (starting at around 500 nodes and edges), it's cru
 To enable this built-in behavior, call the `enableVirtualScroll` method on `CanvasBuilder`. This method requires a configuration object.
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .enableVirtualScroll({
@@ -73,7 +73,7 @@ The `enableVirtualScroll` method automatically configures the transformable view
 but you can still customize transform settings by calling `enableUserTransformableViewport`.
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .enableUserTransformableViewport({

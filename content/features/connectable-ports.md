@@ -20,7 +20,7 @@ Part of this functionality is the ability to add new connections to the graph.
 To enable ports that are connectable via dragging, call the `enableUserConnectablePorts` method on a `CanvasBuilder` instance:
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .enableUserConnectablePorts()

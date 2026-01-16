@@ -13,7 +13,7 @@ real-time without having to wait until all nodes have reached their final positi
 To enable animated nodes positioning, call the `enableAnimatedLayout` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .enableAnimatedLayout()
@@ -40,7 +40,7 @@ canvas.addNode({
 The `enableAnimatedLayout` method accepts optional configuration parameters:
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .enableAnimatedLayout({

@@ -13,7 +13,7 @@ These defaults apply to all graph entities (nodes, ports, and edges) when no exp
 ### Nodes [#](#nodes) {#nodes}
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .setDefaults({
@@ -48,7 +48,7 @@ const canvas = new CanvasBuilder(element)
 ### Ports [#](#ports) {#ports}
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .setDefaults({
@@ -70,7 +70,7 @@ const canvas = new CanvasBuilder(element)
 ### Edges [#](#edges) {#edges}
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .setDefaults({

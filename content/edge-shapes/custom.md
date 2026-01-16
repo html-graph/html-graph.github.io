@@ -92,7 +92,7 @@ This interface requires:
 A custom edge shape can be provided via a factory function in the `setDefaults` method of `CanvasBuilder`.
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .setDefaults({

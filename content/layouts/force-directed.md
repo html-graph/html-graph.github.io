@@ -11,7 +11,7 @@ A force-directed layout is utilized by default whenever the `enableLayout` metho
 You can also explicitly specify it through its `type`.
 
 {{< code lang="typescript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .enableLayout({

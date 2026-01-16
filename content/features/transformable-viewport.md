@@ -17,7 +17,7 @@ sitemap:
 To enable the built-in transformable viewport, call the `enableUserTransformableViewport` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .enableUserTransformableViewport()
@@ -29,7 +29,7 @@ const canvas = new CanvasBuilder(element)
 This method accepts optional configuration:
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .enableUserTransformableViewport({

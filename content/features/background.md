@@ -17,7 +17,7 @@ sitemap:
 To enable built-in background rendering, call the `enableBackground` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .enableBackground()
@@ -29,7 +29,7 @@ const canvas = new CanvasBuilder(element)
 This method accepts optional configuration:
 
 {{< code lang="javascript">}}
-const element = document.getElementById('canvas');
+const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .enableBackground({
