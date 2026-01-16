@@ -372,19 +372,8 @@ ol {
   }
 }
 
-.cta {
-  display: flex;
-  justify-content: center;
-  padding-block: 2.5rem;
-  text-align: center;
-
-  @media (max-width: 765px) {
-    font-size: 0.7rem;
-  }
-}
-
 .introduction {
-  margin: 0 auto;
+  margin: 0 auto 2rem;
   text-align: center;
   font-size: 1.15rem;
   max-width: 50rem;

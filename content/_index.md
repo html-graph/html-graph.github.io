@@ -11,12 +11,6 @@ versatile layouts, extensive built-in functionalities tailored for various use
 cases, and complete TypeScript support.
 </div>
 
-<div class="cta">
-  <h2>
-    Check out the <a href="/getting-started/">Getting Started</a> guide.
-  </h2>
-</div>
-
 <a href="/use-cases/advanced-demo/" target="_blank" aria-label="Advanced demo">
   <div class="video">
     <video autoplay muted loop>
