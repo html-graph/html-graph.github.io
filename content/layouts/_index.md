@@ -56,7 +56,7 @@ const canvas = new CanvasBuilder(element)
       },
       seed: "HTMLGraph is awesome",
     },
-    applyOn: "topologyChangeTimeout"
+    applyOn: "topologyChangeMicrotask"
   })
   .build();
 {{< /code >}}
