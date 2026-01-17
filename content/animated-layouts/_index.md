@@ -66,9 +66,10 @@ const canvas = new CanvasBuilder(element)
 
 ### Configuration Parameters
 
-| Name        | Type                                 | Description                             | Required | Default                     |
-|-------------|--------------------------------------|-----------------------------------------|----------|-----------------------------|
-| `algorithm` | [AlgorithmConfig](#algorithm-config) | Specifies the layout algorithm to apply | no       | `{ type: "forceDirected" }` |
+| Name                 | Type                                 | Description                                       | Required | Default                     |
+|----------------------|--------------------------------------|---------------------------------------------------|----------|-----------------------------|
+| `algorithm`          | [AlgorithmConfig](#algorithm-config) | Specifies the layout algorithm to apply           | no       | `{ type: "forceDirected" }` |
+| `staticNodeResolver` | `(nodeId) => boolean`                | Function that determines whether a node is static | no       | `() => false`               |
 
 {{< ref-target ref="algorithm-config">}}
 ### `AlgorithmConfig` Options ### {#algorithm-config}

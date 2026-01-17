@@ -63,10 +63,11 @@ const canvas = new CanvasBuilder(element)
 
 ### Configuration Parameters
 
-| Name        | Type                                 | Description                             | Required | Default                     |
-|-------------|--------------------------------------|-----------------------------------------|----------|-----------------------------|
-| `algorithm` | [AlgorithmConfig](#algorithm-config) | Specifies the layout algorithm to apply | no       | `{ type: "forceDirected" }` |
-| `applyOn`   | [Trigger](#trigger)                  | Specifies when to apply the algorithm   | no       | `"topologyChangeMicrotask"` |
+| Name                 | Type                                 | Description                                       | Required | Default                     |
+|----------------------|--------------------------------------|---------------------------------------------------|----------|-----------------------------|
+| `algorithm`          | [AlgorithmConfig](#algorithm-config) | Specifies the layout algorithm to apply           | no       | `{ type: "forceDirected" }` |
+| `applyOn`            | [Trigger](#trigger)                  | Specifies when to apply the algorithm             | no       | `"topologyChangeMicrotask"` |
+| `staticNodeResolver` | `(nodeId) => boolean`                | Function that determines whether a node is static | no       | `() => false`               |
 
 {{< ref-target ref="algorithm-config">}}
 ### `AlgorithmConfig` Options ### {#algorithm-config}
