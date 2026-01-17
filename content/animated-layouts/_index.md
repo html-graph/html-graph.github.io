@@ -60,6 +60,7 @@ const canvas = new CanvasBuilder(element)
       },
       seed: "HTMLGraph is awesome",
     },
+    staticNodeResolver: (nodeId) => false,
   })
   .build();
 {{< /code >}}
