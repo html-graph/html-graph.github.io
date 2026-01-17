@@ -67,7 +67,7 @@ canvas.graph.onBeforePortUnmarked.subscribe((portId) => {
 });
 {{< / code >}}
 
-**Note:** Ports removed via `canvas.clear()` are managed separately within the `canvas.graph.onBeforeClear` handler.
+**Note:** Ports unmarked via `canvas.clear()` are managed separately within the `canvas.graph.onBeforeClear` handler.
 
 ---
 
