@@ -67,10 +67,11 @@ const canvas = new CanvasBuilder(element)
 
 ### Configuration Parameters
 
-| Name                 | Type                                              | Description                                       | Required | Default                     |
-|----------------------|---------------------------------------------------|---------------------------------------------------|----------|-----------------------------|
-| `algorithm`          | <code>[AlgorithmConfig](#algorithm-config)</code> | Specifies the layout algorithm to apply           | no       | `{ type: "forceDirected" }` |
-| `staticNodeResolver` | `(nodeId) => boolean`                             | Function that determines whether a node is static | no       | `() => false`               |
+| Name                 | Type                                               | Description                                       | Required | Default                     |
+|----------------------|----------------------------------------------------|---------------------------------------------------|----------|-----------------------------|
+| `algorithm`          | <code>[AlgorithmConfig](#algorithm-config)</code>  | Specifies the layout algorithm to apply           | no       | `{ type: "forceDirected" }` |
+| `staticNodeResolver` | `(nodeId) => boolean`                              | Function that determines whether a node is static | no       | `() => false`               |
+| `events`             | <code>[EventsConfig](#events-configuration)</code> | Handlers for available events                     | no       | `{}`                        |
 
 {{< ref-target ref="algorithm-config">}}
 ### `AlgorithmConfig` Options ### {#algorithm-config}
@@ -79,4 +80,15 @@ const canvas = new CanvasBuilder(element)
 |---------------|---------------------------------------------------|---------------------------------------------------|
 | ForceDirected | [ForceDirected](/animated-layouts/force-directed) | `{ type: "forceDirected" }`                       |
 | Custom        | [Custom](/animated-layouts/custom)                | `{ type: "custom", instance: new MyAlgorithm() }` |
+{{< /ref-target >}}
+
+{{< ref-target ref="events-configuration">}}
+
+### Events Configuration {#events-configuration}
+
+| Name              | Type         | Description                            | Required | Default    |
+|-------------------|--------------|----------------------------------------|----------|------------|
+| `onBeforeApplied` | `() => void` | Function to call before layout applied | No       | `() => {}` |
+| `onAfterApplied`  | `() => void` | Function to call after layout applied  | No       | `() => {}` |
+
 {{< /ref-target >}}
