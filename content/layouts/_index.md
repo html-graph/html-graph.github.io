@@ -56,8 +56,6 @@ const canvas = new CanvasBuilder(element)
       },
       seed: "HTMLGraph is awesome",
     },
-    applyOn: "topologyChangeMicrotask",
-    staticNodeResolver: (nodeId) => false,
   })
   .build();
 {{< /code >}}
