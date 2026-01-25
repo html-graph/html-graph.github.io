@@ -13,6 +13,9 @@ cases, and complete TypeScript support.
 
 <a href="/use-cases/advanced-demo/" target="_blank" aria-label="Advanced demo">
   <div class="video">
+    <div class="label-wrapper">
+      <label>Nocode Editor Demo</label>
+    </div>
     <video autoplay muted loop>
       <source src="/media/advanced-demo.webm">
     </video>
