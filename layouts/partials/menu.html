@@ -102,6 +102,13 @@
       </li>
       <li>
         {{ partial "menu-link.html" (dict
+          "path" "/layouts/hierarchical/"
+          "activePath" .path
+          "label" "Hierarchical"
+        )}}
+      </li>
+      <li>
+        {{ partial "menu-link.html" (dict
           "path" "/layouts/custom/"
           "activePath" .path
           "label" "Custom"

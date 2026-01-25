@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+  <head>
+    <title>HTMLGraph | Hierarchical layout demo</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        position: relative;
+        font-family: Arial, sans-serif;
+      }
+
+      #canvas {
+        position: absolute;
+        inset: 0;
+      }
+
+      .node {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        background: #daedbd;
+        border: 1px solid #9e9e9e;
+        box-shadow: 0 0 5px #9e9e9e;
+        border-radius: 50%;
+        user-select: none;
+      }
+
+      .node-port {
+        position: relative;
+        width: 0;
+      }
+
+      .node-port::after {
+        content: "";
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        width: 6px;
+        height: 6px;
+        background: #777777;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="graph" style="display: none">
+      {
+        "nodes": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19],
+        "edges": [
+          { "from": 0, "to": 1 },
+          { "from": 0, "to": 2 },
+          { "from": 1, "to": 3 },
+          { "from": 1, "to": 4 },
+          { "from": 1, "to": 5 },
+          { "from": 1, "to": 6 },
+          { "from": 1, "to": 7 },
+          { "from": 6, "to": 8 },
+          { "from": 6, "to": 9 },
+          { "from": 6, "to": 10 },
+          { "from": 5, "to": 11 },
+          { "from": 11, "to": 12 },
+          { "from": 11, "to": 13 },
+          { "from": 13, "to": 14 },
+          { "from": 13, "to": 15 },
+          { "from": 12, "to": 16 },
+          { "from": 12, "to": 17 },
+          { "from": 9, "to": 18 },
+          { "from": 9, "to": 19 }
+        ]
+      }
+    </div>
+    <div id="canvas"></div>
+    <script type="module">
+      import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@8.4.0";
+
+      class Application {
+        constructor(element) {
+          this.canvas = new CanvasBuilder(element)
+            .setDefaults({
+              edges: {
+                shape: {
+                  hasTargetArrow: true
+                },
+              },
+            })
+            .enableUserTransformableViewport()
+            .enableBackground()
+            .enableLayout({
+              algorithm: {
+                type: "hierarchical",
+                layerSpace: 200,
+              }
+            })
+            .build();
+        }
+
+        initGraph(graphData) {
+          const { width, height } = this.canvas.viewport.getDimensions();
+
+          this.canvas.patchContentMatrix({ x: width / 4, y: height / 2, scale: 0.3 })
+
+          graphData.nodes.forEach((nodeId) => {
+            this.canvas.addNode(
+              this.createNode({
+                name: `${nodeId}`,
+                frontPortId: `${nodeId}-in`,
+                backPortId: `${nodeId}-out`,
+              })
+            );
+          });
+
+          graphData.edges.forEach((edge) => {
+            this.canvas.addEdge({ from: `${edge.from}-out`, to: `${edge.to}-in` });
+          });
+
+        }
+
+        createNode({ name, x, y, frontPortId, backPortId }) {
+          const node = document.createElement("div");
+          const text = document.createElement("div");
+          const frontPort = document.createElement("div");
+          const backPort = document.createElement("div");
+
+          node.classList.add("node");
+          frontPort.classList.add("node-port");
+          backPort.classList.add("node-port");
+          text.innerText = name;
+
+          node.appendChild(frontPort);
+          node.appendChild(text);
+          node.appendChild(backPort);
+
+          return {
+            element: node,
+            x: x,
+            y: y,
+            ports: [
+              { id: frontPortId, element: frontPort },
+              { id: backPortId, element: backPort },
+            ],
+          };
+        }
+      }
+
+      const element = document.getElementById("canvas");
+      const app = new Application(element);
+
+      const graphContent = document.getElementById("graph");
+      const graph = JSON.parse(graphContent.innerText);
+
+      app.initGraph(graph);
+    </script>
+  </body>
+</html>
