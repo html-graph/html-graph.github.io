@@ -75,6 +75,7 @@ const canvas = new CanvasBuilder(element)
 | Algorithm     | Configuration                            | Example                                           |
 |---------------|------------------------------------------|---------------------------------------------------|
 | ForceDirected | [ForceDirected](/layouts/force-directed) | `{ type: "forceDirected" }`                       |
+| Hierarchical  | [Hierarchical](/layouts/hierarchical)    | `{ type: "hierarchical" }`                        |
 | Custom        | [Custom](/layouts/custom)                | `{ type: "custom", instance: new MyAlgorithm() }` |
 {{< /ref-target >}}
 
