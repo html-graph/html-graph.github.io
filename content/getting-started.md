@@ -166,7 +166,9 @@ It defines a full-screen canvas and an `Application` class.
 
 ### 2. Adding Nodes [#](#adding-nodes) {#adding-nodes}
 
-Nodes can be added using the <a href="/canvas/#add-node" target="_blank">addNode</a> method. This method accepts a specific object, which needs to be constructed first. For this purpose, we add a `createNode` method to the `Application` class.
+Nodes can be added using the <a href="/canvas/#add-node" target="_blank">addNode</a>
+method. This method accepts a specific object, which needs to be constructed
+first. For this purpose, we add a `createNode` method to the `Application` class.
 
 {{< code lang="javascript" >}}
 class Application {
@@ -210,7 +212,7 @@ The `createNode` method accepts parameters:
 A port is a proxy element through which nodes are connected.
 It provides more flexibility for managing edges.
 
-<b>\* The node HTML element itself can also be used as a port HTML element simultaneously.</b>
+<b>\* The node element itself can also be used as a port element simultaneously.</b>
 
 Here’s some CSS to make our nodes look nice:
 
