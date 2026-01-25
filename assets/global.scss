@@ -283,13 +283,13 @@ ol {
 }
 
 .previews {
-  margin: 2rem 0 0;
+  margin: 1rem 0 0;
 
   ul {
     display: flex;
     flex-wrap: wrap;
     padding: 0;
-    margin: -1rem;
+    margin: -0.5rem;
     list-style-type: none;
   }
 
@@ -312,7 +312,7 @@ ol {
     border: 1px solid var(--color-tab-frame);
     box-sizing: border-box;
     position: absolute;
-    inset: 1rem;
+    inset: 0.5rem;
   }
 
   img {
