@@ -6,7 +6,8 @@ sitemap:
 
 ## Force-Directed Animated Layout
 
-A force-directed layout is utilized by default whenever the `enableAnimatedLayout` method is invoked on a `CanvasBuilder` instance.
+A force-directed animated layout is utilized by default whenever the `enableAnimatedLayout` method is invoked on a `CanvasBuilder` instance.
+This type of layout also comes with a <a href="/layouts/force-directed/">non-animated version</a>.
 
 You can also explicitly specify it through its `type`.
 
