@@ -318,11 +318,22 @@ ol {
     height: 100%;
   }
 
-  label {
+  .label-wrapper {
+    display: flex;
+    justify-content: center;
     position: absolute;
-    left: 0.5rem;
-    bottom: 0.5rem;
+    top: 0.5rem;
+    left: 1rem;
+    right: 1rem;
     pointer-events: none;
+  }
+
+  label {
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    max-width: 20rem;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.07);
   }
 }
 
