@@ -106,11 +106,5 @@ cases, and complete TypeScript support.
         <label>Straight Edges</label>
       </a>
     </li>
-    <li>
-      <a target="_blank" href="/use-cases/edge-with-label/" aria-label="Custom Edges">
-        {{< image path="/images/custom-edge" alt="Custom Edge" width="500" height="500">}}
-        <label>Custom Edges</label>
-      </a>
-    </li>
   </ul>
 </div>
