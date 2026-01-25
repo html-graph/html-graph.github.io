@@ -30,8 +30,14 @@ cases, and complete TypeScript support.
     </li>
     <li>
       <a target="_blank" href="/use-cases/force-directed-animated-layout/" aria-label="Layouts">
-        {{< image path="/images/layouts" alt="Layouts" width="500" height="500">}}
+        {{< image path="/images/force-directed-layout" alt="Layouts" width="500" height="500">}}
         <label>Force-directed Animated Layout</label>
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="/use-cases/hierarchical-layout/" aria-label="Layouts">
+        {{< image path="/images/hierarchical-layout" alt="Layouts" width="500" height="500">}}
+        <label>Hierarchical Layout</label>
       </a>
     </li>
     <li>
