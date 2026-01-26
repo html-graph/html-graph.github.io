@@ -11,7 +11,7 @@ versatile layouts, extensive built-in functionalities tailored for various use
 cases, and complete TypeScript support.
 </div>
 
-<a href="/use-cases/advanced-demo/" target="_blank" aria-label="Advanced demo">
+<a href="/use-cases/advanced-demo/" target="_blank" aria-label="Nocode Editor UI">
   <div class="video">
     <div class="label-wrapper">
       <label>Nocode Editor UI</label>
