@@ -75,10 +75,10 @@ const canvas = new CanvasBuilder(element)
 {{< ref-target ref="algorithm-config">}}
 ### `AlgorithmConfig` Options ### {#algorithm-config}
 
-| Algorithm     | Configuration                                     | Example                                           |
-|---------------|---------------------------------------------------|---------------------------------------------------|
-| ForceDirected | [ForceDirected](/animated-layouts/force-directed) | `{ type: "forceDirected" }`                       |
-| Custom        | [Custom](/animated-layouts/custom)                | `{ type: "custom", instance: new MyAlgorithm() }` |
+| Algorithm     | Configuration                                      | Example                                           |
+|---------------|----------------------------------------------------|---------------------------------------------------|
+| ForceDirected | [ForceDirected](/animated-layouts/force-directed/) | `{ type: "forceDirected" }`                       |
+| Custom        | [Custom](/animated-layouts/custom/)                | `{ type: "custom", instance: new MyAlgorithm() }` |
 {{< /ref-target >}}
 
 {{< ref-target ref="events-configuration">}}
