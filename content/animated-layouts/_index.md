@@ -46,19 +46,15 @@ const canvas = new CanvasBuilder(element)
   .enableAnimatedLayout({
     algorithm: {
       type: "forceDirected",
-      maxTimeDeltaSec: 0.1,
-      nodeCharge: 10000,
-      nodeMass: 1,
-      nodeForceCoefficient: 1,
-      maxForce: 10000000,
-      edgeEquilibriumLength: 300,
-      edgeStiffness: 1000,
-      convergenceVelocity: 10,
-      barnesHut: {
-        theta: 1,
-        areaRadiusThreshold: 0.01,
+    },
+    staticNodeResolver: (nodeId) => false,
+    events: {
+      onBeforeApplied: () => {
+        console.log("Layout is about to be applied");
       },
-      seed: "HTMLGraph is awesome",
+      onAfterApplied: () => {
+      },
+      console.log("Layout has been applied");
     },
   })
   .build();
