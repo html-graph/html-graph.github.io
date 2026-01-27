@@ -53,8 +53,8 @@ const canvas = new CanvasBuilder(element)
         console.log("Layout is about to be applied");
       },
       onAfterApplied: () => {
+        console.log("Layout has been applied");
       },
-      console.log("Layout has been applied");
     },
   })
   .build();
