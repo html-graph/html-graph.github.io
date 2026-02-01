@@ -159,7 +159,7 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-For more details on the parameters of this matrix, refer to the
+The parameters of this matrix are similar to those described in the
 <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/matrix">
   <b>CSS matrix() Function</b>
 </a> documentation.
