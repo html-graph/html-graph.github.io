@@ -159,7 +159,65 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-The parameters of this matrix are similar to those described in the
+This is how transformation works on a point with coordinates `(x, y)`
+
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mrow>
+        <mo>(</mo>
+            <mtable columnalign="center center">
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>x</mi>
+                    <mn>1</mn>
+                  </mtd>
+                </msub>
+              </mtr>
+              <mtr>
+                <mtd>
+                  <msub>
+                    <mi>y</mi>
+                    <mn>1</mn>
+                  </mtd>
+                </msub>
+              </mtr>
+              <mtr><mtd>
+                <mn>1</mn></mtd>
+              </mtr>
+            </mtable>
+        <mo>)</mo>
+        <mo>=</mo>
+        <mo>(</mo>
+            <mtable columnalign="center center">
+                <mtr>
+                  <mtd><mn>a</mn></mtd>
+                  <mtd><mn>b</mn></mtd>
+                  <mtd><mn>c</mn></mtd>
+                </mtr>
+                <mtr>
+                  <mtd><mn>d</mn></mtd>
+                  <mtd><mn>e</mn></mtd>
+                  <mtd><mn>f</mn></mtd>
+                </mtr>
+                <mtr>
+                  <mtd><mn>0</mn></mtd>
+                  <mtd><mn>0</mn></mtd>
+                  <mtd><mn>1</mn></mtd>
+                </mtr>
+            </mtable>
+        <mo>)</mo>
+        <mo>*</mo>
+        <mo>(</mo>
+            <mtable columnalign="center center">
+                <mtr><mtd><mn>x</mn></mtd></mtr>
+                <mtr><mtd><mn>y</mn></mtd></mtr>
+                <mtr><mtd><mn>1</mn></mtd></mtr>
+            </mtable>
+        <mo>)</mo>
+    </mrow>
+</math>
+
+The parameters of this matrix are analogous to those explained in the
 <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/matrix">
   <b>CSS matrix() Function</b>
 </a> documentation.
