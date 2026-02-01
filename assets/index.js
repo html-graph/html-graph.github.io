@@ -24,7 +24,7 @@ document.querySelectorAll("[data-use-case]").forEach((element) => {
     event.preventDefault();
   });
 
-  anchor.addEventListener("pointerdown", (event) => {
+  anchor.addEventListener("mousedown", (event) => {
     if (event.button !== 0) {
       return;
     }
