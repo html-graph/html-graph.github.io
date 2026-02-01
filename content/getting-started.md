@@ -90,22 +90,15 @@ Download <code>html-graph.umd.cjs</code> from <a target="_blank" href="https://g
 
 The next section explains how to achieve the result shown below. It demonstrates
 a basic configuration consisting of two nodes connected by an edge.
-Additionally, it configures:
+Additionally, it configures transformable viewport, draggable nodes, and background.
 
-- transformable viewport
-- draggable nodes
-- background
+While you may opt to review the complete implementation right away, for those seeking a
+structured approach, follow these sequential steps: [Initialization](#initialization),
+[Adding Nodes](#adding-nodes), [Adding Edges](#adding-edges), and [Enabling Features](#enabling-features)
 
 # # {#end-result}
 
 {{< use-case src="/use-cases/getting-started/" >}}
-
-The whole process consists of four steps:
-
-1. [Initialization](#initialization)
-2. [Adding Nodes](#adding-nodes)
-3. [Adding Edges](#adding-edges)
-4. [Enabling Features](#enabling-features)
 
 ---
 
@@ -286,7 +279,7 @@ class Application {
 ### 3. Adding Edges [#](#adding-edges) {#adding-edges}
 
 To connect these two nodes, the <a href="/canvas/#add-edge" target="_blank">addEdge</a> method can be used.
-It accepts the identifiers of the source port and target port.
+It accepts the identifiers of the source port and the target port.
 
 {{< code lang="javascript" >}}
 class Application {
