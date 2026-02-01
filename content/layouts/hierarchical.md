@@ -31,7 +31,7 @@ const canvas = new CanvasBuilder(element)
       type: "hierarchical",
       layerWidth: 300,
       layerSpace: 300,
-      transform: [{ mirror: Math.PI / 2 }],
+      transform: { mirror: Math.PI / 2 },
     },
   })
   .build();
