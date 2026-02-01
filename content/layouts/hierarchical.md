@@ -216,8 +216,3 @@ This is how transformation works on a point with coordinates `(x, y)`
         <mo>)</mo>
     </mrow>
 </math>
-
-The parameters of this matrix are analogous to those explained in the
-<a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/transform-function/matrix">
-  <b>CSS matrix() Function</b>
-</a> documentation.
