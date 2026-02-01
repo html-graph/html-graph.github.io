@@ -159,7 +159,7 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-This is how transformation works on a point with coordinates `(x, y)`
+This is how transformation works on a point with `(x, y)` coordinates.
 
 <math xmlns="http://www.w3.org/1998/Math/MathML">
     <mrow>
