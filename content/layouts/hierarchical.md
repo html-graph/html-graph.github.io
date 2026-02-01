@@ -38,11 +38,11 @@ const canvas = new CanvasBuilder(element)
 {{< /code >}}
 
 
-| Name         | Type                                                    | Description                                       | Required | Default   |
-|--------------|---------------------------------------------------------|---------------------------------------------------|----------|-----------|
-| `layerWidth` | `number`                                                | Width of a single layer                           | No       | `300`     |
-| `layerSpace` | `number`                                                | Minimum space between nodes within a single layer | No       | `300`     |
-| `transform`  | [`Transformation \| Transformation[]`](#transformation) | Single transformation or array of transformations | No       | undefined |
+| Name         | Type                                                    | Description                                       | Required | Default     |
+|--------------|---------------------------------------------------------|---------------------------------------------------|----------|-------------|
+| `layerWidth` | `number`                                                | Width of a single layer                           | No       | `300`       |
+| `layerSpace` | `number`                                                | Minimum space between nodes within a single layer | No       | `300`       |
+| `transform`  | [`Transformation \| Transformation[]`](#transformation) | Single transformation or array of transformations | No       | `undefined` |
 
 
 {{< ref-target ref="transformation">}}
