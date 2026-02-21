@@ -1,5 +1,5 @@
 ---
-title: HTMLGraph | Tutorials | Changing Edge Color
+title: Tutorials | Changing Edge Color
 ---
 
 ## Changing Edge Color

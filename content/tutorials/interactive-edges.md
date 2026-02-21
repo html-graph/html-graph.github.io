@@ -1,5 +1,5 @@
 ---
-title: HTMLGraph | Tutorials | Interactive Edges
+title: Tutorials | Interactive Edges
 ---
 
 ## Interactive Edges
