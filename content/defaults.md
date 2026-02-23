@@ -130,7 +130,7 @@ const canvas = new CanvasBuilder(element)
     focus: {
       minContentScale: 0.5,
       contentOffset: 200,
-    }
+    },
   })
   .build();
 {{< /code >}}
