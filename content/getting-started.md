@@ -242,7 +242,7 @@ Here’s some CSS to make our nodes look nice:
 
 Nodes are fully customizable using HTML and CSS.
 
-It's time to use the created method in `initGraph`.
+It's time to use the created method in `initGraph` and focus viewport on newly created nodes.
 
 {{< code lang="javascript" >}}
 class Application {
@@ -267,7 +267,7 @@ class Application {
           frontPortId: "node-2-in",
           backPortId: "node-2-out",
         })
-      );
+      ).focus();
   }
 
   // ...
