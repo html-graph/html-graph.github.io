@@ -374,6 +374,39 @@ canvas.clear();
 
 ---
 
+### Center [#](#center) ### {#center}
+
+Puts center of the viewport to a specified point
+
+{{< code lang="javascript">}}
+canvas.center({ x: 100, y: 200 });
+{{< /code >}}
+
+This method accepts optional configuration
+
+{{< code lang="javascript">}}
+canvas.center({ x: 100, y: 200 }, { contentScale: 0.5 });
+{{< /code >}}
+
+#### Parameters for `center`:
+
+| Name     | Type           | Description                                   | Required | Default |
+|----------|----------------|-----------------------------------------------|----------|---------|
+| `target` | `Point`        | Coordinates of the point to put in the center | yes      |         |
+| `config` | `CenterConfig` | Centering configuration                       | no       | `{}`    |
+
+{{< ref-target ref="center-config">}}
+
+### `CenterConfig` ### {#barnes-hut}
+
+| Name           | Type     | Description                                | Required | Default                       |
+|----------------|----------|--------------------------------------------|----------|-------------------------------|
+| `contentScale` | `number` | Value to which content scale should be set | no       | Same as current content scale |
+
+{{< /ref-target >}}
+
+---
+
 ### Destroy [#](#destroy) ### {#destroy}
 
 Destroys the canvas. The provided HTML element gets rolled back to its initial state. Once this method is called, the canvas cannot be reused.
