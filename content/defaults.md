@@ -6,7 +6,7 @@ title: Defaults
 
 Use the `setDefaults` method of `CanvasBuilder` to establish base visualization settings.
 
-These defaults apply to all graph entities (nodes, ports, and edges) when no explicit values are provided.
+These defaults apply when no explicit values are provided.
 
 ---
 
@@ -115,3 +115,29 @@ const canvas = new CanvasBuilder(element)
 | `"incremental"` | Each subsequent edge receives an incremented Z-index | `"incremental"`   |
 | `function`      | Z-index is determined by a specified function        | `() => 10 + i++;` |
 {{< /ref-target >}}
+
+---
+
+### Focus [#](#focus) {#focus}
+
+Configures <a target="_blank" href="/canvas#focus">`canvas.focus()`</a> default behavior
+
+{{< code lang="javascript">}}
+const element = document.getElementById("canvas");
+
+const canvas = new CanvasBuilder(element)
+  .setDefaults({
+    focus: {
+      minContentScale: 0.5,
+      contentOffset: 200,
+    }
+  })
+  .build();
+{{< /code >}}
+
+#### `FocusConfig` Fields
+
+| Name              | Type            | Description                                                                                                                               | Required | Default   |
+|-------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------|----------|-----------|
+| `minContentScale` | `number`        | When all nodes don't fit, the content scale gets smaller to fit all nodes. But minimum scaling value can be specified using this argument | no       | `0`       |
+| `contentOffset`   | `number`        | This value adds extra space between viewport border and graph nodes                                                                       | no       | `100`     |
