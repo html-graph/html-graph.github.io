@@ -6,7 +6,7 @@ title: Canvas
 
 The `Canvas` API provides a set of methods and properties for managing graph visualization.
 
-`Canvas` uses a fluent interface, allowing methods to be chained for concise configuration. For example:
+`Canvas` has a fluent interface, allowing methods to be chained for concise configuration. For example:
 
 {{< code lang="javascript" >}}
 const element = document.getElementById("canvas");
