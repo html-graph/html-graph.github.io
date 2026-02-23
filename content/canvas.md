@@ -421,7 +421,7 @@ Target nodes can be specified via argument.
 canvas.focus(["node-1", "node-2", "node-3"]);
 {{< /code >}}
 
-When node IDs are not specified all graph nodes are focused.
+When node IDs are not specified all visible nodes are focused.
 
 This method has a fine-tuned version:
 
