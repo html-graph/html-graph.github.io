@@ -103,10 +103,6 @@
         }
 
         initGraph(graphData) {
-          const { width, height } = this.canvas.viewport.getDimensions();
-
-          this.canvas.patchContentMatrix({ x: width / 4, y: height / 2, scale: 0.3 })
-
           graphData.nodes.forEach((nodeId) => {
             this.canvas.addNode(
               this.createNode({
@@ -121,6 +117,7 @@
             this.canvas.addEdge({ from: `${edge.from}-out`, to: `${edge.to}-in` });
           });
 
+          this.canvas.focus();
         }
 
         createNode({ name, x, y, frontPortId, backPortId }) {
