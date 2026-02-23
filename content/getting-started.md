@@ -305,7 +305,8 @@ class Application {
           backPortId: "node-2-out",
         })
       )
-      .addEdge({ from: "node-1-out", to: "node-2-in" });
+      .addEdge({ from: "node-1-out", to: "node-2-in" })
+      .focus();
   }
 
   // ...
