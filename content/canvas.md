@@ -433,11 +433,11 @@ canvas.focus({
 });
 {{< /code >}}
 
-| Name              | Type            | Description                                                                                                                               | Required | Default   |
-|-------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------|----------|-----------|
-| `nodes`           | `Iterable<any>` | A set of node IDs to focus                                                                                                                | no       | All nodes |
-| `minContentScale` | `number`        | When all nodes don't fit, the content scale gets smaller to fit all nodes. But minimum scaling value can be specified using this argument | no       | `0`       |
-| `contentOffset`   | `number`        | This value adds extra space between viewport border and graph nodes                                                                       | no       | `100`     |
+| Name              | Type            | Description                                                                                                                               | Required | Default                                                              |
+|-------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------|
+| `nodes`           | `Iterable<any>` | A set of node IDs to focus                                                                                                                | no       | All nodes                                                            |
+| `minContentScale` | `number`        | When all nodes don't fit, the content scale gets smaller to fit all nodes. But minimum scaling value can be specified using this argument | no       | Configured in <a href="/defaults#focus" target="_blank">Defaults</a> |
+| `contentOffset`   | `number`        | This value adds extra space between viewport border and graph nodes                                                                       | no       | Configured in <a href="/defaults#focus" target="_blank">Defaults</a> |
 
 ---
 
