@@ -407,6 +407,40 @@ canvas.center({ x: 100, y: 200 }, { contentScale: 0.5 });
 
 ---
 
+### Focus [#](#focus) ### {#focus}
+
+Focuses viewport on graph nodes
+
+{{< code lang="javascript">}}
+canvas.focus();
+{{< /code >}}
+
+Target nodes can be specified via argument.
+
+{{< code lang="javascript">}}
+canvas.focus(["node-1", "node-2", "node-3"]);
+{{< /code >}}
+
+When node IDs are not specified all graph nodes are focused.
+
+This method has a fine-tuned version:
+
+{{< code lang="javascript">}}
+canvas.focus({
+  nodes: ["node-1", "node-2", "node-3"],
+  minContentScale: 0.5,
+  contentOffset: 200,
+});
+{{< /code >}}
+
+| Name              | Type            | Description                                                                                                                               | Required | Default   |
+|-------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------|----------|-----------|
+| `nodes`           | `Iterable<any>` | A set of node IDs to focus                                                                                                                | no       | All nodes |
+| `minContentScale` | `number`        | When all nodes don't fit, the content scale gets smaller to fit all nodes. But minimum scaling value can be specified using this argument | no       | `0`       |
+| `contentOffset`   | `number`        | This value adds extra space between viewport border and graph nodes                                                                       | no       | `100`     |
+
+---
+
 ### Destroy [#](#destroy) ### {#destroy}
 
 Destroys the canvas. The provided HTML element gets rolled back to its initial state. Once this method is called, the canvas cannot be reused.
