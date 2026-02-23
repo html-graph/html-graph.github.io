@@ -390,10 +390,10 @@ canvas.center({ x: 100, y: 200 }, { contentScale: 0.5 });
 
 #### Parameters for `center`:
 
-| Name     | Type           | Description                                   | Required | Default |
-|----------|----------------|-----------------------------------------------|----------|---------|
-| `target` | `Point`        | Coordinates of the point to put in the center | yes      |         |
-| `config` | `CenterConfig` | Centering configuration                       | no       | `{}`    |
+| Name     | Type                                        | Description                                   | Required | Default |
+|----------|---------------------------------------------|-----------------------------------------------|----------|---------|
+| `target` | `Point`                                     | Coordinates of the point to put in the center | yes      |         |
+| `config` | <code>[CenterConfig](#center-config)</code> | Centering configuration                       | no       | `{}`    |
 
 {{< ref-target ref="center-config">}}
 
