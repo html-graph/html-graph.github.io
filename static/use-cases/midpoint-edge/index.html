@@ -149,8 +149,8 @@
             .addEdge({ from: "node-1-out", to: "node-2-in" })
             .addEdge({ from: "node-2-out", to: "node-3-in" })
             .addEdge({ from: "node-4-out", to: "node-4-in" })
-            .addEdge({ from: "node-5-out", to: "node-5-out" });
-
+            .addEdge({ from: "node-5-out", to: "node-5-out" })
+            .focus();
         }
 
         createNode({ name, x, y, frontPortId, backPortId }) {
