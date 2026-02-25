@@ -61,7 +61,7 @@ const edgeIds = canvas.graph.getNodeCycleEdgeIds("node-1");
 const edgeIds = canvas.graph.getNodeAdjacentEdgeIds("node-1");
 {{< / code >}}
 
-1. get node ID for a specific `Element`
+1. find node ID by a specific `Element`
 {{< code lang="javascript" >}}
 const nodeId = canvas.graph.findNodeIdByElement(nodeElement);
 {{< / code >}}
@@ -106,7 +106,7 @@ const edgeIds = canvas.graph.getPortCycleEdgeIds("port-1");
 const edgeIds = canvas.graph.getPortAdjacentEdgeIds("port-1");
 {{< / code >}}
 
-1. get all port IDs attached to a specific `Element`
+1. find all port IDs attached to a specific `Element`
 {{< code lang="javascript" >}}
 const portIds = canvas.graph.findPortIdsByElement(portElement);
 {{< / code >}}
