@@ -104,7 +104,6 @@
   </head>
   <body class="layout">
     <header class="layout__header">
-      <img class="layout__logo" alt="HTMLGraph logo" width="32" height="32" src="/favicons/favicon-96x96.png" />
       <div class="burger" data-burger>
         <div class="burger__center">
           <div class="burger__line"></div>
@@ -112,7 +111,10 @@
           <div class="burger__line"></div>
         </div>
       </div>
-      <span class="layout__title"> {{ .Site.Title }} </span>
+      <a href="/" class="layout__title">
+        <img class="layout__logo" alt="HTMLGraph logo" width="32" height="32" src="/favicons/favicon-96x96.png" />
+        <span> {{ .Site.Title }} </span>
+      </a>
       <div class="header-side">
         <div
           class="ya-site-form ya-site-form_inited_no"
@@ -165,7 +167,10 @@
         <div class="layout__github">
           <a class="github-button" href="https://github.com/html-graph/html-graph" data-color-scheme="no-preference: light; light: light; dark: dark;" data-icon="octicon-star" aria-label="Star html-graph/html-graph on GitHub">Star</a>
         </div>
-        <img class="layout__logo layout__logo_mobile" alt="HTMLGraph logo" width="32" height="32" src="/favicons/favicon-96x96.png" />
+
+        <a href="/" class="layout__logo layout__logo_mobile">
+          <img alt="HTMLGraph logo" width="32" height="32" src="/favicons/favicon-96x96.png" />
+        </a>
       </div>
     </header>
 
