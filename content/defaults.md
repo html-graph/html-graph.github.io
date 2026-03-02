@@ -120,7 +120,7 @@ const canvas = new CanvasBuilder(element)
 
 ### Focus [#](#focus) {#focus}
 
-Configures <a target="_blank" href="/canvas#focus">`canvas.focus()`</a> default behavior
+Configures <a target="_blank" href="/canvas#focus">`canvas.focus()`</a> default parameters
 
 {{< code lang="javascript">}}
 const element = document.getElementById("canvas");
