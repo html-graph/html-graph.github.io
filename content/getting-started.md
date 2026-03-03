@@ -165,7 +165,7 @@ It defines a full-screen canvas and an `Application` class.
 ### 2. Adding Nodes [#](#adding-nodes) {#adding-nodes}
 
 Nodes can be added using the <a href="/canvas/#add-node" target="_blank">addNode</a>
-method. This method accepts a specific object, which needs to be constructed
+method. This method accepts a specific object, which has to be constructed
 first. For this purpose, we add a `createNode` method to the `Application` class.
 
 {{< code lang="javascript" >}}
