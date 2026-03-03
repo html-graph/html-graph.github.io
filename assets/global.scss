@@ -22,6 +22,7 @@
   --color-background-menu: #f2f2f2;
   --color-background-menu-hover: #e0e0e0;
   --color-cta: #60a000;
+  --color-cta-hover: #528900;
 }
 
 html,
@@ -584,10 +585,21 @@ ol {
   .getting-started {
     background: var(--color-cta);
     color: white;
+    border: 2px solid var(--color-cta);
+
+    &:hover {
+      background: var(--color-cta-hover);
+      border-color: var(--color-cta-hover);
+    }
   }
 
   .canvas-api {
-    border: 1px solid var(--color-cta);
+    border: 2px solid var(--color-cta);
     color: var(--color-cta);
+
+    &:hover {
+      border-color: var(--color-cta-hover);
+      color: var(--color-cta-hover);
+    }
   }
 }
