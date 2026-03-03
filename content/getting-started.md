@@ -272,7 +272,8 @@ class Application {
           frontPortId: "node-2-in",
           backPortId: "node-2-out",
         })
-      ).focus();
+      )
+      .focus();
   }
 
   // ...
