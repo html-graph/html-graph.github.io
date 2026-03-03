@@ -11,6 +11,12 @@ versatile layouts, extensive built-in functionalities tailored for various use
 cases, and complete TypeScript support.
 </div>
 
+<div class="cta-panel">
+  <a class="getting-started" href="/getting-started">Getting Started</a>
+
+  <a class="canvas-api" href="/canvas">Canvas API</a>
+</div>
+
 <a href="/use-cases/advanced-demo/" target="_blank" aria-label="Nocode Editor UI">
   <div class="video">
     <div class="label-wrapper">
@@ -21,7 +27,6 @@ cases, and complete TypeScript support.
     </video>
   </div>
 </a>
-
 
 <div class="previews">
   <ul>
