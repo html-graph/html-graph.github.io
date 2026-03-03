@@ -13,7 +13,6 @@ cases, and complete TypeScript support.
 
 <div class="cta-panel">
   <a class="getting-started" href="/getting-started">Getting Started</a>
-
   <a class="canvas-api" href="/canvas">Canvas API</a>
 </div>
 
