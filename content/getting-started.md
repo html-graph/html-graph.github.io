@@ -88,17 +88,22 @@ Download <code>html-graph.umd.cjs</code> from <a target="_blank" href="https://g
 </div>
 </div>
 
-The next section explains how to achieve the result shown below. It demonstrates
-a basic configuration consisting of two nodes connected by an edge.
+The next example demonstrates how to implement visualization of a basic graph.
 Additionally, it configures transformable viewport, draggable nodes, and background.
-
-While you may opt to review the complete implementation right away, for those seeking a
-structured approach, follow these sequential steps: [Initialization](#initialization),
-[Adding Nodes](#adding-nodes), [Adding Edges](#adding-edges), and [Enabling Features](#enabling-features)
 
 # # {#end-result}
 
 {{< use-case src="/use-cases/getting-started/" >}}
+
+While reviewing a complete implementation might suffice, it's recommended to
+follow step-by-step guide, because it explains some important concepts.
+
+The following steps will be explained:
+
+- [Initialization](#initialization)
+- [Adding Nodes](#adding-nodes)
+- [Adding Edges](#adding-edges)
+- [Enabling Features](#enabling-features)
 
 ---
 
