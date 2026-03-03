@@ -1,6 +1,5 @@
 ---
 title: Canvas
-canvasMenu: true
 ---
 
 ## Canvas
