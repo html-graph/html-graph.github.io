@@ -284,7 +284,7 @@ class Application {
 
 ### 3. Adding Edges [#](#adding-edges) {#adding-edges}
 
-To connect these two nodes, the <a href="/canvas/#add-edge" target="_blank">addEdge</a> method can be used.
+To connect these two nodes, the <a href="/canvas/#add-edge" target="_blank">addEdge</a> method will be used.
 It accepts the identifiers of the source port and the target port.
 
 {{< code lang="javascript" >}}
