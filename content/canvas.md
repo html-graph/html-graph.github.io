@@ -16,7 +16,7 @@ const canvas = new CanvasBuilder(element).build();
 canvas
   .addNode({ x: 100, y: 100, element: document.createElement('div') })
   .addNode({ x: 200, y: 200, element: document.createElement('div') })
-  .addNode({ x: 300, y: 300, element: document.createElement('div') });
+  .focus();
 {{< /code >}}
 
 Below is a list of all available methods
