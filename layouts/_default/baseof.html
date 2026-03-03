@@ -184,6 +184,10 @@
           <!-- -->
           {{ end }}
         </div>
+
+        {{ if .Param "canvasMenu" }}
+        {{ partial "canvas-menu.html" }}
+        {{ end }}
       </div>
     </main>
 
