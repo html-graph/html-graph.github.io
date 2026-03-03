@@ -95,7 +95,7 @@ Additionally, it configures transformable viewport, draggable nodes, and backgro
 
 {{< use-case src="/use-cases/getting-started/" >}}
 
-While reviewing a complete implementation might suffice, it's recommended to
+While reviewing the complete implementation might suffice, it's recommended to
 follow step-by-step guide, because it explains some important concepts.
 
 The following steps will be explained:
