@@ -422,6 +422,10 @@ ol {
   text-align: center;
   font-size: 1.15rem;
   max-width: 50rem;
+
+  @media (max-width: 765px) {
+    margin: 0 auto 2rem;
+  }
 }
 
 .menu-wrapper {
@@ -574,6 +578,10 @@ ol {
   gap: 1rem;
   margin-bottom: 4rem;
 
+  @media (max-width: 765px) {
+    margin-bottom: 2rem;
+  }
+
   a {
     text-decoration: none;
     font-size: 1.15rem;
@@ -589,7 +597,7 @@ ol {
     }
 
     @media (max-width: 375px) {
-      font-size: 0.8rem;
+      font-size: 0.9rem;
     }
   }
 
