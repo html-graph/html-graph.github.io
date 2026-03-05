@@ -36,7 +36,7 @@ canvas.addNode({
 });
 {{< /code >}}
 
-For convenience, ports can be specified directly during node creation.
+For convenience, ports can be specified directly during the node creation.
 
 {{< code lang="javascript">}}
 const node = document.createElement('div');
