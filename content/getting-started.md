@@ -109,19 +109,19 @@ follow step-by-step guide, because it explains some important concepts.
   </button>
 
   <button data-tab="2">
-    2. Styling Nodes
+    3. Styling Nodes
   </button>
 
   <button data-tab="3">
-    2. Adding Nodes
+    4. Adding Nodes
   </button>
 
   <button data-tab="4">
-    3. Adding Edges
+    5. Adding Edges
   </button>
 
   <button data-tab="5">
-    4. Enabling features
+    6. Enabling features
   </button>
 </div>
 
