@@ -98,19 +98,36 @@ Additionally, it configures transformable viewport, draggable nodes, and backgro
 While reviewing the complete implementation might suffice, it's recommended to
 follow step-by-step guide, because it explains some important concepts.
 
-The following steps will be explained:
+<div data-tabs>
+<div data-tabs-btns>
+  <button data-tab="0" data-tab-active>
+    1. Initialization
+  </button>
 
-- [Initialization](#initialization)
-- [Adding Nodes](#adding-nodes)
-- [Adding Edges](#adding-edges)
-- [Enabling Features](#enabling-features)
+  <button data-tab="1">
+    2. Creating Nodes
+  </button>
 
----
+  <button data-tab="2">
+    2. Styling Nodes
+  </button>
 
-### 1. Initialization [#](#initialization) {#initialization}
+  <button data-tab="3">
+    2. Adding Nodes
+  </button>
 
+  <button data-tab="4">
+    3. Adding Edges
+  </button>
+
+  <button data-tab="5">
+    4. Enabling features
+  </button>
+</div>
+
+<div data-tab-content="0" data-tab-content-visible>
 As a basis for our application, we will use this simple template.
-It defines a full-screen canvas and an `Application` class.
+It defines a full-screen canvas and an <code>Application</code> class.
 
 {{< code lang="html" >}}
 <!doctype html>
@@ -159,14 +176,12 @@ It defines a full-screen canvas and an `Application` class.
   </body>
 </html>
 {{< /code >}}
+</div>
 
----
-
-### 2. Adding Nodes [#](#adding-nodes) {#adding-nodes}
-
+<div data-tab-content="1">
 Nodes can be added using the <a href="/canvas/#add-node" target="_blank">addNode</a>
 method. This method accepts a specific object, which has to be constructed
-first. For this purpose, we add a `createNode` method to the `Application` class.
+first. For this purpose, we add a <code>createNode</code> method to the <code>Application</code> class.
 
 {{< code lang="javascript" >}}
 class Application {
@@ -201,17 +216,19 @@ class Application {
 }
 {{< /code >}}
 
-The `createNode` method accepts parameters:
+The <code>createNode</code> method accepts parameters:
 
-- `name` is the text content of a node,
-- `x` and `y` are the node's coordinates,
-- `frontPortId` and `backPortId` are port identifiers.
+- <code>name</code> is the text content of a node,
+- <code>x</code> and <code>y</code> are the node's coordinates,
+- <code>frontPortId</code> and <code>backPortId</code> are port identifiers.
 
 A port is a proxy element through which nodes are connected.
 It provides more flexibility for managing edges.
 
-<b>\* The node element can also be used as a port element simultaneously.</b>
+<b>\* The node <code>element</code> can also be used as a port <code>element</code> simultaneously.</b>
+</div>
 
+<div data-tab-content="2">
 Here’s some CSS to make our nodes look nice:
 
 {{< code lang="css" >}}
@@ -246,8 +263,10 @@ Here’s some CSS to make our nodes look nice:
 {{< /code >}}
 
 Nodes are fully customizable using HTML and CSS.
+</div>
 
-It's time to use the created method in `initGraph` and focus viewport on newly created nodes.
+<div data-tab-content="3">
+It's time to use the created method in <code>initGraph</code> and focus viewport on newly created nodes.
 
 {{< code lang="javascript" >}}
 class Application {
@@ -279,11 +298,9 @@ class Application {
   // ...
 }
 {{< /code >}}
+</div>
 
----
-
-### 3. Adding Edges [#](#adding-edges) {#adding-edges}
-
+<div data-tab-content="4">
 To connect these two nodes, the <a href="/canvas/#add-edge" target="_blank">addEdge</a> method will be used.
 It accepts the identifiers of the source port and the target port.
 
@@ -320,7 +337,7 @@ class Application {
 {{< /code >}}
 
 Edges can be customized, for instance, by adding a target arrow.
-This can be achieved using the `setDefaults` method of `CanvasBuilder`.
+This can be achieved using the <code>setDefaults</code> method of <code>CanvasBuilder</code>.
 
 {{< code lang="javascript" >}}
 class Application {
@@ -341,18 +358,26 @@ class Application {
 {{< /code >}}
 
 Refer to the <a href="/defaults/" target="_blank">Defaults</a> page for all available options.
+</div>
 
----
-
-### 4. Enabling Features [#](#enabling-features) {#enabling-features}
-
+<div data-tab-content="5">
 HTMLGraph supports numerous useful features, including:
-- transformable viewport
-- draggable nodes
-- background rendering
-- and many more ...
+<ul>
+  <li>
+    transformable viewport
+  </li>
+  <li>
+    draggable nodes
+  </li>
+  <li>
+    background rendering
+  </li>
+  <li>
+    and many more ...
+  </li>
+</ul>
 
-These features can be enabled by invoking their corresponding methods on the `CanvasBuilder` instance, like so:
+These features can be enabled by invoking their corresponding methods on the <code>CanvasBuilder</code> instance, like so:
 
 {{< code lang="javascript" >}}
 class Application {
@@ -376,4 +401,7 @@ class Application {
 {{< /code >}}
 
 Refer to <a href="/features/" target="_blank">Features</a> for all available options.
+
+
+</div>
 

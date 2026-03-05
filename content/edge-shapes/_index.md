@@ -4,8 +4,6 @@ title: Edge Shapes
 
 ## Edge Shapes
 
-HTMLGraph supports multiple edge visualization styles to suit different graph representation needs:
-
 | Shape          | Preview                                                                                                                                                                           | Configuration Reference                         |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------|
 | **Bezier**     | <a href="/use-cases/bezier-edge/" aria-label="Bezier Edge" target="_blank">{{< image path="/images/bezier-edge" alt="Bezier Edge" width="500" height="500">}}</a>                 | [BezierEdgeShape](/edge-shapes/bezier/)         |
