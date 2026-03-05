@@ -121,7 +121,7 @@ follow step-by-step guide, because it explains some important concepts.
   </button>
 
   <button data-tab="5">
-    6. Enabling features
+    6. Enabling Features
   </button>
 </div>
 
