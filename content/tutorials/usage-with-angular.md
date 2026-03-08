@@ -54,8 +54,10 @@ export class HtmlGraphAdapter {
       ],
     });
 
+    const { hostView, instance } = nodeComponent;
+
     // Makes the node component reactive
-    this.appRef.attachView(nodeComponent.hostView);
+    this.appRef.attachView(hostView);
 
     this.canvas.addNode({
       id,
@@ -63,8 +65,8 @@ export class HtmlGraphAdapter {
       x: 100,
       y: 200,
       ports: [
-        { id: `port-${id}-in`, element: nodeComponent.instance.portIn.nativeElement },
-        { id: `port-${id}-out`, element: nodeComponent.instance.portOut.nativeElement },
+        { id: `port-${id}-in`, element: instance.portIn.nativeElement },
+        { id: `port-${id}-out`, element: instance.portOut.nativeElement },
       ],
     });
   }
