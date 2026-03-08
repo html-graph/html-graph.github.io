@@ -221,14 +221,25 @@ h1, h2, h3, h4, h5, h6, p {
     background: var(--color-tab-content);
   }
 
-  svg {
+  &__copy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
     position: absolute;
     cursor: pointer;
     z-index: 1;
-    right: 1rem;
-    top: 1rem;
-    width: 1rem;
-    height: 1rem;
+    right: 0;
+    top: 0;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: var(--color-tab-content);
+  }
+
+  svg {
+    opacity: 0.8;
+    width: 1.2rem;
+    height: 1.2rem;
   }
 }
 
