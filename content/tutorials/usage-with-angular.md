@@ -29,6 +29,8 @@ export class HtmlGraphAdapter {
 
   private readonly injector = inject(Injector);
 
+  private readonly viewRefs = new Map<Identifier, ViewRef>();
+
   init(element: HTMLElement): void {
     this.canvas = new CanvasBuilder(element).build();
   }
@@ -58,6 +60,7 @@ export class HtmlGraphAdapter {
 
     // Makes the node component reactive
     this.appRef.attachView(hostView);
+    this.viewRefs.set(id, hostView);
 
     this.canvas.addNode({
       id,
@@ -72,7 +75,11 @@ export class HtmlGraphAdapter {
   }
 
   removeNode(nodeId: Identifier): void {
+    const hostView = this.viewRefs.get(nodeId)!;
+    this.viewRefs.delete(nodeId);
+
     this.canvas.removeNode(nodeId);
+    hostView.destroy();
   }
 }
 {{< /code >}}
