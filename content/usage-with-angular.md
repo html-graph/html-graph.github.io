@@ -22,7 +22,7 @@ import { Canvas, CanvasBuilder, Identifier } from '@html-graph/html-graph';
 import { GraphNode } from './graph-node'; // Your custom Angular component for a node
 
 @Injectable()
-export class HtmlGraphAdapter {
+export class GraphAdapter {
   private canvas!: Canvas;
 
   private readonly appRef = inject(ApplicationRef);
