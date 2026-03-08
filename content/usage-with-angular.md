@@ -21,7 +21,7 @@ import {
   ViewRef,
 } from '@angular/core';
 import { Canvas, CanvasBuilder, Identifier } from '@html-graph/html-graph';
-import { GraphNode } from './graph-node'; // Angular component for a node
+import { GraphNode } from './graph-node'; // Your custom angular component for a node
 
 @Injectable()
 export class HtmlGraphAdapter {
@@ -46,7 +46,13 @@ export class HtmlGraphAdapter {
       environmentInjector: this.appRef.injector,
       hostElement: nodeElement,
       elementInjector: this.injector,
-      bindings: [inputBinding('id', () => id), inputBinding('name', () => `Node ${id}`)],
+      bindings: [
+        inputBinding('id', () => id),
+        inputBinding('name', () => `Node ${id}`),
+        outputBinding('initialized', () => {
+          this.canvas.updateNode(id);
+        }),
+      ],
     });
 
     this.appRef.attachView(nodeComponent.hostView);
@@ -68,7 +74,6 @@ export class HtmlGraphAdapter {
 {{< /code >}}
 
 And the component:
-
 
 {{< code lang="javascript" >}}
 @Component({
