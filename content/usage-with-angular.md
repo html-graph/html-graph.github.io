@@ -95,8 +95,11 @@ export class GraphNode implements AfterViewInit {
   @Input({ required: true })
   name!: string;
 
+  @Output()
+  readonly initialized = new EventEmitter();
+
   ngAfterViewInit(): void {
-    this.canvas.updateNode(this.nodeId);
+    this.initialized.emit();
   }
 }
 {{< /code >}}
