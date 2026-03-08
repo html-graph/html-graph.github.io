@@ -1,3 +1,7 @@
 <a {{ if eq .path .activePath }} class="active" {{ end }} href="{{ .path }}">
   {{ .label }}
+
+  {{ if .icon }}
+    <img class="menu-icon" width="20" height="20" src="{{ .icon }}">
+  {{ end }}
 </a>
