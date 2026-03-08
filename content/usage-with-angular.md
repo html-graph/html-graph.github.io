@@ -5,7 +5,7 @@ title: Usage with Angular
 ## Usage with Angular
 
 HTMLGraph can be used with any frontend framework.
-The primary use-case is when you want node components within the graph to be
+The primary use-case is when you want node components to be
 managed by the framework itself.
 
 If you're working with Angular, here's an example of creating a reactive component node:
