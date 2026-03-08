@@ -179,15 +179,19 @@
         {{ partial "menu.html" (dict "context" . "path" .RelPermalink) }}
       </nav>
       <div class="layout__page">
+        <div class="layout__side"></div>
+
         <div class="layout__column">
           {{ block "main" . }}
           <!-- -->
           {{ end }}
         </div>
 
-        {{ if .Param "canvasMenu" }}
-        {{ partial "canvas-menu.html" }}
-        {{ end }}
+        <div class="layout__side">
+          {{ if .Param "canvasMenu" }}
+          {{ partial "canvas-menu.html" }}
+          {{ end }}
+        </div>
       </div>
     </main>
 
