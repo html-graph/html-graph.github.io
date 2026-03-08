@@ -4,13 +4,11 @@ title: Usage with Angular
 
 ## Usage with Angular
 
-HTMLGraph can be used with any frontend framework.
+HTMLGraph can be used with any frontend framework. The primary use-case is when you want components within the graph to be managed by the framework itself.
 
-The main scenario is when you want to have component nodes managed by framework.
+If you're working with Angular, here's an example of creating a reactive component node:
 
-In case of angular this is how you can create component node:
-
-{{< code lang="javascript" >}}
+{{< code lang="typescript" >}}
 import {
   ApplicationRef,
   createComponent,
@@ -21,7 +19,7 @@ import {
   ViewRef,
 } from '@angular/core';
 import { Canvas, CanvasBuilder, Identifier } from '@html-graph/html-graph';
-import { GraphNode } from './graph-node'; // Your custom angular component for a node
+import { GraphNode } from './graph-node'; // Your custom Angular component for a node
 
 @Injectable()
 export class HtmlGraphAdapter {
@@ -32,8 +30,7 @@ export class HtmlGraphAdapter {
   private readonly injector = inject(Injector);
 
   init(element: HTMLElement): void {
-    this.canvas = new CanvasBuilder(element)
-      .build();
+    this.canvas = new CanvasBuilder(element).build();
   }
 
   destroy(): void {
@@ -50,16 +47,21 @@ export class HtmlGraphAdapter {
         inputBinding('id', () => id),
         inputBinding('name', () => `Node ${id}`),
         outputBinding('initialized', () => {
+          // Node must be updated manually after ngAfterViewInit lifecycle event triggers
           this.canvas.updateNode(id);
+          // Alternatively, you could opt-in to Node Resize Reactive Edges feature
         }),
       ],
     });
 
+    // Makes the node component reactive
     this.appRef.attachView(nodeComponent.hostView);
 
     this.canvas.addNode({
       id,
       element: nodeElement,
+      x: 100,
+      y: 200,
       ports: [
         { id: `port-${id}-in`, element: nodeComponent.instance.portIn.nativeElement },
         { id: `port-${id}-out`, element: nodeComponent.instance.portOut.nativeElement },
@@ -73,14 +75,23 @@ export class HtmlGraphAdapter {
 }
 {{< /code >}}
 
-And the component:
+Here's the corresponding Angular component implementation:
 
-{{< code lang="javascript" >}}
+{{< code lang="typescript" >}}
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
+
 @Component({
   selector: 'app-graph-node',
-  imports: [AsyncPipe],
   templateUrl: './graph-node.html',
-  styleUrl: './graph-node.less',
+  styleUrls: ['./graph-node.less'],
 })
 export class GraphNode implements AfterViewInit {
   @ViewChild('portIn', { static: true })
@@ -96,10 +107,13 @@ export class GraphNode implements AfterViewInit {
   name!: string;
 
   @Output()
-  readonly initialized = new EventEmitter();
+  readonly initialized = new EventEmitter<void>();
 
   ngAfterViewInit(): void {
     this.initialized.emit();
   }
 }
 {{< /code >}}
+
+Check out the <a href="https://github.com/html-graph/html-graph-angular-demo/" target="_blank">full source code</a>
+and the <a href="https://html-graph.github.io/html-graph-angular-demo/" target="_blank">demo</a>
