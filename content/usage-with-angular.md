@@ -115,5 +115,5 @@ export class GraphNode implements AfterViewInit {
 }
 {{< /code >}}
 
-Check out the <a href="https://github.com/html-graph/html-graph-angular-demo/" target="_blank">full source code</a>
-and the <a href="https://html-graph.github.io/html-graph-angular-demo/" target="_blank">demo</a>
+For more details, check out the <a href="https://github.com/html-graph/html-graph-angular-demo/" target="_blank">full source code</a>
+and the <a href="https://html-graph.github.io/html-graph-angular-demo/" target="_blank">live demo</a>.
