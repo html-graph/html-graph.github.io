@@ -8,7 +8,7 @@ HTMLGraph can be used with any frontend framework.
 The common scenario is when you want node components to be
 managed by the framework itself.
 
-If you're working with Angular, here's an example of creating a node reactive component:
+If you're working with Angular, here's an example of creating a reactive component for graph node:
 
 {{< code lang="typescript" >}}
 import {
