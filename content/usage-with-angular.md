@@ -66,3 +66,32 @@ export class HtmlGraphAdapter {
   }
 }
 {{< /code >}}
+
+And the component:
+
+
+{{< code lang="javascript" >}}
+@Component({
+  selector: 'app-graph-node',
+  imports: [AsyncPipe],
+  templateUrl: './graph-node.html',
+  styleUrl: './graph-node.less',
+})
+export class GraphNode implements AfterViewInit {
+  @ViewChild('portIn', { static: true })
+  portIn!: ElementRef;
+
+  @ViewChild('portOut', { static: true })
+  portOut!: ElementRef;
+
+  @Input({ required: true })
+  nodeId: number;
+
+  @Input({ required: true })
+  name!: string;
+
+  ngAfterViewInit(): void {
+    this.canvas.updateNode(this.nodeId);
+  }
+}
+{{< /code >}}
