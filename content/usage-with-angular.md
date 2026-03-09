@@ -89,11 +89,11 @@ export class GraphNode implements AfterViewInit {
   min-height: 50px;
   user-select: none;
   background: #daedbd;
-  padding: 0.5rem;
 }
 
 .name {
   flex-grow: 1;
+  padding: 0.5rem;
 }
 {{< /code >}}
 </div>
