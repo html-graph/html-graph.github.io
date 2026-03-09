@@ -5,10 +5,54 @@ title: Usage with Angular
 ## Usage with Angular
 
 HTMLGraph can be used with any frontend framework.
-The common scenario is when you want node components to be
+The common scenario is when you want node component to be reactive, thus be
 managed by the framework itself.
 
-If you're working with Angular, here's an example of creating a reactive component for graph node:
+Check out the <a href="https://html-graph.github.io/html-graph-angular-demo/" target="_blank"> angular live demo</a>
+and the <a href="https://github.com/html-graph/html-graph-angular-demo/" target="_blank">angular demo source code</a>
+
+This is a minimal working example of an angular node component:
+
+{{< code lang="typescript" >}}
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  ViewChild,
+} from '@angular/core';
+
+@Component({
+  selector: 'app-graph-node',
+  templateUrl: './graph-node.html',
+  styleUrls: ['./graph-node.less'],
+})
+export class GraphNode implements AfterViewInit {
+  @ViewChild('portIn', { static: true })
+  portIn!: ElementRef;
+
+  @ViewChild('portOut', { static: true })
+  portOut!: ElementRef;
+
+  @Input({ required: true })
+  nodeId: number;
+
+  @Input({ required: true })
+  name!: string;
+
+  @Output()
+  readonly viewInitialized = new EventEmitter<void>();
+
+  ngAfterViewInit(): void {
+    this.viewInitialized.emit();
+  }
+}
+{{< /code >}}
+
+It is recommended for you to implement an adapter such as this, to have an API
+suitable for your framework:
 
 {{< code lang="typescript" >}}
 import {
@@ -49,10 +93,10 @@ export class CanvasAdapter {
       hostElement: nodeElement,
       elementInjector: this.injector,
       bindings: [
-        inputBinding('id', () => id),
+        inputBinding('nodeId', () => id),
         inputBinding('name', () => `Node ${id}`),
-        outputBinding('initialized', () => {
-          // Node must be updated manually after ngAfterViewInit lifecycle event triggers
+        outputBinding('viewInitialized', () => {
+          // Node must be updated manually on ngAfterViewInit lifecycle event trigger
           this.canvas.updateNode(id);
           // Alternatively, you could opt-in to Node Resize Reactive Edges feature
         }),
@@ -86,46 +130,3 @@ export class CanvasAdapter {
   }
 }
 {{< /code >}}
-
-Here's the corresponding Angular component implementation:
-
-{{< code lang="typescript" >}}
-import {
-  AfterViewInit,
-  Component,
-  ElementRef,
-  EventEmitter,
-  Input,
-  Output,
-  ViewChild,
-} from '@angular/core';
-
-@Component({
-  selector: 'app-graph-node',
-  templateUrl: './graph-node.html',
-  styleUrls: ['./graph-node.less'],
-})
-export class GraphNode implements AfterViewInit {
-  @ViewChild('portIn', { static: true })
-  portIn!: ElementRef;
-
-  @ViewChild('portOut', { static: true })
-  portOut!: ElementRef;
-
-  @Input({ required: true })
-  nodeId: number;
-
-  @Input({ required: true })
-  name!: string;
-
-  @Output()
-  readonly initialized = new EventEmitter<void>();
-
-  ngAfterViewInit(): void {
-    this.initialized.emit();
-  }
-}
-{{< /code >}}
-
-For more details, check out the <a href="https://github.com/html-graph/html-graph-angular-demo/" target="_blank">full source code</a>
-and the <a href="https://html-graph.github.io/html-graph-angular-demo/" target="_blank">live demo</a>.
