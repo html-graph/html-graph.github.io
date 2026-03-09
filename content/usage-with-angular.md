@@ -173,6 +173,9 @@ export class CanvasAdapter {
     hostView.destroy();
   }
 
+  // Other methods for managing graph
+  // ...
+
   clear(): void {
     this.canvas.clear();
     this.reset();
