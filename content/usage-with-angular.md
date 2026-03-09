@@ -43,7 +43,7 @@ import {
 
 @Component({
   templateUrl: './graph-node.html',
-  styleUrls: ['./graph-node.less'],
+  styleUrls: ['./graph-node.css'],
 })
 export class GraphNode implements AfterViewInit {
   @ViewChild('portIn', { static: true })
