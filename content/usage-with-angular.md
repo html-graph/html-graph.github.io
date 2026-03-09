@@ -13,6 +13,23 @@ and the <a href="https://github.com/html-graph/html-graph-angular-demo/" target=
 
 This is a minimal working example of an angular node component:
 
+
+<div data-tabs>
+<div data-tabs-btns>
+  <button data-tab="0" data-tab-active>
+    graph-node.ts
+  </button>
+
+  <button data-tab="1">
+    graph-node.html
+  </button>
+
+  <button data-tab="2">
+    graph-node.css
+  </button>
+</div>
+
+<div data-tab-content="0" data-tab-content-visible>
 {{< code lang="typescript" >}}
 import {
   AfterViewInit,
@@ -49,9 +66,41 @@ export class GraphNode implements AfterViewInit {
   }
 }
 {{< /code >}}
+</div>
+
+<div data-tab-content="1">
+{{< code lang="html" >}}
+<div #portIn></div>
+
+<div class="name">
+  {{ name }}
+</div>
+
+<div #portOut></div>
+{{< /code >}}
+</div>
+
+<div data-tab-content="2">
+{{< code lang="css" >}}
+:host {
+  display: flex;
+  align-items: center;
+  min-width: 250px;
+  min-height: 50px;
+  user-select: none;
+  background: #daedbd;
+  padding: 0.5rem;
+}
+
+.name {
+  flex-grow: 1;
+}
+{{< /code >}}
+</div>
+</div>
 
 It is recommended for you to implement an adapter such as this, to have an API
-suitable for your framework:
+suitable for your application:
 
 {{< code lang="typescript" >}}
 import {
@@ -79,10 +128,6 @@ export class CanvasAdapter {
 
   init(element: HTMLElement): void {
     this.canvas = new CanvasBuilder(element).build();
-  }
-
-  destroy(): void {
-    this.canvas.destroy();
   }
 
   addNode(id: Identifier): void {
@@ -126,6 +171,24 @@ export class CanvasAdapter {
 
     this.canvas.removeNode(nodeId);
     hostView.destroy();
+  }
+
+  clear(): void {
+    this.canvas.clear();
+    this.reset();
+  }
+
+  destroy(): void {
+    this.reset();
+    this.canvas.destroy();
+  }
+
+  private reset(): void {
+    this.viewRefs.forEach((viewRef) => {
+      viewRef.destroy();
+    });
+
+    this.viewRefs.clear();
   }
 }
 {{< /code >}}
