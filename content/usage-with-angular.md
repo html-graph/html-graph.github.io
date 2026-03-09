@@ -114,7 +114,7 @@ import {
   ViewRef,
 } from '@angular/core';
 import { Canvas, CanvasBuilder, Identifier } from '@html-graph/html-graph';
-import { GraphNode } from './graph-node'; // Your custom Angular component for a node
+import { GraphNode } from './graph-node'; // Your Angular component for a node
 
 @Injectable()
 export class CanvasAdapter {
