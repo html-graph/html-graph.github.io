@@ -25,7 +25,6 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-graph-node',
   templateUrl: './graph-node.html',
   styleUrls: ['./graph-node.less'],
 })
