@@ -387,6 +387,7 @@ ol {
   display: flex;
   gap: 1.5rem;
   padding: 0.75rem 1.5rem 0;
+  overflow-y: auto;
 }
 
 [data-tab] {
@@ -402,6 +403,7 @@ ol {
   color: var(--color-text-tab);
   font-weight: bold;
   outline: none;
+  white-space: nowrap;
 
   &:hover {
     color: var(--color-text-tab-active);
