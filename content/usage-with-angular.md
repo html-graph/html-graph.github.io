@@ -8,9 +8,6 @@ HTMLGraph can be used with any frontend framework.
 The common scenario is when you want node component to be reactive, thus be
 managed by the framework itself.
 
-Check out the <a href="https://html-graph.github.io/html-graph-angular-demo/" target="_blank"> angular live demo</a>
-and the <a href="https://github.com/html-graph/html-graph-angular-demo/" target="_blank">angular demo source code</a>
-
 This is a minimal working example of an angular node component:
 
 
@@ -98,6 +95,9 @@ export class GraphNode implements AfterViewInit {
 {{< /code >}}
 </div>
 </div>
+
+Check out the <a href="https://html-graph.github.io/html-graph-angular-demo/" target="_blank"> angular live demo</a>
+and the <a href="https://github.com/html-graph/html-graph-angular-demo/" target="_blank">angular demo source code</a>
 
 It is recommended for you to implement an adapter such as this, to have an API
 suitable for your application:
