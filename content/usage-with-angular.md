@@ -14,19 +14,49 @@ This is a minimal working example of an angular node component:
 <div data-tabs>
 <div data-tabs-btns>
   <button data-tab="0" data-tab-active>
-    graph-node.ts
-  </button>
-
-  <button data-tab="1">
     graph-node.html
   </button>
 
-  <button data-tab="2">
+  <button data-tab="1">
     graph-node.css
+  </button>
+
+  <button data-tab="2">
+    graph-node.ts
   </button>
 </div>
 
 <div data-tab-content="0" data-tab-content-visible>
+{{< code lang="html" >}}
+<div #portIn></div>
+
+<div class="name">
+  {{ name }}
+</div>
+
+<div #portOut></div>
+{{< /code >}}
+</div>
+
+<div data-tab-content="1">
+{{< code lang="css" >}}
+:host {
+  display: flex;
+  align-items: center;
+  min-width: 250px;
+  min-height: 50px;
+  user-select: none;
+  background: #daedbd;
+}
+
+.name {
+  flex-grow: 1;
+  padding: 0.5rem;
+}
+{{< /code >}}
+</div>
+
+<div data-tab-content="2">
 {{< code lang="typescript" >}}
 import {
   AfterViewInit,
@@ -65,35 +95,6 @@ export class GraphNode implements AfterViewInit {
 {{< /code >}}
 </div>
 
-<div data-tab-content="1">
-{{< code lang="html" >}}
-<div #portIn></div>
-
-<div class="name">
-  {{ name }}
-</div>
-
-<div #portOut></div>
-{{< /code >}}
-</div>
-
-<div data-tab-content="2">
-{{< code lang="css" >}}
-:host {
-  display: flex;
-  align-items: center;
-  min-width: 250px;
-  min-height: 50px;
-  user-select: none;
-  background: #daedbd;
-}
-
-.name {
-  flex-grow: 1;
-  padding: 0.5rem;
-}
-{{< /code >}}
-</div>
 </div>
 
 Check out the <a href="https://html-graph.github.io/html-graph-angular-demo/" target="_blank"> angular live demo</a>
