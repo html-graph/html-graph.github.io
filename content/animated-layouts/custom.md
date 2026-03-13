@@ -27,7 +27,7 @@ class MyCustomAnimatedLayoutAlgorithm implements AnimatedLayoutAlgorithm {
     const result = new Map<Identifier, Point>();
 
     graph.getAllNodeIds().forEach((nodeId) => {
-      const node = graph.getNode(nodeId)!;
+      const node = graph.getNode(nodeId);
 
       const x = node.x ?? Math.random() * 1000;
       const y = node.y ?? Math.random() * 1000;
