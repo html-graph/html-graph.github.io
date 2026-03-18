@@ -64,17 +64,10 @@ class MyCustomEdgeShape implements EdgeShape {
     this.svg.style.height = `${height}px`;
     this.svg.style.transform = `translate(${x}px, ${y}px)`;
 
-    const centerX = width / 2;
-    const centerY = height / 2;
-    const flipX = centerFrom.x <= centerTo.x ? 1 : -1;
-    const flipY = centerFrom.y <= centerTo.y ? 1 : -1;
+    const fromPoint = { x: centerFrom.x - x, y: centerFrom.y - y };
+    const toPoint = { x: centerTo.x - x, y: centerTo.y - y };
 
-    const fromX = centerX - centerX * flipX;
-    const fromY = centerY - centerY * flipY;
-    const toX = centerX + centerX * flipX;
-    const toY = centerY + centerY * flipY;
-
-    const linePath = `M ${fromX} ${fromY} L ${toX} ${toY}`;
+    const linePath = `M ${fromPoint.x} ${fromPoint.y} L ${toPoint.x} ${toPoint.y}`;
 
     this.line.setAttribute("d", linePath);
   }
