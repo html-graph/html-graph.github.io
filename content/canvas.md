@@ -46,8 +46,6 @@ node.appendChild(port);
 canvas.addNode({
   id: "node-1",
   element: node,
-  x: 100,
-  y: 100,
   ports: [
     {
       id: "port-1",
