@@ -191,6 +191,12 @@
             return null;
           }
 
+          const adjacentFromEdges = this.canvas.graph.getPortAdjacentEdgeIds(request.from);
+
+          if (adjacentFromEdges.length > 0) {
+            return null;
+          }
+
           if (request.from.startsWith("output-") && request.to.startsWith("input-")) {
             return request;
           }
@@ -209,27 +215,6 @@
 
           if (hasSelectedEdge !== undefined) {
             return this.selectedEdgeId;
-          }
-
-          return null;
-        };
-
-        connectionPreprocessor = (request) => {
-          const existingEdge = this.canvas.graph.getAllEdgeIds().find((edgeId) => {
-            const edge = this.canvas.graph.getEdge(edgeId);
-
-            return edge.from === request.from && edge.to === request.to;
-          });
-
-          if (existingEdge !== undefined) {
-            return null;
-          }
-
-          if (
-            `${request.from}`.startsWith("output-") &&
-            `${request.to}`.startsWith("input-")
-          ) {
-            return request;
           }
 
           return null;
