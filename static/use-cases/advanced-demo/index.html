@@ -173,6 +173,10 @@
             return null;
           }
 
+          if (portId.startsWith("output-") & edgeIds.length > 0) {
+            return null;
+          }
+
           return portId.startsWith("output-") ? "direct" : "reverse";
         };
 
@@ -196,6 +200,10 @@
 
         draggingEdgeResolver = (portId) => {
           const edgeIds = this.canvas.graph.getPortAdjacentEdgeIds(portId);
+
+          if (portId.startsWith("output-") && edgeIds.length === 1) {
+            return edgeIds[0];
+          }
 
           const hasSelectedEdge = edgeIds.find((edgeId) => edgeId === this.selectedEdgeId);
 
