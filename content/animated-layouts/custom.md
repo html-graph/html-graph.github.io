@@ -9,7 +9,7 @@ sitemap:
 When built-in animated layout algorithms are insufficient, it's possible to provide a custom
 implementation of an animated layout algorithm.
 
-The following example demonstrates implementation of a layout algorithm using TypeScript.
+The following example demonstrates implementation of an animated layout algorithm using TypeScript.
 
 {{< code lang="typescript">}}
 import type {
@@ -51,7 +51,7 @@ provides next iteration coordinates for each node.
 
 The method takes one argument consisting of:
 - `graph` - a <a href="/graph-state/" target="_blank">Graph</a> object.
-- `dt` - time elapsed form the previous iteration (note, that this value might be very high, so usage of `Math.min` function might be necessary)
+- `dt` - time elapsed form the previous iteration . Note, that this value might be very high, so usage of `Math.min` function might be necessary.
 - `viewport` - a <a href="/viewport-state/" target="_blank">Viewport</a> object.
 
 The return value should be a `Map` where keys correspond to node identifiers and values represent their respective coordinates.

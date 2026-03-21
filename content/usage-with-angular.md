@@ -8,7 +8,7 @@ HTMLGraph can be used with any frontend framework.
 The common scenario is when you want node component to be reactive, thus be
 managed by the framework itself.
 
-This is a minimal working example of an angular node component:
+This is a minimalistic working example of an angular node component:
 
 
 <div data-tabs>
