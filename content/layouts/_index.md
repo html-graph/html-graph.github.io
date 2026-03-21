@@ -58,12 +58,12 @@ const canvas = new CanvasBuilder(element)
 
 ### Configuration Parameters
 
-| Name                 | Type                                               | Description                                       | Required | Default                     |
-|----------------------|----------------------------------------------------|---------------------------------------------------|----------|-----------------------------|
-| `algorithm`          | <code>[AlgorithmConfig](#algorithm-config)</code>  | Specifies the layout algorithm to apply           | no       | `{ type: "forceDirected" }` |
-| `applyOn`            | <code>[Trigger](#trigger)</code>                   | Specifies when to apply the algorithm             | no       | `"topologyChangeMicrotask"` |
-| `staticNodeResolver` | `(nodeId) => boolean`                              | Function that determines whether a node is static | no       | `() => false`               |
-| `events`             | <code>[EventsConfig](#events-configuration)</code> | Handlers for available events                     | no       | `{}`                        |
+| Name                 | Type                                               | Description                                       | Required | Default                               |
+|----------------------|----------------------------------------------------|---------------------------------------------------|----------|---------------------------------------|
+| `algorithm`          | <code>[AlgorithmConfig](#algorithm-config)</code>  | Specifies the layout algorithm to apply           | no       | `{ type: "forceDirected" }`           |
+| `applyOn`            | <code>[Trigger](#trigger)</code>                   | Specifies when to apply the algorithm             | no       | `{ type: "topologyChangeMicrotask" }` |
+| `staticNodeResolver` | `(nodeId) => boolean`                              | Function that determines whether a node is static | no       | `() => false`                         |
+| `events`             | <code>[EventsConfig](#events-configuration)</code> | Handlers for available events                     | no       | `{}`                                  |
 
 {{< ref-target ref="algorithm-config">}}
 ### `AlgorithmConfig` Options ### {#algorithm-config}
