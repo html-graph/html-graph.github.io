@@ -40,7 +40,8 @@ canvas.graph.onBeforeNodeRemoved.subscribe((nodeId) => {
 });
 {{< / code >}}
 
-**Note:** Nodes removed via `canvas.clear()` are managed separately within the `canvas.graph.onBeforeClear` handler.
+**Note:** Nodes removed via `canvas.clear()` are managed separately within the
+<a href="#graph-clear-event">`canvas.graph.onBeforeClear`</a> handler.
 
 ---
 
@@ -67,7 +68,8 @@ canvas.graph.onBeforePortUnmarked.subscribe((portId) => {
 });
 {{< / code >}}
 
-**Note:** Ports unmarked via `canvas.clear()` are managed separately within the `canvas.graph.onBeforeClear` handler.
+**Note:** Ports unmarked via `canvas.clear()` are managed separately within the
+<a href="#graph-clear-event">`canvas.graph.onBeforeClear`</a> handler.
 
 ---
 
@@ -101,11 +103,12 @@ canvas.graph.onBeforeEdgeRemoved.subscribe((edgeId) => {
 });
 {{< / code >}}
 
-**Note:** Edges removed via `canvas.clear()` are managed separately within the `canvas.graph.onBeforeClear` handler.
+**Note:** Edges removed via `canvas.clear()` are managed separately within the
+<a href="#graph-clear-event">`canvas.graph.onBeforeClear`</a> handler.
 
 ---
 
-### Other Graph Events [#](#other-graph-events) ### {#other-graph-events}
+### Graph Clear Event [#](#graph-clear-event) ### {#graph-clear-event}
 
 {{< code lang="javascript" >}}
 canvas.graph.onBeforeClear.subscribe(() => {
