@@ -383,7 +383,7 @@ canvas.center({ x: 100, y: 200 });
 This method accepts optional configuration
 
 {{< code lang="javascript">}}
-canvas.center({ x: 100, y: 200 }, { contentScale: 0.5 });
+canvas.center({ x: 100, y: 200 }, { contentScale: 0.5, animationDuration: 200 });
 {{< /code >}}
 
 #### Parameters for `center`:
