@@ -428,7 +428,7 @@ This method has a fine-tuned version:
 canvas.focus({
   nodes: ["node-1", "node-2", "node-3"],
   minContentScale: 0.5,
-  contentOffset: 200,
+  contentPadding: 200,
   animationDuration: 150,
 });
 {{< /code >}}
@@ -437,7 +437,7 @@ canvas.focus({
 |---------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------|
 | `nodes`             | `Iterable<any>` | A set of node IDs to focus                                                                                                                | no       | All nodes                                                            |
 | `minContentScale`   | `number`        | When all nodes don't fit, the content scale gets smaller to fit all nodes. But minimum scaling value can be specified using this argument | no       | Configured in <a href="/defaults#focus" target="_blank">Defaults</a> |
-| `contentOffset`     | `number`        | This value adds extra space between viewport border and graph nodes                                                                       | no       | Configured in <a href="/defaults#focus" target="_blank">Defaults</a> |
+| `contentPadding`    | `number`        | This value adds extra space between viewport border and graph nodes                                                                       | no       | Configured in <a href="/defaults#focus" target="_blank">Defaults</a> |
 | `animationDuration` | `number`        | Duration of transition animation (milliseconds)                                                                                           | no       | Configured in <a href="/defaults#focus" target="_blank">Defaults</a> |
 
 ---

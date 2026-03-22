@@ -129,7 +129,7 @@ const canvas = new CanvasBuilder(element)
   .setDefaults({
     focus: {
       minContentScale: 0.5,
-      contentOffset: 200,
+      contentPadding: 200,
       animationDuration: 150,
     },
   })
@@ -141,5 +141,5 @@ const canvas = new CanvasBuilder(element)
 | Name                | Type            | Description                                                                                                                               | Required | Default |
 |---------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------|----------|---------|
 | `minContentScale`   | `number`        | When all nodes don't fit, the content scale gets smaller to fit all nodes. But minimum scaling value can be specified using this argument | no       | `0`     |
-| `contentOffset`     | `number`        | This value adds extra space between viewport border and graph nodes                                                                       | no       | `100`   |
+| `contentPadding`    | `number`        | This value adds extra space between viewport border and graph nodes                                                                       | no       | `100`   |
 | `animationDuration` | `number`        | Duration of transition animation (milliseconds)                                                                                           | no       | `0`     |
