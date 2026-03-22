@@ -229,7 +229,9 @@ It provides more flexibility for managing edges.
 </div>
 
 <div data-tab-content="2">
-Here’s some CSS to make our nodes look nice:
+Node's appearance is fully customizable using HTML/SVG and CSS.
+
+This is a basic example of what node's styles could be:
 
 {{< code lang="css" >}}
 .node {
@@ -261,8 +263,6 @@ Here’s some CSS to make our nodes look nice:
   border-radius: 3px;
 }
 {{< /code >}}
-
-Nodes are fully customizable using HTML and CSS.
 </div>
 
 <div data-tab-content="3">
