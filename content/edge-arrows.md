@@ -38,10 +38,13 @@ Also custom renderer function can be specified such as:
 const arrowRenderer = (renderingParams) => {
   const { arrowLength, direction, shift } = renderingParams;
 
+  const fullLength = arrowLength + 4;
+
   const arrowPoints = [
-    { x: 4, y: 0 },
-    { x: arrowLength, y: 10 },
-    { x: arrowLength, y: -10 },
+    { x: 0, y: 0 },
+    { x: fullLength, y: 7 },
+    { x: arrowLength, y: 0 },
+    { x: fullLength, y: -7 },
   ];
 
   const points = arrowPoints.map((point) => ({
@@ -52,8 +55,9 @@ const arrowRenderer = (renderingParams) => {
   const move = `M ${points[0].x} ${points[0].y}`;
   const line1 = `L ${points[1].x} ${points[1].y}`;
   const line2 = `L ${points[2].x} ${points[2].y}`;
+  const line3 = `L ${points[3].x} ${points[3].y}`;
 
-  return `${move} ${line1} ${line2} Z`;
+  return `${move} ${line1} ${line2} ${line3} Z`;
 };
 {{< /code >}}
 
