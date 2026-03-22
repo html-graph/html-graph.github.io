@@ -397,9 +397,10 @@ canvas.center({ x: 100, y: 200 }, { contentScale: 0.5 });
 
 ### `CenterConfig` ### {#barnes-hut}
 
-| Name           | Type     | Description                                | Required | Default                       |
-|----------------|----------|--------------------------------------------|----------|-------------------------------|
-| `contentScale` | `number` | Value to which content scale should be set | no       | Same as current content scale |
+| Name                | Type     | Description                                     | Required | Default                       |
+|---------------------|----------|-------------------------------------------------|----------|-------------------------------|
+| `contentScale`      | `number` | Value to which content scale should be set      | no       | Same as current content scale |
+| `animationDuration` | `number` | Duration of transition animation (milliseconds) | no       | `0`                           |
 
 {{< /ref-target >}}
 
@@ -431,11 +432,12 @@ canvas.focus({
 });
 {{< /code >}}
 
-| Name              | Type            | Description                                                                                                                               | Required | Default                                                              |
-|-------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------|
-| `nodes`           | `Iterable<any>` | A set of node IDs to focus                                                                                                                | no       | All nodes                                                            |
-| `minContentScale` | `number`        | When all nodes don't fit, the content scale gets smaller to fit all nodes. But minimum scaling value can be specified using this argument | no       | Configured in <a href="/defaults#focus" target="_blank">Defaults</a> |
-| `contentOffset`   | `number`        | This value adds extra space between viewport border and graph nodes                                                                       | no       | Configured in <a href="/defaults#focus" target="_blank">Defaults</a> |
+| Name                | Type            | Description                                                                                                                               | Required | Default                                                              |
+|---------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------|----------|----------------------------------------------------------------------|
+| `nodes`             | `Iterable<any>` | A set of node IDs to focus                                                                                                                | no       | All nodes                                                            |
+| `minContentScale`   | `number`        | When all nodes don't fit, the content scale gets smaller to fit all nodes. But minimum scaling value can be specified using this argument | no       | Configured in <a href="/defaults#focus" target="_blank">Defaults</a> |
+| `contentOffset`     | `number`        | This value adds extra space between viewport border and graph nodes                                                                       | no       | Configured in <a href="/defaults#focus" target="_blank">Defaults</a> |
+| `animationDuration` | `number`        | Duration of transition animation (milliseconds)                                                                                           | no       | Configured in <a href="/defaults#focus" target="_blank">Defaults</a> |
 
 ---
 
