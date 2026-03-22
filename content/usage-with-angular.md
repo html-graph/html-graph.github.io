@@ -80,7 +80,7 @@ export class GraphNode implements AfterViewInit {
   portOut!: ElementRef;
 
   @Input({ required: true })
-  nodeId: number;
+  nodeId!: number;
 
   @Input({ required: true })
   name!: string;
