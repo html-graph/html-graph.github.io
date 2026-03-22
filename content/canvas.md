@@ -429,6 +429,7 @@ canvas.focus({
   nodes: ["node-1", "node-2", "node-3"],
   minContentScale: 0.5,
   contentOffset: 200,
+  animationDuration: 150,
 });
 {{< /code >}}
 
