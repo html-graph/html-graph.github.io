@@ -14,15 +14,15 @@ This is a minimalistic working example of an angular node component:
 <div data-tabs>
 <div data-tabs-btns>
   <button data-tab="0" data-tab-active>
-    graph-node.html
+    graph-node-shape.html
   </button>
 
   <button data-tab="1">
-    graph-node.css
+    graph-node-shape.css
   </button>
 
   <button data-tab="2">
-    graph-node.ts
+    graph-node-shape.ts
   </button>
 </div>
 
@@ -69,10 +69,10 @@ import {
 } from '@angular/core';
 
 @Component({
-  templateUrl: './graph-node.html',
-  styleUrls: ['./graph-node.css'],
+  templateUrl: './graph-node-shape.html',
+  styleUrls: ['./graph-node-shape.css'],
 })
-export class GraphNode implements AfterViewInit {
+export class GraphNodeShape implements AfterViewInit {
   @ViewChild('portIn', { static: true })
   portIn!: ElementRef;
 
@@ -115,7 +115,7 @@ import {
   ViewRef,
 } from '@angular/core';
 import { Canvas, CanvasBuilder, Identifier } from '@html-graph/html-graph';
-import { GraphNode } from './graph-node'; // Your Angular component for a node
+import { GraphNodeShape } from './graph-node-shape'; // Your Angular component for a node
 
 @Injectable()
 export class CanvasAdapter {
@@ -133,7 +133,7 @@ export class CanvasAdapter {
 
   addNode(id: Identifier): void {
     const nodeElement = document.createElement('div');
-    const nodeComponent = createComponent(GraphNode, {
+    const nodeComponent = createComponent(GraphNodeShape, {
       environmentInjector: this.appRef.injector,
       hostElement: nodeElement,
       elementInjector: this.injector,
