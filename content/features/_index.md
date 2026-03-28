@@ -88,17 +88,6 @@ Update existing connections by dragging adjacent ports, enabling dynamic graph e
   </div>
 </a>
 
-### [Virtual Scroll](/features/virtual-scroll/)
-Optimize performance for large graphs with intelligent rendering of visible elements only.
-
-<a href="/features/virtual-scroll/" target="_blank" aria-label="Virtual Scroll">
-  <div class="video">
-    <video autoplay muted loop>
-      <source src="/media/virtual-scroll.webm">
-    </video>
-  </div>
-</a>
-
 ### [Node Resize Reactive Edges](/features/node-resize-reactive-edges/)
 Automatically maintain edge connections when nodes are resized.
 
@@ -106,6 +95,17 @@ Automatically maintain edge connections when nodes are resized.
   <div class="video">
     <video autoplay muted loop>
       <source src="/media/node-resize-reactive-edges.webm">
+    </video>
+  </div>
+</a>
+
+### [Virtual Scroll](/features/virtual-scroll/)
+Optimize performance for large graphs with intelligent rendering of visible elements only.
+
+<a href="/features/virtual-scroll/" target="_blank" aria-label="Virtual Scroll">
+  <div class="video">
+    <video autoplay muted loop>
+      <source src="/media/virtual-scroll.webm">
     </video>
   </div>
 </a>
