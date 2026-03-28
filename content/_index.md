@@ -40,7 +40,7 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
-      <a target="_blank" href="/use-cases/force-directed-animated-layout/" aria-label="Layouts">
+      <a target="_blank" href="/animated-layouts/force-directed/" aria-label="Layouts">
         {{< image path="/images/force-directed-layout" alt="Layouts" width="500" height="500">}}
         <div class="label-wrapper">
           <label>
@@ -50,7 +50,7 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
-      <a target="_blank" href="/use-cases/hierarchical-layout/" aria-label="Layouts">
+      <a target="_blank" href="/layouts/hierarchical/" aria-label="Layouts">
         {{< image path="/images/hierarchical-layout" alt="Layouts" width="500" height="500">}}
         <div class="label-wrapper">
           <label>
@@ -60,7 +60,7 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
-      <a target="_blank" href="/use-cases/selectable-nodes/" aria-label="Selectable Nodes">
+      <a target="_blank" href="/features/selectable-nodes/" aria-label="Selectable Nodes">
         {{< image path="/images/selectable-nodes" alt="Selectable Nodes" width="500" height="500">}}
         <div class="label-wrapper">
           <label>
@@ -70,7 +70,7 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
-      <a target="_blank" href="/use-cases/interactive-edges/" aria-label="Interactive Edges">
+      <a target="_blank" href="/tutorials/interactive-edges/" aria-label="Interactive Edges">
         {{< image path="/images/interactive-edges" alt="Interactive Edges" width="500" height="500">}}
         <div class="label-wrapper">
           <label>
@@ -80,7 +80,7 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
-      <a target="_blank" href="/use-cases/connectable-ports/" aria-label="Connectable Ports">
+      <a target="_blank" href="/features/connectable-ports/" aria-label="Connectable Ports">
         {{< image path="/images/connectable-ports" alt="Connectable Ports" width="500" height="500">}}
         <div class="label-wrapper">
           <label>
@@ -90,7 +90,7 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
-      <a target="_blank" href="/use-cases/midpoint-edge/" aria-label="Removable Edges">
+      <a target="_blank" href="/tutorials/edges-with-remove-button/" aria-label="Removable Edges">
         {{< image path="/images/removable-edges" alt="Removable Edges" width="500" height="500">}}
         <div class="label-wrapper">
           <label>
@@ -100,7 +100,7 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
-      <a target="_blank" href="/use-cases/custom-background-renderer/" aria-label="Custom Background">
+      <a target="_blank" href="/features/background/" aria-label="Custom Background">
         {{< image path="/images/custom-background" alt="Custom Background" width="500" height="500">}}
         <div class="label-wrapper">
           <label>
@@ -110,7 +110,7 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
-      <a target="_blank" href="/use-cases/virtual-scroll/" aria-label="Virtual Scroll">
+      <a target="_blank" href="/features/virtual-scroll/" aria-label="Virtual Scroll">
         {{< image path="/images/virtual-scroll" alt="Virtual Scroll" width="500" height="500">}}
         <div class="label-wrapper">
           <label>
@@ -120,7 +120,7 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
-      <a target="_blank" href="/use-cases/changing-edge-color/" aria-label="Changing Edge Color">
+      <a target="_blank" href="/tutorials/changing-edge-color/" aria-label="Changing Edge Color">
         {{< image path="/images/changing-edge-color" alt="Changing Edge Color" width="500" height="500">}}
         <div class="label-wrapper">
           <label>
@@ -130,7 +130,7 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
-      <a target="_blank" href="/use-cases/bezier-edge/" aria-label="Bezier Edges">
+      <a target="_blank" href="/edge-shapes/bezier/" aria-label="Bezier Edges">
         {{< image path="/images/bezier-edge" alt="Bezier Edges" width="500" height="500">}}
         <div class="label-wrapper">
           <label>
@@ -140,7 +140,7 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
-      <a target="_blank" href="/use-cases/direct-edge/" aria-label="Direct Edges">
+      <a target="_blank" href="/edge-shapes/direct/" aria-label="Direct Edges">
         {{< image path="/images/direct-edge" alt="Direct Edge" width="500" height="500">}}
         <div class="label-wrapper">
           <label>
@@ -150,7 +150,7 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
-      <a target="_blank" href="/use-cases/horizontal-edge/" aria-label="Horizontal Edges">
+      <a target="_blank" href="/edge-shapes/horizontal/" aria-label="Horizontal Edges">
         {{< image path="/images/horizontal-edge" alt="Horizontal Edge" width="500" height="500">}}
         <div class="label-wrapper">
           <label>
@@ -160,7 +160,7 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
-      <a target="_blank" href="/use-cases/vertical-edge/" aria-label="Vertical Edges">
+      <a target="_blank" href="/edge-shapes/vertical/" aria-label="Vertical Edges">
         {{< image path="/images/vertical-edge" alt="Vertical Edge" width="500" height="500">}}
         <div class="label-wrapper">
           <label>
@@ -170,7 +170,7 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
-      <a target="_blank" href="/use-cases/straight-edge/" aria-label="Straight Edges">
+      <a target="_blank" href="/edge-shapes/straight/" aria-label="Straight Edges">
         {{< image path="/images/straight-edge" alt="Straight Edge" width="500" height="500">}}
         <div class="label-wrapper">
           <label>
