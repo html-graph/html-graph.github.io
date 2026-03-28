@@ -24,7 +24,7 @@ Call them separately or both as needed.
 {{< code lang="javascript">}}
 const element = document.getElementById("canvas");
 
-this.canvas = new CanvasBuilder(element)
+const canvas = new CanvasBuilder(element)
   .enableUserSelectableNodes({
     onNodeSelected: (selectedNodeId) => {
       canvas.graph.getAllNodeIds().forEach((nodeId) => {
