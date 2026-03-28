@@ -66,23 +66,7 @@
       import { CanvasBuilder } from "https://html-graph.github.io/lib/v8.12.0/html-graph.js";
 
       class Application {
-        selectedNodes = new Set();
-
-        ctrlPressed = false;
-
         constructor(element) {
-          document.addEventListener("keydown", (event) => {
-            if (event.key === 'Control') {
-              this.ctrlPressed = true;
-            }
-          });
-
-          document.addEventListener("keyup", (event) => {
-            if (event.key === 'Control') {
-              this.ctrlPressed = false;
-            }
-          });
-
           this.canvas = new CanvasBuilder(element)
             .setDefaults({
               edges: {
@@ -99,16 +83,7 @@
                 this.canvas.graph.getAllNodeIds().forEach((nodeId) => {
                   const { element } = this.canvas.graph.getNode(nodeId);
 
-                  if (!this.ctrlPressed) {
-                    this.selectedNodes.clear();
-                  }
-
-                  if (nodeId === selectedNodeId) {
-                    this.selectedNodes.add(nodeId);
-                  }
-
-                  const selected = this.selectedNodes.has(nodeId);
-                  element.classList.toggle("selected", selected);
+                  element.classList.toggle("selected", nodeId === selectedNodeId);
                 });
               }
             })
@@ -119,8 +94,6 @@
 
                   element.classList.remove("selected");
                 });
-
-                this.selectedNodes.clear();
               }
             })
             .build();

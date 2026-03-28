@@ -55,6 +55,17 @@ Add customizable backgrounds that seamlessly work with the transformable viewpor
   </div>
 </a>
 
+### [Selectable Nodes](/features/selectable-nodes/)
+Handle user selection interactions with simple callbacks
+
+<a href="/features/selectable-nodes/" target="_blank" aria-label="Selectable Nodes">
+  <div class="video">
+    <video autoplay muted loop>
+      <source src="/media/selectable-nodes.webm">
+    </video>
+  </div>
+</a>
+
 ### [Connectable Ports](/features/connectable-ports/)
 Create connections by dragging between ports, enabling dynamic graph editing.
 

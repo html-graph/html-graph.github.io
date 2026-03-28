@@ -71,9 +71,9 @@ const canvas = new CanvasBuilder(element)
 
 ### Mouse Configuration ### {#mouse-configuration}
 
-| Name                     | Type                             | Description                                              | Required | Default      |
-|--------------------------|----------------------------------|----------------------------------------------------------|----------|--------------|
-| `dragCursor`             | `string \| null`                 | Cursor to set on grab                                    | no       | `"grab"`     |
+| Name                     | Type                 | Description                                              | Required | Default      |
+|--------------------------|----------------------|----------------------------------------------------------|----------|--------------|
+| `dragCursor`             | `string \| null`     | Cursor to set on grab                                    | no       | `"grab"`     |
 | `mouseDownEventVerifier` | `(event) => boolean` | Function to verify if mouse event should trigger grab    | no       | `() => true` |
 | `mouseUpEventVerifier`   | `(event) => boolean` | Function to verify if mouse event should trigger release | no       | `() => true` |
 

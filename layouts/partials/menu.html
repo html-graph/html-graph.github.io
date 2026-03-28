@@ -58,6 +58,13 @@
       </li>
       <li>
         {{ partial "menu-link.html" (dict
+          "path" "/features/selectable-nodes/"
+          "activePath" .path
+          "label" "Selectable Nodes"
+        )}}
+      </li>
+      <li>
+        {{ partial "menu-link.html" (dict
           "path" "/features/connectable-ports/"
           "activePath" .path
           "label" "Connectable Ports"
