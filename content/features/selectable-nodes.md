@@ -16,8 +16,8 @@ sitemap:
 
 To enable built-in selectable nodes, there are two `CanvasBuilder` configurations available:
 
-- `enableUserSelectableNodes` - configures listener for node selection when the user clicks inside a node
-- `enableUserSelectableCanvas` - configures listener for canvas selection when the user clicks outside of any node
+- `enableUserSelectableNodes` - when the user clicks inside a node
+- `enableUserSelectableCanvas` - when the user clicks outside of any node
 
 Call them separately or both as needed.
 
