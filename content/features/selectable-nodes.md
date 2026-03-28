@@ -55,15 +55,15 @@ Both methods require a configuration object.
 | Name                     | Type                       | Description                                                                          | Required | Default                         |
 |--------------------------|----------------------------|--------------------------------------------------------------------------------------|----------|---------------------------------|
 | `onNodeSelected`         | `(selectedNodeId) => void` | Function to call when node is selected                                               | yes      |                                 |
+| `movementThreshold`      | `number`                   | Specifies maximum cursor travel, when user actions can still be regarded as selection | no       | `10`                            |
 | `mouseDownEventVerifier` | `(event) => boolean`       | Function to verify if mouse event should initiate node selection process             | no       | `(event) => event.button === 0` |
 | `mouseUpEventVerifier`   | `(event) => boolean`       | Function to verify if mouse event should apply node selection                        | no       | `(event) => event.button === 0` |
-| `movementThreshold`      | `number`                   | Specifies maximum cursor travel, when user actions can still be regarded as selection | no       | `10`                            |
 
 ### Selectable Canvas Configuration Parameters
 
 | Name                     | Type                 | Description                                                                           | Required | Default                         |
 |--------------------------|----------------------|---------------------------------------------------------------------------------------|----------|---------------------------------|
 | `onCanvasSelected`       | `() => void`         | Function to call when canvas is selected                                              | yes      |                                 |
+| `movementThreshold`      | `number`             | Specifies maximum cursor travel, when user actions can still be regarded as selection | no       | `10`                            |
 | `mouseDownEventVerifier` | `(event) => boolean` | Function to verify if mouse event should initiate canvas selection process            | no       | `(event) => event.button === 0` |
 | `mouseUpEventVerifier`   | `(event) => boolean` | Function to verify if mouse event should apply canvas selection                       | no       | `(event) => event.button === 0` |
-| `movementThreshold`      | `number`             | Specifies maximum cursor travel, when user actions can still be regarded as selection | no       | `10`                            |
