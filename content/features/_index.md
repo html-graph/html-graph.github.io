@@ -44,17 +44,6 @@ Easily reposition nodes by dragging them with mouse or touch gestures.
   </div>
 </a>
 
-### [Background Rendering](/features/background/)
-Add customizable backgrounds that seamlessly work with the transformable viewport.
-
-<a href="/features/background/" target="_blank" aria-label="Background">
-  <div class="video">
-    <video autoplay muted loop>
-      <source src="/media/background.webm">
-    </video>
-  </div>
-</a>
-
 ### [Selectable Nodes](/features/selectable-nodes/)
 Handle user selection interactions with simple callbacks
 
@@ -62,6 +51,17 @@ Handle user selection interactions with simple callbacks
   <div class="video">
     <video autoplay muted loop>
       <source src="/media/selectable-nodes.webm">
+    </video>
+  </div>
+</a>
+
+### [Background Rendering](/features/background/)
+Add customizable backgrounds that seamlessly work with the transformable viewport.
+
+<a href="/features/background/" target="_blank" aria-label="Background">
+  <div class="video">
+    <video autoplay muted loop>
+      <source src="/media/background.webm">
     </video>
   </div>
 </a>
