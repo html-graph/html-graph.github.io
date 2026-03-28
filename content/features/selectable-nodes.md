@@ -46,6 +46,8 @@ this.canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
+{{< use-case src=/use-cases/selectable-nodes/ >}}
+
 Both methods require a configuration object.
 
 ### Selectable Nodes Configuration Parameters
@@ -65,8 +67,3 @@ Both methods require a configuration object.
 | `mouseDownEventVerifier` | `(event) => boolean` | Function to verify if mouse event should initiate canvas selection process            | no       | `(event) => event.button === 0` |
 | `mouseUpEventVerifier`   | `(event) => boolean` | Function to verify if mouse event should apply canvas selection                       | no       | `(event) => event.button === 0` |
 | `movementThreshold`      | `number`             | Specifies maximum cursor travel, when user actions can still be regarded as selection | no       | `10`                            |
-
-#
-
-{{< use-case src=/use-cases/selectable-nodes/ >}}
-

@@ -60,6 +60,16 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
+      <a target="_blank" href="/use-cases/selectable-nodes/" aria-label="Selectable Nodes">
+        {{< image path="/images/selectable-nodes" alt="Selectable Nodes" width="500" height="500">}}
+        <div class="label-wrapper">
+          <label>
+            Selectable Nodes
+          </label>
+        </div>
+      </a>
+    </li>
+    <li class="preview">
       <a target="_blank" href="/use-cases/interactive-edges/" aria-label="Interactive Edges">
         {{< image path="/images/interactive-edges" alt="Interactive Edges" width="500" height="500">}}
         <div class="label-wrapper">
