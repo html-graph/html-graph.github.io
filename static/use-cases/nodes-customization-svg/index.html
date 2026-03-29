@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+  <head>
+    <title>HTMLGraph | SVG Nodes Customization</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        position: relative;
+        font-family: Arial, sans-serif;
+      }
+
+      #canvas {
+        position: absolute;
+        inset: 0;
+      }
+
+      .node-port {
+        position: relative;
+        width: 0;
+      }
+
+      .node-port::after {
+        content: "";
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        width: 6px;
+        height: 6px;
+        background: #777777;
+        border-radius: 3px;
+      }
+
+      .node {
+        pointer-events: none;
+        width: 200px;
+        height: 100px;
+        overflow: visible;
+      }
+
+      .svg-shape {
+        pointer-events: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="canvas"></div>
+    <script type="module">
+      import { CanvasBuilder } from "https://html-graph.github.io/lib/v8.12.0/html-graph.js";
+
+      class Application {
+        constructor(canvasElement) {
+          this.canvas = new CanvasBuilder(canvasElement)
+            .enableUserTransformableViewport()
+            .enableUserDraggableNodes()
+            .enableBackground()
+            .build();
+        }
+
+        initGraph() {
+          this.canvas.addNode(
+            this.createNode({
+              x: 0,
+              y: 0,
+              frontPortId: "node-1-in",
+              backPortId: "node-1-out",
+            }),
+          )
+          .patchContentMatrix({ scale: 1.5 })
+          .focus();
+        }
+
+        createNode({ x, y, frontPortId, backPortId }) {
+          const svg = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "svg",
+          );
+
+          svg.classList.add("node");
+
+          const polygon = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "path",
+          );
+
+          polygon.setAttribute(
+            "d",
+            `M 10 0 L 20 0 L 20 10 L 180 10 L 180 0 L 190 0 L 200 10 L 200 20 L
+            190 20 L 190 80 L 200 80 L 200 90 L 190 100 L 180 100 L 180 90 L 20
+            90 L 20 100 L 10 100 L 0 90 L 0 80 L 10 80 L 10 20 L 0 20 L 0 10 Z`,
+          );
+          polygon.setAttribute("fill", "#e3f285");
+          polygon.setAttribute("stroke", "#777777");
+          polygon.classList.add("svg-shape");
+
+          svg.appendChild(polygon);
+
+          const circleOut = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "circle",
+          );
+
+          circleOut.setAttribute("r", "3");
+          circleOut.setAttribute("cx", "190");
+          circleOut.setAttribute("cy", "50");
+          circleOut.setAttribute("fill", "#777777");
+
+          svg.appendChild(circleOut);
+
+          const circleIn = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "circle",
+          );
+
+          circleIn.setAttribute("r", "3");
+          circleIn.setAttribute("cx", "10");
+          circleIn.setAttribute("cy", "50");
+          circleIn.setAttribute("fill", "#777777");
+
+          svg.appendChild(circleIn);
+
+          const text = document.createElementNS(
+            "http://www.w3.org/2000/svg",
+            "text",
+          );
+
+          text.innerHTML = "SVG";
+          text.setAttribute("x", "100");
+          text.setAttribute("y", "55");
+          text.setAttribute("text-anchor", "middle");
+
+          svg.appendChild(text);
+
+          return {
+            element: svg,
+            x: x,
+            y: y,
+            ports: [
+              { id: backPortId, element: circleOut },
+              { id: frontPortId, element: circleIn },
+            ],
+          };
+        }
+      }
+
+      const canvasElement = document.getElementById("canvas");
+      const app = new Application(canvasElement);
+
+      app.initGraph();
+    </script>
+  </body>
+</html>
