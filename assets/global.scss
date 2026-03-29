@@ -198,9 +198,9 @@ h1, h2, h3, h4, h5, h6, p {
     position: absolute;
     cursor: pointer;
     z-index: 1;
-    right: 0;
+    right: 1rem;
     top: 0;
-    width: 2.5rem;
+    width: 1.5rem;
     height: 2.5rem;
     background: var(--color-tab-content);
 
