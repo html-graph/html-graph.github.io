@@ -4,7 +4,7 @@ title: Tutorials | Nodes Customization
 
 ## Nodes Customization
 
-Nodes can be customized using full potential of HTML/SVG and CSS. These are some common scenarios for nodes customization:
+Nodes can be customized using the full potential of HTML/SVG and CSS. Below are common scenarios for node customization:
 
 ### 1. Circle Node [#](#circle-node) ### {#circle-node}
 
