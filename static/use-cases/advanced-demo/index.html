@@ -55,6 +55,10 @@
         position: absolute;
       }
 
+      /**
+       * Port grab area must be large enough to provide a comfortable click/drag target.
+       * The 2rem diameter creates a generous hit area around each port.
+       */
       .node-port-grab-area {
         display: flex;
         justify-content: center;
@@ -67,6 +71,9 @@
         border-radius: 50%;
       }
 
+      /**
+       * A small circular pin that represents the connection point.
+       */
       .node-port-pin {
         --port-size: 3px;
         width: calc(2 * var(--port-size));
@@ -109,6 +116,7 @@
         --remove-background: white;
       }
 
+      /* Show remove button only when the edge is selected */
       .selected-edge .remove-button {
         display: block;
       }
@@ -116,7 +124,6 @@
       .remove-button:hover {
         --remove-color: #f93707;
       }
-
     </style>
   </head>
   <body>
@@ -130,8 +137,13 @@
       } from "https://html-graph.github.io/lib/v8.12.0/html-graph.js";
 
       class Application {
+        /**
+         * Controls the Z-index ordering of nodes.
+         * Incrementing this value ensures each new node appears above previous ones.
+         */
         nodePriority = 1;
 
+        /** Tracks the currently selected edge ID for styling and operations */
         selectedEdgeId = null;
 
         clickReset = false;
@@ -140,13 +152,19 @@
           this.clickReset = true;
         };
 
+        /**
+         * Factory function that creates interactive edges with a "Remove" button.
+         * The remove button becomes visible only when the edge is selected.
+         */
         edgeShapeFactory = (edgeId) => {
+          // Base edge shape: horizontal line with target arrow and slight detour
           const baseShape = new HorizontalEdgeShape({
             color: "var(--color-edge)",
             hasTargetArrow: true,
             detourDistance: -150,
           });
 
+          // Add click interaction to select the edge
           const interactiveShape = new InteractiveEdgeShape(baseShape, { distance: 20 });
 
           interactiveShape.handle.addEventListener("click", (event) => {
@@ -154,6 +172,7 @@
             this.setSelectedEdge(edgeId);
           });
 
+          // Add remove button at the midpoint of the edge
           const midpoint = this.createRemoveEdgeButton();
           const midpointShape = new MidpointEdgeShape(interactiveShape, midpoint);
 
@@ -165,25 +184,36 @@
           return midpointShape;
         };
 
+        /**
+         * Determines the direction of a new connection based on port type.
+         * Enforces business rules for edge creation in the nocode editor.
+         */
         connectionTypeResolver = (portId) => {
           const edgeIds = this.canvas.graph.getPortAdjacentEdgeIds(portId);
           const hasSelectedEdge = edgeIds.find((edgeId) => edgeId === this.selectedEdgeId);
 
+          // Prevent creating new edges if a selected edge is already attached to this port
           if (hasSelectedEdge !== undefined) {
             return null;
           }
 
-          if (portId.startsWith("output-") & edgeIds.length > 0) {
+          // Enforce that output ports have at most one connection (common in nocode editors)
+          if (portId.startsWith("output-") && edgeIds.length > 0) {
             return null;
           }
 
+          // Output ports create direct connections, input ports create reverse connections
           return portId.startsWith("output-") ? "direct" : "reverse";
         };
 
+        /**
+         * Validates connection requests before edge creation.
+         * Prevents duplicate edges and enforces port type compatibility.
+         */
         connectionPreprocessor = (request) => {
+          // Prevent duplicate edges between the same source and target ports
           const existingEdge = this.canvas.graph.getAllEdgeIds().find((edgeId) => {
             const edge = this.canvas.graph.getEdge(edgeId);
-
             return edge.from === request.from && edge.to === request.to;
           });
 
@@ -193,10 +223,16 @@
 
           const adjacentFromEdges = this.canvas.graph.getPortAdjacentEdgeIds(request.from);
 
+          // Prevent creating multiple edges from the same source port
           if (adjacentFromEdges.length > 0) {
             return null;
           }
 
+          /**
+           * Enforce connection direction rules:
+           * Only allow connections from output ports (sources) to input ports (targets).
+           * Block: output→output, input→input, input→output
+           */
           if (request.from.startsWith("output-") && request.to.startsWith("input-")) {
             return request;
           }
@@ -204,15 +240,21 @@
           return null;
         };
 
+        /**
+         * Determines which edge should be dragged when a port is clicked.
+         * Prioritizes the selected edge when multiple options exist.
+         */
         draggingEdgeResolver = (portId) => {
           const edgeIds = this.canvas.graph.getPortAdjacentEdgeIds(portId);
 
+          // For output ports with exactly one edge, that's the only candidate
           if (portId.startsWith("output-") && edgeIds.length === 1) {
             return edgeIds[0];
           }
 
           const hasSelectedEdge = edgeIds.find((edgeId) => edgeId === this.selectedEdgeId);
 
+          // Prefer the currently selected edge if it's adjacent to this port
           if (hasSelectedEdge !== undefined) {
             return this.selectedEdgeId;
           }
@@ -220,6 +262,10 @@
           return null;
         };
 
+        /**
+         * Restores the original edge when a reattachment operation is rejected.
+         * This maintains data integrity when connection rules prevent the operation.
+         */
         onEdgeReattachPrevented = (payload) => {
           this.canvas.addEdge({
             id: payload.id,
@@ -230,6 +276,10 @@
           });
         };
 
+        /**
+         * Restores the original edge when a reattachment operation is interrupted mid-process.
+         * Provides graceful recovery from incomplete drag operations.
+         */
         onEdgeReattachInterrupted = (payload) => {
           this.canvas.addEdge({
             id: payload.id,
@@ -246,19 +296,27 @@
           this.canvas = new CanvasBuilder(this.canvasElement)
             .setDefaults({
               nodes: {
+                /**
+                 * Position nodes from top-left corner rather than center.
+                 * This is particularly useful when nodes contain resizable elements like textareas.
+                 */
                 centerFn: () => ({ x: 0, y: 0 }),
                 priority: () => this.nodePriority++,
               },
               edges: {
                 shape: this.edgeShapeFactory,
-                priority: 0,
+                priority: 0, // Keep edges below nodes to maintain visual hierarchy
               },
             })
             .enableUserDraggableNodes({
-              moveEdgesOnTop: false,
-              gridSize: 25,
+              moveEdgesOnTop: false, // Maintain proper Z-index during drag operations
+              gridSize: 25, // Snap to grid for cleaner, more organized layouts
             })
             .enableUserTransformableViewport()
+            /**
+             * Automatically update edge connections when nodes change size.
+             * Essential for nodes with textareas or dynamic content.
+             */
             .enableNodeResizeReactiveEdges()
             .enableBackground()
             .enableUserConnectablePorts({
@@ -281,9 +339,9 @@
             })
             .build();
 
+          // Track pointer movement to distinguish between clicks and drags
           this.canvasElement.addEventListener("pointerdown", () => {
             this.clickReset = false;
-
             this.canvasElement.addEventListener("pointermove", this.resetClick);
           });
 
@@ -291,20 +349,28 @@
             this.canvasElement.removeEventListener("pointermove", this.resetClick);
           });
 
+          // Clear edge selection when clicking on empty canvas space
           this.canvasElement.addEventListener("click", () => {
             if (this.clickReset) {
-              return;
+              return; // User was panning, not selecting
             }
 
             this.setSelectedEdge(null);
           });
         }
 
+        /**
+         * Updates the currently selected edge and refreshes edge styling.
+         */
         setSelectedEdge(selectedEdgeId) {
           this.selectedEdgeId = selectedEdgeId;
           this.updateEdges();
         }
 
+        /**
+         * Applies visual styling to all edges based on selection state.
+         * Selected edges get thicker stroke and remove button visibility.
+         */
         updateEdges() {
           this.canvas.graph.getAllEdgeIds().forEach(edgeId => {
             const shape = this.canvas.graph.getEdge(edgeId).shape;
@@ -320,6 +386,10 @@
           });
         }
 
+        /**
+         * Initializes the graph with predefined nodes and connections.
+         * Creates a workflow-like structure demonstrating the editor's capabilities.
+         */
         initGraph() {
           this.canvas
             .addNode(
@@ -389,9 +459,13 @@
             .addEdge({ from: "output-2-1", to: "input-4" })
             .addEdge({ from: "output-3-1", to: "input-4" })
             .addEdge({ from: "output-2-2", to: "input-5" })
-            .patchContentMatrix({ scale: 0.7, x: -100, y: 50 });
+            .patchContentMatrix({ scale: 0.7 }) // Initial zoom level
+            .center({ x: 800, y: 450 });
         }
 
+        /**
+         * Creates a DOM node with customizable ports and content.
+         */
         createNode({
           name,
           x,
@@ -405,6 +479,7 @@
 
           const ports = [];
 
+          // Add input port if specified (left side of node)
           if (frontPortId !== null) {
             const inputPort = this.createInputPort();
             element.appendChild(inputPort);
@@ -417,6 +492,7 @@
           const input = this.createInputElement(name);
           content.appendChild(input);
 
+          // Add output ports if any (right side of node)
           if (Object.keys(outputPorts).length > 0) {
             const [body, elements] = this.createBodyElement(outputPorts);
             content.appendChild(body);
@@ -425,6 +501,7 @@
             });
           }
 
+          // Add optional footer content (e.g., textarea for notes)
           if (footerContent) {
             const footer = document.createElement("div");
             footer.classList.add("node-footer");
@@ -435,10 +512,12 @@
           return { element, x, y, ports };
         }
 
+        /** Creates an input port positioned on the left side of the node */
         createInputPort() {
           return this.createPortElement("node-port-input");
         }
 
+        /** Factory method for creating port elements with optional positioning class */
         createPortElement(className) {
           const port = document.createElement("div");
           port.classList.add("node-port");
@@ -457,6 +536,7 @@
           return port;
         }
 
+        /** Creates a textarea for multi-line text input within a node */
         createTextArea() {
           const area = document.createElement("textarea");
           area.classList.add("node-text");
@@ -467,29 +547,30 @@
           return area;
         }
 
+        /** Creates the main content container for node elements */
         createContentElement() {
           const content = document.createElement("div");
-
           content.classList.add("node-content");
 
           return content;
         }
 
+        /** Creates an editable input field for the node's title/name */
         createInputElement(name) {
           const input = document.createElement("input");
-
           input.classList.add("node-input");
           input.placeholder = "Enter node name";
           input.value = name;
-
           this.prepareNodeInputElement(input);
 
           return input;
         }
 
+        /**
+         * Creates the body section containing output ports.
+         */
         createBodyElement(ports) {
           const body = document.createElement("div");
-
           body.classList.add("node-body");
 
           const portElements = [];
@@ -509,14 +590,22 @@
           return [body, portElements];
         }
 
+        /**
+         * Configures input elements to work correctly within draggable nodes.
+         * Prevents drag operations when interacting with the input field.
+         */
         prepareNodeInputElement(element) {
           element.addEventListener("mousemove", (event) => {
             if (document.activeElement === event.target) {
-              event.stopPropagation();
+              event.stopPropagation(); // Don't drag while editing text
             }
           });
         }
 
+        /**
+         * Configures textareas to work correctly within draggable nodes.
+         * Allows text selection, scrolling, and editing without triggering node drag.
+         */
         prepareNodeTextareaElement(element) {
           let hover = false;
           let down = false;
@@ -530,8 +619,7 @@
           });
 
           element.addEventListener("mousedown", (event) => {
-            event.stopPropagation();
-
+            event.stopPropagation(); // Prevent drag initiation
             down = true;
           });
 
@@ -541,29 +629,28 @@
 
           element.addEventListener("mousemove", (event) => {
             if (down) {
-              event.stopPropagation();
+              event.stopPropagation(); // Allow text selection without dragging node
             }
           });
 
           element.addEventListener("wheel", (event) => {
             if (hover) {
-              event.stopPropagation();
+              event.stopPropagation(); // Allow scrolling within textarea without zooming canvas
             }
           });
         }
 
+        /**
+         * Creates an SVG remove button that appears at the midpoint of selected edges.
+         * The button consists of a circular background and an X symbol.
+         */
         createRemoveEdgeButton() {
           const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
-
           group.style.setProperty("pointer-events", "auto");
           group.style.setProperty("cursor", "pointer");
           group.classList.add("remove-button");
 
-          const circle = document.createElementNS(
-            "http://www.w3.org/2000/svg",
-            "circle",
-          );
-
+          const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
           circle.setAttribute("cx", "0");
           circle.setAttribute("cy", "0");
           circle.setAttribute("r", "7");
@@ -581,9 +668,8 @@
           group.appendChild(circle);
           group.appendChild(path1);
           group.appendChild(path2);
-
           return group;
-        };
+        }
       }
 
       const canvasElement = document.getElementById("canvas");

@@ -16,7 +16,7 @@ cases, and complete TypeScript support.
   <a class="canvas-api" href="/canvas">Canvas API</a>
 </div>
 
-<a href="/use-cases/advanced-demo/" target="_blank" aria-label="Nocode Editor UI">
+<a href="/tutorials/nocode-editor-ui/" target="_blank" aria-label="Nocode Editor UI">
   <div class="video">
     <div class="label-wrapper">
       <label>Nocode Editor UI</label>
