@@ -234,6 +234,13 @@
     <ul data-submenu="tutorials">
       <li>
         {{ partial "menu-link.html" (dict
+          "path" "/tutorials/nodes-customization/"
+          "activePath" .path
+          "label" "Nodes Customization"
+        )}}
+      </li>
+      <li>
+        {{ partial "menu-link.html" (dict
           "path" "/tutorials/interactive-edges/"
           "activePath" .path
           "label" "Interactive Edges"
