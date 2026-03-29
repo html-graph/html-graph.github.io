@@ -42,7 +42,9 @@ const canvas = new CanvasBuilder(element)
     algorithm: {
       type: "forceDirected",
     },
-    applyOn: { type: "topologyChangeMicrotask" },
+    applyOn: {
+      type: "topologyChangeMicrotask",
+    },
     staticNodeResolver: (nodeId) => false,
     events: {
       onBeforeApplied: () => {
