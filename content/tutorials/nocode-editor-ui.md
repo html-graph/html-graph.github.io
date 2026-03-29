@@ -16,7 +16,6 @@ Please review these topics first:
 - <a href="/tutorials/interactive-edges/">Interactive Edges</a>
 
 This example demonstrates multiple use-cases combined into a single nocode editor.
-
 The complete implementation contains helpful comments throughout.
 
 {{< use-case title="Nocode editor UI" src=/use-cases/advanced-demo/ >}}
