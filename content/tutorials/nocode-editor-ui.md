@@ -9,6 +9,7 @@ This is an advanced example, so it's not recommended to start here.
 Please review these topics first:
 
 - <a target="_blank" href="/getting-started/">Getting Started</a>
+- <a target="_blank" href="/canvas/">Canvas</a>
 - <a target="_blank" href="/defaults/">Defaults</a>
 - <a target="_blank" href="/features/connectable-ports/">Connectable Ports</a>
 - <a target="_blank" href="/features/draggable-edges/">Draggable Edges</a>
