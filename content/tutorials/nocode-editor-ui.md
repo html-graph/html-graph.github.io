@@ -2,7 +2,7 @@
 title: Tutorials | Nocode Editor UI
 ---
 
-## Nocode Editor UI (Advanced)
+## Nocode Editor UI (advanced)
 
 This example demonstrates multiple use-cases combined into a single nocode editor.
 
