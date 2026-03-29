@@ -30,7 +30,7 @@ cases, and complete TypeScript support.
 <div class="previews">
   <ul>
     <li class="preview">
-      <a target="_blank" href="/use-cases/nodes-customization/" aria-label="Nodes Customization">
+      <a target="_blank" href="/tutorials/nodes-customization/" aria-label="Nodes Customization">
         {{< image path="/images/nodes-customization" alt="Nodes Customization" width="500" height="500">}}
         <div class="label-wrapper">
           <label>
