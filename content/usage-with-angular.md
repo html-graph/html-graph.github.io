@@ -185,6 +185,10 @@ export class CanvasAdapter {
   // Other methods for managing graph
   // ...
 
+  destroy(): void {
+    this.canvas.destroy();
+  }
+
   private reset(): void {
     this.viewRefs.forEach((viewRef) => {
       viewRef.destroy();
