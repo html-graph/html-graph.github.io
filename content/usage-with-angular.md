@@ -184,7 +184,7 @@ export class CanvasAdapter {
     });
   }
 
-  // Other methods for managing graph
+  // Other application-specific methods for managing graph
   // ...
 
   destroy(): void {
