@@ -173,14 +173,13 @@
 
           // Add remove button at the midpoint of the edge
           const midpoint = this.createRemoveEdgeButton();
-          const midpointShape = new MidpointEdgeShape(interactiveShape, midpoint);
 
-          midpointShape.midpointElement.addEventListener("click", (event) => {
+          midpoint.addEventListener("click", (event) => {
             event.stopPropagation();
             this.canvas.removeEdge(edgeId);
           });
 
-          return midpointShape;
+          return new MidpointEdgeShape(interactiveShape, midpoint);
         };
 
         /**
