@@ -147,7 +147,9 @@ export class CanvasAdapter {
     });
   }
 
-  addNode(id: Identifier, x: number | null, y: number | null): void {
+  addNode(params: { id: Identifier, x: number | null, y: number | null }): void {
+    const { id, x, y } = params;
+
     const nodeElement = document.createElement('div');
     const nodeComponent = createComponent(GraphNodeShape, {
       environmentInjector: this.appRef.injector,
@@ -173,8 +175,8 @@ export class CanvasAdapter {
     this.canvas.addNode({
       id,
       element: nodeElement,
-      x: x,
-      y: y,
+      x,
+      y,
       ports: [
         { id: `port-${id}-in`, element: instance.portIn.nativeElement },
         { id: `port-${id}-out`, element: instance.portOut.nativeElement },
