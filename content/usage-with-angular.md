@@ -159,7 +159,7 @@ export class CanvasAdapter {
         outputBinding('viewInitialized', () => {
           // Node must be updated manually on ngAfterViewInit lifecycle event trigger
           this.canvas.updateNode(id);
-          // Alternatively, you could opt-in to "Node Resize Reactive Edges" feature
+          // Alternatively, you could opt-in to enabling "Node Resize Reactive Edges" feature
         }),
       ],
     });
