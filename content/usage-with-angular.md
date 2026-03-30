@@ -129,6 +129,22 @@ export class CanvasAdapter {
 
   init(element: HTMLElement): void {
     this.canvas = new CanvasBuilder(element).build();
+
+    this.canvas.graph.onBeforeNodeRemoved.subscribe((nodeId) => {
+      const viewRef = this.viewRefs.get(nodeId)!;
+
+      viewRef.destroy();
+
+      this.viewRefs.delete(nodeId);
+    });
+
+    this.canvas.graph.onBeforeClear.subscribe(() => {
+      this.reset();
+    });
+
+    this.canvas.onBeforeDestroy.subscribe(() => {
+      this.reset();
+    });
   }
 
   addNode(id: Identifier): void {
@@ -166,26 +182,8 @@ export class CanvasAdapter {
     });
   }
 
-  removeNode(nodeId: Identifier): void {
-    const hostView = this.viewRefs.get(nodeId)!;
-    this.viewRefs.delete(nodeId);
-
-    this.canvas.removeNode(nodeId);
-    hostView.destroy();
-  }
-
   // Other methods for managing graph
   // ...
-
-  clear(): void {
-    this.canvas.clear();
-    this.reset();
-  }
-
-  destroy(): void {
-    this.reset();
-    this.canvas.destroy();
-  }
 
   private reset(): void {
     this.viewRefs.forEach((viewRef) => {
