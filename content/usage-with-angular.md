@@ -147,7 +147,7 @@ export class CanvasAdapter {
     });
   }
 
-  addNode(params: { id: Identifier, x: number | null, y: number | null }): void {
+  addNode(params: { id: Identifier, x?: number, y?: number }): void {
     const { id, x, y } = params;
 
     const nodeElement = document.createElement('div');
