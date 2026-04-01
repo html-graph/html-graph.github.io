@@ -97,11 +97,13 @@ export class GraphNodeShape implements AfterViewInit {
 
 </div>
 
-Check out the <a href="https://html-graph.github.io/html-graph-angular-demo/" target="_blank"> angular live demo</a>
-and the <a href="https://github.com/html-graph/html-graph-angular-demo/" target="_blank">angular demo source code</a>
+Check out the <b><a href="https://html-graph.github.io/html-graph-angular-demo/" target="_blank">Angular live demo</a></b>
+and the <b><a href="https://github.com/html-graph/html-graph-angular-demo/" target="_blank">Angular demo source code</a></b>.
 
-It is recommended for you to implement an adapter such as this, to have an API
-suitable for your application:
+It is recommended that you implement an adapter specific to your application
+that creates nodes with Angular components and ensures there are no memory leaks.
+
+Here is a good example of such adapter:
 
 {{< code lang="typescript" >}}
 import {
