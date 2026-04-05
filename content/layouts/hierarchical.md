@@ -54,6 +54,7 @@ Hierarchical layout algorithm uses breadth-first graph traversal to generate a g
 
 The `nextLayerNodesResolver` is a function that allows you to specify which nodes
 should be candidates for placement in the next layer relative to the current node.
+
 It receives a single argument object with the following properties:
 - `graph` - a <a href="/graph-state/" target="_blank">Graph</a> object
 - `currentNodeId` - the identifier of the current node in the layer
