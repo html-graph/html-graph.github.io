@@ -20,8 +20,8 @@
         font-family: Arial, sans-serif;
         --color: #999999;
         --node-color-1: #a8e84a;
-        --node-color-2: #a8e84a;
-        --node-color-3: #a8e84a;
+        --node-color-2: #fc9619;
+        --node-color-3: #efec21;
       }
 
       #canvas {
@@ -36,8 +36,8 @@
         text-align: center;
         width: 100px;
         height: 100px;
-        border: 1px solid var(--color);
-        box-shadow: 0 0 10px var(--color);
+        border: 2px solid var(--color);
+        box-shadow: 0 0 5px var(--color);
         border-radius: 50%;
         user-select: none;
       }
@@ -47,11 +47,11 @@
       }
 
       .node-type-2 {
-        background: var(--node-color-1);
+        background: var(--node-color-2);
       }
 
       .node-type-3 {
-        background: var(--node-color-1);
+        background: var(--node-color-3);
       }
     </style>
   </head>
@@ -189,7 +189,9 @@
           graphData.nodes.forEach((nodeId) => {
             const element = document.createElement("div");
             element.classList.add("node");
-            element.classList.add("node-type-1");
+
+            const nodeType = Math.floor(Math.random() * 3) + 1;
+            element.classList.add(`node-type-${nodeType}`);
 
             this.canvas.addNode({
               id: nodeId,
