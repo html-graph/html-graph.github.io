@@ -32,22 +32,62 @@ const canvas = new CanvasBuilder(element)
       layerWidth: 300,
       layerSpace: 300,
       transform: { mirror: Math.PI / 2 },
+      nextLayerNodesResolver: "outgoing",
     },
   })
   .build();
 {{< /code >}}
 
 
-| Name         | Type                                                    | Description                                       | Required | Default     |
-|--------------|---------------------------------------------------------|---------------------------------------------------|----------|-------------|
-| `layerWidth` | `number`                                                | Width of a single layer                           | No       | `300`       |
-| `layerSpace` | `number`                                                | Minimum space between nodes within a single layer | No       | `300`       |
-| `transform`  | [`Transformation \| Transformation[]`](#transformation) | Single transformation or array of transformations | No       | `undefined` |
+| Name                     | Type                                                    | Description                                                                  | Required | Default      |
+|--------------------------|---------------------------------------------------------|------------------------------------------------------------------------------|----------|--------------|
+| `layerWidth`             | `number`                                                | Width of a single layer                                                      | No       | `300`        |
+| `layerSpace`             | `number`                                                | Minimum space between nodes within a single layer                            | No       | `300`        |
+| `nextLayerNodesResolver` | [`NextLayerNodesResolver`](#next-layer-nodes-resolver)  | Determines which nodes move to the next layer during layout calculation      | No       | `"adjacent"` |
+| `transform`              | [`Transformation \| Transformation[]`](#transformation) | Single transformation or array of transformations to apply to node positions | No       | `undefined`  |
 
+{{< ref-target ref="next-layer-nodes-resolver">}}
+
+### `nextLayerNodesResolver` {#next-layer-nodes-resolver}
+
+Hierarchical layout algorithm uses breadth-first graph traversal to generate a graph spanning tree.
+
+The `nextLayerNodesResolver` function option allows you to specify which nodes should be candidates for placement in the next layer relative to the current node.
+
+The `nextLayerNodesResolver` function receives a single argument object with the following properties:
+- `graph` - a <a href="/graph-state/" target="_blank">Graph</a> object
+- `currentNodeId` - the identifier of the current node in the layer
+
+{{< /ref-target >}}
+
+For example, here is a function that resolves only outgoing nodes:
+
+{{< code lang="javascript">}}
+const outgoingNextLayerNodesResolver = (params) => {
+  const { graph, currentNodeId } = params;
+
+  const outgoingNodeIds = graph
+    .getNodeOutgoingEdgeIds(currentNodeId)
+    .map((edgeId) => {
+      const edge = graph.getEdge(edgeId);
+      const port = graph.getPort(edge.to);
+
+      return port.nodeId;
+    });
+
+  return new Set(outgoingNodeIds);
+};
+{{< /code >}}
+
+You can pass a string value instead of a function if your use case matches one of these predefined options:
+
+- `"outgoing"` - resolves only outgoing nodes (nodes that receive connections from the current node)
+- `"incoming"` - resolves only incoming nodes (nodes that connect to the current node)
+- `"adjacent"` - resolves both outgoing and incoming nodes (default)
 
 {{< ref-target ref="transformation">}}
 
-### Transformation Configuration {#transformation}
+### `transform` {#transformation}
 
 The `transform` parameter can be either a single transformation or an array of sequential transformations.
 
