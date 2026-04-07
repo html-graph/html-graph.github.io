@@ -52,7 +52,7 @@ Paste the content into HTML
 {{< code lang="html" >}}
 <div id="canvas"></div>
 <script type="module">
-  import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@8.13.0";
+  import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@8.14.0/dist/html-graph.min.js";
 
   const element = document.getElementById("canvas");
   const canvas = new CanvasBuilder(element).build();
@@ -61,12 +61,12 @@ Paste the content into HTML
 </div>
 
 <div data-tab-content="2">
-Download <code>html-graph.js</code> from <a target="_blank" href="https://github.com/html-graph/html-graph/releases">releases</a> and use:
+Download <code>html-graph.min.js</code> from <a target="_blank" href="https://github.com/html-graph/html-graph/releases">releases</a> and use:
 
 {{< code lang="html" >}}
 <div id="canvas"></div>
 <script type="module">
-  import { CanvasBuilder } from "/html-graph.js";
+  import { CanvasBuilder } from "/html-graph.min.js";
 
   const element = document.getElementById("canvas");
   const canvas = new CanvasBuilder(element).build();
@@ -75,11 +75,11 @@ Download <code>html-graph.js</code> from <a target="_blank" href="https://github
 </div>
 
 <div data-tab-content="3">
-Download <code>html-graph.umd.cjs</code> from <a target="_blank" href="https://github.com/html-graph/html-graph/releases">releases</a> and use:
+Download <code>html-graph.min.umd.cjs</code> from <a target="_blank" href="https://github.com/html-graph/html-graph/releases">releases</a> and use:
 
 {{< code lang="html" >}}
 <div id="canvas"></div>
-<script src="/html-graph.umd.cjs"></script>
+<script src="/html-graph.min.umd.cjs"></script>
 <script>
   const element = document.getElementById("canvas");
   const canvas = new HtmlGraph.CanvasBuilder(element).build();
@@ -155,7 +155,7 @@ It defines a full-screen canvas and an <code>Application</code> class.
   <body>
     <div id="canvas"></div>
     <script type="module">
-      import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@8.13.0";
+      import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@8.14.0/dist/html-graph.min.js";
 
       class Application {
         constructor(element) {
