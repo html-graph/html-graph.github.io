@@ -23,6 +23,7 @@
   --color-background-menu-hover: #e0e0e0;
   --color-cta: #60a000;
   --color-cta-hover: #528900;
+  --color-cta-secondary-hover: #f0f0f0;
 }
 
 html,
@@ -645,6 +646,7 @@ ol {
     &:hover {
       border-color: var(--color-cta-hover);
       color: var(--color-cta-hover);
+      background: var(--color-cta-secondary-hover);
     }
   }
 }
