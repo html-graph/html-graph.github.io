@@ -28,36 +28,6 @@ Below is a list of all available methods
 Adds a node to the canvas.
 
 {{< code lang="javascript">}}
-canvas.addNode({
-  id: "node-1",
-  x: 100,
-  y: 100,
-  element: document.createElement('div'),
-});
-{{< /code >}}
-
-For convenience, ports can be specified directly during the node creation.
-
-{{< code lang="javascript">}}
-const node = document.createElement('div');
-const port = document.createElement('div');
-node.appendChild(port);
-
-canvas.addNode({
-  id: "node-1",
-  element: node,
-  ports: [
-    {
-      id: "port-1",
-      element: port,
-    },
-  ],
-});
-{{< /code >}}
-
-All available parameters are demonstrated in the following example:
-
-{{< code lang="javascript">}}
 const node = document.createElement('div');
 const port = document.createElement('div');
 node.appendChild(port);
@@ -93,7 +63,7 @@ canvas.addNode({
 
 <b>\* Only nodes with defined coordinates are actually displayed on the canvas.
 When using `null` coordinates, make sure to update them later using a <a href="/layouts/">layout algorithm</a>,
-or an <a href="/animated-layouts/">animated layout algorithm</a>, or <a href="#update-node">updateNode</a> method.</b>
+or an <a href="/animated-layouts/">animated layout algorithm</a>.</b>
 
 {{< ref-target ref="add-node-port-params">}}
 
