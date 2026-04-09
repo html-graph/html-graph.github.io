@@ -16,16 +16,16 @@ cases, and complete TypeScript support.
   <a class="canvas-api" href="/canvas">Canvas API</a>
 </div>
 
-<a href="/tutorials/nocode-editor-ui/" target="_blank" aria-label="Nocode Editor UI">
-  <div class="video">
-    <div class="label-wrapper">
-      <label>Nocode Editor UI</label>
-    </div>
-    <video autoplay muted loop>
-      <source src="/media/advanced-demo.webm">
-    </video>
-  </div>
-</a>
+<!-- <a href="/tutorials/nocode-editor-ui/" target="_blank" aria-label="Nocode Editor UI"> -->
+<!--   <div class="video"> -->
+<!--     <div class="label-wrapper"> -->
+<!--       <label>Nocode Editor UI</label> -->
+<!--     </div> -->
+<!--     <video autoplay muted loop> -->
+<!--       <source src="/media/advanced-demo.webm"> -->
+<!--     </video> -->
+<!--   </div> -->
+<!-- </a> -->
 
 <div class="previews">
   <ul>
