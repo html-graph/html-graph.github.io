@@ -229,7 +229,7 @@ It provides more flexibility for managing edges.
 </div>
 
 <div data-tab-content="2">
-Node's appearance is fully customizable using HTML/SVG and CSS.
+Node's appearance is fully customizable using HTML and CSS.
 
 This is a basic example of what node's styles could be:
 
