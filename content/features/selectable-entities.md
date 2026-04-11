@@ -67,7 +67,7 @@ const canvas = new CanvasBuilder(element)
 
 {{< use-case src=/use-cases/selectable-entities/ >}}
 
-Both methods require a configuration object.
+All methods require a configuration object.
 
 ### Selectable Nodes Configuration Parameters
 
