@@ -94,7 +94,7 @@ const edge = canvas.graph.getEdge("edge-1");
 {{< code lang="javascript" >}}
 const edgeId = canvas.graph.findEdgeIdByElement(shape.svg);
 {{< / code >}}
-This method returns `undefined` if specified element is not a node.
+This method returns `undefined` if specified element is not assigned to any edge.
 
 1. get the IDs of incoming edges for a specific port
 {{< code lang="javascript" >}}
