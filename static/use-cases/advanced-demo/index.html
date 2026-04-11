@@ -284,6 +284,11 @@
           });
         };
 
+        /**
+         * Handles edge selection events from the user.
+         * Highlights the selected edge with a thicker stroke and adds a CSS class
+         * that makes the remove button visible
+         */
         onEdgeSelected = (selectedEdgeId) => {
           this.setSelectedEdge(selectedEdgeId);
 
@@ -296,6 +301,11 @@
           });
         };
 
+        /**
+         * Handles canvas selection events (clicking on empty canvas area).
+         * Clears edge selection and resets all edges to their default appearance.
+         * This effectively hides any visible remove buttons
+         */
         onCanvasSelected = () => {
           this.setSelectedEdge(null);
 
