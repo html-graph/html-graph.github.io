@@ -340,12 +340,7 @@
                   const width = edgeId === selectedEdgeId ? 2 : 1;
 
                   shape.line.setAttribute("stroke-width", `${width}`);
-
-                  if (edgeId === selectedEdgeId) {
-                    shape.svg.classList.add("selected-edge");
-                  } else {
-                    shape.svg.classList.remove("selected-edge");
-                  }
+                  shape.svg.classList.toggle("selected-edge", edgeId === selectedEdgeId);
                 });
               },
             })
