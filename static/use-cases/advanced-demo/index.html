@@ -284,6 +284,29 @@
           });
         };
 
+        onEdgeSelected = (selectedEdgeId) => {
+          this.setSelectedEdge(selectedEdgeId);
+
+          this.canvas.graph.getAllEdgeIds().forEach((edgeId) => {
+            const { shape } = this.canvas.graph.getEdge(edgeId);
+            const width = edgeId === selectedEdgeId ? 2 : 1;
+
+            shape.line.setAttribute("stroke-width", `${width}`);
+            shape.svg.classList.toggle("selected-edge", edgeId === selectedEdgeId);
+          });
+        };
+
+        onCanvasSelected = () => {
+          this.setSelectedEdge(null);
+
+          this.canvas.graph.getAllEdgeIds().forEach((edgeId) => {
+            const { shape } = this.canvas.graph.getEdge(edgeId);
+
+            shape.line.setAttribute("stroke-width", "1");
+            shape.svg.classList.remove("selected-edge");
+          });
+        };
+
         constructor(canvasElement) {
           this.canvasElement = canvasElement;
 
@@ -332,29 +355,10 @@
               },
             })
             .enableUserSelectableEdges({
-              onEdgeSelected: (selectedEdgeId) => {
-                this.setSelectedEdge(selectedEdgeId);
-
-                this.canvas.graph.getAllEdgeIds().forEach((edgeId) => {
-                  const { shape } = this.canvas.graph.getEdge(edgeId);
-                  const width = edgeId === selectedEdgeId ? 2 : 1;
-
-                  shape.line.setAttribute("stroke-width", `${width}`);
-                  shape.svg.classList.toggle("selected-edge", edgeId === selectedEdgeId);
-                });
-              },
+              onEdgeSelected: this.onEdgeSelected, // Displays remove button on the selected edge
             })
             .enableUserSelectableCanvas({
-              onCanvasSelected: () => {
-                this.setSelectedEdge(null);
-
-                this.canvas.graph.getAllEdgeIds().forEach((edgeId) => {
-                  const { shape } = this.canvas.graph.getEdge(edgeId);
-
-                  shape.line.setAttribute("stroke-width", "1");
-                  shape.svg.classList.remove("selected-edge");
-                });
-              },
+              onCanvasSelected: this.onCanvasSelected, // Hides remove button when clicking on empty canvas area
             })
             .build();
         }
