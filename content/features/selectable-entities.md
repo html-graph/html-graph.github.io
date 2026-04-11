@@ -14,15 +14,15 @@ sitemap:
   </div>
 </a>
 
-To enable built-in selectable entities, there are three `CanvasBuilder` configurations available:
+To enable built-in selectable entities, three `CanvasBuilder` configurations are available:
 
-- `enableUserSelectableNodes` - when the user clicks inside a node
-- `enableUserSelectableEdges` - when the user clicks inside an edge.
-Edges have to be interactive in order for this feature to work. Refer to
-<a href="/tutorials/interactive-edges" target="_blank">Interactive Edges</a> tutorial.
-- `enableUserSelectableCanvas` - when the user clicks outside of any node or edge
+- `enableUserSelectableNodes` - handles selection when the user clicks inside a node
+- `enableUserSelectableEdges` - handles selection when the user clicks inside an edge.
+  **Note:** Edges must be interactive for this feature to work. See the
+  <a href="/tutorials/interactive-edges" target="_blank">Interactive Edges</a> tutorial.
+- `enableUserSelectableCanvas` - handles selection when the user clicks outside of any node or edge
 
-Call them separately or all at once as needed.
+Call them separately or all together as needed.
 
 {{< code lang="javascript">}}
 const element = document.getElementById("canvas");
