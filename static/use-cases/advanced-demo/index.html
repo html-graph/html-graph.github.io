@@ -146,12 +146,6 @@
         /** Tracks the currently selected edge ID for styling and operations */
         selectedEdgeId = null;
 
-        clickReset = false;
-
-        resetClick = () => {
-          this.clickReset = true;
-        };
-
         /**
          * Factory function that creates interactive edges with a "Remove" button.
          * The remove button becomes visible only when the edge is selected.
@@ -168,7 +162,6 @@
 
           interactiveShape.svg.addEventListener("click", (event) => {
             event.stopPropagation();
-            this.setSelectedEdge(edgeId);
           });
 
           // Add remove button at the midpoint of the edge
@@ -338,26 +331,37 @@
                 onEdgeReattachInterrupted: this.onEdgeReattachInterrupted,
               },
             })
+            .enableUserSelectableEdges({
+              onEdgeSelected: (selectedEdgeId) => {
+                this.setSelectedEdge(selectedEdgeId);
+
+                this.canvas.graph.getAllEdgeIds().forEach((edgeId) => {
+                  const { shape } = this.canvas.graph.getEdge(edgeId);
+                  const width = edgeId === selectedEdgeId ? 2 : 1;
+
+                  shape.line.setAttribute("stroke-width", `${width}`);
+
+                  if (edgeId === selectedEdgeId) {
+                    shape.svg.classList.add("selected-edge");
+                  } else {
+                    shape.svg.classList.remove("selected-edge");
+                  }
+                });
+              },
+            })
+            .enableUserSelectableCanvas({
+              onCanvasSelected: () => {
+                this.setSelectedEdge(null);
+
+                this.canvas.graph.getAllEdgeIds().forEach((edgeId) => {
+                  const { shape } = this.canvas.graph.getEdge(edgeId);
+
+                  shape.line.setAttribute("stroke-width", "1");
+                  shape.svg.classList.remove("selected-edge");
+                });
+              },
+            })
             .build();
-
-          // Track pointer movement to distinguish between clicks and drags
-          this.canvasElement.addEventListener("pointerdown", () => {
-            this.clickReset = false;
-            this.canvasElement.addEventListener("pointermove", this.resetClick);
-          });
-
-          this.canvasElement.addEventListener("pointerup", () => {
-            this.canvasElement.removeEventListener("pointermove", this.resetClick);
-          });
-
-          // Clear edge selection when clicking on empty canvas space
-          this.canvasElement.addEventListener("click", () => {
-            if (this.clickReset) {
-              return; // User was panning, not selecting
-            }
-
-            this.setSelectedEdge(null);
-          });
         }
 
         /**
@@ -365,26 +369,6 @@
          */
         setSelectedEdge(selectedEdgeId) {
           this.selectedEdgeId = selectedEdgeId;
-          this.updateEdges();
-        }
-
-        /**
-         * Applies visual styling to all edges based on selection state
-         * Selected edges get thicker stroke and remove button visibility
-         */
-        updateEdges() {
-          this.canvas.graph.getAllEdgeIds().forEach(edgeId => {
-            const shape = this.canvas.graph.getEdge(edgeId).shape;
-            const strokeWidth = edgeId === this.selectedEdgeId ? 2 : 1;
-
-            if (edgeId === this.selectedEdgeId) {
-              shape.svg.classList.add("selected-edge");
-            } else {
-              shape.svg.classList.remove("selected-edge");
-            }
-
-            shape.line.setAttribute('stroke-width', `${strokeWidth}`);
-          });
         }
 
         /**
