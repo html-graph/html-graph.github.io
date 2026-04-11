@@ -18,7 +18,7 @@ To enable built-in selectable entities, three `CanvasBuilder` configurations are
 
 - `enableUserSelectableNodes` - handles selection when the user clicks inside a node
 - `enableUserSelectableEdges` - handles selection when the user clicks inside an edge.
-  **Note:** Edges must be interactive for this feature to work. See the
+  Edges must be interactive for this feature to work. See the
   <a href="/tutorials/interactive-edges" target="_blank">Interactive Edges</a> tutorial.
 - `enableUserSelectableCanvas` - handles selection when the user clicks outside of any node or edge
 
