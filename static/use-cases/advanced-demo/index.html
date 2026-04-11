@@ -166,7 +166,7 @@
           // Add click interaction to select the edge
           const interactiveShape = new InteractiveEdgeShape(baseShape, { distance: 20 });
 
-          interactiveShape.handle.addEventListener("click", (event) => {
+          interactiveShape.svg.addEventListener("click", (event) => {
             event.stopPropagation();
             this.setSelectedEdge(edgeId);
           });
