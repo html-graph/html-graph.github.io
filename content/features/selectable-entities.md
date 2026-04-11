@@ -4,22 +4,25 @@ sitemap:
   priority: 0.8
 ---
 
-## Selectable Nodes
+## Selectable Entities
 
-<a href="/use-cases/selectable-nodes/" target="_blank" aria-label="Selectable Nodes">
+<a href="/use-cases/selectable-entities/" target="_blank" aria-label="Selectable Entities">
   <div class="video">
     <video autoplay muted loop>
-      <source src="/media/selectable-nodes.webm">
+      <source src="/media/selectable-entities.webm">
     </video>
   </div>
 </a>
 
-To enable built-in selectable nodes, there are two `CanvasBuilder` configurations available:
+To enable built-in selectable entities, there are three `CanvasBuilder` configurations available:
 
 - `enableUserSelectableNodes` - when the user clicks inside a node
-- `enableUserSelectableCanvas` - when the user clicks outside of any node
+- `enableUserSelectableEdges` - when the user clicks inside an edge.
+Edges have to be interactive in order for this feature to work. Refer to
+<a href="/tutorials/interactive-edges" target="_blank">Interactive Edges</a> tutorial.
+- `enableUserSelectableCanvas` - when the user clicks outside of any node or edge
 
-Call them separately or both as needed.
+Call them separately or all at once as needed.
 
 {{< code lang="javascript">}}
 const element = document.getElementById("canvas");
@@ -34,6 +37,16 @@ const canvas = new CanvasBuilder(element)
       });
     }
   })
+  .enableUserSelectableEdges({
+    onEdgeSelected: (selectedEdgeId) => {
+      canvas.graph.getAllEdgeIds().forEach((edgeId) => {
+        const { shape } = canvas.graph.getEdge(edgeId);
+        const width = edgeId === selectedEdgeId ? 2 : 1;
+
+        shape.line.setAttribute("stroke-width", `${width}`);
+      });
+    },
+  })
   .enableUserSelectableCanvas({
     onCanvasSelected: () => {
       canvas.graph.getAllNodeIds().forEach((nodeId) => {
@@ -41,12 +54,18 @@ const canvas = new CanvasBuilder(element)
 
         element.classList.remove("selected");
       });
-    }
+
+      canvas.graph.getAllEdgeIds().forEach((edgeId) => {
+        const { shape } = canvas.graph.getEdge(edgeId);
+
+        shape.line.setAttribute("stroke-width", "1");
+      });
+    },
   })
   .build();
 {{< /code >}}
 
-{{< use-case src=/use-cases/selectable-nodes/ >}}
+{{< use-case src=/use-cases/selectable-entities/ >}}
 
 Both methods require a configuration object.
 

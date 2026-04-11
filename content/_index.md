@@ -60,11 +60,11 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
-      <a target="_blank" href="/features/selectable-nodes/" aria-label="Selectable Nodes">
-        {{< image path="/images/selectable-nodes" alt="Selectable Nodes" width="500" height="500">}}
+      <a target="_blank" href="/features/selectable-entities/" aria-label="Selectable Entities">
+        {{< image path="/images/selectable-entities" alt="Selectable Entities" width="500" height="500">}}
         <div class="label-wrapper">
           <label>
-            Selectable Nodes
+            Selectable Entities
           </label>
         </div>
       </a>

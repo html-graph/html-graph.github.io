@@ -44,13 +44,13 @@ Easily reposition nodes by dragging them with mouse or touch gestures.
   </div>
 </a>
 
-### [Selectable Nodes](/features/selectable-nodes/)
+### [Selectable Entities](/features/selectable-entities/)
 Handle user selection interactions with simple callbacks
 
-<a href="/features/selectable-nodes/" target="_blank" aria-label="Selectable Nodes">
+<a href="/features/selectable-entities/" target="_blank" aria-label="Selectable Entities">
   <div class="video">
     <video autoplay muted loop>
-      <source src="/media/selectable-nodes.webm">
+      <source src="/media/selectable-entities.webm">
     </video>
   </div>
 </a>

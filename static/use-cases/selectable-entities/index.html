@@ -63,16 +63,22 @@
   <body>
     <div id="canvas"></div>
     <script type="module">
-      import { CanvasBuilder } from "https://html-graph.github.io/lib/v8.16.0/html-graph.min.js";
+      import {
+        CanvasBuilder,
+        BezierEdgeShape,
+        InteractiveEdgeShape,
+      } from "https://html-graph.github.io/lib/v8.16.0/html-graph.min.js";
 
       class Application {
         constructor(element) {
           this.canvas = new CanvasBuilder(element)
             .setDefaults({
               edges: {
-                shape: {
-                  hasTargetArrow: true,
-                },
+                shape: () => {
+                  const baseShape = new BezierEdgeShape({ hasTargetArrow: true });
+
+                  return new InteractiveEdgeShape(baseShape, { distance: 20});
+                }
               },
             })
             .enableUserDraggableNodes()
@@ -80,6 +86,8 @@
             .enableBackground()
             .enableUserSelectableNodes({
               onNodeSelected: (selectedNodeId) => {
+                this.clearEdgesSelection();
+
                 this.canvas.graph.getAllNodeIds().forEach((nodeId) => {
                   const { element } = this.canvas.graph.getNode(nodeId);
 
@@ -87,13 +95,22 @@
                 });
               }
             })
+            .enableUserSelectableEdges({
+              onEdgeSelected: (selectedEdgeId) => {
+                this.clearNodesSelection();
+
+                this.canvas.graph.getAllEdgeIds().forEach((edgeId) => {
+                  const { shape } = this.canvas.graph.getEdge(edgeId);
+                  const width = edgeId === selectedEdgeId ? 2 : 1;
+
+                  shape.line.setAttribute("stroke-width", `${width}`);
+                });
+              },
+            })
             .enableUserSelectableCanvas({
               onCanvasSelected: () => {
-                this.canvas.graph.getAllNodeIds().forEach((nodeId) => {
-                  const { element } = this.canvas.graph.getNode(nodeId);
-
-                  element.classList.remove("selected");
-                });
+                this.clearNodesSelection();
+                this.clearEdgesSelection();
               }
             })
             .build();
@@ -147,6 +164,22 @@
               { id: backPortId, element: backPort },
             ],
           };
+        }
+
+        clearNodesSelection() {
+          this.canvas.graph.getAllNodeIds().forEach((nodeId) => {
+            const { element } = this.canvas.graph.getNode(nodeId);
+
+            element.classList.remove("selected");
+          });
+        }
+
+        clearEdgesSelection() {
+          this.canvas.graph.getAllEdgeIds().forEach((edgeId) => {
+            const { shape } = this.canvas.graph.getEdge(edgeId);
+
+            shape.line.setAttribute("stroke-width", "1");
+          });
         }
       }
 
