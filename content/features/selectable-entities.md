@@ -1,5 +1,5 @@
 ---
-title: Features | Selectable Nodes
+title: Features | Selectable Entities
 sitemap:
   priority: 0.8
 ---
