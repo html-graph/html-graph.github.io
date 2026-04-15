@@ -67,18 +67,18 @@ const connectionTypeResolver = (portId) => {
 };
 {{< /code>}}
 
-As for the connection preprocessor, you can start with one that forbids
+As for the connection allowed verifier, you can start with one that forbids
 duplicated connections:
 
 {{< code lang="javascript">}}
-const connectionPreprocessor = (request) => {
+const connectionAllowedVerifier = (request) => {
   const existingEdge = canvas.graph.getAllEdgeIds().find((edgeId) => {
     const edge = canvas.graph.getEdge(edgeId);
 
     return edge.from === request.from && edge.to === request.to;
   });
 
-  return existingEdge === undefined ? request : null;
+  return existingEdge === undefined;
 };
 {{< /code>}}
 
