@@ -90,7 +90,7 @@
                 });
 
                 if (existingEdge !== undefined) {
-                  return null;
+                  return false;
                 }
 
                 return request.from.endsWith("-out") && request.to.endsWith("-in");

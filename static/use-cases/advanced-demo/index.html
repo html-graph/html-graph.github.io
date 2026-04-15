@@ -213,14 +213,14 @@
           });
 
           if (existingEdge !== undefined) {
-            return null;
+            return false;
           }
 
           const adjacentFromEdges = this.canvas.graph.getPortAdjacentEdgeIds(request.from);
 
           // Prevent creating multiple edges from the same source port
           if (adjacentFromEdges.length > 0) {
-            return null;
+            return false;
           }
 
           /**
