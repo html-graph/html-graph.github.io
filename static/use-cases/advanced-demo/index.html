@@ -286,7 +286,7 @@
          * that makes the remove button visible
          */
         onEdgeSelected = (selectedEdgeId) => {
-          this.setSelectedEdge(selectedEdgeId);
+          this.selectedEdgeId = selectedEdgeId;
 
           this.canvas.graph.getAllEdgeIds().forEach((edgeId) => {
             const { shape } = this.canvas.graph.getEdge(edgeId);
@@ -303,7 +303,7 @@
          * This effectively hides any visible remove buttons
          */
         onCanvasSelected = () => {
-          this.setSelectedEdge(null);
+          this.selectedEdgeId = null;
 
           this.canvas.graph.getAllEdgeIds().forEach((edgeId) => {
             const { shape } = this.canvas.graph.getEdge(edgeId);
@@ -367,13 +367,6 @@
               onCanvasSelected: this.onCanvasSelected, // Hides remove button when clicking on empty canvas area
             })
             .build();
-        }
-
-        /**
-         * Updates the currently selected edge and refreshes edge styling
-         */
-        setSelectedEdge(selectedEdgeId) {
-          this.selectedEdgeId = selectedEdgeId;
         }
 
         /**
