@@ -6,7 +6,7 @@ sitemap:
 
 ## Connectable Ports
 
-In some cases, providing users with interactive graph modification functionality is essential.
+In some use cases, providing users with interactive graph modification functionality is essential.
 Part of this functionality is the ability to add new connections to the graph.
 
 <a href="/use-cases/connectable-ports/" target="_blank" aria-label="Connectable ports">
