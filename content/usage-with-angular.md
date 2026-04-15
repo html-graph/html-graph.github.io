@@ -186,8 +186,16 @@ export class CanvasAdapter {
     });
   }
 
+  addEdge(params: { from: Identifier, to: Identifier }): void {
+    this.canvas.addEdge({ from: params.from, to: params.to });
+  }
+
   // Other application-specific methods for managing graph
   // ...
+
+  clear(): void {
+    this.canvas.clear();
+  }
 
   destroy(): void {
     this.canvas.destroy();
