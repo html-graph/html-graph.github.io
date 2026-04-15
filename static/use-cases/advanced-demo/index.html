@@ -204,7 +204,7 @@
          * Validates connection requests before edge creation.
          * Prevents duplicate edges and enforces port type compatibility.
          */
-        connectionPreprocessor = (request) => {
+        connectionAllowedVerifier = (request) => {
           // Prevent duplicate edges between the same source and target ports
           const existingEdge = this.canvas.graph.getAllEdgeIds().find((edgeId) => {
             const edge = this.canvas.graph.getEdge(edgeId);
@@ -227,11 +227,7 @@
            * Enforce connection direction rules:
            * Only allow connections from output ports (sources) to input ports (targets)
            */
-          if (request.from.startsWith("output-") && request.to.startsWith("input-")) {
-            return request;
-          }
-
-          return null;
+          return request.from.startsWith("output-") && request.to.startsWith("input-");
         };
 
         /**
@@ -353,12 +349,12 @@
                 hasTargetArrow: true,
               },
               connectionTypeResolver: this.connectionTypeResolver,
-              connectionPreprocessor: this.connectionPreprocessor,
+              connectionAllowedVerifier: this.connectionAllowedVerifier,
             })
             .enableUserDraggableEdges({
               mouseDownEventVerifier: (event) => event.button === 0,
               draggingEdgeResolver: this.draggingEdgeResolver,
-              connectionPreprocessor: this.connectionPreprocessor,
+              connectionAllowedVerifier: this.connectionAllowedVerifier,
               events: {
                 onEdgeReattachPrevented: this.onEdgeReattachPrevented,
                 onEdgeReattachInterrupted: this.onEdgeReattachInterrupted,
