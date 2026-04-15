@@ -193,6 +193,14 @@ export class CanvasAdapter {
   // Other application-specific methods for managing graph
   // ...
 
+  removeNode(nodeId: Identifier): void {
+    this.canvas.removeNode(nodeId);
+  }
+
+  removeEdge(edgeId: Identifier): void {
+    this.canvas.removeEdge(edgeId);
+  }
+
   clear(): void {
     this.canvas.clear();
   }
