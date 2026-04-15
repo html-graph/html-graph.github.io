@@ -190,6 +190,9 @@ export class CanvasAdapter {
     this.canvas.addEdge({ from: params.from, to: params.to });
   }
 
+  // Other application-specific methods for managing graph
+  // ...
+
   removeNode(nodeId: Identifier): void {
     this.canvas.removeNode(nodeId);
   }
