@@ -99,10 +99,10 @@ to ensure ports remain accessible:
 const canvas = new CanvasBuilder(element)
   .setDefaults({
     nodes: {
-      priority: 1,
+      priority: 1, // higher z-index
     },
     edges: {
-      priority: 0,
+      priority: 0, // lower z-index
       shape: (edgeId) => {
         const baseShape = new BezierEdgeShape({
           hasTargetArrow: true,
@@ -119,14 +119,9 @@ const canvas = new CanvasBuilder(element)
     },
   })
   .enableUserDraggableNodes({
-    moveEdgesOnTop: false,
+    moveEdgesOnTop: false, // keeps edges under nodes during node dragging
   })
   .enableUserTransformableViewport()
   .enableBackground()
   .build();
 {{< /code >}}
-
-Key configuration:
-- Nodes: `priority: 1` (higher z-index)
-- Edges: `priority: 0` (lower z-index)
-- Draggable nodes: `moveEdgesOnTop: false` keeps edges under nodes during node dragging
