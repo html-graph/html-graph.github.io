@@ -110,7 +110,8 @@
               }),
             )
             .addEdge({ from: "node-1-out", to: "node-2-in" })
-            .focus();
+            .patchViewportMatrix({ scale: 0.2 })
+            .center({ x: 450, y: 200 });
 
         }
 
