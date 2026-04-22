@@ -69,7 +69,7 @@ const canvas = new CanvasBuilder(element)
 
 {{< ref-target ref="mouse-configuration">}}
 
-### Mouse Configuration ### {#mouse-configuration}
+### `MouseConfig` ### {#mouse-configuration}
 
 | Name                     | Type                 | Description                                              | Required | Default      |
 |--------------------------|----------------------|----------------------------------------------------------|----------|--------------|
@@ -81,7 +81,7 @@ const canvas = new CanvasBuilder(element)
 
 {{< ref-target ref="events-configuration">}}
 
-### Events Configuration ### {#events-configuration}
+### `EventsConfig` ### {#events-configuration}
 
 | Name                 | Type               | Description                                   | Required | Default      |
 |----------------------|--------------------|-----------------------------------------------|----------|--------------|
