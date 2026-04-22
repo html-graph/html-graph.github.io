@@ -78,7 +78,7 @@ const canvas = new CanvasBuilder(element)
 {{< /ref-target >}}
 
 {{< ref-target ref="trigger">}}
-### Trigger strategies ### {#trigger}
+### `Trigger` ### {#trigger}
 
 | Strategy                 | Description                                                                                                                                                                                | Example                               |
 |--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
@@ -109,7 +109,7 @@ trigger.emit();
 
 {{< ref-target ref="events-configuration">}}
 
-### Events Configuration {#events-configuration}
+### `EventsConfig` {#events-configuration}
 
 | Name              | Type         | Description                                    | Required | Default    |
 |-------------------|--------------|------------------------------------------------|----------|------------|
