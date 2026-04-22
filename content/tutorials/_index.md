@@ -1,5 +1,5 @@
 ---
-title: Edges Customization
+title: Tutorials
 ---
 
 ## Tutorials
