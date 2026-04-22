@@ -42,9 +42,7 @@ const canvas = new CanvasBuilder(element)
     algorithm: {
       type: "forceDirected",
     },
-    applyOn: {
-      type: "topologyChangeMicrotask",
-    },
+    applyOn: "topologyChangeMicrotask",
     staticNodeResolver: (nodeId) => false,
     events: {
       onBeforeApplied: () => {
@@ -80,11 +78,10 @@ const canvas = new CanvasBuilder(element)
 {{< ref-target ref="trigger">}}
 ### `Trigger` ### {#trigger}
 
-| Strategy                 | Description                                                                                                                                                                                | Example                               |
-|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------|
-| TopologyChangeMicrotask  | Layout is recalculated when the graph topology changes. Calculation occurs in the next microtask, allowing intensive layout computations to run after all nodes and edges have been added. | `{ type: "topologyChangeMicrotask" }` |
-| TopologyChangeMacrotask  | Layout is recalculated when the graph topology changes. Calculation occurs in the next macrotask, allowing intensive layout computations to run after all nodes and edges have been added. | `{ type: "topologyChangeMacrotask" }` |
-| Manual                   | Layout is recalculated when the `emit` method is called on the provided `EventSubject` instance, as shown in the example below.                                                            | `new EventSubject()`                  |
+| Strategy                 | Description                                                                                                                                                                                | Example                     |
+|--------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------|
+| TopologyChangeMicrotask  | Layout is recalculated when the graph topology changes. Calculation occurs in the next microtask, allowing intensive layout computations to run after all nodes and edges have been added. | `"topologyChangeMicrotask"` |
+| Manual                   | Layout is recalculated when the `emit` method is called on the provided `EventSubject` instance, as shown in the example below.                                                            | `new EventSubject()`        |
 {{< /ref-target >}}
 
 #### Manual Layout Trigger
