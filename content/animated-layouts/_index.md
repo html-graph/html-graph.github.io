@@ -81,9 +81,9 @@ const canvas = new CanvasBuilder(element)
 
 ### `EventsConfig` {#events-configuration}
 
-| Name              | Type         | Description                                    | Required | Default    |
-|-------------------|--------------|------------------------------------------------|----------|------------|
-| `onBeforeApplied` | `() => void` | Function to call before layout applied         | No       | `() => {}` |
-| `onAfterApplied`  | `() => void` | Function to call after layout has been applied | No       | `() => {}` |
+| Name              | Type         | Description                                          | Required | Default    |
+|-------------------|--------------|------------------------------------------------------|----------|------------|
+| `onBeforeApplied` | `() => void` | Function to call when layout is about to be applied  | No       | `() => {}` |
+| `onAfterApplied`  | `() => void` | Function to call right after layout has been applied | No       | `() => {}` |
 
 {{< /ref-target >}}
