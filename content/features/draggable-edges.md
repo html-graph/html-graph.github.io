@@ -51,7 +51,7 @@ The `enableUserDraggableEdges` method accepts optional configuration.
 
 | Name                     | Type                         | Description                                                        |
 |--------------------------|------------------------------|--------------------------------------------------------------------|
-| constant                 | `number`                     | Fixed radian angle for the dragging port direction                 |
+| Constant                 | `number`                     | Fixed radian angle for the dragging port direction                 |
 | Nearest Connectable Port | `"nearest-connectable-port"` | Direction matches the direction of the nearest connectable port    |
 | Undefined                | `undefined`                  | Direction matches the original direction of the port being grabbed |
 {{< /ref-target >}}
