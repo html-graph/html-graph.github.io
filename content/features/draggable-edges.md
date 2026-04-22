@@ -57,7 +57,7 @@ The `enableUserDraggableEdges` method accepts optional configuration.
 {{< /ref-target >}}
 
 {{< ref-target ref="events">}}
-### Events Configuration ### {#events}
+### `EventsConfig` ### {#events}
 
 | Name                        | Type                                  | Description                                                      | Required | Default      |
 |-----------------------------|---------------------------------------|------------------------------------------------------------------|----------|--------------|
