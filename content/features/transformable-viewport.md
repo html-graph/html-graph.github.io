@@ -77,12 +77,12 @@ const canvas = new CanvasBuilder(element)
 
 ### Configuration Parameters
 
-| Name                    | Type                                 | Description                                 | Required | Default |
-|-------------------------|--------------------------------------|---------------------------------------------|----------|---------|
-| `scale`                 | [ScaleConfig](#scale-config)         | Scale-related behavior configuration        | no       | `{}`    |
-| `shift`                 | [ShiftConfig](#shift-config)         | Shift-related behavior configuration        | no       | `{}`    |
-| `transformPreprocessor` | [TransformConfig](#transform-config) | Transformation preprocessors configuration  | no       | `{}`    |
-| `events`                | [EventsConfig](#events-config)       | Handlers for available events               | no       | `{}`    |
+| Name                    | Type                                              | Description                                 | Required | Default |
+|-------------------------|---------------------------------------------------|---------------------------------------------|----------|---------|
+| `scale`                 | <code>[ScaleConfig](#scale-config)</code>         | Scale-related behavior configuration        | no       | `{}`    |
+| `shift`                 | <code>[ShiftConfig](#shift-config)</code>         | Shift-related behavior configuration        | no       | `{}`    |
+| `transformPreprocessor` | <code>[TransformConfig](#transform-config)</code> | Transformation preprocessors configuration  | no       | `{}`    |
+| `events`                | <code>[EventsConfig](#events-config)</code>       | Handlers for available events               | no       | `{}`    |
 
 {{< ref-target ref="scale-config">}}
 
