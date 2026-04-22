@@ -56,7 +56,7 @@ const canvas = new CanvasBuilder(element)
 
 {{< ref-target ref="tile-dimensions">}}
 
-### TileDimensions ### {#tile-dimensions}
+### `TileDimensions` ### {#tile-dimensions}
 
 | Name     | Type     | Description | Required | Default |
 |----------|----------|-------------|----------|---------|
@@ -67,7 +67,7 @@ const canvas = new CanvasBuilder(element)
 
 {{< ref-target ref="renderer">}}
 
-### Renderer ### {#renderer}
+### `Renderer` ### {#renderer}
 
 Can be either built-in circle:
 
