@@ -39,15 +39,24 @@ The `enableUserDraggableEdges` method accepts optional configuration.
 |-----------------------------|----------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|----------|--------------------------------------------------|
 | `draggingEdgeResolver`      | `(portId) => any`                                                                      | Resolves edge ID which will be dragged based on provided grabbed port ID. `null` means do not initiate dragging process. | no       | Latest adjacent edge                             |
 | `connectionAllowedVerifier` | `(request: { from: Identifier, to: Identifier }) => boolean`                           | Verifies if connection between specified ports is allowed.                                                               | no       | `(request) => true`                              |
-| `dragPortDirection`         | `number \| "closest-connectable-port" \| undefined`                                    | Direction of dragging port                                                                                               | no       | `undefined`                                      |
+| `dragPortDirection`         | <code>[DragPortDirection](#drag-port-direction)</code>                                 | Direction of dragging port                                                                                 | no       | `undefined`                     |
 | `connectionPreprocessor`    | `(request: AddEdgeRequest) => AddEdgeRequest`                                          | Applies modification to the edge about to be reattached.                                                                 | no       | `(request) => request`                           |
 | `mouseDownEventVerifier`    | `(event) => boolean`                                                                   | Function to verify if mouse event should initiate connection dragging process                                            | no       | `(event) => event.button === 0 && event.ctrlKey` |
 | `mouseUpEventVerifier`      | `(event) => boolean`                                                                   | Function to verify if mouse event should reattach connection                                                             | no       | `(event) => event.button === 0`                  |
 | `draggingEdgeShape`         | <code><a href="/defaults#edge-shape-config" target="_blank">EdgeShapeConfig</a></code> | The shape of a dragging edge                                                                                             | no       | Same as the edge being dragged                   |
 | `events`                    | <code>[EventsConfig](#events)</code>                                                   | Handlers for available events                                                                                            | no       | `{}`                                             |
 
-{{< ref-target ref="events">}}
+{{< ref-target ref="drag-port-direction">}}
+### `DragPortDirection` ### {#drag-port-direction}
 
+| Name                     | Type                         | Description                                                        |
+|--------------------------|------------------------------|--------------------------------------------------------------------|
+| constant                 | `number`                     | Fixed radian angle for the dragging port direction                 |
+| Closest Connectable Port | `"closest-connectable-port"` | Direction matches the direction of the closest connectable port    |
+| Undefined                | `undefined`                  | Direction matches the original direction of the port being grabbed |
+{{< /ref-target >}}
+
+{{< ref-target ref="events">}}
 ### Events Configuration ### {#events}
 
 | Name                        | Type                                  | Description                                                      | Required | Default      |

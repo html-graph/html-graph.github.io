@@ -39,15 +39,25 @@ The `enableUserConnectablePorts` method accepts optional configuration.
 |-----------------------------|----------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------|----------|---------------------------------|
 | `connectionTypeResolver`    | `(portId) => "direct" \| "reverse" \| null`                                            | Resolves connection type when edge creation has been initiated. `null` means that connection is disallowed | no       | `() => "direct"`                |
 | `connectionAllowedVerifier` | `(request: { from: Identifier, to: Identifier }) => boolean`                           | Verifies if connection between specified ports is allowed.                                                 | no       | `(request) => true`             |
-| `dragPortDirection`         | `number \| "closest-connectable-port" \| undefined`                                    | Direction of dragging port                                                                                 | no       | `undefined`                     |
+| `dragPortDirection`         | <code>[DragPortDirection](#drag-port-direction)</code>                                 | Direction of dragging port                                                                                 | no       | `undefined`                     |
 | `connectionPreprocessor`    | `(request: AddEdgeRequest) => AddEdgeRequest`                                          | Applies modifications to the edge about to be created.                                                     | no       | `(request) => request`          |
 | `mouseDownEventVerifier`    | `(event) => boolean`                                                                   | Function to verify if mouse event should initiate connection creation process                              | no       | `(event) => event.button === 0` |
 | `mouseUpEventVerifier`      | `(event) => boolean`                                                                   | Function to verify if mouse event should create connection                                                 | no       | `(event) => event.button === 0` |
 | `edgeShape`                 | <code><a href="/defaults#edge-shape-config" target="_blank">EdgeShapeConfig</a></code> | Default edge shape configuration while port is in the process of dragging                                  | no       | Same as for canvas              |
 | `events`                    | <code>[EventsConfig](#events)</code>                                                   | Handlers for available events                                                                              | no       | `{}`                            |
 
-{{< ref-target ref="events">}}
 
+{{< ref-target ref="drag-port-direction">}}
+### `DragPortDirection` ### {#drag-port-direction}
+
+| Name                     | Type                         | Description                                                        |
+|--------------------------|------------------------------|--------------------------------------------------------------------|
+| constant                 | `number`                     | Fixed radian angle for the dragging port direction                 |
+| Closest Connectable Port | `"closest-connectable-port"` | Direction matches the direction of the closest connectable port    |
+| Undefined                | `undefined`                  | Direction matches the original direction of the port being grabbed |
+{{< /ref-target >}}
+
+{{< ref-target ref="events">}}
 ### Events Configuration ### {#events}
 
 | Name                        | Type                                                   | Description                                                      | Required | Default      |
