@@ -86,7 +86,7 @@ const canvas = new CanvasBuilder(element)
 
 {{< ref-target ref="scale-config">}}
 
-### ScaleConfig ### {#scale-config}
+### `ScaleConfig` ### {#scale-config}
 
 | Name                      | Type       | Description                                                                                                                  | Required | Default      |
 |---------------------------|------------|------------------------------------------------------------------------------------------------------------------------------|----------|--------------|
@@ -98,7 +98,7 @@ const canvas = new CanvasBuilder(element)
 
 {{< ref-target ref="shift-config">}}
 
-### ShiftConfig ### {#shift-config}
+### `ShiftConfig` ### {#shift-config}
 
 | Name                     | Type             | Description                                              | Required | Default      |
 |--------------------------|------------------|----------------------------------------------------------|----------|--------------|
@@ -110,7 +110,7 @@ const canvas = new CanvasBuilder(element)
 
 {{< ref-target ref="transform-config">}}
 
-### TransformConfig ### {#transform-config}
+### `TransformConfig` ### {#transform-config}
 
 A single transformer or an array of transformers.
 
@@ -162,7 +162,7 @@ transformPreprocessor: (params) => {
 
 {{< ref-target ref="events-config">}}
 
-### EventsConfig ### {#events-config}
+### `EventsConfig` ### {#events-config}
 
 | Name                        | Description                                                                                                                       |
 |-----------------------------|-----------------------------------------------------------------------------------------------------------------------------------|
