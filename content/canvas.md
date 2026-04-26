@@ -97,7 +97,7 @@ or an <a href="/animated-layouts/">animated layout algorithm</a>.</b>
 
 {{< ref-target ref="add-node-port-params">}}
 
-#### Port Parameters #### {#add-node-port-params}
+#### `Port` #### {#add-node-port-params}
 
 | Name        | Type                        | Description                     | Required | Default         |
 |-------------|-----------------------------|---------------------------------|----------|-----------------|
