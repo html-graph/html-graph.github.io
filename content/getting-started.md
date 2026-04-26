@@ -301,7 +301,7 @@ class Application {
 </div>
 
 <div data-tab-content="4">
-To connect these two nodes, the <a href="/canvas/#add-edge" target="_blank">addEdge</a> method will be used.
+To connect these two nodes, the <a href="/canvas/#add-edge" target="_blank">addEdge</a> method can be used.
 It accepts the identifiers of the source port and the target port.
 
 {{< code lang="javascript" >}}
