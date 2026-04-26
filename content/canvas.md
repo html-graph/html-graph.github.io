@@ -79,7 +79,7 @@ canvas.addNode({
 });
 {{< /code >}}
 
-#### Parameters
+#### Parameters for `addNode`
 
 | Name       | Type                                                | Description                             | Required | Default                        |
 |------------|-----------------------------------------------------|-----------------------------------------|----------|--------------------------------|
@@ -145,7 +145,7 @@ canvas.updateNode("node-1");
 | `updateRequest` | <code>[NodeUpdateRequest](#node-update-request)</code> | Properties to update             | no       | `{}`    |
 
 {{< ref-target ref="node-update-request">}}
-#### `NodeUpdateRequest` Parameters #### {#node-update-request}
+#### `NodeUpdateRequest` #### {#node-update-request}
 
 | Name       | Type       | Description                             | Required |
 |------------|------------|-----------------------------------------|----------|
@@ -236,7 +236,7 @@ canvas.updatePort("port-1");
 | `updateRequest` | <code>[PortUpdateRequest](#port-update-request)</code> | Properties to update             | no       | `{}`    |
 
 {{< ref-target ref="port-update-request">}}
-#### `PortUpdateRequest` Parameters #### {#port-update-request}
+#### `PortUpdateRequest` #### {#port-update-request}
 
 | Name        | Type     | Description                     | Required |
 |-------------|----------|---------------------------------|----------|
@@ -286,7 +286,7 @@ canvas.addEdge({
 });
 {{< /code >}}
 
-#### Parameters:
+#### Parameters for `addEdge`:
 
 | Name       | Type                                                               | Description                    | Required | Default           |
 |------------|--------------------------------------------------------------------|--------------------------------|----------|-------------------|
@@ -334,7 +334,7 @@ canvas.updateEdge("edge-1");
 | `updateRequest` | <code><a href="#edge-update-request">EdgeUpdateRequest</a></code> | Properties to update             | no       | `{}`    |
 
 {{< ref-target ref="edge-update-request">}}
-#### `EdgeUpdateRequest` Parameters #### {#edge-update-request}
+#### `EdgeUpdateRequest` #### {#edge-update-request}
 
 | Name       | Type                                                               | Description               | Required |
 |------------|--------------------------------------------------------------------|---------------------------|----------|
