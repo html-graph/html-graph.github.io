@@ -88,10 +88,10 @@ const canvas = new CanvasBuilder(element)
 
 #### `EdgesConfig` Fields
 
-| Name        | Type                                               | Description                      | Required | Default |
-|-------------|----------------------------------------------------|----------------------------------|----------|---------|
-| `shape`     | <code>[EdgeShapeConfig](#edge-shape-config)</code> | Default edge shape configuration | no       | `{}`    |
-| `priority`  | <code>[Priority](#edge-priority)</code>            | Default edge priority            | no       | `0`     |
+| Name        | Type                                               | Description                      | Required | Default              |
+|-------------|----------------------------------------------------|----------------------------------|----------|----------------------|
+| `shape`     | <code>[EdgeShapeConfig](#edge-shape-config)</code> | Default edge shape configuration | no       | `{ type: "bezier" }` |
+| `priority`  | <code>[Priority](#edge-priority)</code>            | Default edge priority            | no       | `0`                  |
 
 {{< ref-target ref="edge-shape-config">}}
 #### `EdgeShapeConfig` Options ### {#edge-shape-config}
