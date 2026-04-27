@@ -88,7 +88,7 @@ You can pass a string value instead of a function if your use case matches one o
 
 {{< ref-target ref="transformation">}}
 
-### `transform` {#transformation}
+### `Transformation` {#transformation}
 
 The `transform` parameter can be either a single transformation or an array of sequential transformations.
 
