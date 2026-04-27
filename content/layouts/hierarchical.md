@@ -39,12 +39,12 @@ const canvas = new CanvasBuilder(element)
 {{< /code >}}
 
 
-| Name                     | Type                                                                 | Description                                                                  | Required | Default      |
-|--------------------------|----------------------------------------------------------------------|------------------------------------------------------------------------------|----------|--------------|
-| `layerWidth`             | `number`                                                             | Width of a single layer                                                      | No       | `300`        |
-| `layerSpace`             | `number`                                                             | Minimum space between nodes within a single layer                            | No       | `300`        |
-| `nextLayerNodesResolver` | [`NextLayerNodesResolver`](#next-layer-nodes-resolver)               | Determines which nodes move to the next layer during layout calculation      | No       | `"adjacent"` |
-| `transform`              | [`Transformation \| Transformation[]`](#transformation) \| undefined | Single transformation or array of transformations to apply to node positions | No       | `undefined`  |
+| Name                     | Type                                                                   | Description                                                                  | Required | Default      |
+|--------------------------|------------------------------------------------------------------------|------------------------------------------------------------------------------|----------|--------------|
+| `layerWidth`             | `number`                                                               | Width of a single layer                                                      | No       | `300`        |
+| `layerSpace`             | `number`                                                               | Minimum space between nodes within a single layer                            | No       | `300`        |
+| `nextLayerNodesResolver` | [`NextLayerNodesResolver`](#next-layer-nodes-resolver)                 | Determines which nodes move to the next layer during layout calculation      | No       | `"adjacent"` |
+| `transform`              | [`Transformation \| Transformation[]`](#transformation) `\| undefined` | Single transformation or array of transformations to apply to node positions | No       | `undefined`  |
 
 {{< ref-target ref="next-layer-nodes-resolver">}}
 
