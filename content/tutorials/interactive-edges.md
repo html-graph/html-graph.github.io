@@ -81,7 +81,7 @@ const canvas = new CanvasBuilder(element)
 | `interactiveParameters` | <code>[InteractiveParams](#interactive-params)</code> | Configuration for interactive behavior | No       | `{}`    |
 
 {{< ref-target ref="interactive-params">}}
-### Interactive Parameters ### {#interactive-params}
+### `InteractiveParams` ### {#interactive-params}
 
 | Name       | Type     | Description                                    | Required | Default |
 |------------|----------|------------------------------------------------|----------|---------|
