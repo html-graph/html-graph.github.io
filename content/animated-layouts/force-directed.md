@@ -66,7 +66,7 @@ const canvas = new CanvasBuilder(element)
 
 {{< ref-target ref="barnes-hut">}}
 
-### Barnes-Hut approximation configuration ### {#barnes-hut}
+### `BarnesHutConfig` ### {#barnes-hut}
 
 | Name                  | Type     | Description                                                                                                                                                                                                                             | Required | Default |
 |-----------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|---------|
