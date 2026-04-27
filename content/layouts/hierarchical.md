@@ -48,7 +48,7 @@ const canvas = new CanvasBuilder(element)
 
 {{< ref-target ref="next-layer-nodes-resolver">}}
 
-### `nextLayerNodesResolver` {#next-layer-nodes-resolver}
+### `NextLayerNodesResolver` {#next-layer-nodes-resolver}
 
 Hierarchical layout algorithm uses breadth-first graph traversal to generate a graph spanning tree.
 
