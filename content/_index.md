@@ -54,7 +54,7 @@ cases, and complete TypeScript support.
         {{< image path="/images/force-directed-layout" alt="Layouts" width="500" height="500">}}
         <div class="label-wrapper">
           <label>
-            Force-directed Animated Layout
+            Force-directed Layout
           </label>
         </div>
       </a>
