@@ -75,7 +75,6 @@
             .addNode(
               this.createNode({
                 id: "node-1",
-                name: "1",
                 x: 200,
                 y: 300,
               }),
@@ -83,7 +82,6 @@
             .addNode(
               this.createNode({
                 id: "node-2",
-                name: "2",
                 x: 500,
                 y: 350,
               }),
@@ -91,7 +89,6 @@
             .addNode(
               this.createNode({
                 id: "node-3",
-                name: "3",
                 x: 800,
                 y: 200,
               }),
@@ -99,7 +96,6 @@
             .addNode(
               this.createNode({
                 id: "node-4",
-                name: "4",
                 x: 800,
                 y: 600,
               }),
@@ -111,11 +107,10 @@
             .focus();
         }
 
-        createNode({ id, name, x, y }) {
+        createNode({ id, x, y }) {
           const node = document.createElement("div");
 
           node.classList.add("node");
-          node.innerText = name;
 
           return {
             element: node,
