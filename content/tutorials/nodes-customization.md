@@ -5,7 +5,7 @@ title: Tutorials | Nodes Customization
 ## Nodes Customization
 
 Nodes can be customized using the full potential of HTML and CSS.
-Below are common scenarios for node customization:
+Below are common scenarios for node shapes:
 
 ### 1. Circle Node [#](#circle-node) ### {#circle-node}
 
