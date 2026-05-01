@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+  <head>
+    <title>HTMLGraph | Direct edges demo</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        position: relative;
+        font-family: Arial, sans-serif;
+      }
+
+      #canvas {
+        position: absolute;
+        inset: 0;
+      }
+
+      .node {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 200px;
+        height: 100px;
+        background: #daedbd;
+        border: 1px solid #9e9e9e;
+        box-shadow: 0 0 5px #9e9e9e;
+        border-radius: 5px;
+        user-select: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="canvas"></div>
+    <script type="module">
+      import { CanvasBuilder, boxPortOffsetFn } from "https://html-graph.github.io/lib/v8.20.0/html-graph.min.js";
+
+      class Application {
+        nodePriority = 1;
+
+        constructor(element) {
+          this.canvas = new CanvasBuilder(element)
+            .setDefaults({
+              nodes: {
+                priority: () => this.nodePriority++,
+              },
+              edges: {
+                shape: {
+                  type: "direct",
+                  hasSourceArrow: true,
+                  hasTargetArrow: true,
+                  sourceOffset: boxPortOffsetFn,
+                  targetOffset: boxPortOffsetFn,
+                },
+                priority: 0,
+              },
+            })
+            .enableUserDraggableNodes({ moveEdgesOnTop: false })
+            .enableUserTransformableViewport()
+            .enableBackground()
+            .build();
+        }
+
+        initGraph() {
+          this.canvas
+            .addNode(
+              this.createNode({
+                id: "node-1",
+                name: "1",
+                x: 200,
+                y: 300,
+              }),
+            )
+            .addNode(
+              this.createNode({
+                id: "node-2",
+                name: "2",
+                x: 500,
+                y: 350,
+              }),
+            )
+            .addNode(
+              this.createNode({
+                id: "node-3",
+                name: "3",
+                x: 800,
+                y: 200,
+              }),
+            )
+            .addNode(
+              this.createNode({
+                id: "node-4",
+                name: "4",
+                x: 800,
+                y: 600,
+              }),
+            )
+            .addEdge({ from: "node-1", to: "node-2" })
+            .addEdge({ from: "node-2", to: "node-3" })
+            .addEdge({ from: "node-2", to: "node-4" })
+            .addEdge({ from: "node-3", to: "node-4" })
+            .focus();
+        }
+
+        createNode({ id, name, x, y }) {
+          const node = document.createElement("div");
+
+          node.classList.add("node");
+          node.innerText = name;
+
+          return {
+            element: node,
+            x: x,
+            y: y,
+            ports: [
+              { id: id, element: node },
+            ],
+          };
+        }
+      }
+
+      const element = document.getElementById("canvas");
+      const app = new Application(element);
+
+      app.initGraph();
+    </script>
+  </body>
+</html>
