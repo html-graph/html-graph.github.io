@@ -106,7 +106,6 @@
           graphData.nodes.forEach((nodeId) => {
             this.canvas.addNode(
               this.createNode({
-                name: `${nodeId}`,
                 frontPortId: `${nodeId}-in`,
                 backPortId: `${nodeId}-out`,
               })
@@ -120,19 +119,16 @@
           this.canvas.focus();
         }
 
-        createNode({ name, x, y, frontPortId, backPortId }) {
+        createNode({ x, y, frontPortId, backPortId }) {
           const node = document.createElement("div");
-          const text = document.createElement("div");
           const frontPort = document.createElement("div");
           const backPort = document.createElement("div");
 
           node.classList.add("node");
           frontPort.classList.add("node-port");
           backPort.classList.add("node-port");
-          text.innerText = name;
 
           node.appendChild(frontPort);
-          node.appendChild(text);
           node.appendChild(backPort);
 
           return {
