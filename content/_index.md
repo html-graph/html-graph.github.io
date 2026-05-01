@@ -40,7 +40,7 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
-      <a target="_blank" href="/features/selectable-entities/" aria-label="Selectable Entities">
+      <a target="_blank" href="/features/selectable-entities/" aria-label="Selection">
         {{< image path="/images/selectable-entities" alt="Selectable Entities" width="500" height="500">}}
         <div class="label-wrapper">
           <label>
