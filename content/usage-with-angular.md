@@ -8,6 +8,14 @@ HTMLGraph can be used with any frontend framework.
 The common scenario is when you want node component to be reactive, thus be
 managed by the framework itself.
 
+<a href="https://html-graph.github.io/html-graph-angular-demo/" target="_blank" aria-label="Angular Demo">
+  <div class="video">
+    <video autoplay muted loop>
+      <source src="/media/angular-demo.webm">
+    </video>
+  </div>
+</a>
+
 Check out the <b><a href="https://html-graph.github.io/html-graph-angular-demo/" target="_blank">Angular live demo</a></b>
 and the <b><a href="https://github.com/html-graph/html-graph-angular-demo/" target="_blank">Angular demo source code</a></b>.
 
