@@ -38,12 +38,12 @@ const canvas = new CanvasBuilder(element)
 
 | Name                   | Type                                        | Description                                         | Required |
 |------------------------|---------------------------------------------|-----------------------------------------------------|----------|
-| `nodeContainingRadius` | <code>[RadiusConfig](#radius-config)</code> | The radius that fully covers a node from its center | yes      |
+| `nodeContainingRadius` | <code>[Radii](#radii)</code>                | The radius that fully covers a node from its center | yes      |
 | `events`               | <code>[EventsConfig](#events-config)</code> | Virtual scroll related events                       | no       |
 
-{{< ref-target ref="radius-config">}}
+{{< ref-target ref="radii">}}
 
-### `RadiusConfig` parameters {#radius-config}
+### `Radii` {#radii}
 
 | Name         | Type     | Description                                                     | Required |
 |--------------|----------|-----------------------------------------------------------------|----------|
@@ -54,7 +54,7 @@ const canvas = new CanvasBuilder(element)
 
 {{< ref-target ref="events-config">}}
 
-### `EventsConfig` parameters {#events-config}
+### `EventsConfig` {#events-config}
 
 | Name                   | Type               | Description                                           | Required | Default      |
 |------------------------|--------------------|-------------------------------------------------------|----------|--------------|
