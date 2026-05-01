@@ -106,7 +106,6 @@
           this.canvas
             .addNode(
               this.createNode({
-                name: "Node 1",
                 x: 200,
                 y: 300,
                 frontPortId: "node-1-in",
@@ -115,7 +114,6 @@
             )
             .addNode(
               this.createNode({
-                name: "Node 2",
                 x: 200,
                 y: 500,
                 frontPortId: "node-2-in",
@@ -124,7 +122,6 @@
             )
             .addNode(
               this.createNode({
-                name: "Node 3",
                 x: 500,
                 y: 400,
                 frontPortId: "node-3-in",
@@ -133,7 +130,6 @@
             )
             .addNode(
               this.createNode({
-                name: "Node 4",
                 x: 500,
                 y: 200,
                 frontPortId: "node-4-in",
@@ -142,7 +138,6 @@
             )
             .addNode(
               this.createNode({
-                name: "Node 5",
                 x: 500,
                 y: 600,
                 frontPortId: "node-5-in",
@@ -151,7 +146,6 @@
             )
             .addNode(
               this.createNode({
-                name: "Node 6",
                 x: 800,
                 y: 300,
                 frontPortId: "node-6-in",
@@ -160,7 +154,6 @@
             )
             .addNode(
               this.createNode({
-                name: "Node 7",
                 x: 800,
                 y: 500,
                 frontPortId: "node-7-in",
@@ -187,17 +180,14 @@
           return port;
         }
 
-        createNode({ name, x, y, frontPortId, backPortId }) {
+        createNode({ x, y, frontPortId, backPortId }) {
           const node = document.createElement("div");
-          const text = document.createElement("div");
           const frontPort = this.createPortElement();
           const backPort = this.createPortElement();
 
           node.classList.add("node");
-          text.innerText = name;
 
           node.appendChild(frontPort);
-          node.appendChild(text);
           node.appendChild(backPort);
 
           return {
