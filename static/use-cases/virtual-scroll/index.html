@@ -160,7 +160,6 @@
                 const j = Math.floor(iter / layer);
 
                 const request = this.createNode({
-                  name: `Node ${iter}`,
                   x: i * 300,
                   y: j * 300,
                   frontPortId,
@@ -187,19 +186,16 @@
           }
         }
 
-        createNode({ name, x, y, frontPortId, backPortId }) {
+        createNode({ x, y, frontPortId, backPortId }) {
           const node = document.createElement("div");
-          const text = document.createElement("div");
           const frontPort = document.createElement("div");
           const backPort = document.createElement("div");
 
           node.classList.add("node");
           frontPort.classList.add("node-port");
           backPort.classList.add("node-port");
-          text.innerText = name;
 
           node.appendChild(frontPort);
-          node.appendChild(text);
           node.appendChild(backPort);
 
           return {
