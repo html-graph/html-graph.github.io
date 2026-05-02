@@ -89,6 +89,16 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
+      <a target="_blank" href="/edge-shapes/direct/#port-offset-fn" aria-label="Arrow Positioning">
+        {{< image path="/images/arrow-positioning" alt="Arrow Positioning" width="500" height="500">}}
+        <div class="label-wrapper">
+          <label>
+            Arrow Positioning
+          </label>
+        </div>
+      </a>
+    </li>
+    <li class="preview">
       <a target="_blank" href="/features/background/" aria-label="Custom Background">
         {{< image path="/images/custom-background" alt="Custom Background" width="500" height="500">}}
         <div class="label-wrapper">
