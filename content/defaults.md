@@ -25,7 +25,7 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-#### `NodesConfig` Fields
+#### `NodesConfig`
 
 | Name       | Type                                    | Description                                     | Required | Default                          |
 |------------|-----------------------------------------|-------------------------------------------------|----------|----------------------------------|
@@ -59,7 +59,7 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-#### `PortsConfig` Fields
+#### `PortsConfig`
 
 | Name        | Type     | Description             | Required | Default |
 |-------------|----------|-------------------------|----------|---------|
@@ -86,7 +86,7 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-#### `EdgesConfig` Fields
+#### `EdgesConfig`
 
 | Name        | Type                                               | Description                      | Required | Default              |
 |-------------|----------------------------------------------------|----------------------------------|----------|----------------------|
@@ -136,7 +136,7 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-#### `FocusConfig` Fields
+#### `FocusConfig`
 
 | Name                | Type            | Description                                                                                                                               | Required | Default |
 |---------------------|-----------------|-------------------------------------------------------------------------------------------------------------------------------------------|----------|---------|
