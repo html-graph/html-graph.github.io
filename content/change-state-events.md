@@ -90,6 +90,13 @@ canvas.graph.onAfterEdgeUpdated.subscribe((edgeId) => {
 {{< / code >}}
 
 {{< code lang="javascript" >}}
+canvas.graph.onAfterEdgeShapeUpdated.subscribe((edgeId) => {
+  console.log('edge shape has just been changed');
+  console.log(canvas.graph.getEdge(edgeId).shape);
+});
+{{< / code >}}
+
+{{< code lang="javascript" >}}
 canvas.graph.onAfterEdgePriorityUpdated.subscribe((edgeId) => {
   console.log('edge z-index has just been changed');
   console.log(canvas.graph.getEdge(edgeId).priority);
