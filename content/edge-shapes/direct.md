@@ -89,8 +89,8 @@ Here is an example of such a function that positions arrows near the border of a
 {{< code lang="javascript">}}
 const boxPortOffsetFn = (params) => {
   const { direction, radius } = params;
-  const { x, y } = direction;
-  const { horizontal, vertical } = radius;
+  const { x, y } = direction; // the direction vector of direct edge
+  const { horizontal, vertical } = radius; // half of port element width and height
   const tg = y / x;
 
   const horX = Math.abs(vertical / tg);
