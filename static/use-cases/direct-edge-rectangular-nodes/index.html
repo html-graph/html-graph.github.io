@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>HTMLGraph | Direct edges demo</title>
+    <title>HTMLGraph | Direct edges box port offset</title>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
@@ -43,7 +43,7 @@
   <body>
     <div id="canvas"></div>
     <script type="module">
-      import { CanvasBuilder, boxPortOffsetFn } from "https://html-graph.github.io/lib/v8.21.0/html-graph.min.js";
+      import { CanvasBuilder } from "https://html-graph.github.io/lib/v8.21.0/html-graph.min.js";
 
       class Application {
         nodePriority = 1;
@@ -59,8 +59,8 @@
                   type: "direct",
                   hasSourceArrow: true,
                   hasTargetArrow: true,
-                  sourceOffset: boxPortOffsetFn,
-                  targetOffset: boxPortOffsetFn,
+                  sourceOffset: "box",
+                  targetOffset: "box",
                 },
                 priority: 0,
               },

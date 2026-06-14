@@ -105,7 +105,7 @@ const boxPortOffsetFn = (params) => {
 
 {{< use-case src=/use-cases/direct-edge-rectangular-nodes/ >}}
 
-`boxPortOffsetFn` is provided out-of-the-box by the library:
+`boxPortOffsetFn` is built into the library for direct edges:
 
 {{< code lang="javascript">}}
 import { boxPortOffsetFn } from "@html-graph/html-graph";
@@ -116,8 +116,8 @@ canvas.addEdge({
   shape: new DirectEdgeShape({
     hasSourceArrow: true,
     hasTargetArrow: true,
-    sourceOffset: boxPortOffsetFn,
-    targetOffset: boxPortOffsetFn,
+    sourceOffset: "box",
+    targetOffset: "box",
   }),
 });
 {{< /code >}}
