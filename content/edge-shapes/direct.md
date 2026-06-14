@@ -108,8 +108,6 @@ const boxPortOffsetFn = (params) => {
 `boxPortOffsetFn` is built into the library for direct edges:
 
 {{< code lang="javascript">}}
-import { boxPortOffsetFn } from "@html-graph/html-graph";
-
 canvas.addEdge({
   from: "port-1",
   to: "port-2",
