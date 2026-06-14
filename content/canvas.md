@@ -39,17 +39,17 @@ canvas.addNode({
 For convenience, ports can be specified directly during the node creation.
 
 {{< code lang="javascript">}}
-const node = document.createElement('div');
-const port = document.createElement('div');
-node.appendChild(port);
+const nodeElement = document.createElement('div');
+const portElement = document.createElement('div');
+nodeElement.appendChild(portElement);
 
 canvas.addNode({
   id: "node-1",
-  element: node,
+  element: nodeElement,
   ports: [
     {
       id: "port-1",
-      element: port,
+      element: portElement,
     },
   ],
 });
@@ -58,19 +58,19 @@ canvas.addNode({
 All available parameters are demonstrated in the following example:
 
 {{< code lang="javascript">}}
-const node = document.createElement('div');
-const port = document.createElement('div');
-node.appendChild(port);
+const nodeElement = document.createElement('div');
+const portElement = document.createElement('div');
+nodeElement.appendChild(portElement);
 
 canvas.addNode({
   id: "node-1",
-  element: node,
+  element: nodeElement,
   x: 100,
   y: 100,
   ports: [
     {
       id: "port-1",
-      element: port,
+      element: portElement,
       direction: 0,
     },
   ],
