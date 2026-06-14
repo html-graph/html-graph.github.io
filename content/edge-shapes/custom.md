@@ -37,7 +37,6 @@ class MyCustomEdgeShape implements EdgeShape {
     this.line.setAttribute("stroke", "#777777");
     this.line.setAttribute("stroke-width", "1");
     this.line.setAttribute("fill", "none");
-    this.line.classList.add("custom-line");
 
     this.svg.appendChild(this.line);
   }

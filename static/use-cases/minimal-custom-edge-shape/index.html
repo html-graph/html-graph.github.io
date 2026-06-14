@@ -53,10 +53,6 @@
         background: #777777;
         border-radius: 3px;
       }
-
-      .custom-line {
-        filter: drop-shadow(3px 3px 2px #FF0000);
-      }
     </style>
   </head>
   <body>
@@ -84,7 +80,6 @@
           this.line.setAttribute("stroke", "#777777");
           this.line.setAttribute("stroke-width", "1");
           this.line.setAttribute("fill", "none");
-          this.line.classList.add("custom-line");
 
           this.svg.appendChild(this.line);
         }
