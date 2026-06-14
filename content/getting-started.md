@@ -276,7 +276,7 @@ class Application {
     this.canvas
       .addNode(
         this.createNode({
-          name: "Node 1",
+          name: "Hello",
           x: 200,
           y: 200,
           frontPortId: "node-1-in",
@@ -285,8 +285,8 @@ class Application {
       )
       .addNode(
         this.createNode({
-          name: "Node 2",
-          x: 600,
+          name: "World",
+          x: 500,
           y: 300,
           frontPortId: "node-2-in",
           backPortId: "node-2-out",
@@ -312,7 +312,7 @@ class Application {
     this.canvas
       .addNode(
         this.createNode({
-          name: "Node 1",
+          name: "Hello",
           x: 200,
           y: 200,
           frontPortId: "node-1-in",
@@ -321,8 +321,8 @@ class Application {
       )
       .addNode(
         this.createNode({
-          name: "Node 2",
-          x: 600,
+          name: "World",
+          x: 500,
           y: 300,
           frontPortId: "node-2-in",
           backPortId: "node-2-out",
@@ -401,7 +401,6 @@ class Application {
 {{< /code >}}
 
 Refer to <a href="/features/" target="_blank">Features</a> for all available options.
-
 
 </div>
 
