@@ -34,7 +34,7 @@ In addition to `type: "direct"`, the following options are available:
 | `arrowRenderer`    | <code><a target="_blank" href="/edge-arrows/">ArrowRenderer</a></code> | Arrow shape                                      | no       | `{}`         |
 | `arrowLength`      | `number`                                                               | Full length of the arrow                         | no       | `20`         |
 | `sourceOffset`     | <code>number \| "box" \| [PortOffsetFn](#port-offset-fn)</code>        | Empty space distance from source port to an edge | no       | `0`          |
-| `targetOffset`     | <code>number \| [PortOffsetFn](#port-offset-fn)</code>                 | Empty space distance from target port to an edge | no       | `0`          |
+| `targetOffset`     | <code>number \| "box" \| [PortOffsetFn](#port-offset-fn)</code>                 | Empty space distance from target port to an edge | no       | `0`          |
 | `hasSourceArrow`   | `boolean`                                                              | Draw an arrow near the source port               | no       | `false`      |
 | `hasTargetArrow`   | `boolean`                                                              | Draw an arrow near the target port               | no       | `false`      |
 {{< /ref-target >}}
