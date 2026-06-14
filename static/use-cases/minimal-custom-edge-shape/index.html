@@ -119,13 +119,16 @@
         constructor(element) {
           this.canvas = new CanvasBuilder(element)
             .setDefaults({
+              nodes: {
+                priority: 1,
+              },
               edges: {
                 shape: () => {
                   return new MyCustomEdgeShape();
                 }
               }
             })
-            .enableUserDraggableNodes()
+            .enableUserDraggableNodes({ moveEdgesOnTop: false })
             .enableUserTransformableViewport()
             .enableBackground()
             .build();
@@ -137,44 +140,34 @@
               this.createNode({
                 x: 200,
                 y: 200,
-                frontPortId: "node-1-in",
-                backPortId: "node-1-out",
+                portId: "port-1",
               }),
             )
             .addNode(
               this.createNode({
                 x: 600,
                 y: 300,
-                frontPortId: "node-2-in",
-                backPortId: "node-2-out",
+                portId: "port-2",
               }),
             )
             .addEdge({
-              from: "node-1-out",
-              to: "node-2-in",
+              from: "port-1",
+              to: "port-2",
             })
             .focus();
         }
 
-        createNode({ x, y, frontPortId, backPortId }) {
+        createNode({ x, y, portId }) {
           const node = document.createElement("div");
-          const frontPort = document.createElement("div");
-          const backPort = document.createElement("div");
 
           node.classList.add("node");
-          frontPort.classList.add("node-port");
-          backPort.classList.add("node-port");
-
-          node.appendChild(frontPort);
-          node.appendChild(backPort);
 
           return {
             element: node,
             x: x,
             y: y,
             ports: [
-              { id: frontPortId, element: frontPort },
-              { id: backPortId, element: backPort },
+              { id: portId, element: node },
             ],
           };
         }
