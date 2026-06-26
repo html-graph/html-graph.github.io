@@ -101,9 +101,7 @@ const boxPortOffsetFn = (params) => {
 
   return Math.sqrt(minX * minX + minY * minY);
 };
-{{< /code >}}
 
-{{< code lang="javascript">}}
 canvas.addEdge({
   from: "port-1",
   to: "port-2",
