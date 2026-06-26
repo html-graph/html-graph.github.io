@@ -101,19 +101,9 @@ This method returns `undefined` if specified element is not assigned to any edge
 const edgeIds = canvas.graph.getPortIncomingEdgeIds("port-1");
 {{< / code >}}
 
-1. get the IDs of incoming edges for a specific node
-{{< code lang="javascript" >}}
-const edgeIds = canvas.graph.getNodeIncomingEdgeIds("node-1");
-{{< / code >}}
-
 1. get the IDs of outgoing edges for a specific port
 {{< code lang="javascript" >}}
 const edgeIds = canvas.graph.getPortOutgoingEdgeIds("port-1");
-{{< / code >}}
-
-1. get the IDs of outgoing edges for a specific node
-{{< code lang="javascript" >}}
-const edgeIds = canvas.graph.getNodeOutgoingEdgeIds("node-1");
 {{< / code >}}
 
 1. get the IDs of cycle edges for a specific port
@@ -121,14 +111,24 @@ const edgeIds = canvas.graph.getNodeOutgoingEdgeIds("node-1");
 const edgeIds = canvas.graph.getPortCycleEdgeIds("port-1");
 {{< / code >}}
 
-1. get the IDs of cycle edges for a specific node
-{{< code lang="javascript" >}}
-const edgeIds = canvas.graph.getNodeCycleEdgeIds("node-1");
-{{< / code >}}
-
 1. get the IDs of adjacent edges for a specific port
 {{< code lang="javascript" >}}
 const edgeIds = canvas.graph.getPortAdjacentEdgeIds("port-1");
+{{< / code >}}
+
+1. get the IDs of incoming edges for a specific node
+{{< code lang="javascript" >}}
+const edgeIds = canvas.graph.getNodeIncomingEdgeIds("node-1");
+{{< / code >}}
+
+1. get the IDs of outgoing edges for a specific node
+{{< code lang="javascript" >}}
+const edgeIds = canvas.graph.getNodeOutgoingEdgeIds("node-1");
+{{< / code >}}
+
+1. get the IDs of cycle edges for a specific node
+{{< code lang="javascript" >}}
+const edgeIds = canvas.graph.getNodeCycleEdgeIds("node-1");
 {{< / code >}}
 
 1. get the IDs of adjacent edges for a specific node
