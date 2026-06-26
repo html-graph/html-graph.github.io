@@ -103,6 +103,19 @@ const boxPortOffsetFn = (params) => {
 };
 {{< /code >}}
 
+{{< code lang="javascript">}}
+canvas.addEdge({
+  from: "port-1",
+  to: "port-2",
+  shape: new DirectEdgeShape({
+    hasSourceArrow: true,
+    hasTargetArrow: true,
+    sourceOffset: boxPortOffsetFn,
+    targetOffset: boxPortOffsetFn,
+  }),
+});
+{{< /code >}}
+
 {{< use-case src=/use-cases/direct-edge-rectangular-nodes/ >}}
 
 `boxPortOffsetFn` is built into the library for direct edges:
