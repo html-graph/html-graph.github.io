@@ -176,6 +176,8 @@ It defines a full-screen canvas and an <code>Application</code> class.
   </body>
 </html>
 {{< /code >}}
+
+<button class="go-to-button" data-target-tab="1">Next step&nbsp;&nbsp;➜</button>
 </div>
 
 <div data-tab-content="1">
@@ -226,6 +228,8 @@ A port is a proxy element through which nodes are connected.
 It provides more flexibility for managing edges.
 
 <b>\* The node <code>element</code> can also be used as a port <code>element</code> simultaneously.</b>
+
+<button class="go-to-button" data-target-tab="2">Next step&nbsp;&nbsp;➜</button>
 </div>
 
 <div data-tab-content="2">
@@ -263,6 +267,8 @@ This is a basic example of what node's styles could be:
   border-radius: 3px;
 }
 {{< /code >}}
+
+<button class="go-to-button" data-target-tab="3">Next step&nbsp;&nbsp;➜</button>
 </div>
 
 <div data-tab-content="3">
@@ -298,6 +304,8 @@ class Application {
   // ...
 }
 {{< /code >}}
+
+<button class="go-to-button" data-target-tab="4">Next step&nbsp;&nbsp;➜</button>
 </div>
 
 <div data-tab-content="4">
@@ -358,6 +366,8 @@ class Application {
 {{< /code >}}
 
 Refer to the <a href="/defaults/" target="_blank">Defaults</a> page for all available options.
+
+<button class="go-to-button" data-target-tab="5">Next step&nbsp;&nbsp;➜</button>
 </div>
 
 <div data-tab-content="5">

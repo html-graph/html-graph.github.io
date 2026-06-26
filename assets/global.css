@@ -450,6 +450,17 @@ ol {
   display: block;
 }
 
+.go-to-button {
+  background: #8dcdf4;
+  padding: 0.5rem 1rem;
+  border: 2px solid #3494d1;
+  border-radius: 0.5rem;
+}
+
+.go-to-button:hover {
+  background: #6abef2;
+}
+
 .introduction {
   margin: 0 auto 4rem;
   text-align: center;

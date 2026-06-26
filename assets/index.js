@@ -126,6 +126,18 @@ document.querySelectorAll("[data-tabs]").forEach((tabs) => {
       setActiveTab(tabs, index);
     });
   });
+
+  tabs.querySelectorAll("[data-target-tab]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const tabNumber = button.dataset.targetTab;
+      setActiveTab(tabs, tabNumber)
+
+      tabs.querySelector("[data-tabs-btns]").scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+      });
+    });
+  });
 });
 
 const burger = document.querySelector("[data-burger]");
