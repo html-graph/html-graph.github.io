@@ -8,6 +8,8 @@ HTMLGraph can be used with any frontend framework.
 The common scenario is when you want node component to be reactive, thus be
 managed by the framework itself.
 
+This <b><a href="https://html-graph.github.io/html-graph-angular-demo/" target="_blank">Demo</a></b> uses Angular components as graph nodes.
+
 <a href="https://html-graph.github.io/html-graph-angular-demo/" target="_blank" aria-label="Angular Demo">
   <div class="video">
     <video autoplay muted loop>
@@ -16,58 +18,11 @@ managed by the framework itself.
   </div>
 </a>
 
-Check out the <b><a href="https://html-graph.github.io/html-graph-angular-demo/" target="_blank">Angular live demo</a></b>
-and the <b><a href="https://github.com/html-graph/html-graph-angular-demo/" target="_blank">Angular demo source code</a></b>.
+You can check out the <b><a href="https://github.com/html-graph/html-graph-angular-demo/" target="_blank">implementation</a></b> to get a general idea of how to manage graph using Angular. The same approach can be used with other frameworks.
 
 This is a minimalistic working example of an angular node component:
 
 
-<div data-tabs>
-<div data-tabs-btns>
-  <button data-tab="0" data-tab-active>
-    graph-node-shape.html
-  </button>
-
-  <button data-tab="1">
-    graph-node-shape.css
-  </button>
-
-  <button data-tab="2">
-    graph-node-shape.ts
-  </button>
-</div>
-
-<div data-tab-content="0" data-tab-content-visible>
-{{< code lang="html" >}}
-<div #portIn></div>
-
-<div class="name">
-  {{ name }}
-</div>
-
-<div #portOut></div>
-{{< /code >}}
-</div>
-
-<div data-tab-content="1">
-{{< code lang="css" >}}
-:host {
-  display: flex;
-  align-items: center;
-  min-width: 250px;
-  min-height: 50px;
-  user-select: none;
-  background: #daedbd;
-}
-
-.name {
-  flex-grow: 1;
-  padding: 0.5rem;
-}
-{{< /code >}}
-</div>
-
-<div data-tab-content="2">
 {{< code lang="typescript" >}}
 import {
   AfterViewInit,
@@ -80,8 +35,30 @@ import {
 } from '@angular/core';
 
 @Component({
-  templateUrl: './graph-node-shape.html',
-  styleUrls: ['./graph-node-shape.css'],
+  template: `
+    <div #portIn></div>
+
+    <div class="name">
+      {{ name }}
+    </div>
+
+    <div #portOut></div>
+  `,
+  styles: `
+    :host {
+      display: flex;
+      align-items: center;
+      min-width: 250px;
+      min-height: 50px;
+      user-select: none;
+      background: #daedbd;
+    }
+
+    .name {
+      flex-grow: 1;
+      padding: 0.5rem;
+    }
+  `,
 })
 export class GraphNodeShape implements AfterViewInit {
   @ViewChild('portIn', { static: true })
@@ -104,14 +81,11 @@ export class GraphNodeShape implements AfterViewInit {
   }
 }
 {{< /code >}}
-</div>
-
-</div>
 
 It is recommended that you implement an adapter specific to your application
 that creates nodes with Angular components and ensures there are no memory leaks.
 
-Here is a good example of such adapter:
+This is a good example of such adapter:
 
 {{< code lang="typescript" >}}
 import {
