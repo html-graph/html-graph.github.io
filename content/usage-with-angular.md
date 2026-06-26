@@ -68,9 +68,6 @@ export class GraphNodeShape implements AfterViewInit {
   portOut!: ElementRef;
 
   @Input({ required: true })
-  nodeId!: number;
-
-  @Input({ required: true })
   name!: string;
 
   @Output()
@@ -140,7 +137,6 @@ export class CanvasAdapter {
       hostElement: nodeElement,
       elementInjector: this.injector,
       bindings: [
-        inputBinding('nodeId', () => id),
         inputBinding('name', () => `Node ${id}`),
         outputBinding('viewInitialized', () => {
           // Node must be updated manually on ngAfterViewInit lifecycle event trigger
