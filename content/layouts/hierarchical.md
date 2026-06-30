@@ -102,7 +102,7 @@ const canvas = new CanvasBuilder(element)
     algorithm: {
       type: "hierarchical",
       transform: (point) => {
-        return { x: point.x, y: -1 * point.y };
+        return { x: -1 * point.x, y: point.y };
       },
     },
   })
