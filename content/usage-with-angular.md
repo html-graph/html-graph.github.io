@@ -18,7 +18,7 @@ This <b><a href="https://html-graph.github.io/html-graph-angular-demo/" target="
   </div>
 </a>
 
-You can check out the <b><a href="https://github.com/html-graph/html-graph-angular-demo/" target="_blank">implementation</a></b> to get a general idea of how to manage graph using Angular. The same approach can be used with other frameworks.
+You can check out the <b><a href="https://github.com/html-graph/html-graph-angular-demo/" target="_blank">source code</a></b> to get a general idea of how to manage graph using Angular. The same approach can be used with other frameworks.
 
 This is a minimalistic working example of an angular node component:
 
