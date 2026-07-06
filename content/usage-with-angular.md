@@ -95,7 +95,7 @@ import {
   outputBinding,
   ViewRef,
 } from '@angular/core';
-import { Canvas, CanvasBuilder, Identifier } from '@html-graph/html-graph';
+import { Canvas, CanvasBuilder } from '@html-graph/html-graph';
 import { GraphNodeShape } from './graph-node-shape'; // Your Angular component for a node
 
 @Injectable()
@@ -106,7 +106,7 @@ export class CanvasAdapter {
 
   private readonly injector = inject(Injector);
 
-  private readonly viewRefs = new Map<Identifier, ViewRef>();
+  private readonly viewRefs = new Map<string, ViewRef>();
 
   init(element: HTMLElement): void {
     this.canvas = new CanvasBuilder(element).build();
@@ -128,7 +128,7 @@ export class CanvasAdapter {
     });
   }
 
-  addNode(params: { id: Identifier, x: number, y: number }): void {
+  addNode(params: { id: string, x: number, y: number }): void {
     const { id, x, y } = params;
 
     const nodeElement = document.createElement('div');
@@ -164,18 +164,18 @@ export class CanvasAdapter {
     });
   }
 
-  addEdge(params: { from: Identifier, to: Identifier }): void {
+  addEdge(params: { from: string, to: string }): void {
     this.canvas.addEdge({ from: params.from, to: params.to });
   }
 
   // Other application-specific methods for managing graph
   // ...
 
-  removeNode(nodeId: Identifier): void {
+  removeNode(nodeId: string): void {
     this.canvas.removeNode(nodeId);
   }
 
-  removeEdge(edgeId: Identifier): void {
+  removeEdge(edgeId: string): void {
     this.canvas.removeEdge(edgeId);
   }
 
