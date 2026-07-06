@@ -95,7 +95,7 @@ import {
   outputBinding,
   ViewRef,
 } from '@angular/core';
-import { Canvas, CanvasBuilder } from '@html-graph/html-graph';
+import { Canvas, CanvasBuilder, Identifier } from '@html-graph/html-graph';
 import { GraphNodeShape } from './graph-node-shape'; // Your Angular component for a node
 
 @Injectable()
@@ -106,7 +106,7 @@ export class CanvasAdapter {
 
   private readonly injector = inject(Injector);
 
-  private readonly viewRefs = new Map<string, ViewRef>();
+  private readonly viewRefs = new Map<Identifier, ViewRef>();
 
   init(element: HTMLElement): void {
     this.canvas = new CanvasBuilder(element).build();
