@@ -13,7 +13,7 @@ This is an advanced example, so you might want to review these topics first:
 - <a target="_blank" href="/tutorials/interactive-edges/">Interactive Edges</a>
 - <a target="_blank" href="/features/selectable-entities/">Selectable Entities</a>
 
-This example demonstrates multiple use-cases combined into a single nocode editor.
+The example demonstrates multiple use-cases combined into a single nocode editor.
 The complete implementation contains helpful comments throughout.
 
 {{< use-case title="Nocode Editor UI" src=/use-cases/advanced-demo/ >}}
