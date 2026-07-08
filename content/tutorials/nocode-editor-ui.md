@@ -4,9 +4,7 @@ title: Tutorials | Nocode Editor UI
 
 ## Nocode Editor UI (advanced)
 
-This is an advanced example, so it's not recommended to start here.
-
-Please review these topics first:
+This is an advanced example, so you might want to review these topics first:
 
 - <a target="_blank" href="/getting-started/">Getting Started</a>
 - <a target="_blank" href="/features/connectable-ports/">Connectable Ports</a>
