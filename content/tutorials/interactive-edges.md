@@ -13,7 +13,7 @@ title: Tutorials | Interactive Edges
 </a>
 
 By default, edges in the graph are not interactive.
-To enable interaction with edges, you need to use the `InteractiveEdgeShape`
+To enable interaction with edges, you can use the `InteractiveEdgeShape`
 decorator.
 
 First, create a canvas with desired edge shape using factory function:
