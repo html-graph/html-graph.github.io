@@ -176,6 +176,13 @@
       </li>
       <li>
         {{ partial "menu-link.html" (dict
+          "path" "/edge-shapes/orthogonal/"
+          "activePath" .path
+          "label" "Orthogonal"
+        )}}
+      </li>
+      <li>
+        {{ partial "menu-link.html" (dict
           "path" "/edge-shapes/horizontal/"
           "activePath" .path
           "label" "Horizontal"

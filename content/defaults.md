@@ -101,6 +101,7 @@ const canvas = new CanvasBuilder(element)
 | Bezier     | <code><a href="/edge-shapes/bezier/" target="_blank">BezierEdgeShape</a></code>         | `{ type: "bezier" }`                      |
 | Direct     | <code><a href="/edge-shapes/direct/" target="_blank">DirectEdgeShape</a></code>         | `{ type: "direct" }`                      |
 | Straight   | <code><a href="/edge-shapes/straight/" target="_blank">StraightEdgeShape</a></code>     | `{ type: "straight" }`                    |
+| Orthogonal | <code><a href="/edge-shapes/orthogonal/" target="_blank">OrthogonalEdgeShape</a></code> | `{ type: "orthogonal" }`                  |
 | Horizontal | <code><a href="/edge-shapes/horizontal/" target="_blank">HorizontalEdgeShape</a></code> | `{ type: "horizontal" }`                  |
 | Vertical   | <code><a href="/edge-shapes/vertical/" target="_blank">VerticalEdgeShape</a></code>     | `{ type: "vertical" }`                    |
 | Custom     | <code><a href="/edge-shapes/custom/" target="_blank">CustomEdgeShape</a></code>         | `(edgeId) => new CustomEdgeShape(edgeId)` |
