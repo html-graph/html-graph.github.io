@@ -131,7 +131,7 @@
     <script type="module">
       import {
         CanvasBuilder,
-        HorizontalEdgeShape,
+        OrthogonalEdgeShape,
         MidpointEdgeShape,
         InteractiveEdgeShape,
       } from "https://html-graph.github.io/lib/v8.23.0/html-graph.min.js";
@@ -151,7 +151,7 @@
          * The remove button becomes visible only when the edge is selected.
          */
         edgeShapeFactory = (edgeId) => {
-          const baseShape = new HorizontalEdgeShape({
+          const baseShape = new OrthogonalEdgeShape({
             color: "var(--color-edge)",
             hasTargetArrow: true,
             detourDistance: -150,
