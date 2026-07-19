@@ -149,21 +149,11 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
-      <a target="_blank" href="/edge-shapes/horizontal/" aria-label="Horizontal Edges">
-        {{< image path="/images/horizontal-edge" alt="Horizontal Edge" width="500" height="500">}}
+      <a target="_blank" href="/edge-shapes/orthogonal/" aria-label="Orthogonal Edges">
+        {{< image path="/images/orthogonal-edge" alt="Orthogonal Edge" width="500" height="500">}}
         <div class="label-wrapper">
           <label>
-            Horizontal Edges
-          </label>
-        </div>
-      </a>
-    </li>
-    <li class="preview">
-      <a target="_blank" href="/edge-shapes/vertical/" aria-label="Vertical Edges">
-        {{< image path="/images/vertical-edge" alt="Vertical Edge" width="500" height="500">}}
-        <div class="label-wrapper">
-          <label>
-            Vertical Edges
+            Orthogonal Edges
           </label>
         </div>
       </a>

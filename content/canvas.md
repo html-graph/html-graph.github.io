@@ -315,7 +315,7 @@ All available parameters are demonstrated in the following example:
 canvas.updateEdge("edge-1", {
   from: "port-3",
   to: "port-4",
-  shape: new HorizontalEdgeShape(),
+  shape: new OrthogonalEdgeShape(),
   priority: 10,
 });
 {{< /code >}}
