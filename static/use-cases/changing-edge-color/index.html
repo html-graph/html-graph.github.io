@@ -94,12 +94,12 @@
                     distance: 20,
                   });
 
-                  interactiveShape.svg.addEventListener("mouseenter", () => {
-                    interactiveShape.svg.style.setProperty("--edge-color", this.hoverEdgeColor);
+                  interactiveShape.element.addEventListener("mouseenter", () => {
+                    interactiveShape.element.style.setProperty("--edge-color", this.hoverEdgeColor);
                   });
 
-                  interactiveShape.svg.addEventListener("mouseleave", () => {
-                    interactiveShape.svg.style.setProperty("--edge-color", this.edgeColor);
+                  interactiveShape.element.addEventListener("mouseleave", () => {
+                    interactiveShape.element.style.setProperty("--edge-color", this.edgeColor);
                   });
 
                   return interactiveShape;

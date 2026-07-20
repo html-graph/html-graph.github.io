@@ -62,7 +62,7 @@ const canvas = new CanvasBuilder(element)
           distance: 20,
         });
 
-        interactiveShape.svg.addEventListener("click", (event) => {
+        interactiveShape.element.addEventListener("click", (event) => {
           console.log(`clicked on edge with id: ${edgeId}`);
         });
 

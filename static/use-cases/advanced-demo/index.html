@@ -160,7 +160,7 @@
           // Add click interaction to select the edge
           const interactiveShape = new InteractiveEdgeShape(baseShape, { distance: 20 });
 
-          interactiveShape.svg.addEventListener("click", (event) => {
+          interactiveShape.element.addEventListener("click", (event) => {
             event.stopPropagation();
           });
 
@@ -293,7 +293,7 @@
             const width = edgeId === selectedEdgeId ? 2 : 1;
 
             shape.line.setAttribute("stroke-width", `${width}`);
-            shape.svg.classList.toggle("selected-edge", edgeId === selectedEdgeId);
+            shape.element.classList.toggle("selected-edge", edgeId === selectedEdgeId);
           });
         };
 
@@ -309,7 +309,7 @@
             const { shape } = this.canvas.graph.getEdge(edgeId);
 
             shape.line.setAttribute("stroke-width", "1");
-            shape.svg.classList.remove("selected-edge");
+            shape.element.classList.remove("selected-edge");
           });
         };
 

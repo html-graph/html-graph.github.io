@@ -92,7 +92,7 @@ const edge = canvas.graph.getEdge("edge-1");
 
 1. find edge ID by a specific `SVGElement`
 {{< code lang="javascript" >}}
-const edgeId = canvas.graph.findEdgeIdByElement(shape.svg);
+const edgeId = canvas.graph.findEdgeIdByElement(shape.element);
 {{< / code >}}
 This method returns `undefined` if specified element is not assigned to any edge.
 

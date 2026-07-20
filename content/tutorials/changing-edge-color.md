@@ -41,12 +41,12 @@ const canvas = new CanvasBuilder(element)
           distance: 20,
         });
 
-        interactiveShape.svg.addEventListener("mouseenter", () => {
-          interactiveShape.svg.style.setProperty("--edge-color", "#f9880e");
+        interactiveShape.element.addEventListener("mouseenter", () => {
+          interactiveShape.element.style.setProperty("--edge-color", "#f9880e");
         });
 
-        interactiveShape.svg.addEventListener("mouseleave", () => {
-          interactiveShape.svg.style.setProperty("--edge-color", "#777777");
+        interactiveShape.element.addEventListener("mouseleave", () => {
+          interactiveShape.element.style.setProperty("--edge-color", "#777777");
         });
 
         return interactiveShape;

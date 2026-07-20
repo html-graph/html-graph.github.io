@@ -18,16 +18,16 @@ class MyCustomEdgeShape implements EdgeShape {
   private readonly line: SVGPathElement;
 
   constructor() {
-    this.svg = document.createElementNS(
+    this.element = document.createElementNS(
       "http://www.w3.org/2000/svg",
       "svg",
     );
 
-    this.svg.style.pointerEvents = "none";
-    this.svg.style.position = "absolute";
-    this.svg.style.top = "0";
-    this.svg.style.left = "0";
-    this.svg.style.overflow = "visible";
+    this.element.style.pointerEvents = "none";
+    this.element.style.position = "absolute";
+    this.element.style.top = "0";
+    this.element.style.left = "0";
+    this.element.style.overflow = "visible";
 
     this.line = document.createElementNS(
       "http://www.w3.org/2000/svg",
@@ -38,7 +38,7 @@ class MyCustomEdgeShape implements EdgeShape {
     this.line.setAttribute("stroke-width", "1");
     this.line.setAttribute("fill", "none");
 
-    this.svg.appendChild(this.line);
+    this.element.appendChild(this.line);
   }
 
   render(params: EdgeRenderParams): void {
@@ -59,9 +59,9 @@ class MyCustomEdgeShape implements EdgeShape {
     const width = Math.abs(centerTo.x - centerFrom.x);
     const height = Math.abs(centerTo.y - centerFrom.y);
 
-    this.svg.style.width = `${width}px`;
-    this.svg.style.height = `${height}px`;
-    this.svg.style.transform = `translate(${x}px, ${y}px)`;
+    this.element.style.width = `${width}px`;
+    this.element.style.height = `${height}px`;
+    this.element.style.transform = `translate(${x}px, ${y}px)`;
 
     const fromPoint = { x: centerFrom.x - x, y: centerFrom.y - y };
     const toPoint = { x: centerTo.x - x, y: centerTo.y - y };
