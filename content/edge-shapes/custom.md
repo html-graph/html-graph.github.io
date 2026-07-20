@@ -15,6 +15,9 @@ import { EdgeShape, EdgeRenderParams } from "@html-graph/html-graph";
 class MyCustomEdgeShape implements EdgeShape {
   readonly element: SVGSVGElement;
 
+  /**
+   * @deprecated
+   */
   readonly svg: SVGSVGElement;
 
   private readonly line: SVGPathElement;
