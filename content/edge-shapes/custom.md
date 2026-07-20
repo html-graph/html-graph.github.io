@@ -13,6 +13,8 @@ The following example demonstrates implementation of a custom edge shape using T
 import { EdgeShape, EdgeRenderParams } from "@html-graph/html-graph";
 
 class MyCustomEdgeShape implements EdgeShape {
+  readonly element: SVGSVGElement;
+
   readonly svg: SVGSVGElement;
 
   private readonly line: SVGPathElement;
@@ -22,6 +24,8 @@ class MyCustomEdgeShape implements EdgeShape {
       "http://www.w3.org/2000/svg",
       "svg",
     );
+
+    this.svg = this.element;
 
     this.element.style.pointerEvents = "none";
     this.element.style.position = "absolute";
