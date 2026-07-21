@@ -20,7 +20,11 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-{{< use-case src=/use-cases/orthogonal-edge/ >}}
+{{< use-case src=/use-cases/orthogonal-edge-horizontal/ >}}
+
+# #
+
+{{< use-case src=/use-cases/orthogonal-edge-vertical/ >}}
 
 In addition to `type: "orthogonal"`, the following options are available:
 
