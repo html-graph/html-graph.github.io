@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>HTMLGraph | Orthogonal horizontal edges demo</title>
+    <title>HTMLGraph | Orthogonal edges demo</title>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=no"
@@ -27,6 +27,7 @@
 
       .node {
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
         align-items: center;
         width: 100px;
@@ -38,9 +39,35 @@
         user-select: none;
       }
 
-      .node-port {
+      .node-ports-container {
         position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .node-port {
+        position: absolute;
         width: 0;
+      }
+
+      .node-port-top {
+        left: 50%;
+        top: 0;
+      }
+
+      .node-port-bottom {
+        left: 50%;
+        bottom: 0;
+      }
+
+      .node-port-left {
+        left: 0;
+        top: 50%;
+      }
+
+      .node-port-right {
+        right: 0;
+        top: 50%;
       }
 
       .node-port::after {
@@ -70,6 +97,9 @@
                   hasTargetArrow: true,
                 },
               },
+              ports: {
+                direction: Math.PI / 2,
+              },
             })
             .enableUserDraggableNodes()
             .enableUserTransformableViewport()
@@ -82,69 +112,80 @@
             .addNode(
               this.createNode({
                 x: 200,
-                y: 100,
-                frontPortId: "node-1-in",
-                backPortId: "node-1-out",
-              }),
-            )
-            .addNode(
-              this.createNode({
-                x: 500,
-                y: 200,
-                frontPortId: "node-2-in",
-                backPortId: "node-2-out",
-              }),
-            )
-            .addNode(
-              this.createNode({
-                x: 200,
-                y: 350,
-                frontPortId: "node-3-in",
-                backPortId: "node-3-out",
-              }),
-            )
-            .addNode(
-              this.createNode({
-                x: 400,
-                y: 500,
-                frontPortId: "node-4-in",
-                backPortId: "node-4-out",
+                y: 50,
+                nodeId: "node-1",
               }),
             )
             .addNode(
               this.createNode({
                 x: 600,
-                y: 500,
-                frontPortId: "node-5-in",
-                backPortId: "node-5-out",
+                y: 250,
+                nodeId: "node-2",
               }),
             )
-            .addEdge({ from: "node-1-out", to: "node-2-in" })
-            .addEdge({ from: "node-2-out", to: "node-3-in" })
-            .addEdge({ from: "node-4-out", to: "node-4-in" })
-            .addEdge({ from: "node-5-out", to: "node-5-out" })
+            .addNode(
+              this.createNode({
+                x: 200,
+                y: 250,
+                nodeId: "node-3",
+              }),
+            )
+            .addNode(
+              this.createNode({
+                x: 450,
+                y: -25,
+                nodeId: "node-4",
+              }),
+            )
+            .addNode(
+              this.createNode({
+                x: 450,
+                y: 375,
+                nodeId: "node-5",
+              }),
+            )
+            .addEdge({ from: "node-1-right", to: "node-2-top" })
+            .addEdge({ from: "node-2-left", to: "node-3-top" })
+            .addEdge({ from: "node-4-right", to: "node-4-top" })
+            .addEdge({ from: "node-5-right", to: "node-5-right" })
             .focus();
         }
 
-        createNode({ x, y, frontPortId, backPortId }) {
+        createNode({ nodeId, x, y }) {
           const node = document.createElement("div");
-          const frontPort = document.createElement("div");
-          const backPort = document.createElement("div");
+          const portsContainer = document.createElement("div");
+          const topPort = document.createElement("div");
+          const bottomPort = document.createElement("div");
+          const leftPort = document.createElement("div");
+          const rightPort = document.createElement("div");
 
           node.classList.add("node");
-          frontPort.classList.add("node-port");
-          backPort.classList.add("node-port");
+          portsContainer.classList.add("node-ports-container");
+          topPort.classList.add("node-port");
+          bottomPort.classList.add("node-port");
+          leftPort.classList.add("node-port");
+          rightPort.classList.add("node-port");
 
-          node.appendChild(frontPort);
-          node.appendChild(backPort);
+          topPort.classList.add("node-port-top");
+          bottomPort.classList.add("node-port-bottom");
+          leftPort.classList.add("node-port-left");
+          rightPort.classList.add("node-port-right");
+
+          portsContainer.appendChild(topPort);
+          portsContainer.appendChild(bottomPort);
+          portsContainer.appendChild(leftPort);
+          portsContainer.appendChild(rightPort);
+          node.appendChild(portsContainer);
 
           return {
             element: node,
             x: x,
             y: y,
             ports: [
-              { id: frontPortId, element: frontPort },
-              { id: backPortId, element: backPort },
+              { id: `${nodeId}-top`, element: topPort, direction: Math.PI / 2 },
+              { id: `${nodeId}-bottom`, element: bottomPort, direction: Math.PI / 2},
+              { id: `${nodeId}-left`, element: leftPort, direction: Math.PI },
+              { id: `${nodeId}-right`, element: rightPort, direction: 0 },
             ],
           };
         }
