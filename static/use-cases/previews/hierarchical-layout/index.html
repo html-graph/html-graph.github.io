@@ -59,21 +59,21 @@
     <div id="graph" style="display: none">
       {
         "nodes": [
-          { "id": 0 },
-          { "id": 1 },
-          { "id": 2 },
-          { "id": 3 },
-          { "id": 4 },
-          { "id": 5 },
-          { "id": 6 },
-          { "id": 7 },
-          { "id": 8 },
-          { "id": 9 },
-          { "id": 10 },
-          { "id": 11 },
-          { "id": 12 },
-          { "id": 13 },
-          { "id": 14 }
+          { "id": 0, "color": "red" },
+          { "id": 1, "color": "red" },
+          { "id": 2, "color": "red" },
+          { "id": 3, "color": "red" },
+          { "id": 4, "color": "red" },
+          { "id": 5, "color": "red" },
+          { "id": 6, "color": "red" },
+          { "id": 7, "color": "red" },
+          { "id": 8, "color": "red" },
+          { "id": 9, "color": "red" },
+          { "id": 10, "color": "red" },
+          { "id": 11, "color": "red" },
+          { "id": 12, "color": "red" },
+          { "id": 13, "color": "red" },
+          { "id": 14, "color": "red" }
         ],
         "edges": [
           { "from": 0, "to": 1 },
@@ -122,6 +122,7 @@
           graphData.nodes.forEach((node) => {
             this.canvas.addNode(
               this.createNode({
+                color: node.color,
                 frontPortId: `${node.id}-in`,
                 backPortId: `${node.id}-out`,
               })
@@ -135,12 +136,13 @@
           this.canvas.focus();
         }
 
-        createNode({ x, y, frontPortId, backPortId }) {
+        createNode({ x, y, frontPortId, backPortId, color }) {
           const node = document.createElement("div");
           const frontPort = document.createElement("div");
           const backPort = document.createElement("div");
 
           node.classList.add("node");
+          node.classList.add(`node-${color}`);
           frontPort.classList.add("node-port");
           backPort.classList.add("node-port");
 
