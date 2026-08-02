@@ -38,20 +38,17 @@
         user-select: none;
       }
 
+      .node-red {
+        background: #fc5a5d;
+      }
+
+      .node-blue {
+        background: #5a96fc;
+      }
+
       .node-port {
         position: relative;
         width: 0;
-      }
-
-      .node-port::after {
-        content: "";
-        position: absolute;
-        top: -3px;
-        left: -3px;
-        width: 6px;
-        height: 6px;
-        background: #777777;
-        border-radius: 3px;
       }
     </style>
   </head>
@@ -61,19 +58,19 @@
         "nodes": [
           { "id": 0, "color": "red" },
           { "id": 1, "color": "red" },
-          { "id": 2, "color": "red" },
+          { "id": 2, "color": "blue" },
           { "id": 3, "color": "red" },
-          { "id": 4, "color": "red" },
+          { "id": 4, "color": "blue" },
           { "id": 5, "color": "red" },
-          { "id": 6, "color": "red" },
+          { "id": 6, "color": "blue" },
           { "id": 7, "color": "red" },
-          { "id": 8, "color": "red" },
+          { "id": 8, "color": "blue" },
           { "id": 9, "color": "red" },
-          { "id": 10, "color": "red" },
+          { "id": 10, "color": "blue" },
           { "id": 11, "color": "red" },
-          { "id": 12, "color": "red" },
+          { "id": 12, "color": "blue" },
           { "id": 13, "color": "red" },
-          { "id": 14, "color": "red" }
+          { "id": 14, "color": "blue" }
         ],
         "edges": [
           { "from": 0, "to": 1 },
@@ -120,6 +117,7 @@
 
         initGraph(graphData) {
           graphData.nodes.forEach((node) => {
+            console.log(node);
             this.canvas.addNode(
               this.createNode({
                 color: node.color,
