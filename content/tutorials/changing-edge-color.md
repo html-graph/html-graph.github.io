@@ -13,7 +13,7 @@ title: Tutorials | Changing Edge Color
 </a>
 
 
-Edge color can be dynamically modified using `--edge-color` CSS variable for edge svg element, as
+Edge color can be dynamically modified using `--edge-color` CSS variable for edge `element`, as
 shown in the example below.
 
 This example demonstrates how to change edge color on mouse hover, using
