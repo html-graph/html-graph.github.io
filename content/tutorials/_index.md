@@ -46,7 +46,7 @@ visualization.
   </div>
 </a>
 
-### [Nocode Editor UI](nocode-editor)
+### [Nocode Editor](nocode-editor)
 
 <a href="/tutorials/nocode-editor/" target="_blank" aria-label="Nocode Editor">
   <div class="video">
