@@ -183,7 +183,9 @@ It defines a full-screen canvas and an <code>Application</code> class.
 <div data-tab-content="1">
 Nodes can be added using the <a href="/canvas/#add-node" target="_blank">addNode</a>
 method. This method accepts a specific object, which has to be constructed
-first. For this purpose, we add a <code>createNode</code> method to the <code>Application</code> class.
+first.
+
+For this purpose, we add a <code>createNode</code> method to the <code>Application</code> class.
 
 {{< code lang="javascript" >}}
 class Application {
