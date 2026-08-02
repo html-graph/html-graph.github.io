@@ -46,9 +46,9 @@ visualization.
   </div>
 </a>
 
-### [Nocode Editor UI](nocode-editor-ui)
+### [Nocode Editor UI](nocode-editor)
 
-<a href="/tutorials/nocode-editor-ui/" target="_blank" aria-label="Nocode Editor UI">
+<a href="/tutorials/nocode-editor/" target="_blank" aria-label="Nocode Editor">
   <div class="video">
     <video autoplay muted loop>
       <source src="/media/advanced-demo.webm">

@@ -1,8 +1,8 @@
 ---
-title: Tutorials | Nocode Editor UI
+title: Tutorials | Nocode Editor
 ---
 
-## Nocode Editor UI (advanced)
+## Nocode Editor (advanced)
 
 This is an advanced example, so you might want to review these topics first:
 
