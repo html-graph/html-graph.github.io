@@ -90,7 +90,7 @@ const edgeIds = canvas.graph.getAllEdgeIds();
 const edge = canvas.graph.getEdge("edge-1");
 {{< / code >}}
 
-1. find edge ID by a specific `SVGElement`
+1. find edge ID by a specific `Element`
 {{< code lang="javascript" >}}
 const edgeId = canvas.graph.findEdgeIdByElement(shape.element);
 {{< / code >}}
