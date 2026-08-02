@@ -58,22 +58,38 @@
   <body>
     <div id="graph" style="display: none">
       {
-        "nodes": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+        "nodes": [
+          { "id": 0 },
+          { "id": 1 },
+          { "id": 2 },
+          { "id": 3 },
+          { "id": 4 },
+          { "id": 5 },
+          { "id": 6 },
+          { "id": 7 },
+          { "id": 8 },
+          { "id": 9 },
+          { "id": 10 },
+          { "id": 11 },
+          { "id": 12 },
+          { "id": 13 },
+          { "id": 14 }
+        ],
         "edges": [
-          {"from": 0, "to": 1},
-          {"from": 0, "to": 2},
-          {"from": 1, "to": 3},
-          {"from": 1, "to": 4},
-          {"from": 2, "to": 5},
-          {"from": 2, "to": 6},
-          {"from": 3, "to": 7},
-          {"from": 3, "to": 8},
-          {"from": 4, "to": 9},
-          {"from": 4, "to": 10},
-          {"from": 5, "to": 11},
-          {"from": 5, "to": 12},
-          {"from": 6, "to": 13},
-          {"from": 6, "to": 14}
+          { "from": 0, "to": 1 },
+          { "from": 0, "to": 2 },
+          { "from": 1, "to": 3 },
+          { "from": 1, "to": 4 },
+          { "from": 2, "to": 5 },
+          { "from": 2, "to": 6 },
+          { "from": 3, "to": 7 },
+          { "from": 3, "to": 8 },
+          { "from": 4, "to": 9 },
+          { "from": 4, "to": 10 },
+          { "from": 5, "to": 11 },
+          { "from": 5, "to": 12 },
+          { "from": 6, "to": 13 },
+          { "from": 6, "to": 14 }
         ]
       }
     </div>
@@ -103,11 +119,11 @@
         }
 
         initGraph(graphData) {
-          graphData.nodes.forEach((nodeId) => {
+          graphData.nodes.forEach((node) => {
             this.canvas.addNode(
               this.createNode({
-                frontPortId: `${nodeId}-in`,
-                backPortId: `${nodeId}-out`,
+                frontPortId: `${node.id}-in`,
+                backPortId: `${node.id}-out`,
               })
             );
           });
