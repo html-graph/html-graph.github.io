@@ -80,7 +80,7 @@ const canvas = new CanvasBuilder(element)
 | Name                    | Type                                              | Description                                 | Required | Default |
 |-------------------------|---------------------------------------------------|---------------------------------------------|----------|---------|
 | `scale`                 | <code>[ScaleConfig](#scale-config)</code>         | Scale-related behavior configuration        | no       | `{}`    |
-| `pan`                   | <code>[ShiftConfig](#pan-config)</code>           | Shift-related behavior configuration        | no       | `{}`    |
+| `pan`                   | <code>[PanConfig](#pan-config)</code>             | Pan-related behavior configuration          | no       | `{}`    |
 | `transformPreprocessor` | <code>[TransformConfig](#transform-config)</code> | Transformation preprocessors configuration  | no       | `{}`    |
 | `events`                | <code>[EventsConfig](#events-config)</code>       | Handlers for available events               | no       | `{}`    |
 
