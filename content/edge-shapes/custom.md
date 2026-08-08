@@ -15,11 +15,6 @@ import { EdgeShape, EdgeRenderParams } from "@html-graph/html-graph";
 class MyCustomEdgeShape implements EdgeShape {
   readonly element: SVGSVGElement;
 
-  /**
-   * @deprecated
-   */
-  readonly svg: SVGSVGElement;
-
   private readonly line: SVGPathElement;
 
   constructor() {
@@ -83,8 +78,8 @@ class MyCustomEdgeShape implements EdgeShape {
 As shown above, any custom edge shape must implement the `EdgeShape` interface.
 
 This interface requires:
-- public property `svg`, which stores edge svg element
-- method `render`, which updates `svg` property based on provided parameters
+- public property `element`, which stores edge svg element
+- method `render`, which updates `element` property based on provided parameters
 
 {{< use-case src=/use-cases/minimal-custom-edge-shape/ >}}
 

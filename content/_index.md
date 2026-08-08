@@ -59,6 +59,16 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
+      <a target="_blank" href="/tutorials/nocode-editor/" aria-label="Nocode Editor">
+        {{< image path="/images/nocode-editor" alt="Nocode Editor" width="500" height="500">}}
+        <div class="label-wrapper">
+          <label>
+            Nocode Editor
+          </label>
+        </div>
+      </a>
+    </li>
+    <li class="preview">
       <a target="_blank" href="/features/connectable-ports/" aria-label="Connectable Ports">
         {{< image path="/images/connectable-ports" alt="Connectable Ports" width="500" height="500">}}
         <div class="label-wrapper">
@@ -164,16 +174,6 @@ cases, and complete TypeScript support.
         <div class="label-wrapper">
           <label>
             Straight Edges
-          </label>
-        </div>
-      </a>
-    </li>
-    <li class="preview">
-      <a target="_blank" href="/tutorials/nocode-editor/" aria-label="Nocode Editor">
-        {{< image path="/images/nocode-editor" alt="Nocode Editor" width="500" height="500">}}
-        <div class="label-wrapper">
-          <label>
-            Nocode Editor
           </label>
         </div>
       </a>

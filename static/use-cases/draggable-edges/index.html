@@ -66,7 +66,7 @@
   <body>
     <div id="canvas"></div>
     <script type="module">
-      import { CanvasBuilder } from "https://html-graph.github.io/lib/v8.24.0/html-graph.min.js";
+      import { CanvasBuilder } from "https://html-graph.github.io/lib/v9.0.0/html-graph.min.js";
 
       class Application {
         constructor(element) {
@@ -81,7 +81,6 @@
             .enableUserDraggableNodes()
             .enableUserTransformableViewport()
             .enableUserDraggableEdges({
-              mouseDownEventVerifier: (event) => event.button === 0,
               connectionAllowedVerifier: (request) => {
                 const existingEdge = this.canvas.graph.getAllEdgeIds().find((edgeId) => {
                   const edge = this.canvas.graph.getEdge(edgeId);

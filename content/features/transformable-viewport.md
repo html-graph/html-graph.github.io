@@ -38,7 +38,7 @@ const canvas = new CanvasBuilder(element)
       mouseWheelEventVerifier: (event) => event.ctrlKey,
       wheelFinishTimeout: 1000,
     },
-    shift: {
+    pan: {
       cursor: "crosshair",
       mouseDownEventVerifier: (event) => event.ctrlKey,
       mouseUpEventVerifier: (event) => true,
@@ -80,7 +80,7 @@ const canvas = new CanvasBuilder(element)
 | Name                    | Type                                              | Description                                 | Required | Default |
 |-------------------------|---------------------------------------------------|---------------------------------------------|----------|---------|
 | `scale`                 | <code>[ScaleConfig](#scale-config)</code>         | Scale-related behavior configuration        | no       | `{}`    |
-| `shift`                 | <code>[ShiftConfig](#shift-config)</code>         | Shift-related behavior configuration        | no       | `{}`    |
+| `pan`                   | <code>[ShiftConfig](#pan-config)</code>           | Shift-related behavior configuration        | no       | `{}`    |
 | `transformPreprocessor` | <code>[TransformConfig](#transform-config)</code> | Transformation preprocessors configuration  | no       | `{}`    |
 | `events`                | <code>[EventsConfig](#events-config)</code>       | Handlers for available events               | no       | `{}`    |
 
@@ -96,9 +96,9 @@ const canvas = new CanvasBuilder(element)
 
 {{< /ref-target >}}
 
-{{< ref-target ref="shift-config">}}
+{{< ref-target ref="pan-config">}}
 
-### `ShiftConfig` ### {#shift-config}
+### `PanConfig` ### {#pan-config}
 
 | Name                     | Type             | Description                                              | Required | Default      |
 |--------------------------|------------------|----------------------------------------------------------|----------|--------------|

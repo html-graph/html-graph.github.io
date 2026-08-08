@@ -39,7 +39,7 @@ const canvas = new CanvasBuilder(element)
       maxForce: 10000000,
       edgeEquilibriumLength: 300,
       edgeStiffness: 1000,
-      convergenceVelocity: 10,
+      stopVelocity: 10,
       barnesHut: {
         theta: 1,
         areaRadiusThreshold: 0.01,
@@ -59,7 +59,7 @@ const canvas = new CanvasBuilder(element)
 | `maxForce`              | `number`                                    | Sets the maximum amount of force applicable to a node. Useful when nodes are very close together, preventing repulsive forces from becoming infinitely large. | No       | `10000000`               |
 | `edgeEquilibriumLength` | `number`                                    | Perfect edge length when attractive and repulsive forces are absent                                                                                           | No       | `300`                    |
 | `edgeStiffness`         | `number`                                    | Measures spring-like behavior of edges. High stiffness enforces equilibrium lengths strictly                                                                  | No       | `1000`                   |
-| `convergenceVelocity`   | `number`                                    | Threshold determining whether nodes have stabilized sufficiently based on their movement speed being less than this value during an iteration                 | No       | `10`                     |
+| `stopVelocity`          | `number`                                    | Threshold determining whether nodes have stabilized sufficiently based on their movement speed being less than this value during an iteration                 | No       | `10`                     |
 | `barnesHut`             | <code>[BarnesHutConfig](#barnes-hut)</code> | Configuration settings for approximating node forces calculations.                                                                                            | No       | `{}`                     |
 | `seed`                  | `string`                                    | A randomization seed used to initialize nodes' starting positions if they lack predefined coordinates                                                         | No       | `"HTMLGraph is awesome"` |
 
