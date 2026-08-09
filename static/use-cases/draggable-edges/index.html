@@ -183,23 +183,6 @@
             .focus();
         }
 
-        createPortElement() {
-          const port = document.createElement("div");
-          port.classList.add("node-port");
-
-          const grabArea = document.createElement("div");
-          grabArea.classList.add("node-port-grab-area");
-
-          port.appendChild(grabArea);
-
-          const pin = document.createElement("div");
-          pin.classList.add("node-port-pin");
-
-          grabArea.appendChild(pin);
-
-          return port;
-        }
-
         createNode({ x, y, frontPortId, backPortId }) {
           const node = document.createElement("div");
           const frontPort = this.createPortElement();
@@ -219,6 +202,23 @@
               { id: backPortId, element: backPort },
             ],
           };
+        }
+
+        createPortElement() {
+          const port = document.createElement("div");
+          port.classList.add("node-port");
+
+          const grabArea = document.createElement("div");
+          grabArea.classList.add("node-port-grab-area");
+
+          port.appendChild(grabArea);
+
+          const pin = document.createElement("div");
+          pin.classList.add("node-port-pin");
+
+          grabArea.appendChild(pin);
+
+          return port;
         }
       }
 
