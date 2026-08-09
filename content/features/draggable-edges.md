@@ -48,6 +48,21 @@ The `enableUserDraggableEdges` method accepts optional configuration.
 | `draggingEdgeShape`         | <code><a href="/defaults#edge-shape-config" target="_blank">EdgeShapeConfig</a></code> | The shape of a dragging edge                                                                                             | no       | Same as the edge being dragged  |
 | `events`                    | <code>[EventsConfig](#events)</code>                                                   | Handlers for available events                                                                                            | no       | `{}`                            |
 
+As for the connection allowed verifier, you can start with one that forbids
+duplicated connections:
+
+{{< code lang="javascript">}}
+const connectionAllowedVerifier = (request) => {
+  const existingEdge = canvas.graph.getAllEdgeIds().find((edgeId) => {
+    const edge = canvas.graph.getEdge(edgeId);
+
+    return edge.from === request.from && edge.to === request.to;
+  });
+
+  return existingEdge === undefined;
+};
+{{< /code>}}
+
 {{< ref-target ref="drag-port-direction">}}
 ### `DragPortDirection` ### {#drag-port-direction}
 
