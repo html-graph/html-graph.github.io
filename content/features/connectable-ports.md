@@ -49,6 +49,32 @@ The `enableUserConnectablePorts` method accepts optional configuration.
 | `events`                    | <code>[EventsConfig](#events)</code>                                                   | Handlers for available events                                                                                     | no       | `{}`                            |
 
 
+Here's a good example of a reasonable connection type resolver, which resolves
+direct connection when an "out" port gets grabbed, and reverses connection when an "in" port gets grabbed:
+
+{{< code lang="javascript">}}
+const connectionTypeResolver = (portId) => {
+  return portId.endsWith("-out") ? "direct" : "reverse";
+};
+{{< /code>}}
+
+As for the connection allowed verifier, you can start with one that forbids
+duplicated connections:
+
+{{< code lang="javascript">}}
+const connectionAllowedVerifier = (request) => {
+  const existingEdge = canvas.graph.getAllEdgeIds().find((edgeId) => {
+    const edge = canvas.graph.getEdge(edgeId);
+
+    return edge.from === request.from && edge.to === request.to;
+  });
+
+  return existingEdge === undefined;
+};
+{{< /code>}}
+
+
+
 {{< ref-target ref="drag-port-direction">}}
 ### `DragPortDirection` ### {#drag-port-direction}
 
@@ -91,30 +117,6 @@ const releasedPortIdResolver = (portIds) => {
 | `onEdgeCreationPrevented`   | `(request: AddEdgeRequest) => void`                    | Function called when an attempt to create edge is prevented      | no       | `() => void` |
 
 {{< /ref-target >}}
-
-Here's a good example of a reasonable connection type resolver, which resolves
-direct connection when an "out" port gets grabbed, and reverses connection when an "in" port gets grabbed:
-
-{{< code lang="javascript">}}
-const connectionTypeResolver = (portId) => {
-  return portId.endsWith("-out") ? "direct" : "reverse";
-};
-{{< /code>}}
-
-As for the connection allowed verifier, you can start with one that forbids
-duplicated connections:
-
-{{< code lang="javascript">}}
-const connectionAllowedVerifier = (request) => {
-  const existingEdge = canvas.graph.getAllEdgeIds().find((edgeId) => {
-    const edge = canvas.graph.getEdge(edgeId);
-
-    return edge.from === request.from && edge.to === request.to;
-  });
-
-  return existingEdge === undefined;
-};
-{{< /code>}}
 
 You might also be interested in the <a href="/tutorials/edges-with-remove-button/" target="_blank">Edges with Remove Button</a> tutorial.
 
