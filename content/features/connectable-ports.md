@@ -73,8 +73,6 @@ const connectionAllowedVerifier = (request) => {
 };
 {{< /code>}}
 
-
-
 {{< ref-target ref="drag-port-direction">}}
 ### `DragPortDirection` ### {#drag-port-direction}
 
