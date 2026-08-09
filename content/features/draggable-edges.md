@@ -41,8 +41,8 @@ The `enableUserDraggableEdges` method accepts optional configuration.
 | `connectionAllowedVerifier` | `(request: { from: Identifier, to: Identifier }) => boolean`                           | Verifies if connection between specified ports is allowed.                                                               | no       | `(request) => true`             |
 | `dragPortDirection`         | <code>[DragPortDirection](#drag-port-direction)</code>                                 | Direction of dragging port                                                                                               | no       | `"inherit"`                     |
 | `connectionPreprocessor`    | `(request: AddEdgeRequest) => AddEdgeRequest`                                          | Applies modification to the edge about to be reattached.                                                                 | no       | `(request) => request`          |
-| `grabbedPortIdResolver`     | `(portIds: Identifier[]) => Identifier \| null`                                        | Resolves ID of a port being grabbed when there's ambiguity                                                               | no       | First added port                |
-| `releasedPortIdResolver`    | `(portIds: Identifier[]) => Identifier \| null`                                        | Resolves ID of a port being released when there's ambiguity                                                              | no       | First added port                |
+| `grabbedPortIdResolver`     | `(portIds: Identifier[]) => Identifier \| null`                                        | Resolves ID of a port being grabbed when there's ambiguity. See <code>[PortIdResolver](#port-id-resolver)</code>         | no       | First added port                |
+| `releasedPortIdResolver`    | `(portIds: Identifier[]) => Identifier \| null`                                        | Resolves ID of a port being released when there's ambiguity. See <code>[PortIdResolver](#port-id-resolver)</code>        | no       | First added port                |
 | `mouseDownEventVerifier`    | `(event) => boolean`                                                                   | Function to verify if mouse event should initiate connection dragging process                                            | no       | `(event) => event.button === 0` |
 | `mouseUpEventVerifier`      | `(event) => boolean`                                                                   | Function to verify if mouse event should reattach connection                                                             | no       | `(event) => event.button === 0` |
 | `draggingEdgeShape`         | <code><a href="/defaults#edge-shape-config" target="_blank">EdgeShapeConfig</a></code> | The shape of a dragging edge                                                                                             | no       | Same as the edge being dragged  |
@@ -57,6 +57,27 @@ The `enableUserDraggableEdges` method accepts optional configuration.
 | Nearest Connectable Port | `"nearest-connectable-port"` | Direction matches the direction of the nearest connectable port    |
 | Inherit                  | `"inherit"`                  | Direction matches the original direction of the port being grabbed |
 {{< /ref-target >}}
+
+{{< ref-target ref="port-id-resolver">}}
+### `PortIdResolver` ### {#port-id-resolver}
+
+The same `element` can be marked as multiple different ports. When user interacts with such element,
+it's not clear which port should be interacted with, for example when grabbed or released.
+
+`PortIdResolver` function allows to configure such behavior.
+{{< /ref-target >}}
+
+There are good examples of such functions:
+
+{{< code lang="javascript">}}
+const grabbedPortIdResolver = (portIds) => {
+  return portIds.find((portId) => portId.endsWith("-out")) ?? null;
+}
+
+const releasedPortIdResolver = (portIds) => {
+  return portIds.find((portId) => portId.endsWith("-in")) ?? null;
+}
+{{< /code>}}
 
 {{< ref-target ref="events">}}
 ### `EventsConfig` ### {#events}
