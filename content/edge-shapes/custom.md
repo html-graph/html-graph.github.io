@@ -23,8 +23,6 @@ class MyCustomEdgeShape implements EdgeShape {
       "svg",
     );
 
-    this.svg = this.element;
-
     this.element.style.pointerEvents = "none";
     this.element.style.position = "absolute";
     this.element.style.top = "0";
