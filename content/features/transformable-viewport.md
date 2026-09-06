@@ -40,7 +40,7 @@ const canvas = new CanvasBuilder(element)
     },
     pan: {
       cursor: "crosshair",
-      mouseDownEventVerifier: (event) => event.button === 0 && event.ctrlKey,
+      mouseDownEventVerifier: (event) => event.button === 0,
       mouseUpEventVerifier: (event) => event.button === 0,
     },
     transformPreprocessor: [
