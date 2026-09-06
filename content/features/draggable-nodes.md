@@ -38,7 +38,7 @@ const canvas = new CanvasBuilder(element)
     gridSize: 50,
     mouse: {
       dragCursor: "crosshair",
-      mouseDownEventVerifier: (event) => event.button === 0 && event.ctrlKey,
+      mouseDownEventVerifier: (event) => event.button === 0,
       mouseUpEventVerifier: (event) => event.button === 0,
     },
     events: {
