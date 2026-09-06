@@ -40,8 +40,8 @@ const canvas = new CanvasBuilder(element)
     },
     pan: {
       cursor: "crosshair",
-      mouseDownEventVerifier: (event) => event.ctrlKey,
-      mouseUpEventVerifier: (event) => true,
+      mouseDownEventVerifier: (event) => event.button === 0 && event.ctrlKey,
+      mouseUpEventVerifier: (event) => event.button === 0,
     },
     transformPreprocessor: [
       {
@@ -104,7 +104,7 @@ const canvas = new CanvasBuilder(element)
 |--------------------------|------------------|----------------------------------------------------------|----------|---------------------------------------------------|
 | `cursor`                 | `string \| null` | Cursor to set on mouse grab                              | no       | `"grab"`                                          |
 | `mouseDownEventVerifier` | `function`       | Function to verify if mouse event should trigger grab    | no       | `(event) => event.button === 0 && !event.ctrlKey` |
-| `mouseUpEventVerifier`   | `function`       | Function to verify if mouse event should trigger release | no       | `(event) => event.button === 0 && !event.ctrlKey` |
+| `mouseUpEventVerifier`   | `function`       | Function to verify if mouse event should trigger release | no       | `(event) => event.button === 0`                   |
 
 {{< /ref-target >}}
 

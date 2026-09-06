@@ -38,8 +38,8 @@ const canvas = new CanvasBuilder(element)
     gridSize: 50,
     mouse: {
       dragCursor: "crosshair",
-      mouseDownEventVerifier: (event) => event.ctrlKey,
-      mouseUpEventVerifier: (event) => true,
+      mouseDownEventVerifier: (event) => event.button === 0 && event.ctrlKey,
+      mouseUpEventVerifier: (event) => event.button === 0,
     },
     events: {
       onNodeDragStarted: (nodeId) => {
@@ -75,7 +75,7 @@ const canvas = new CanvasBuilder(element)
 |--------------------------|----------------------|----------------------------------------------------------|----------|---------------------------------------------------|
 | `dragCursor`             | `string \| null`     | Cursor to set on grab                                    | no       | `"grab"`                                          |
 | `mouseDownEventVerifier` | `(event) => boolean` | Function to verify if mouse event should trigger grab    | no       | `(event) => event.button === 0 && !event.ctrlKey` |
-| `mouseUpEventVerifier`   | `(event) => boolean` | Function to verify if mouse event should trigger release | no       | `(event) => event.button === 0 && !event.ctrlKey` |
+| `mouseUpEventVerifier`   | `(event) => boolean` | Function to verify if mouse event should trigger release | no       | `(event) => event.button === 0`                   |
 
 {{< /ref-target >}}
 

@@ -76,7 +76,7 @@ All methods require a configuration object.
 | `onNodeSelected`         | `(selectedNodeId) => void` | Function to call when node is selected                                                | yes      |                                                   |
 | `movementThreshold`      | `number`                   | Specifies maximum cursor travel, when user actions can still be regarded as selection | no       | `10`                                              |
 | `mouseDownEventVerifier` | `(event) => boolean`       | Function to verify if mouse event should initiate node selection process              | no       | `(event) => event.button === 0 && !event.ctrlKey` |
-| `mouseUpEventVerifier`   | `(event) => boolean`       | Function to verify if mouse event should apply node selection                         | no       | `(event) => event.button === 0 && !event.ctrlKey` |
+| `mouseUpEventVerifier`   | `(event) => boolean`       | Function to verify if mouse event should apply node selection                         | no       | `(event) => event.button === 0`                   |
 
 ### Selectable Edges Configuration Parameters
 
@@ -85,7 +85,7 @@ All methods require a configuration object.
 | `onEdgeSelected`         | `(selectedEdgeId) => void` | Function to call when edge is selected                                                | yes      |                                                   |
 | `movementThreshold`      | `number`                   | Specifies maximum cursor travel, when user actions can still be regarded as selection | no       | `10`                                              |
 | `mouseDownEventVerifier` | `(event) => boolean`       | Function to verify if mouse event should initiate node selection process              | no       | `(event) => event.button === 0 && !event.ctrlKey` |
-| `mouseUpEventVerifier`   | `(event) => boolean`       | Function to verify if mouse event should apply node selection                         | no       | `(event) => event.button === 0 && !event.ctrlKey` |
+| `mouseUpEventVerifier`   | `(event) => boolean`       | Function to verify if mouse event should apply node selection                         | no       | `(event) => event.button === 0`                   |
 
 ### Selectable Canvas Configuration Parameters
 
@@ -94,4 +94,4 @@ All methods require a configuration object.
 | `onCanvasSelected`       | `() => void`         | Function to call when canvas is selected                                              | yes      |                                                   |
 | `movementThreshold`      | `number`             | Specifies maximum cursor travel, when user actions can still be regarded as selection | no       | `10`                                              |
 | `mouseDownEventVerifier` | `(event) => boolean` | Function to verify if mouse event should initiate canvas selection process            | no       | `(event) => event.button === 0 && !event.ctrlKey` |
-| `mouseUpEventVerifier`   | `(event) => boolean` | Function to verify if mouse event should apply canvas selection                       | no       | `(event) => event.button === 0 && !event.ctrlKey` |
+| `mouseUpEventVerifier`   | `(event) => boolean` | Function to verify if mouse event should apply canvas selection                       | no       | `(event) => event.button === 0`                   |
