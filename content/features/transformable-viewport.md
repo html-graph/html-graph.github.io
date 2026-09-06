@@ -100,11 +100,11 @@ const canvas = new CanvasBuilder(element)
 
 ### `PanConfig` ### {#pan-config}
 
-| Name                     | Type             | Description                                              | Required | Default      |
-|--------------------------|------------------|----------------------------------------------------------|----------|--------------|
-| `cursor`                 | `string \| null` | Cursor to set on mouse grab                              | no       | `"grab"`     |
-| `mouseDownEventVerifier` | `function`       | Function to verify if mouse event should trigger grab    | no       | `() => true` |
-| `mouseUpEventVerifier`   | `function`       | Function to verify if mouse event should trigger release | no       | `() => true` |
+| Name                     | Type             | Description                                              | Required | Default                                           |
+|--------------------------|------------------|----------------------------------------------------------|----------|---------------------------------------------------|
+| `cursor`                 | `string \| null` | Cursor to set on mouse grab                              | no       | `"grab"`                                          |
+| `mouseDownEventVerifier` | `function`       | Function to verify if mouse event should trigger grab    | no       | `(event) => event.button === 0 && !event.ctrlKey` |
+| `mouseUpEventVerifier`   | `function`       | Function to verify if mouse event should trigger release | no       | `(event) => event.button === 0 && !event.ctrlKey` |
 
 {{< /ref-target >}}
 
