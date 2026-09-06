@@ -55,6 +55,17 @@ Handle user selection interactions with simple callbacks
   </div>
 </a>
 
+### [Rectangular Selection](/features/rectangular-selection/)
+Handle user selection of rectangular area with simple callbacks.
+
+<a href="/features/rectangular-selection/" target="_blank" aria-label="Rectangular Selection">
+  <div class="video">
+    <video autoplay muted loop>
+      <source src="/media/rectangular-selection.webm">
+    </video>
+  </div>
+</a>
+
 ### [Background Rendering](/features/background/)
 Add customizable backgrounds that seamlessly work with the transformable viewport.
 

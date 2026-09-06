@@ -1,0 +1,175 @@
+<!doctype html>
+<html>
+  <head>
+    <title>HTMLGraph | Rectangular Selection Demo</title>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+    <style>
+      html,
+      body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        position: relative;
+        font-family: Arial, sans-serif;
+      }
+
+      #canvas {
+        position: absolute;
+        inset: 0;
+      }
+
+      .node {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        background: #daedbd;
+        border: 1px solid #9e9e9e;
+        box-shadow: 0 0 5px #9e9e9e;
+        border-radius: 50%;
+        user-select: none;
+      }
+
+      .node.selected {
+        background: #b3e070;
+        border-color: #515151
+      }
+
+      .node-port {
+        position: relative;
+        width: 0;
+      }
+
+      .node-port::after {
+        content: "";
+        position: absolute;
+        top: -3px;
+        left: -3px;
+        width: 6px;
+        height: 6px;
+        background: #777777;
+        border-radius: 3px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="canvas"></div>
+    <script type="module">
+      import {
+        CanvasBuilder,
+        BezierEdgeShape,
+        InteractiveEdgeShape,
+      } from "https://html-graph.github.io/lib/v9.2.0/html-graph.min.js";
+
+      class Application {
+        constructor(element) {
+          this.canvas = new CanvasBuilder(element)
+            .setDefaults({
+              edges: {
+                shape: {
+                  hasTargetArrow: true,
+                },
+              },
+            })
+            .enableUserDraggableNodes()
+            .enableUserTransformableViewport()
+            .enableBackground()
+            .enableRectangularSelection({
+              onSelectionFinished: (selectionRect) => {
+                this.canvas.graph.getAllNodeIds().forEach((nodeId) => {
+                  const { element } = this.canvas.graph.getNode(nodeId);
+                  const nodeRect = element.getBoundingClientRect();
+
+                  const selected = this.checkIntersection(nodeRect, selectionRect);
+
+                  element.classList.toggle("selected", selected);
+                });
+              },
+            })
+            .enableUserSelectableCanvas({
+              onCanvasSelected: () => {
+                this.canvas.graph.getAllNodeIds().forEach((nodeId) => {
+                  const { element } = this.canvas.graph.getNode(nodeId);
+
+                  element.classList.remove("selected");
+                });
+              }
+            })
+            .build();
+        }
+
+        initGraph() {
+          this.canvas
+            .addNode(
+              this.createNode({
+                x: 200,
+                y: 100,
+                frontPortId: "node-1-in",
+                backPortId: "node-1-out",
+              }),
+            )
+            .addNode(
+              this.createNode({
+                x: 500,
+                y: 200,
+                frontPortId: "node-2-in",
+                backPortId: "node-2-out",
+              }),
+            )
+            .addEdge({ from: "node-1-out", to: "node-2-in" })
+            .focus();
+        }
+
+        createNode({ x, y, frontPortId, backPortId }) {
+          const node = document.createElement("div");
+          const frontPort = document.createElement("div");
+          const backPort = document.createElement("div");
+
+          node.classList.add("node");
+          frontPort.classList.add("node-port");
+          backPort.classList.add("node-port");
+
+          node.appendChild(frontPort);
+          node.appendChild(backPort);
+
+          return {
+            element: node,
+            x: x,
+            y: y,
+            ports: [
+              { id: frontPortId, element: frontPort },
+              { id: backPortId, element: backPort },
+            ],
+          };
+        }
+
+        checkIntersection(nodeRect, selectionRect) {
+          const isNodeRightOfSelection = nodeRect.right < selectionRect.left;
+          const isNodeLeftOfSelection = nodeRect.left > selectionRect.right;
+          const isNodeBottomOfSelection = nodeRect.bottom < selectionRect.top;
+          const isNodeTopOfSelection = nodeRect.top > selectionRect.bottom;
+
+          return !(
+            isNodeRightOfSelection ||
+            isNodeLeftOfSelection ||
+            isNodeTopOfSelection ||
+            isNodeBottomOfSelection
+          );
+        }
+      }
+
+      const element = document.getElementById("canvas");
+      const app = new Application(element);
+
+      app.initGraph();
+    </script>
+  </body>
+</html>

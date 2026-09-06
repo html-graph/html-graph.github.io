@@ -58,6 +58,13 @@
       </li>
       <li>
         {{ partial "menu-link.html" (dict
+          "path" "/features/rectangular-selection/"
+          "activePath" .path
+          "label" "Rectangular Selection"
+        )}}
+      </li>
+      <li>
+        {{ partial "menu-link.html" (dict
           "path" "/features/background/"
           "activePath" .path
           "label" "Background"

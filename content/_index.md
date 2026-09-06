@@ -59,6 +59,16 @@ cases, and complete TypeScript support.
       </a>
     </li>
     <li class="preview">
+      <a target="_blank" href="/features/rectangular-selection" aria-label="Rectangular Selection">
+        {{< image path="/images/rectangular-selection" alt="Rectangular Selection" width="500" height="500">}}
+        <div class="label-wrapper">
+          <label>
+            Rectangular Selection
+          </label>
+        </div>
+      </a>
+    </li>
+    <li class="preview">
       <a target="_blank" href="/tutorials/nocode-editor/" aria-label="Nocode Editor">
         {{< image path="/images/nocode-editor" alt="Nocode Editor" width="500" height="500">}}
         <div class="label-wrapper">
