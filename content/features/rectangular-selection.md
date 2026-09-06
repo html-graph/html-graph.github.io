@@ -59,12 +59,12 @@ Hold the `ctrl` key to activate rectangular selection in the demo below.
 
 ### Rectangular Selection Configuration Parameters
 
-| Name                     | Type                       | Description                                                                                  | Required | Default                                            |
-|--------------------------|----------------------------|----------------------------------------------------------------------------------------------|----------|----------------------------------------------------|
-| `rectangleElement`       | `Element`                  | Visual element to be placed inside the selection. Should have `width` and `height` of `100%`. | no       | Transparent blue rectangle with a grey dashed border |
-| `onSelectionStarted`     | `() => void`               | Function to call when the selection is started                                               | no       | `() => {}`                                         |
-| `onSelectionChange`      | `(rect: DOMRect) => void`  | Function to call when the selection rectangle is updated                                     | no       | `() => {}`                                         |
-| `onSelectionFinished`    | `(rect: DOMRect) => void`  | Function to call when the selection is finished                                              | no       | `() => {}`                                         |
-| `onSelectionInterrupted` | `(rect: DOMRect) => void`  | Function to call when the selection is interrupted in progress (e.g., mouse moved outside)   | no       | `() => {}`                                         |
-| `mouseDownEventVerifier` | `(event) => boolean`       | Function to verify whether a mouse event should initiate the node selection process          | no       | `(event) => event.button === 0 && event.ctrlKey`   |
-| `mouseUpEventVerifier`   | `(event) => boolean`       | Function to verify whether a mouse event should apply the node selection                     | no       | `(event) => event.button === 0 && event.ctrlKey`   |
+| Name                     | Type                       | Description                                                                                   | Required | Default                                            |
+|--------------------------|----------------------------|-----------------------------------------------------------------------------------------------|----------|----------------------------------------------------|
+| `rectangleElement`       | `Element`                  | Visual element to be placed inside the selection. Should have `width` and `height` of `100%`. | no       | Semi-transparent blue rectangle with a grey dashed border |
+| `onSelectionStarted`     | `() => void`               | Function to call when the selection is started                                                | no       | `() => {}`                                         |
+| `onSelectionChange`      | `(rect: DOMRect) => void`  | Function to call when the selection rectangle is updated                                      | no       | `() => {}`                                         |
+| `onSelectionFinished`    | `(rect: DOMRect) => void`  | Function to call when the selection is finished                                               | no       | `() => {}`                                         |
+| `onSelectionInterrupted` | `(rect: DOMRect) => void`  | Function to call when the selection is interrupted in progress (e.g., mouse moved outside)    | no       | `() => {}`                                         |
+| `mouseDownEventVerifier` | `(event) => boolean`       | Function to verify whether a mouse event should initiate the node selection process           | no       | `(event) => event.button === 0 && event.ctrlKey`   |
+| `mouseUpEventVerifier`   | `(event) => boolean`       | Function to verify whether a mouse event should apply the node selection                      | no       | `(event) => event.button === 0 && event.ctrlKey`   |
