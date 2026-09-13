@@ -61,7 +61,7 @@ Hold the `ctrl` key to activate rectangular selection in the demo below.
 
 | Name                     | Type                       | Description                                                                                   | Required | Default                                                   |
 |--------------------------|----------------------------|-----------------------------------------------------------------------------------------------|----------|-----------------------------------------------------------|
-| `rectangleElement`       | `Element`                  | Visual element to be placed inside the selection. Should have `width` and `height` of `100%`. | no       | Semi-transparent blue rectangle with a grey dashed border |
+| `rectangleElement`       | `Element`                  | Visual element to be placed inside the selection. Should have `width` and `height` of `100%`. | no       | Semi-transparent blue rectangle with a gray dashed border |
 | `onSelectionStarted`     | `() => void`               | Function to call when the selection is started                                                | no       | `() => {}`                                                |
 | `onSelectionChange`      | `(rect: DOMRect) => void`  | Function to call when the selection rectangle is updated                                      | no       | `() => {}`                                                |
 | `onSelectionFinished`    | `(rect: DOMRect) => void`  | Function to call when the selection is finished                                               | no       | `() => {}`                                                |
