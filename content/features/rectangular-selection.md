@@ -53,7 +53,7 @@ const canvas = new CanvasBuilder(element)
   .build();
 {{< /code >}}
 
-Hold the `ctrl` key to activate rectangular selection in the demo below.
+Hold the `ctrl` key or use 3 finger touch to activate rectangular selection in the demo below.
 
 {{< use-case src=/use-cases/rectangular-selection/ >}}
 
