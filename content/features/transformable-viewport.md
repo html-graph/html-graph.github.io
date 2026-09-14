@@ -33,7 +33,7 @@ const element = document.getElementById("canvas");
 
 const canvas = new CanvasBuilder(element)
   .enableUserTransformableViewport({
-    scale: {
+    zoom: {
       mouseWheelSensitivity: 1.5,
       mouseWheelEventVerifier: (event) => event.ctrlKey,
       wheelFinishTimeout: 1000,
@@ -79,20 +79,20 @@ const canvas = new CanvasBuilder(element)
 
 | Name                    | Type                                              | Description                                 | Required | Default |
 |-------------------------|---------------------------------------------------|---------------------------------------------|----------|---------|
-| `scale`                 | <code>[ScaleConfig](#scale-config)</code>         | Scale-related behavior configuration        | no       | `{}`    |
+| `zoom`                  | <code>[ZoomConfig](#zoom-config)</code>           | Zoom-related behavior configuration         | no       | `{}`    |
 | `pan`                   | <code>[PanConfig](#pan-config)</code>             | Pan-related behavior configuration          | no       | `{}`    |
 | `transformPreprocessor` | <code>[TransformConfig](#transform-config)</code> | Transformation preprocessors configuration  | no       | `{}`    |
 | `events`                | <code>[EventsConfig](#events-config)</code>       | Handlers for available events               | no       | `{}`    |
 
-{{< ref-target ref="scale-config">}}
+{{< ref-target ref="zoom-config">}}
 
-### `ScaleConfig` ### {#scale-config}
+### `ZoomConfig` ### {#zoom-config}
 
 | Name                      | Type       | Description                                                                                                                  | Required | Default      |
 |---------------------------|------------|------------------------------------------------------------------------------------------------------------------------------|----------|--------------|
-| `mouseWheelSensitivity`   | `number`   | How much to scale on wheel scroll                                                                                            | no       | `1`          |
-| `mouseWheelEventVerifier` | `function` | Function to verify if wheel event should apply scaling                                                                       | no       | `() => true` |
-| `wheelFinishTimeout`      | `number`   | Timeout in milliseconds after which scaling with wheel regarded as finished (and `onTransformFinished` event gets triggered) | no       | `500`        |
+| `mouseWheelSensitivity`   | `number`   | How much to zoom on wheel scroll                                                                                             | no       | `1`          |
+| `mouseWheelEventVerifier` | `function` | Function to verify if wheel event should apply zooming                                                                       | no       | `() => true` |
+| `wheelFinishTimeout`      | `number`   | Timeout in milliseconds after which zooming with wheel regarded as finished (and `onTransformFinished` event gets triggered) | no       | `500`        |
 
 {{< /ref-target >}}
 
