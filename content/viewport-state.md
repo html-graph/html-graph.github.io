@@ -4,7 +4,7 @@ title: Viewport Transform State
 
 ## Viewport State
 
-The read-only viewport transform state can be accessed via the `viewport` property of the `canvas`.
+The read-only viewport state can be accessed via the `viewport` property of the `canvas`.
 
 {{< code lang="javascript" >}}
 const element = document.getElementById("canvas");
