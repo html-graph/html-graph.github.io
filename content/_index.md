@@ -7,8 +7,7 @@ sitemap:
 <div class="introduction">
 <b>HTMLGraph</b> is a JavaScript library empowering developers to create customizable
 visualizations for graphs using the full potential of HTML and CSS, with zero dependencies,
-versatile layouts, extensive built-in functionalities tailored for various use
-cases, and complete TypeScript support.
+versatile layouts, extensive built-in functionalities, and complete TypeScript support.
 </div>
 
 <div class="cta-panel">
