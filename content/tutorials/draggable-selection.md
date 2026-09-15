@@ -64,34 +64,8 @@ const canvas = new CanvasBuilder(element)
       },
     }
   })
-  .enableRectangularSelection({
-    onSelectionFinished: (selectionRect) => {
-      currentSelection.clear();
-
-      canvas.graph.getAllNodeIds().forEach((nodeId) => {
-        const { element } = canvas.graph.getNode(nodeId);
-        const nodeRect = element.getBoundingClientRect();
-        const selected = checkIntersection(nodeRect, selectionRect);
-
-        if (selected) {
-          currentSelection.add(nodeId);
-        }
-      });
-
-      highlightSelectedNodes();
-    },
-  })
   // ...
   .build();
-
-const highlightSelectedNodes = () => {
-  canvas.graph.getAllNodeIds().forEach((nodeId) => {
-    const { element } = canvas.graph.getNode(nodeId);
-    const selected = currentSelection.has(nodeId);
-
-    element.classList.toggle("selected", selected);
-  });
-}
 {{< /code >}}
 
 The example below demonstrates how to combine these two features so that the user can drag multiple nodes.
