@@ -19,6 +19,21 @@ To enable the built-in rectangular selection, call the `enableRectangularSelecti
 {{< code lang="javascript">}}
 const element = document.getElementById("canvas");
 
+const canvas = new CanvasBuilder(element)
+  .enableRectangularSelection({
+    onSelectionFinished: (selectionRect) => {
+      canvas.graph.getAllNodeIds().forEach((nodeId) => {
+        const { element } = canvas.graph.getNode(nodeId);
+        const nodeRect = element.getBoundingClientRect();
+
+        const selected = checkIntersection(nodeRect, selectionRect);
+
+        element.classList.toggle("selected", selected);
+      });
+    },
+  })
+  .build();
+
 /**
  * This function verifies whether a node rectangle intersects with the selection rectangle.
  * Both parameters are of type `DOMRect`.
@@ -36,21 +51,6 @@ const checkIntersection = (nodeRect, selectionRect) => {
     isNodeBottomOfSelection
   );
 }
-
-const canvas = new CanvasBuilder(element)
-  .enableRectangularSelection({
-    onSelectionFinished: (selectionRect) => {
-      canvas.graph.getAllNodeIds().forEach((nodeId) => {
-        const { element } = canvas.graph.getNode(nodeId);
-        const nodeRect = element.getBoundingClientRect();
-
-        const selected = checkIntersection(nodeRect, selectionRect);
-
-        element.classList.toggle("selected", selected);
-      });
-    },
-  })
-  .build();
 {{< /code >}}
 
 Hold the `ctrl` key or use 3 finger touch to activate rectangular selection in the demo below.
