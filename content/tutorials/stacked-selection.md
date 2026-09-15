@@ -67,3 +67,11 @@ Hold `ctrl` key in the example below to activate selection stacking.
 
 {{< use-case src=/use-cases/stacked-selection/ >}}
 
+
+---
+
+**Related Pages**
+
+- <a href="/features/selectable-entities/" target="_blank">Selectable Entities</a>
+- <a href="/features/rectangular-selection/" target="_blank">Rectangular Selection</a>
+- <a href="/tutorials/draggable-selection/" target="_blank">Draggable Selection</a>

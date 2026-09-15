@@ -57,3 +57,11 @@ const canvas = new CanvasBuilder(element)
 {{< /code >}}
 
 {{< use-case src=/use-cases/changing-edge-color/ >}}
+
+---
+
+**Related Pages**
+
+- <a href="/tutorials/interactive-edges/" target="_blank">Interactive Edges</a>
+- <a href="/tutorials/edges-with-remove-button/" target="_blank">Edges with Remove Button</a>
+- <a href="/tutorials/nocode-editor/" target="_blank">Nocode Editor</a>

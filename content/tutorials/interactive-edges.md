@@ -125,3 +125,11 @@ const canvas = new CanvasBuilder(element)
   .enableBackground()
   .build();
 {{< /code >}}
+
+
+---
+
+**Related Pages**
+
+- <a href="/tutorials/edges-with-remove-button/" target="_blank">Edges with Remove Button</a>
+- <a href="/tutorials/nocode-editor/" target="_blank">Nocode Editor</a>

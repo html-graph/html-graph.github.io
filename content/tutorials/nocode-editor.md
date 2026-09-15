@@ -17,3 +17,16 @@ The example demonstrates multiple use-cases combined into a single nocode editor
 The complete implementation contains helpful comments throughout.
 
 {{< use-case title="Nocode Editor UI" src=/use-cases/advanced-demo/ >}}
+
+---
+
+**Related Pages**
+
+- <a target="_blank" href="/features/connectable-ports/">Connectable Ports</a>
+- <a target="_blank" href="/features/draggable-edges/">Draggable Edges</a>
+- <a target="_blank" href="/tutorials/edges-with-remove-button/">Edges with Remove Button</a>
+- <a target="_blank" href="/tutorials/interactive-edges/">Interactive Edges</a>
+- <a target="_blank" href="/features/selectable-entities/">Selectable Entities</a>
+- <a href="/features/rectangular-selection/" target="_blank">Rectangular Selection</a>
+- <a href="/tutorials/draggable-selection/" target="_blank">Draggable Selection</a>
+- <a href="/tutorials/stacked-selection/" target="_blank">Stacked Selection</a>

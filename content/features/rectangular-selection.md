@@ -75,6 +75,5 @@ Hold the `ctrl` key or use 3 finger touch to activate rectangular selection in t
 **Related Pages**
 
 - <a href="/features/selectable-entities/" target="_blank">Selectable Entities</a>
-- <a href="/features/rectangular-selection/" target="_blank">Rectangular Selection</a>
 - <a href="/tutorials/draggable-selection/" target="_blank">Draggable Selection</a>
 - <a href="/tutorials/stacked-selection/" target="_blank">Stacked Selection</a>

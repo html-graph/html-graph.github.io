@@ -73,3 +73,10 @@ Hold `ctrl` to activate rectangular selection.
 
 {{< use-case src=/use-cases/draggable-selection/ >}}
 
+---
+
+**Related Pages**
+
+- <a href="/features/selectable-entities/" target="_blank">Selectable Entities</a>
+- <a href="/features/rectangular-selection/" target="_blank">Rectangular Selection</a>
+- <a href="/tutorials/stacked-selection/" target="_blank">Stacked Selection</a>

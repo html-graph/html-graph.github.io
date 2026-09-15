@@ -108,3 +108,11 @@ The final result is presented below.
 
 When combined with [connectable ports](/features/connectable-ports), this
 functionality becomes particularly useful for nocode editor interfaces.
+
+---
+
+**Related Pages**
+
+- <a href="/tutorials/interactive-edges/" target="_blank">Interactive Edges</a>
+- <a href="/features/draggable-edges/" target="_blank">Draggable Edges</a>
+- <a href="/tutorials/nocode-editor/" target="_blank">Nocode Editor</a>
