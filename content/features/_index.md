@@ -23,7 +23,7 @@ const canvas = new CanvasBuilder(element)
 Here is an overview of all available features:
 
 ### [Transformable Viewport](/features/transformable-viewport/)
-Shift and zoom your graph using mouse or touch gestures for intuitive navigation.
+Pan and zoom your graph using mouse or touch gestures for intuitive navigation.
 
 <a href="/features/transformable-viewport/" target="_blank" aria-label="Transformable Viewport">
   <div class="video">
