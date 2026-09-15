@@ -18,12 +18,7 @@ can be implemented using the provided features:
 - <a href="/features/draggable-nodes" target="_blank">Draggable Nodes</a>
 - <a href="/features/rectangular-selection" target="_blank">Rectangular Selection</a>
 
-The example below demonstrates how to combine these two features so that the user can drag multiple nodes.
-Hold `ctrl` to activate rectangular selection.
-
-{{< use-case src=/use-cases/draggable-selection/ >}}
-
-The main idea is to handle the drag event to update all selected nodes except for the one being dragged.
+The main idea is to handle the node drag event to update all selected nodes except for the one being dragged.
 
 {{< code lang="javascript">}}
 
@@ -98,3 +93,9 @@ const canvas = new CanvasBuilder(element)
   // ...
   .build();
 {{< /code >}}
+
+The example below demonstrates how to combine these two features so that the user can drag multiple nodes.
+Hold `ctrl` to activate rectangular selection.
+
+{{< use-case src=/use-cases/draggable-selection/ >}}
+
