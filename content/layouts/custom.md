@@ -7,7 +7,7 @@ sitemap:
 ## Custom Layout (advanced)
 
 When built-in layout algorithms are insufficient, it's possible to provide a custom
-implementation of a layout algorithm.
+implementation for a layout algorithm.
 
 The following example demonstrates implementation of a layout algorithm using TypeScript.
 

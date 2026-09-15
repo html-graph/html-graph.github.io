@@ -7,7 +7,7 @@ sitemap:
 ## Custom Animated Layout (advanced)
 
 When built-in animated layout algorithms are insufficient, it's possible to provide a custom
-implementation of an animated layout algorithm.
+implementation for an animated layout algorithm.
 
 The following example demonstrates implementation of an animated layout algorithm using TypeScript.
 
