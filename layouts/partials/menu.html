@@ -269,6 +269,13 @@
       </li>
       <li>
         {{ partial "menu-link.html" (dict
+          "path" "/tutorials/stacked-selection/"
+          "activePath" .path
+          "label" "Stacked Selection"
+        )}}
+      </li>
+      <li>
+        {{ partial "menu-link.html" (dict
           "path" "/tutorials/nocode-editor/"
           "activePath" .path
           "label" "Nocode Editor"

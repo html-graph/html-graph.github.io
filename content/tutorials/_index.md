@@ -56,6 +56,16 @@ visualization.
   </div>
 </a>
 
+### [Stacked Selection](stacked-selection)
+
+<a href="/tutorials/stacked-selection/" target="_blank" aria-label="Stacked Selection">
+  <div class="video">
+    <video autoplay muted loop>
+      <source src="/media/stacked-selection.webm">
+    </video>
+  </div>
+</a>
+
 ### [Nocode Editor](nocode-editor)
 
 <a href="/tutorials/nocode-editor/" target="_blank" aria-label="Nocode Editor">
