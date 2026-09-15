@@ -88,3 +88,9 @@ renderer.setAttribute('stroke', '#CCCCFF');
 {{< /ref-target >}}
 
 {{< use-case src=/use-cases/custom-background-renderer/ >}}
+
+---
+
+**Related Pages**
+
+- <a href="/features/transformable-viewport/" target="_blank">Transformable Viewport</a>

@@ -94,3 +94,9 @@ const canvas = new CanvasBuilder(element)
 It is **highly recommended to set a minimum content scale limit for virtual scroll**,
 as shown in the example above, to ensure the number of nodes and edges within the
 viewport stays within manageable limits.
+
+---
+
+**Related Pages**
+
+- <a href="/features/transformable-viewport/" target="_blank">Transformable Viewport</a>

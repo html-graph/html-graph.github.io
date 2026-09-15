@@ -26,3 +26,9 @@ const canvas = new CanvasBuilder(element)
 {{< /code >}}
 
 {{< use-case src=/use-cases/node-resize-reactive-edges/ >}}
+
+---
+
+**Related Pages**
+
+- <a href="/usage-with-angular/" target="_blank">Usage with Angular</a>

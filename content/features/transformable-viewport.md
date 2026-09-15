@@ -176,3 +176,10 @@ transformPreprocessor: (params) => {
 All events have no arguments, but the up-to-date viewport transform state can be retrieved via the <a href="/viewport-state/" target="_blank">`canvas.viewport`</a> property.
 
 {{< /ref-target >}}
+
+---
+
+**Related Pages**
+
+- <a href="/features/virtual-scroll/" target="_blank">Virtual Scroll</a>
+- <a href="/viewport-state/" target="_blank">Viewport State</a>

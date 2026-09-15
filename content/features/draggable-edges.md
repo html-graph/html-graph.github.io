@@ -105,12 +105,10 @@ const releasedPortIdResolver = (portIds) => {
 
 {{< /ref-target >}}
 
-You might also be interested in the <a href="/tutorials/edges-with-remove-button/" target="_blank">Edges with Remove Button</a> tutorial.
+---
 
-<a href="/use-cases/midpoint-edge/" target="_blank" aria-label="Edges with Remove Button">
-  <div class="video">
-    <video autoplay muted loop>
-      <source src="/media/removable-edges.webm">
-    </video>
-  </div>
-</a>
+**Related Pages**
+
+- <a href="/features/connectable-ports/" target="_blank">Connectable Ports</a>
+- <a href="/tutorials/edges-with-remove-button/" target="_blank">Edges with Remove Button</a>
+- <a href="/tutorials/nocode-editor/" target="_blank">Nocode Editor</a>

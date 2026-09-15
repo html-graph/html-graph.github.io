@@ -95,3 +95,12 @@ All methods require a configuration object.
 | `movementThreshold`      | `number`             | Specifies maximum cursor travel, when user actions can still be regarded as selection | no       | `10`                                              |
 | `mouseDownEventVerifier` | `(event) => boolean` | Function to verify if mouse event should initiate canvas selection process            | no       | `(event) => event.button === 0 && !event.ctrlKey` |
 | `mouseUpEventVerifier`   | `(event) => boolean` | Function to verify if mouse event should apply canvas selection                       | no       | `(event) => event.button === 0`                   |
+
+
+---
+
+**Related Pages**
+
+- <a href="/features/rectangular-selection/" target="_blank">Rectangular Selection</a>
+- <a href="/tutorials/draggable-selection/" target="_blank">Draggable Selection</a>
+- <a href="/tutorials/stacked-selection/" target="_blank">Stacked Selection</a>

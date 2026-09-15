@@ -90,3 +90,11 @@ const canvas = new CanvasBuilder(element)
 | `onNodeDragFinished` | `(nodeId) => void` | Function to call when node drag is finished   | no       | `() => void` |
 
 {{< /ref-target >}}
+
+
+---
+
+**Related Pages**
+
+- <a href="/layouts/" target="_blank">Layouts</a>
+- <a href="/animated-layouts/" target="_blank">Animated Layouts</a>

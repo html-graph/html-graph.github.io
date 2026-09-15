@@ -68,3 +68,13 @@ Hold the `ctrl` key or use 3 finger touch to activate rectangular selection in t
 | `onSelectionInterrupted` | `(rect: DOMRect) => void`  | Function to call when the selection is interrupted in progress (e.g., mouse moved outside)    | no       | `() => {}`                                                |
 | `mouseDownEventVerifier` | `(event) => boolean`       | Function to verify whether a mouse event should initiate the selection process                | no       | `(event) => event.button === 0 && event.ctrlKey`          |
 | `mouseUpEventVerifier`   | `(event) => boolean`       | Function to verify whether a mouse event should apply the selection                           | no       | `(event) => event.button === 0`                           |
+
+
+---
+
+**Related Pages**
+
+- <a href="/features/selectable-entities/" target="_blank">Selectable Entities</a>
+- <a href="/features/rectangular-selection/" target="_blank">Rectangular Selection</a>
+- <a href="/tutorials/draggable-selection/" target="_blank">Draggable Selection</a>
+- <a href="/tutorials/stacked-selection/" target="_blank">Stacked Selection</a>
