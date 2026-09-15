@@ -414,8 +414,6 @@ class Application {
 
 As for the next steps, it's recommended to check out the following sections:
 
-As for the next steps, it's recommended to check out the following sections:
-
 - <a href="/features/" target="_blank">Features</a> – the built-in functionality provided
 - <a href="/tutorials/" target="_blank">Tutorials</a> – examples of how to implement useful functionality that isn't covered in Features
 
