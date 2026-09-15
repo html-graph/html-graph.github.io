@@ -46,6 +46,16 @@ visualization.
   </div>
 </a>
 
+### [Draggable Selection](draggable-selection)
+
+<a href="/tutorials/draggable-selection/" target="_blank" aria-label="Draggable Selection">
+  <div class="video">
+    <video autoplay muted loop>
+      <source src="/media/draggable-selection.webm">
+    </video>
+  </div>
+</a>
+
 ### [Nocode Editor](nocode-editor)
 
 <a href="/tutorials/nocode-editor/" target="_blank" aria-label="Nocode Editor">
