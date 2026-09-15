@@ -85,7 +85,7 @@ const canvas = new CanvasBuilder(element)
       canvas.graph.getAllNodeIds().forEach((nodeId) => {
         const { element } = canvas.graph.getNode(nodeId);
         const nodeRect = element.getBoundingClientRect();
-        const selected = this.checkIntersection(nodeRect, selectionRect);
+        const selected = checkIntersection(nodeRect, selectionRect);
 
         if (selected) {
           currentSelection.add(nodeId);
