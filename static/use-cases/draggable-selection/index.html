@@ -125,15 +125,7 @@
             .enableUserSelectableNodes({
               onNodeSelected: (selectedNodeId) => {
                 this.currentSelection.clear();
-
-                this.canvas.graph.getAllNodeIds().forEach((nodeId) => {
-                  const { element } = this.canvas.graph.getNode(nodeId);
-                  const selected = nodeId === selectedNodeId;
-
-                  if (selected) {
-                    this.currentSelection.add(nodeId);
-                  }
-                });
+                this.currentSelection.add(selectedNodeId);
 
                 this.highlightSelectedNodes();
               }
