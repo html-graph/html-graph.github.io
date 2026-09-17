@@ -24,12 +24,7 @@ This is a minimalistic working example of an angular node component:
 
 
 {{< code lang="typescript" >}}
-import {
-  Component,
-  ElementRef,
-  Input,
-  ViewChild,
-} from '@angular/core';
+import { Component, ElementRef, Input, ViewChild } from '@angular/core';
 
 @Component({
   template: `
