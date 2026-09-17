@@ -93,7 +93,6 @@ export class CanvasAdapter {
     this.canvas = new CanvasBuilder(element)
       // This feature must be enabled, because angular does not initialize
       // styles right after component is created.
-      // Alternatively you can call canvas.updateNode(...) right after ngAfterViewInit
       .enableNodeResizeReactiveEdges()
       .build();
 
