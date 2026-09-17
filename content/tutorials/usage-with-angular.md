@@ -1,5 +1,5 @@
 ---
-title: Usage with Angular
+title: Tutorials | Usage with Angular
 ---
 
 ## Usage with Angular

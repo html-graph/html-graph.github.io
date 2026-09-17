@@ -156,6 +156,15 @@
           "label" "Nocode Editor"
         )}}
       </li>
+      <li>
+        {{ partial "menu-link.html" (dict
+          "path" "/tutorials/usage-with-angular/"
+          "activePath" .path
+          "label" "Usage with Angular"
+          "icon" "/angular-icon.png"
+          "iconAlt" "Angular"
+        )}}
+      </li>
     </ul>
   </li>
   <li class="submenu-closed">
@@ -281,15 +290,6 @@
       "path" "/change-state-events/"
       "activePath" .path
       "label" "Change State Events"
-    )}}
-  </li>
-  <li>
-    {{ partial "menu-link.html" (dict
-      "path" "/usage-with-angular/"
-      "activePath" .path
-      "label" "Usage with Angular"
-      "icon" "/angular-icon.png"
-      "iconAlt" "Angular"
     )}}
   </li>
   <li class="submenu-closed">

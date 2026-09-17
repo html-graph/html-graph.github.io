@@ -31,4 +31,4 @@ const canvas = new CanvasBuilder(element)
 
 **Related Pages**
 
-- <a href="/usage-with-angular/" target="_blank">Usage with Angular</a>
+- <a href="/tutorials/usage-with-angular/" target="_blank">Usage with Angular</a>
