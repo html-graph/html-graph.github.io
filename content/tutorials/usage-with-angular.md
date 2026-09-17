@@ -19,8 +19,7 @@ You can check out the <b><a href="https://github.com/html-graph/html-graph-angul
   </div>
 </a>
 
-This is a minimalistic working example of an angular node component:
-
+This is a minimalistic working example of an Angular node component:
 
 {{< code lang="typescript" >}}
 import { Component, ElementRef, Input, ViewChild } from '@angular/core';
