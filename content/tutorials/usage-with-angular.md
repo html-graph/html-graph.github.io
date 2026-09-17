@@ -27,9 +27,7 @@ This is a minimalistic working example of an angular node component:
 import {
   Component,
   ElementRef,
-  EventEmitter,
   Input,
-  Output,
   ViewChild,
 } from '@angular/core';
 
