@@ -62,7 +62,11 @@ export class GraphNodeShape {
 {{< /code >}}
 
 It is recommended that you implement an adapter specific to your application
-that creates nodes with Angular components and ensures there are no memory leaks.
+that would:
+
+- create nodes with Angular components
+- implement other application-specific methods to manage graph
+- ensure there are no memory leaks
 
 This is a good example of such adapter:
 
