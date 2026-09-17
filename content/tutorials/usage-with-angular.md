@@ -57,7 +57,7 @@ export class GraphNodeShape {
   @ViewChild('portOut', { static: true })
   portOut!: ElementRef;
 
-  name = input.required<string>()
+  name = input.required<string>();
 }
 {{< /code >}}
 
