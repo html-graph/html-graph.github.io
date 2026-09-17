@@ -22,14 +22,14 @@ You can check out the <b><a href="https://github.com/html-graph/html-graph-angul
 This is a minimalistic working example of an Angular node component:
 
 {{< code lang="typescript" >}}
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, input, ViewChild } from '@angular/core';
 
 @Component({
   template: `
     <div #portIn></div>
 
     <div class="name">
-      {{ name }}
+      {{ name() }}
     </div>
 
     <div #portOut></div>
@@ -57,8 +57,7 @@ export class GraphNodeShape {
   @ViewChild('portOut', { static: true })
   portOut!: ElementRef;
 
-  @Input({ required: true })
-  name!: string;
+  name = input.required<string>()
 }
 {{< /code >}}
 
