@@ -75,7 +75,6 @@ import {
   Injectable,
   Injector,
   inputBinding,
-  outputBinding,
   ViewRef,
 } from '@angular/core';
 import { Canvas, CanvasBuilder, Identifier } from '@html-graph/html-graph';
