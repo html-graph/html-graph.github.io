@@ -109,7 +109,9 @@ export class CanvasAdapter {
   private readonly viewRefs = new Map<Identifier, ViewRef>();
 
   init(element: HTMLElement): void {
-    this.canvas = new CanvasBuilder(element).build();
+    this.canvas = new CanvasBuilder(element)
+      .enableNodeResizeReactiveEdges()
+      .build();
 
     this.canvas.graph.onBeforeNodeRemoved.subscribe((nodeId) => {
       const viewRef = this.viewRefs.get(nodeId)!;
@@ -138,11 +140,6 @@ export class CanvasAdapter {
       elementInjector: this.injector,
       bindings: [
         inputBinding('name', () => `Node ${id}`),
-        outputBinding('viewInitialized', () => {
-          // Node must be updated manually on ngAfterViewInit lifecycle event trigger
-          this.canvas.updateNode(id);
-          // Alternatively, you could opt-in to enabling "Node Resize Reactive Edges" feature
-        }),
       ],
     });
 
