@@ -92,7 +92,7 @@ export class CanvasAdapter {
   init(element: HTMLElement): void {
     this.canvas = new CanvasBuilder(element)
       // This feature must be enabled, because angular does not initialize
-      // styles right after component is created.
+      // styles right after component is attached to DOM
       .enableNodeResizeReactiveEdges()
       .build();
 
