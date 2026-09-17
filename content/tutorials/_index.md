@@ -11,7 +11,7 @@ visualization.
 
 <a target="_blank" href="/tutorials/nodes-customization/" aria-label="Nodes Customization">
   <div class="video">
-  {{< image path="/images/nodes-customization-tutorial" alt="Nodes Customization" width="500" height="500">}}
+  {{< image path="/images/nodes-customization-tutorial" alt="Nodes Customization">}}
   </div>
 </a>
 
@@ -73,5 +73,13 @@ visualization.
     <video autoplay muted loop>
       <source src="/media/advanced-demo.webm">
     </video>
+  </div>
+</a>
+
+### [Usage with Angular](usage-with-angular)
+
+<a target="_blank" href="/tutorials/usage-with-angular/" aria-label="Nodes Customization">
+  <div class="video">
+  {{< image path="/images/usage-with-angular" alt="Usage with Angular">}}
   </div>
 </a>
