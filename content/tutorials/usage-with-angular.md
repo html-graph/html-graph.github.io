@@ -25,7 +25,6 @@ This is a minimalistic working example of an angular node component:
 
 {{< code lang="typescript" >}}
 import {
-  AfterViewInit,
   Component,
   ElementRef,
   EventEmitter,
@@ -60,7 +59,7 @@ import {
     }
   `,
 })
-export class GraphNodeShape implements AfterViewInit {
+export class GraphNodeShape {
   @ViewChild('portIn', { static: true })
   portIn!: ElementRef;
 
