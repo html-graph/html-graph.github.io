@@ -80,6 +80,8 @@ visualization.
 
 <a target="_blank" href="/tutorials/usage-with-angular/" aria-label="Nodes Customization">
   <div class="video">
-  {{< image path="/images/usage-with-angular" alt="Usage with Angular">}}
+    <video autoplay muted loop>
+      <source src="/media/angular-demo.webm">
+    </video>
   </div>
 </a>
