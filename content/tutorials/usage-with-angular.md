@@ -8,7 +8,8 @@ HTMLGraph can be used with any frontend framework.
 The common scenario is when you want node component to be reactive, thus be
 managed by the framework itself.
 
-This <b><a href="https://html-graph.github.io/html-graph-angular-demo/" target="_blank">Demo</a></b> uses Angular components as graph nodes.
+This demo uses Angular components as graph nodes.
+You can check out the <b><a href="https://github.com/html-graph/html-graph-angular-demo/" target="_blank">source code</a></b> to get a general idea of how to manage graph using Angular. The same approach can be used with other frameworks.
 
 <a href="https://html-graph.github.io/html-graph-angular-demo/" target="_blank" aria-label="Angular Demo">
   <div class="video">
@@ -17,8 +18,6 @@ This <b><a href="https://html-graph.github.io/html-graph-angular-demo/" target="
     </video>
   </div>
 </a>
-
-You can check out the <b><a href="https://github.com/html-graph/html-graph-angular-demo/" target="_blank">source code</a></b> to get a general idea of how to manage graph using Angular. The same approach can be used with other frameworks.
 
 This is a minimalistic working example of an angular node component:
 
