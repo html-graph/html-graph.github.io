@@ -69,13 +69,6 @@ export class GraphNodeShape implements AfterViewInit {
 
   @Input({ required: true })
   name!: string;
-
-  @Output()
-  readonly viewInitialized = new EventEmitter<void>();
-
-  ngAfterViewInit(): void {
-    this.viewInitialized.emit();
-  }
 }
 {{< /code >}}
 
