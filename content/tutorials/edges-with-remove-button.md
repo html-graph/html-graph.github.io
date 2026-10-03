@@ -80,7 +80,7 @@ Now that the button element is ready, we can attach it to an edge using `midpoin
 The element will be positioned at the point of an edge that's equidistant from both ends.
 
 {{< code lang="javascript">}}
-import { CanvasBuilder, BezierEdgeShape, MidpointEdgeShape } from "@html-graph/html-graph";
+import { CanvasBuilder, BezierEdgeShape } from "@html-graph/html-graph";
 
 const canvas = new CanvasBuilder(canvasElement)
   .setDefaults({
