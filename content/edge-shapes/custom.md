@@ -76,7 +76,7 @@ class MyCustomEdgeShape implements EdgeShape {
 As shown above, any custom edge shape must implement the `EdgeShape` interface.
 
 This interface requires:
-- public property `element`, which stores edge svg element
+- public property `element`, which stores edge element
 - method `render`, which updates `element` property based on provided parameters
 
 {{< use-case src=/use-cases/minimal-custom-edge-shape/ >}}
