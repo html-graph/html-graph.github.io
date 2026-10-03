@@ -89,19 +89,16 @@
             .setDefaults({
               edges: {
                 shape: () => {
-                  const baseShape = new BezierEdgeShape({
+                  const shape = new BezierEdgeShape({
                     hasTargetArrow: true,
+                    interactiveDistance: 20,
                   });
 
-                  const interactiveEdge = new InteractiveEdgeShape(baseShape, {
-                    distance: 20,
+                  shape.element.addEventListener("click", (event) => {
+                    shape.view.line.classList.toggle("animated-path");
                   });
 
-                  interactiveEdge.element.addEventListener("click", (event) => {
-                    interactiveEdge.view.line.classList.toggle("animated-path");
-                  });
-
-                  return interactiveEdge;
+                  return shape;
                 },
               },
             })

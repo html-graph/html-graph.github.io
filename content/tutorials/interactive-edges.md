@@ -13,40 +13,13 @@ title: Tutorials | Interactive Edges
 </a>
 
 By default, edges in the graph are not interactive.
-To enable interaction with edges, you can use the `InteractiveEdgeShape`
-decorator.
+To enable interaction with edges, you can pass the `interactiveDistance`
+parameter to the edge shape constructor.
 
-First, create a canvas with desired edge shape using factory function:
-
-{{< code lang="javascript">}}
-import { CanvasBuilder, BezierEdgeShape } from "@html-grapg/html-graph";
-
-const element = document.getElementById("canvas");
-
-const canvas = new CanvasBuilder(element)
-  .setDefaults({
-    edges: {
-      shape: () => {
-        const baseShape = new BezierEdgeShape({
-          hasTargetArrow: true,
-        });
-
-        return baseShape;
-      },
-    },
-  })
-  .build();
-{{< /code >}}
-
-Then use the `InteractiveEdgeShape` decorator to create invisible interaction area around the visible edge.
 This example shows how to handle click event for an edge:
 
 {{< code lang="javascript">}}
-import {
-  CanvasBuilder,
-  BezierEdgeShape,
-  InteractiveEdgeShape,
-} from "@html-graph/html-graph";
+import { CanvasBuilder, BezierEdgeShape } from "@html-graph/html-graph";
 
 const element = document.getElementById("canvas");
 
@@ -54,39 +27,21 @@ const canvas = new CanvasBuilder(element)
   .setDefaults({
     edges: {
       shape: (edgeId) => {
-        const baseShape = new BezierEdgeShape({
+        const shape = new BezierEdgeShape({
           hasTargetArrow: true,
+          interactiveDistance: 10,
         });
 
-        const interactiveShape = new InteractiveEdgeShape(baseShape, {
-          distance: 20,
-        });
-
-        interactiveShape.element.addEventListener("click", (event) => {
+        shape.element.addEventListener("click", (event) => {
           console.log(`clicked on edge with id: ${edgeId}`);
         });
 
-        return interactiveShape;
+        return shape;
       },
     },
   })
   .build();
 {{< /code >}}
-
-### Decorator Parameters
-
-| Name                    | Type                                                  | Description                            | Required | Default |
-|-------------------------|-------------------------------------------------------|----------------------------------------|----------|---------|
-| `baseShape`             | `StructuredEdgeShape`                                 | The shape to make interactive          | Yes      |         |
-| `interactiveParameters` | <code>[InteractiveParams](#interactive-params)</code> | Configuration for interactive behavior | No       | `{}`    |
-
-{{< ref-target ref="interactive-params">}}
-### `InteractiveParams` ### {#interactive-params}
-
-| Name       | Type     | Description                                    | Required | Default |
-|------------|----------|------------------------------------------------|----------|---------|
-| `distance` | `number` | Distance of the interactive area from the edge | No       | `10`    |
-{{< /ref-target >}}
 
 Try out this demo, which toggles edge line animated dash on edge click:
 
@@ -104,17 +59,14 @@ const canvas = new CanvasBuilder(element)
     edges: {
       priority: 0, // lower z-index
       shape: (edgeId) => {
-        const baseShape = new BezierEdgeShape({
+        const shape = new BezierEdgeShape({
           hasTargetArrow: true,
-        });
-
-        const interactiveShape = new InteractiveEdgeShape(baseShape, {
-          distance: 10,
+          interactiveDistance: 10,
         });
 
         // ... event handlers ...
 
-        return interactiveShape;
+        return shape;
       },
     },
   })
