@@ -85,24 +85,21 @@
               },
               edges: {
                 shape: () => {
-                  const baseShape = new BezierEdgeShape({
+                  const shape = new BezierEdgeShape({
                     hasTargetArrow: true,
-                    color: this.edgeColor
+                    color: this.edgeColor,
+                    interactiveDistance: 20,
                   });
 
-                  const interactiveShape = new InteractiveEdgeShape(baseShape, {
-                    distance: 20,
+                  shape.element.addEventListener("mouseenter", () => {
+                    shape.element.style.setProperty("--edge-color", this.hoverEdgeColor);
                   });
 
-                  interactiveShape.element.addEventListener("mouseenter", () => {
-                    interactiveShape.element.style.setProperty("--edge-color", this.hoverEdgeColor);
+                  shape.element.addEventListener("mouseleave", () => {
+                    shape.element.style.setProperty("--edge-color", this.edgeColor);
                   });
 
-                  interactiveShape.element.addEventListener("mouseleave", () => {
-                    interactiveShape.element.style.setProperty("--edge-color", this.edgeColor);
-                  });
-
-                  return interactiveShape;
+                  return shape;
                 },
                 priority: 0,
               },

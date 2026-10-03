@@ -16,15 +16,10 @@ title: Tutorials | Changing Edge Color
 Edge color can be dynamically modified using `--edge-color` CSS variable for edge `element`, as
 shown in the example below.
 
-This example demonstrates how to change edge color on mouse hover, using
-`InteractiveEdgeShape` decorator.
+This example demonstrates how to change edge color on mouse hover.
 
 {{< code lang="javascript">}}
-import {
-  CanvasBuilder,
-  BezierEdgeShape,
-  InteractiveEdgeShape,
-} from "@html-graph/html-graph";
+import { CanvasBuilder, BezierEdgeShape } from "@html-graph/html-graph";
 
 const element = document.getElementById("canvas");
 
@@ -32,24 +27,21 @@ const canvas = new CanvasBuilder(element)
   .setDefaults({
     edges: {
       shape: () => {
-        const baseShape = new BezierEdgeShape({
+        const shape = new BezierEdgeShape({
           hasTargetArrow: true,
           color: "#777777"
+          interactiveDistance: 20,
         });
 
-        const interactiveShape = new InteractiveEdgeShape(baseShape, {
-          distance: 20,
+        shape.element.addEventListener("mouseenter", () => {
+          shape.element.style.setProperty("--edge-color", "#f9880e");
         });
 
-        interactiveShape.element.addEventListener("mouseenter", () => {
-          interactiveShape.element.style.setProperty("--edge-color", "#f9880e");
+        shape.element.addEventListener("mouseleave", () => {
+          shape.element.style.setProperty("--edge-color", "#777777");
         });
 
-        interactiveShape.element.addEventListener("mouseleave", () => {
-          interactiveShape.element.style.setProperty("--edge-color", "#777777");
-        });
-
-        return interactiveShape;
+        return shape;
       },
     },
   })
