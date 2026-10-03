@@ -40,8 +40,8 @@ In addition to `type: "bezier"`, the following options are available:
 | `smallCycleRadius`    | `number`                                                               | Port-cycle radius near the port    | no       | `15`         |
 | `detourDistance`      | `number`                                                               | Node cycle detour distance         | no       | `100`        |
 | `detourDirection`     | `number`                                                               | Node cycle detour direction        | no       | `-Math.PI/2` |
-| `midpointElement`     | `HTMLElement \| SVGElement \| undefined`                               | Element to place in the middle     | no       | `undefined`  |
-| `interactiveDistance` | `number \| undefined`                                               | Distance of the interactive area   | no       | `0`          |
+| `midpointElement`     | `HTMLElement \| SVGElement`                                            | Element to place in the middle     | no       | `undefined`  |
+| `interactiveDistance` | `number`                                                               | Distance of the interactive area   | no       | `0`          |
 {{< /ref-target >}}
 
 Alternatively, you can create a Bezier shape by passing a factory function into the configuration.

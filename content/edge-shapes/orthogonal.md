@@ -39,8 +39,8 @@ In addition to `type: "orthogonal"`, the following options are available:
 | `cycleSquareSide`     | `number`                                                               | Port cycle square side size            | no       | `30`         |
 | `roundness`           | `number`                                                               | Roundness of the line angles           | no       | `10`         |
 | `detourDistance`      | `number`                                                               | Node cycle detour distance             | no       | `100`        |
-| `midpointElement`     | `HTMLElement \| SVGElement \| undefined`                               | Element to place in the middle         | no       | `undefined`  |
-| `interactiveDistance` | `number \| undefined`                                                  | Distance of the interactive area       | no       | `0`          |
+| `midpointElement`     | `HTMLElement \| SVGElement`                                            | Element to place in the middle         | no       | `undefined`  |
+| `interactiveDistance` | `number`                                                               | Distance of the interactive area       | no       | `0`          |
 {{< /ref-target >}}
 
 Alternatively, you can create a Orthogonal shape by passing a factory function into the configuration.

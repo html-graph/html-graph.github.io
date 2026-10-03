@@ -37,8 +37,8 @@ In addition to `type: "direct"`, the following options are available:
 | `targetOffset`        | <code>number \| "box" \| [PortOffsetFn](#port-offset-fn)</code>        | Empty space distance from target port to an edge | no       | `0`          |
 | `hasSourceArrow`      | `boolean`                                                              | Draw an arrow near the source port               | no       | `false`      |
 | `hasTargetArrow`      | `boolean`                                                              | Draw an arrow near the target port               | no       | `false`      |
-| `midpointElement`     | `HTMLElement \| SVGElement \| undefined`                               | Element to place in the middle                   | no       | `undefined`  |
-| `interactiveDistance` | `number \| undefined`                                                  | Distance of the interactive area                 | no       | `0`          |
+| `midpointElement`     | `HTMLElement \| SVGElement`                                            | Element to place in the middle                   | no       | `undefined`  |
+| `interactiveDistance` | `number`                                                               | Distance of the interactive area                 | no       | `0`          |
 {{< /ref-target >}}
 
 Alternatively, you can create a Direct shape by passing a factory function into the configuration.
