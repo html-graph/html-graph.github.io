@@ -25,8 +25,7 @@ canvas.removeEdge("edge-1");
 The challenge is to add some interactive element in the center of an edge to
 handle click events that trigger edge removal.
 
-This can be done using `MidpointEdgeShape` decorator, but first we need to create a
-function that would generate an interactive element. As a basis for a remove
+This can be done using `midpointElement` parameter. As a basis for a remove
 button, you can use this implementation:
 
 {{< code lang="javascript">}}
@@ -77,9 +76,8 @@ This is how the element appears:
 
 {{< image path="/images/remove-button" alt="Remove button demo" width="200" height="200">}}
 
-Now that the button element is ready, we can attach it to an edge and add event
-listeners using the `MidpointEdgeShape`. This decorator positions the provided
-element at the point of an edge that's equidistant from both ends.
+Now that the button element is ready, we can attach it to an edge using `midpointElement` parameter and add event listeners.
+The element will be positioned at the point of an edge that's equidistant from both ends.
 
 {{< code lang="javascript">}}
 import { CanvasBuilder, BezierEdgeShape, MidpointEdgeShape } from "@html-graph/html-graph";
@@ -88,15 +86,18 @@ const canvas = new CanvasBuilder(canvasElement)
   .setDefaults({
     edges: {
       shape: (edgeId) => {
-        const baseShape = new BezierEdgeShape({ hasTargetArrow: true });
+        const midpointElement = createRemoveEdgeButton();
 
-        const midpoint = createRemoveEdgeButton();
-
-        midpoint.addEventListener("click", (event) => {
+        midpointElement.addEventListener("click", (event) => {
           canvas.removeEdge(edgeId);
         });
 
-        return new MidpointEdgeShape(baseShape, midpoint);
+        const shape = new BezierEdgeShape({
+          hasTargetArrow: true,
+          midpointElement,
+        });
+
+        return shape;
       },
     },
   }).build();

@@ -81,15 +81,16 @@
             .setDefaults({
               edges: {
                 shape: (edgeId) => {
-                  const baseShape = new BezierEdgeShape({ hasTargetArrow: true });
+                  const midpointElement = this.createRemoveEdgeButton();
 
-                  const midpoint = this.createRemoveEdgeButton();
-
-                  midpoint.addEventListener("click", (event) => {
+                  midpointElement.addEventListener("click", (event) => {
                     this.canvas.removeEdge(edgeId);
                   });
 
-                  return new MidpointEdgeShape(baseShape, midpoint);
+                  return new BezierEdgeShape({
+                    hasTargetArrow: true,
+                    midpointElement,
+                  });
                 },
               },
             })
