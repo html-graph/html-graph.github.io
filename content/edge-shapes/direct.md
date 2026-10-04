@@ -79,11 +79,31 @@ canvas.updateEdge("edge-1", {
 
 ### `PortOffsetFn` ### {#port-offset-fn}
 
-`PortOffsetFn` is a function that calculates the arrow offset distance based on edge direction and port parameters. This determines how far from the port center the arrow should be placed.
+`PortOffsetFn` is a function that calculates the arrow offset distance based
+on edge direction and port parameters. This determines how far from the port center the arrow should be placed.
 
 {{< /ref-target >}}
 
-Here is an example of such a function that positions arrows near the border of a rectangular port:
+Here is an example of a `PortOffsetFn` configuration that positions arrows near the border of a rectangular port:
+
+{{< code lang="javascript">}}
+canvas.addEdge({
+  from: "port-1",
+  to: "port-2",
+  shape: new DirectEdgeShape({
+    hasSourceArrow: true,
+    hasTargetArrow: true,
+    sourceOffset: "box",
+    targetOffset: "box",
+  }),
+});
+{{< /code >}}
+
+{{< use-case src=/use-cases/direct-edge-rectangular-nodes/ >}}
+
+You can also provide a custom `PortOffsetFn`.
+
+As a starting point you can take a look at the implementation of the `"box"` `PortOffsetFn`:
 
 {{< code lang="javascript">}}
 const boxPortOffsetFn = (params) => {
@@ -113,19 +133,3 @@ canvas.addEdge({
 });
 {{< /code >}}
 
-{{< use-case src=/use-cases/direct-edge-rectangular-nodes/ >}}
-
-`boxPortOffsetFn` is built into the library for direct edges:
-
-{{< code lang="javascript">}}
-canvas.addEdge({
-  from: "port-1",
-  to: "port-2",
-  shape: new DirectEdgeShape({
-    hasSourceArrow: true,
-    hasTargetArrow: true,
-    sourceOffset: "box",
-    targetOffset: "box",
-  }),
-});
-{{< /code >}}
