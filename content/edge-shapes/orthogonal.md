@@ -14,6 +14,7 @@ const canvas = new CanvasBuilder(element)
     edges: {
       shape: {
         type: "orthogonal",
+        hasTargetArrow: true,
       },
     },
   })
@@ -22,7 +23,23 @@ const canvas = new CanvasBuilder(element)
 
 {{< use-case src=/use-cases/orthogonal-edge/ >}}
 
-In addition to `type: "orthogonal"`, the following options are available:
+Alternatively, you can create a Orthogonal shape by passing a factory function into the configuration.
+
+{{< code lang="javascript">}}
+import { OrthogonalEdgeShape } from "@html-graph/html-graph";
+
+const element = document.getElementById("canvas");
+
+const canvas = new CanvasBuilder(element)
+  .setDefaults({
+    edges: {
+      shape: (edgeId) => new OrthogonalEdgeShape({ hasTargetArrow: true })
+    },
+  })
+  .build();
+{{< /code >}}
+
+The following configuration options are available:
 
 # # {#orthogonal-edge-parameters}
 
@@ -42,24 +59,6 @@ In addition to `type: "orthogonal"`, the following options are available:
 | `midpointElement`     | `HTMLElement \| SVGElement`                                            | Element to place in the middle         | no       | `undefined`  |
 | `interactiveDistance` | `number`                                                               | Distance of the interactive area       | no       | `0`          |
 {{< /ref-target >}}
-
-Alternatively, you can create a Orthogonal shape by passing a factory function into the configuration.
-
-{{< code lang="javascript">}}
-import { OrthogonalEdgeShape } from "@html-graph/html-graph";
-
-const element = document.getElementById("canvas");
-
-const canvas = new CanvasBuilder(element)
-  .setDefaults({
-    edges: {
-      shape: (edgeId) => new OrthogonalEdgeShape({ hasTargetArrow: true })
-    },
-  })
-  .build();
-{{< /code >}}
-
-All parameters are the same as specified in the [table](#orthogonal-edge-parameters).
 
 You can also apply the Orthogonal shape to a specific edge using the
 [addEdge](/canvas/#add-edge) and [updateEdge](/canvas/#update-edge) methods.

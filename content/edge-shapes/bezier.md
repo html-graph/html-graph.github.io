@@ -14,6 +14,7 @@ const canvas = new CanvasBuilder(element)
     edges: {
       shape: {
         type: "bezier",
+        hasTargetArrow: true,
       },
     },
   })
@@ -22,7 +23,23 @@ const canvas = new CanvasBuilder(element)
 
 {{< use-case src=/use-cases/bezier-edge/ >}}
 
-In addition to `type: "bezier"`, the following options are available:
+Alternatively, you can create a Bezier shape by passing a factory function into the configuration.
+
+{{< code lang="javascript">}}
+import { BezierEdgeShape } from "@html-graph/html-graph";
+
+const element = document.getElementById("canvas");
+
+const canvas = new CanvasBuilder(element)
+  .setDefaults({
+    edges: {
+      shape: (edgeId) => new BezierEdgeShape({ hasTargetArrow: true })
+    },
+  })
+  .build();
+{{< /code >}}
+
+The following configuration options are available:
 
 # #{#bezier-edge-parameters}
 
@@ -43,24 +60,6 @@ In addition to `type: "bezier"`, the following options are available:
 | `midpointElement`     | `HTMLElement \| SVGElement`                                            | Element to place in the middle     | no       | `undefined`  |
 | `interactiveDistance` | `number`                                                               | Distance of the interactive area   | no       | `0`          |
 {{< /ref-target >}}
-
-Alternatively, you can create a Bezier shape by passing a factory function into the configuration.
-
-{{< code lang="javascript">}}
-import { BezierEdgeShape } from "@html-graph/html-graph";
-
-const element = document.getElementById("canvas");
-
-const canvas = new CanvasBuilder(element)
-  .setDefaults({
-    edges: {
-      shape: (edgeId) => new BezierEdgeShape({ hasTargetArrow: true })
-    },
-  })
-  .build();
-{{< /code >}}
-
-All parameters are the same as specified in the [table](#bezier-edge-parameters).
 
 You can also apply the Bezier shape to a specific edge using the
 [addEdge](/canvas/#add-edge) and [updateEdge](/canvas/#update-edge) methods.
