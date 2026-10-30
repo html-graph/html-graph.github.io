@@ -75,7 +75,7 @@ const element = document.getElementById("canvas");
 const canvas = new CanvasBuilder(element)
   .setDefaults({
     edges: {
-      shape: () => {
+      shapeFactory: () => {
         return new BezierEdgeShape({
           color: "#000",
           hasTargetArrow: true,

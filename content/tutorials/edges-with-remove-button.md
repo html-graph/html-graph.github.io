@@ -85,7 +85,7 @@ import { CanvasBuilder, BezierEdgeShape } from "@html-graph/html-graph";
 const canvas = new CanvasBuilder(canvasElement)
   .setDefaults({
     edges: {
-      shape: (edgeId) => {
+      shapeFactory: (edgeId) => {
         const midpointElement = createRemoveEdgeButton();
 
         midpointElement.addEventListener("click", (event) => {

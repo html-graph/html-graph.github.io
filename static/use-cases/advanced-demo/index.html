@@ -339,7 +339,7 @@
             .enableNodeResizeReactiveEdges()
             .enableBackground()
             .enableUserConnectablePorts({
-              edgeShape: () => {
+              edgeShapeFactory: () => {
                 return new OrthogonalEdgeShape({
                   color: "var(--color-edge)",
                   hasTargetArrow: true,

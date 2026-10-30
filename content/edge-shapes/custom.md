@@ -89,7 +89,7 @@ const element = document.getElementById("canvas");
 const canvas = new CanvasBuilder(element)
   .setDefaults({
     edges: {
-      shape: (edgeId) => new MyCustomEdgeShape(),
+      shapeFactory: (edgeId) => new MyCustomEdgeShape(),
     },
   })
   .build();

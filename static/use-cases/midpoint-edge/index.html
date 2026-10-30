@@ -79,7 +79,7 @@
           this.canvas = new CanvasBuilder(element)
             .setDefaults({
               edges: {
-                shape: (edgeId) => {
+                shapeFactory: (edgeId) => {
                   const midpointElement = this.createRemoveEdgeButton();
 
                   midpointElement.addEventListener("click", (event) => {

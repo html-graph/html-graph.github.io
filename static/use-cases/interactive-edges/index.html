@@ -87,7 +87,7 @@
           this.canvas = new CanvasBuilder(element)
             .setDefaults({
               edges: {
-                shape: () => {
+                shapeFactory: () => {
                   const shape = new BezierEdgeShape({
                     hasTargetArrow: true,
                     interactiveDistance: 20,

@@ -13,7 +13,7 @@ const element = document.getElementById("canvas");
 const canvas = new CanvasBuilder(element)
   .setDefaults({
     edges: {
-      shape: () => {
+      shapeFactory: () => {
         return new BezierEdgeShape({
           arrowRenderer: {
             type: "triangle",

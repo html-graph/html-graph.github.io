@@ -58,7 +58,7 @@
                 priority: () => this.nodePriority++,
               },
               edges: {
-                shape: () => {
+                shapeFactory: () => {
                   return new DirectEdgeShape({
                     hasSourceArrow: true,
                     hasTargetArrow: true,

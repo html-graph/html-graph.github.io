@@ -158,7 +158,7 @@
           this.canvas = new CanvasBuilder(canvasElement)
             .setDefaults({
               edges: {
-                shape: () => {
+                shapeFactory: () => {
                   return new OrthogonalEdgeShape({
                     hasTargetArrow: true,
                   });

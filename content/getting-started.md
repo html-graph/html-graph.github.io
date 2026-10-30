@@ -357,7 +357,7 @@ class Application {
     this.canvas = new CanvasBuilder(element)
       .setDefaults({
         edges: {
-          shape: () => {
+          shapeFactory: () => {
             return new BezierEdgeShape({
               hasTargetArrow: true,
             });
@@ -401,7 +401,7 @@ class Application {
     this.canvas = new CanvasBuilder(element)
       .setDefaults({
         edges: {
-          shape: () => {
+          shapeFactory: () => {
             return new BezierEdgeShape({
               hasTargetArrow: true,
             });

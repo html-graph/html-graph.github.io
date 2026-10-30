@@ -14,7 +14,7 @@ const element = document.getElementById("canvas");
 const canvas = new CanvasBuilder(element)
   .setDefaults({
     edges: {
-      shape: (edgeId) => {
+      shapeFactory: (edgeId) => {
         return new BezierEdgeShape({
           hasTargetArrow: true,
         });

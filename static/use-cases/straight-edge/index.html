@@ -68,7 +68,7 @@
           this.canvas = new CanvasBuilder(element)
             .setDefaults({
               edges: {
-                shape: () => {
+                shapeFactory: () => {
                   return new StraightEdgeShape({
                     hasTargetArrow: true,
                   });

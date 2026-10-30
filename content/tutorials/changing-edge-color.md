@@ -26,7 +26,7 @@ const element = document.getElementById("canvas");
 const canvas = new CanvasBuilder(element)
   .setDefaults({
     edges: {
-      shape: () => {
+      shapeFactory: () => {
         const shape = new BezierEdgeShape({
           hasTargetArrow: true,
           color: "#777777"
