@@ -52,7 +52,7 @@ Paste the content into HTML
 {{< code lang="html" >}}
 <div id="canvas"></div>
 <script type="module">
-  import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@10.0.0/dist/html-graph.min.js";
+  import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@10.1.0/dist/html-graph.min.js";
 
   const element = document.getElementById("canvas");
   const canvas = new CanvasBuilder(element).build();
@@ -155,7 +155,7 @@ It defines a full-screen canvas and an <code>Application</code> class.
   <body>
     <div id="canvas"></div>
     <script type="module">
-      import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@10.0.0/dist/html-graph.min.js";
+      import { CanvasBuilder } from "https://unpkg.com/@html-graph/html-graph@10.1.0/dist/html-graph.min.js";
 
       class Application {
         constructor(element) {
@@ -350,7 +350,7 @@ Edges can be customized, for instance, by adding a target arrow.
 This can be achieved using the <code>setDefaults</code> method of <code>CanvasBuilder</code>.
 
 {{< code lang="javascript" >}}
-import { CanvasBuilder, BezierEdgeShape } from "https://unpkg.com/@html-graph/html-graph@10.0.0/dist/html-graph.min.js";
+import { CanvasBuilder, BezierEdgeShape } from "https://unpkg.com/@html-graph/html-graph@10.1.0/dist/html-graph.min.js";
 
 class Application {
   constructor(element) {
