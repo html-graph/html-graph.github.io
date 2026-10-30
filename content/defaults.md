@@ -75,10 +75,11 @@ const element = document.getElementById("canvas");
 const canvas = new CanvasBuilder(element)
   .setDefaults({
     edges: {
-      shape: {
-        type: "bezier",
-        color: "#000",
-        hasTargetArrow: true,
+      shape: () => {
+        return new BezierEdgeShape({
+          color: "#000",
+          hasTargetArrow: true,
+        }),
       },
       priority: "incremental",
     },
@@ -88,21 +89,21 @@ const canvas = new CanvasBuilder(element)
 
 #### `EdgesConfig`
 
-| Name        | Type                                               | Description                      | Required | Default              |
-|-------------|----------------------------------------------------|----------------------------------|----------|----------------------|
-| `shape`     | <code>[EdgeShapeConfig](#edge-shape-config)</code> | Default edge shape configuration | no       | `{ type: "bezier" }` |
-| `priority`  | <code>[Priority](#edge-priority)</code>            | Default edge priority            | no       | `0`                  |
+| Name        | Type                                               | Description                      | Required | Default |
+|-------------|----------------------------------------------------|----------------------------------|----------|---------|
+| `shape`     | <code>[EdgeShapeConfig](#edge-shape-config)</code> | Default edge shape configuration | no       | Bezier  |
+| `priority`  | <code>[Priority](#edge-priority)</code>            | Default edge priority            | no       | `0`     |
 
 {{< ref-target ref="edge-shape-config">}}
 #### `EdgeShapeConfig` Options ### {#edge-shape-config}
 
-| Name       | Configuration                                                                           | Example                                   |
-|------------|-----------------------------------------------------------------------------------------|-------------------------------------------|
-| Bezier     | <code><a href="/edge-shapes/bezier/" target="_blank">BezierEdgeShape</a></code>         | `{ type: "bezier" }`                      |
-| Direct     | <code><a href="/edge-shapes/direct/" target="_blank">DirectEdgeShape</a></code>         | `{ type: "direct" }`                      |
-| Straight   | <code><a href="/edge-shapes/straight/" target="_blank">StraightEdgeShape</a></code>     | `{ type: "straight" }`                    |
-| Orthogonal | <code><a href="/edge-shapes/orthogonal/" target="_blank">OrthogonalEdgeShape</a></code> | `{ type: "orthogonal" }`                  |
-| Custom     | <code><a href="/edge-shapes/custom/" target="_blank">CustomEdgeShape</a></code>         | `(edgeId) => new CustomEdgeShape(edgeId)` |
+| Name       | Configuration                                                                           |
+|------------|-----------------------------------------------------------------------------------------|
+| Bezier     | <code><a href="/edge-shapes/bezier/" target="_blank">BezierEdgeShape</a></code>         |
+| Direct     | <code><a href="/edge-shapes/direct/" target="_blank">DirectEdgeShape</a></code>         |
+| Straight   | <code><a href="/edge-shapes/straight/" target="_blank">StraightEdgeShape</a></code>     |
+| Orthogonal | <code><a href="/edge-shapes/orthogonal/" target="_blank">OrthogonalEdgeShape</a></code> |
+| Custom     | <code><a href="/edge-shapes/custom/" target="_blank">CustomEdgeShape</a></code>         |
 {{< /ref-target >}}
 
 {{< ref-target ref="edge-priority">}}

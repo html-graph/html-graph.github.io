@@ -7,25 +7,6 @@ title: Edge Shape | Orthogonal
 The Orthogonal edge shape can be configured by calling the `setDefaults` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
-const element = document.getElementById("canvas");
-
-const canvas = new CanvasBuilder(element)
-  .setDefaults({
-    edges: {
-      shape: {
-        type: "orthogonal",
-        hasTargetArrow: true,
-      },
-    },
-  })
-  .build();
-{{< /code >}}
-
-{{< use-case src=/use-cases/orthogonal-edge/ >}}
-
-Alternatively, you can create a Orthogonal shape by passing a factory function into the configuration.
-
-{{< code lang="javascript">}}
 import { OrthogonalEdgeShape } from "@html-graph/html-graph";
 
 const element = document.getElementById("canvas");
@@ -33,11 +14,18 @@ const element = document.getElementById("canvas");
 const canvas = new CanvasBuilder(element)
   .setDefaults({
     edges: {
-      shape: (edgeId) => new OrthogonalEdgeShape({ hasTargetArrow: true })
+      shape: (edgeId) => {
+        return new OrthogonalEdgeShape({
+          hasTargetArrow: true,
+        });
+      },
     },
   })
   .build();
 {{< /code >}}
+
+
+{{< use-case src=/use-cases/orthogonal-edge/ >}}
 
 The following configuration options are available:
 

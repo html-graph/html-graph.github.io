@@ -43,7 +43,10 @@
   <body>
     <div id="canvas"></div>
     <script type="module">
-      import { CanvasBuilder } from "https://html-graph.github.io/lib/v10.0.0/html-graph.min.js";
+      import {
+        CanvasBuilder,
+        DirectEdgeShape,
+      } from "https://html-graph.github.io/lib/v10.0.0/html-graph.min.js";
 
       class Application {
         nodePriority = 1;
@@ -55,12 +58,13 @@
                 priority: () => this.nodePriority++,
               },
               edges: {
-                shape: {
-                  type: "direct",
-                  hasSourceArrow: true,
-                  hasTargetArrow: true,
-                  sourceOffset: "box",
-                  targetOffset: "box",
+                shape: () => {
+                  return new DirectEdgeShape({
+                    hasSourceArrow: true,
+                    hasTargetArrow: true,
+                    sourceOffset: "box",
+                    targetOffset: "box",
+                  });
                 },
                 priority: 0,
               },

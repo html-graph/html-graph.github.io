@@ -7,25 +7,6 @@ title: Edge Shape | Straight
 The Straight edge shape can be configured by calling the `setDefaults` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
-const element = document.getElementById("canvas");
-
-const canvas = new CanvasBuilder(element)
-  .setDefaults({
-    edges: {
-      shape: {
-        type: "straight",
-        hasTargetArrow: true,
-      },
-    },
-  })
-  .build();
-{{< /code >}}
-
-{{< use-case src=/use-cases/straight-edge/ >}}
-
-Alternatively, you can create a Straight shape by passing a factory function into the configuration.
-
-{{< code lang="javascript">}}
 import { StraightEdgeShape } from "@html-graph/html-graph";
 
 const element = document.getElementById("canvas");
@@ -33,11 +14,18 @@ const element = document.getElementById("canvas");
 const canvas = new CanvasBuilder(element)
   .setDefaults({
     edges: {
-      shape: (edgeId) => new StraightEdgeShape({ hasTargetArrow: true })
+      shape: (edgeId) => {
+        return new StraightEdgeShape({
+          hasTargetArrow: true,
+        });
+      },
     },
   })
   .build();
 {{< /code >}}
+
+
+{{< use-case src=/use-cases/straight-edge/ >}}
 
 The following configuration options are available:
 

@@ -77,8 +77,10 @@
           this.canvas = new CanvasBuilder(element)
             .setDefaults({
               edges: {
-                shape: {
-                  hasTargetArrow: true,
+                shape: () => {
+                  return new BezierEdgeShape({
+                    hasTargetArrow: true,
+                  });
                 },
               },
             })

@@ -193,7 +193,10 @@
     </div>
     <div id="canvas"></div>
     <script type="module">
-      import { CanvasBuilder } from "https://html-graph.github.io/lib/v10.0.0/html-graph.min.js";
+      import {
+        CanvasBuilder,
+        DirectEdgeShape,
+      } from "https://html-graph.github.io/lib/v10.0.0/html-graph.min.js";
 
       class Application {
         constructor(element) {
@@ -203,12 +206,14 @@
                 priority: 1,
               },
               edges: {
-                shape: {
-                  type: "direct",
-                  sourceOffset: 50,
-                  targetOffset: 50,
-                  width: 2,
-                  color: "var(--color)",
+
+                shape: () => {
+                  return new DirectEdgeShape({
+                    sourceOffset: 50,
+                    targetOffset: 50,
+                    width: 2,
+                    color: "var(--color)",
+                  });
                 },
                 priority: 0,
               },

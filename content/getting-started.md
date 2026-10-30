@@ -350,13 +350,17 @@ Edges can be customized, for instance, by adding a target arrow.
 This can be achieved using the <code>setDefaults</code> method of <code>CanvasBuilder</code>.
 
 {{< code lang="javascript" >}}
+import { CanvasBuilder, BezierEdgeShape } from "https://unpkg.com/@html-graph/html-graph@10.0.0/dist/html-graph.min.js";
+
 class Application {
   constructor(element) {
     this.canvas = new CanvasBuilder(element)
       .setDefaults({
         edges: {
-          shape: {
-            hasTargetArrow: true,
+          shape: () => {
+            return new BezierEdgeShape({
+              hasTargetArrow: true,
+            });
           },
         },
       })
@@ -397,8 +401,10 @@ class Application {
     this.canvas = new CanvasBuilder(element)
       .setDefaults({
         edges: {
-          shape: {
-            hasTargetArrow: true,
+          shape: () => {
+            return new BezierEdgeShape({
+              hasTargetArrow: true,
+            });
           },
         },
       })

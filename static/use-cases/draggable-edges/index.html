@@ -66,15 +66,20 @@
   <body>
     <div id="canvas"></div>
     <script type="module">
-      import { CanvasBuilder } from "https://html-graph.github.io/lib/v10.0.0/html-graph.min.js";
+      import {
+        CanvasBuilder,
+        BezierEdgeShape,
+      } from "https://html-graph.github.io/lib/v10.0.0/html-graph.min.js";
 
       class Application {
         constructor(element) {
           this.canvas = new CanvasBuilder(element)
             .setDefaults({
               edges: {
-                shape: {
-                  hasTargetArrow: true,
+                shape: () => {
+                  return new BezierEdgeShape({
+                    hasTargetArrow: true,
+                  });
                 },
               },
             })

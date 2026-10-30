@@ -13,12 +13,15 @@ const element = document.getElementById("canvas");
 const canvas = new CanvasBuilder(element)
   .setDefaults({
     edges: {
-      shape: {
-        arrowRenderer: {
-          type: "triangle",
-          radius: 7,
-        }
-      }
+      shape: () => {
+        return new BezierEdgeShape({
+          arrowRenderer: {
+            type: "triangle",
+            radius: 7,
+          },
+          hasTargetArrow: true,
+        });
+      },
     }
   })
   .build();

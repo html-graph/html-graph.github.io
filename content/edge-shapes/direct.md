@@ -7,25 +7,6 @@ title: Edge Shape | Direct
 The Direct edge shape can be configured by calling the `setDefaults` method on `CanvasBuilder`.
 
 {{< code lang="javascript">}}
-const element = document.getElementById("canvas");
-
-const canvas = new CanvasBuilder(element)
-  .setDefaults({
-    edges: {
-      shape: {
-        type: "direct",
-        hasTargetArrow: true,
-      },
-    },
-  })
-  .build();
-{{< /code >}}
-
-{{< use-case src=/use-cases/direct-edge/ >}}
-
-Alternatively, you can create a Direct shape by passing a factory function into the configuration.
-
-{{< code lang="javascript">}}
 import { DirectEdgeShape } from "@html-graph/html-graph";
 
 const element = document.getElementById("canvas");
@@ -33,11 +14,17 @@ const element = document.getElementById("canvas");
 const canvas = new CanvasBuilder(element)
   .setDefaults({
     edges: {
-      shape: (edgeId) => new DirectEdgeShape({ hasTargetArrow: true })
+      shape: (edgeId) => {
+        return new DirectEdgeShape({
+          hasTargetArrow: true,
+        });
+      },
     },
   })
   .build();
 {{< /code >}}
+
+{{< use-case src=/use-cases/direct-edge/ >}}
 
 The following configuration options are available:
 
